@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.playwright-mcp/
+.DS_Store
+# large source PDF (75 MB), kept locally only
+sources/Libro Libre*.pdf
+lora/adapters/
+lora/fused/
+lora/adapters_v1/
+lora/fused_v2/
+lora/adapters_v3/
+lora/fused_v3/
+# local Streamlit secrets (team passcode)
+.streamlit/secrets.toml

@@ -1,0 +1,5 @@
+ollama>=0.6.3
+sentence-transformers>=6.3
+streamlit>=1.67
+numpy>=2
+pytest>=8
