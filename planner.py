@@ -107,6 +107,30 @@ def _parse_days(low: str):
     return None, None
 
 
+def parse_timeline(text: str) -> int | None:
+    """Parse a questionnaire answer without guessing or silently capping it.
+
+    Return None when the learner needs to clarify. The caller confirms the
+    resulting number of days with the learner before building a plan.
+    """
+    low = text.lower().strip()
+    if low.isdigit():
+        return int(low) if int(low) > 0 else None
+    # Reject zero/negative durations rather than turning them into one day.
+    if re.search(r"(?<!\w)-\s*\d|\b(?:0|zero)\s+(?:days?|weeks?|months?)\b", low):
+        return None
+    if re.search(r"\b(?:this|next) weekend\b", low):
+        return None  # actual days depend on today's date; ask for a duration
+    # Reuse the existing vocabulary, but do not cap long answers at 60.
+    number = r"(\d+|" + "|".join(sorted(map(re.escape, NUMBER_WORDS), key=len, reverse=True)) + r")"
+    match = re.search(r"(?<!\w)" + number + r"[\s-]+(day|week|fortnight|month)s?\b", low)
+    if match:
+        value = int(match.group(1)) if match.group(1).isdigit() else NUMBER_WORDS[match.group(1)]
+        return value * UNIT_DAYS[match.group(2)] if value > 0 else None
+    days, _ = _parse_days(low)
+    return days
+
+
 # --- Lesson plan -------------------------------------------------------------
 
 # Which note files teach each scenario (same names for every language).
@@ -213,3 +237,93 @@ def build_plan(language: str, goals: list[str], days: int, retriever) -> list[di
             "review": True,
         })
     return sessions
+
+
+# --- Availability-based calendar (no language-model calls) -------------------
+from datetime import date, timedelta
+from math import floor
+
+WEEKDAYS = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+STAGE_NAMES = {1: "Essential words and expressions", 2: "Supported sentence building",
+               3: "Scenario practice and feedback"}
+
+
+def _allocate_minutes(total, weights, minimum=0):
+    """Round weighted shares to whole minutes; preserve the exact total.
+
+    A minimum protects topic coverage. When a quota is below one minute,
+    coverage takes precedence over exact proportions.
+    """
+    if total < minimum * len(weights):
+        raise ValueError("Not enough practice time to cover all selected topics in each stage.")
+    quotas = [total * weight / sum(weights) for weight in weights]
+    result = [max(minimum, floor(q)) for q in quotas]
+    while sum(result) < total:
+        i = max(range(len(result)), key=lambda j: (quotas[j] - result[j], -j))
+        result[i] += 1
+    while sum(result) > total:
+        candidates = [j for j in range(len(result)) if result[j] > minimum]
+        i = max(candidates, key=lambda j: (result[j] - quotas[j], j))
+        result[i] -= 1
+    return result
+
+
+def build_schedule(language, goals, days, weekdays, minutes, start_date):
+    """Create dated sessions before departure, split into stage/topic blocks.
+
+    Include today if selected. Departure day is excluded. Stage percentages
+    apply to practice minutes, so one session may cross a stage boundary.
+    Every selected topic has at least one minute in every stage. Return only
+    plain dictionaries/lists so the UI can store the schedule safely.
+    """
+    if language not in LANGUAGE_HINTS:
+        raise ValueError("Choose Spanish or Macedonian.")
+    if not goals or len(set(goals)) != len(goals) or any(g not in SCENARIO_FILES for g in goals):
+        raise ValueError("Select topics and give each one a unique priority.")
+    if not weekdays or any(d not in WEEKDAYS for d in weekdays):
+        raise ValueError("Select at least one practice weekday.")
+    if not isinstance(days, int) or not 1 <= days <= MAX_DAYS:
+        raise ValueError(f"Choose a study window between 1 and {MAX_DAYS} days.")
+    if not isinstance(minutes, int) or minutes < 1:
+        raise ValueError("Choose at least one minute per session.")
+    if not isinstance(start_date, date):
+        raise ValueError("Choose a valid start date.")
+    dates = [start_date + timedelta(days=i) for i in range(days)
+             if WEEKDAYS[(start_date + timedelta(days=i)).weekday()] in weekdays]
+    if not dates:
+        raise ValueError("None of your practice weekdays fall before departure. Change your days or study window.")
+    total = len(dates) * minutes
+    stage_minutes = _allocate_minutes(total, [3, 3, 4])
+    if min(stage_minutes) < len(goals):
+        raise ValueError("This schedule is too short to include every topic in all three stages. "
+                         "Choose fewer topics, more practice days, or longer sessions.")
+    weights = list(range(len(goals), 0, -1))
+    remaining_capacity = minutes
+    sessions = [{"day": (d - start_date).days + 1, "date": d.isoformat(),
+                 "minutes": minutes, "blocks": []} for d in dates]
+    session_index = 0
+    for stage, budget in enumerate(stage_minutes, 1):
+        shares = _allocate_minutes(budget, weights, minimum=1)
+        # Short repeated topic blocks spread priorities throughout a stage.
+        # Block length is up to five minutes, not an estimate of mastery.
+        left = shares[:]
+        while any(left):
+            for i, topic in enumerate(goals):
+                amount = min(5, left[i])
+                left[i] -= amount
+                while amount:
+                    take = min(amount, remaining_capacity)
+                    sessions[session_index]["blocks"].append({
+                        "stage": stage, "stage_name": STAGE_NAMES[stage],
+                        "topic": topic, "minutes": take,
+                    })
+                    amount -= take
+                    remaining_capacity -= take
+                    if remaining_capacity == 0:
+                        session_index += 1
+                        remaining_capacity = minutes
+    return {"language": language, "start_date": start_date.isoformat(),
+            "departure_date": (start_date + timedelta(days=days)).isoformat(),
+            "total_minutes": total, "stage_minutes": stage_minutes,
+            "topic_weights": {g: weights[i] / sum(weights) for i, g in enumerate(goals)},
+            "sessions": sessions}
