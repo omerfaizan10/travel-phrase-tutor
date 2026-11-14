@@ -1,4 +1,4 @@
-# Spanish & Macedonian Travel Tutor (CSIT 559 Final Project)
+# Spanish & Macedonian Travel Tutor 
 
 Local, AI-powered language tutor. Everything runs on your laptop — no cloud APIs.
 
