@@ -23,9 +23,9 @@ from datetime import date
 import streamlit as st
 
 from llm import LLMError
-from planner import GOAL_HINTS, MAX_DAYS, build_schedule, parse_timeline, STAGE_NAMES
+from planner import GOAL_HINTS, MAX_DAYS, build_schedule, parse_timeline, plan_varieties, STAGE_NAMES
 from prompts import LANGUAGES, ROLEPLAY_PARTNER, SCENARIOS, TutorSettings
-from retriever import Retriever
+from retriever import DEFAULT_VARIETY, LATIN_AMERICA, VARIETIES, Retriever
 from tutor import make_lesson, roleplay_turn, start_session, tutor_reply, wrong_language
 
 MODE_LABELS = {
@@ -134,6 +134,16 @@ def reset(*keys):
         st.session_state.pop(k, None)
 
 
+def reset_topic_varieties():
+    """Forget per-topic variety switches (they belong to one built schedule)."""
+    for k in [k for k in st.session_state if k.startswith("tv_")]:
+        del st.session_state[k]
+
+
+def variety_name(code):
+    return VARIETIES.get(code, code)
+
+
 def html(s):
     st.markdown(s, unsafe_allow_html=True)
 
@@ -214,6 +224,7 @@ with st.sidebar:
         for key in list(st.session_state):
             if key.startswith("q_"):
                 del st.session_state[key]
+        reset_topic_varieties()
         st.rerun()
 
 step_bar(2 if st.session_state.get("schedule_confirmed") else
@@ -227,6 +238,18 @@ if "schedule_draft" not in st.session_state:
     st.caption("Your calendar starts today, using your selected practice weekdays, and ends the day before departure.")
     language = st.selectbox("Which language would you like to learn?", list(LANGUAGES),
                             format_func=lambda value: LANGUAGES[value], key="q_language")
+    variety = DEFAULT_VARIETY[language]
+    if language == "spanish":
+        # Spain is preselected (the default when no country is chosen). Countries
+        # with no notes of their own are marked; their topics use Spain Spanish.
+        have = {code for counts in get_retriever().coverage("spanish").values() for code in counts}
+        options = ["ES", "419"] + sorted(LATIN_AMERICA, key=variety_name)
+        variety = st.selectbox(
+            "Which Spanish would you like to learn?", options, index=0, key="q_variety",
+            format_func=lambda c: "Spain (default)" if c == "ES" else
+            variety_name(c) + ("" if c in have else " (no country notes yet, uses Spain)"),
+            help="Pick the country you are traveling to. Topics without notes for that country "
+                 "use Spain Spanish; you can change each topic on the next screen.")
     timeline = st.text_input("How long until your trip?", value="two weeks", key="q_timeline",
                              help="For example: 10 days, two weeks, next month, or simply 14.")
     detected_days = parse_timeline(timeline)
@@ -272,17 +295,20 @@ if "schedule_draft" not in st.session_state:
             st.warning("Enter a valid timeline, select practice days and topics, and use unique ranks.")
         else:
             try:
-                schedule = build_schedule(language, goals, int(days), weekdays, int(minutes), start_date)
+                topic_variety = plan_varieties(get_retriever(), language, variety, goals)
+                schedule = build_schedule(language, goals, int(days), weekdays, int(minutes), start_date,
+                                          variety=variety, topic_variety=topic_variety)
             except ValueError as error:
                 st.warning(str(error))
             else:
                 st.session_state.schedule_draft = schedule
                 st.session_state.preferences = {
-                    "language": language, "days": int(days), "timeline": timeline,
+                    "language": language, "variety": variety, "days": int(days), "timeline": timeline,
                     "weekdays": weekdays, "minutes": int(minutes), "goals": goals,
                     "starting_stage": 1,
                 }
                 st.session_state.schedule_confirmed = False
+                reset_topic_varieties()
                 st.rerun()
     st.stop()
 
@@ -312,6 +338,19 @@ if not st.session_state.get("schedule_confirmed"):
         st.write(f"{i}. {GOAL_LABELS[goal]} — target {schedule['topic_weights'][goal]:.1%}")
     st.write("All selected topics appear in every stage. Everyone starts with vocabulary. "
              "Practice minutes are rounded, so topic shares are approximate.")
+    if prefs["language"] == "spanish":
+        st.markdown(f"**Your Spanish, by topic** (you chose {variety_name(prefs['variety'])})")
+        for goal in prefs["goals"]:
+            tv = schedule["topic_variety"][goal]
+            choice = st.selectbox(
+                GOAL_LABELS[goal], tv["alternatives"], index=tv["alternatives"].index(tv["used"]),
+                format_func=variety_name, key=f"tv_{goal}",
+                help="Only varieties with notes for this topic are listed.")
+            if choice != tv["used"]:
+                tv["used"], tv["switched"] = choice, True
+            if tv["fallback"] and not tv.get("switched") and tv["used"] == DEFAULT_VARIETY["spanish"]:
+                st.caption(f"No {variety_name(tv['requested'])} notes for this topic yet, "
+                           f"so Spain Spanish is used. You can pick another variety above.")
     st.caption("A short schedule may offer only a brief introduction to lower-priority topics.")
     st.write("This is your starting plan. You can choose to move forward or return to a stage "
              "when the practice activities are available.")
@@ -320,12 +359,16 @@ if not st.session_state.get("schedule_confirmed"):
         st.rerun()
     if st.button("Change my preferences"):
         reset("schedule_draft", "schedule_confirmed")
+        reset_topic_varieties()
         st.rerun()
     st.stop()
 
 # --- 3. Dated calendar for instructional review -------------------------------
 st.markdown("## Your learning calendar")
-st.write(f"{LANGUAGES[prefs['language']]} · {prefs['minutes']} minutes per session · "
+lang_label = LANGUAGES[prefs['language']]
+if prefs['language'] == "spanish":
+    lang_label += f" ({variety_name(prefs.get('variety', 'ES'))})"
+st.write(f"{lang_label} · {prefs['minutes']} minutes per session · "
          f"Departure: {schedule['departure_date']}")
 st.info("Calendar review: the dates, topics, and stages are ready to review. "
         "Stage-specific practice activities and stage-switching controls are the next update.")
@@ -334,9 +377,12 @@ for index, session in enumerate(schedule['sessions'], 1):
     heading = f"Session {index} · {day.strftime('%A, %b %d, %Y')} · {session['minutes']} minutes"
     with st.expander(heading, expanded=index == 1):
         for block in session['blocks']:
+            used = schedule.get("topic_variety", {}).get(block["topic"], {}).get("used")
+            where = f" · {variety_name(used)}" if prefs['language'] == "spanish" and used else ""
             st.write(f"Stage {block['stage']}: {block['stage_name']} · "
-                     f"{GOAL_LABELS[block['topic']]} · {block['minutes']} min")
+                     f"{GOAL_LABELS[block['topic']]}{where} · {block['minutes']} min")
         st.caption("Minutes are pacing suggestions; they do not measure mastery.")
 if st.button("Change my preferences"):
     reset("schedule_draft", "schedule_confirmed")
+    reset_topic_varieties()
     st.rerun()

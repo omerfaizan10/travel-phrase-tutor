@@ -13,7 +13,7 @@ was detected wrongly in the app before the plan is built.
 
 import re
 
-from retriever import parse_phrases
+from retriever import DEFAULT_VARIETY, LATIN_AMERICA, VARIETIES, accepted_labels, parse_phrases
 
 # --- Trip parsing -----------------------------------------------------------
 
@@ -166,18 +166,65 @@ MIN_PHRASES = 2           # a unit must have at least this many phrases to teach
 MAX_UNITS_PER_DAY = 3
 
 
-def teachable_units(retriever, language: str, filename: str) -> list[dict]:
-    """Chunks of one notes file that contain enough phrases, in file order."""
+# --- Which variety of the language each topic is taught in -------------------
+# Rule: a topic uses the learner's chosen variety when the notes have at least
+# one teachable section labeled with exactly that variety for the topic;
+# otherwise it falls back to the default variety (Spain for Spanish), which has
+# notes for every topic. The learner can switch a topic to any variety that has
+# notes for it.
+
+def topic_files(topic: str) -> list[str]:
+    return [BASICS_FILE] if topic == "basics" else SCENARIO_FILES[topic]
+
+
+def varieties_for_topic(retriever, language: str, topic: str) -> list[str]:
+    """Varieties with their own teachable notes for this topic: default first,
+    then Latin America in general, then countries by name."""
+    coverage = retriever.coverage(language, MIN_PHRASES)
+    have = {code for f in topic_files(topic) for code, n in coverage.get(f, {}).items() if n}
+    default = DEFAULT_VARIETY.get(language)
+    order = [default, "419"] + sorted(LATIN_AMERICA, key=lambda c: VARIETIES[c])
+    return [c for c in order if c in have] + sorted(have - set(order) - {"ALL"})
+
+
+def resolve_variety(retriever, language: str, requested: str | None, topic: str) -> dict:
+    """
+    {"requested": code, "used": code, "fallback": bool, "alternatives": [codes]}.
+    fallback=True means the requested variety has no notes for this topic, so
+    the default variety is used instead.
+    """
+    default = DEFAULT_VARIETY.get(language)
+    requested = requested or default
+    available = varieties_for_topic(retriever, language, topic)
+    used = requested if requested in available else default
+    return {"requested": requested, "used": used,
+            "fallback": used != requested, "alternatives": available}
+
+
+def plan_varieties(retriever, language: str, requested: str | None, topics: list[str]) -> dict:
+    """resolve_variety() for every topic: {topic: {...}}."""
+    return {t: resolve_variety(retriever, language, requested, t) for t in topics}
+
+
+def teachable_units(retriever, language: str, filename: str, variety: str | None = None) -> list[dict]:
+    """
+    Chunks of one notes file that contain enough phrases. With a variety, only
+    sections labeled for it (accepted_labels), the variety's own sections first;
+    file order otherwise.
+    """
     src = f"{language}/{filename}"
+    allowed = accepted_labels(language, variety) if variety else None
     units = []
     for c in retriever.chunks:
-        if c["source"] == src:
+        if c["source"] == src and (allowed is None or c.get("country") in allowed):
             phrases = parse_phrases(c)
             if len(phrases) >= MIN_PHRASES:
                 heading = next((l[3:] for l in c["text"].splitlines() if l.startswith("## ")), filename)
                 # Learner-facing title: drop source tags like "(Kramer)" or "(Libro Libre)".
                 title = re.sub(r"\s*\([^)]*\)", "", heading).strip() or heading
                 units.append({**c, "phrases": phrases, "title": title})
+    if allowed:
+        units.sort(key=lambda u: allowed.index(u.get("country")))   # stable: keeps file order
     return units
 
 
@@ -188,17 +235,22 @@ def _ordered(units: list[dict], keywords: list[str]) -> list[dict]:
     return sorted(units, key=rank)  # sorted() is stable: ties keep file order
 
 
-def build_plan(language: str, goals: list[str], days: int, retriever) -> list[dict]:
+def build_plan(language: str, goals: list[str], days: int, retriever,
+               variety: str | None = None) -> list[dict]:
     """
     Spread the units for the chosen goals over the available days:
       day 1 starts with basics; goals follow in the order given; the last
       session is a review + roleplay rehearsal. With few days, the most
       useful units (the first ones in each goal's files) are kept.
-    Returns sessions: {"day", "title", "units", "scenario"}.
+    variety: the learner's variety ("ES", "PR", ...); each topic falls back to
+      the default variety when it has no notes for it (resolve_variety).
+    Returns sessions: {"day", "title", "units", "scenario", "variety"}.
     """
+    used = {t: v["used"] for t, v in plan_varieties(retriever, language, variety, ["basics"] + goals).items()}
     n_basics = 1 if days <= 2 else 2
-    basics = _ordered(teachable_units(retriever, language, BASICS_FILE), BASICS_PRIORITY)[:n_basics]
-    per_goal = {g: _ordered([u for f in SCENARIO_FILES[g] for u in teachable_units(retriever, language, f)],
+    basics = _ordered(teachable_units(retriever, language, BASICS_FILE, used["basics"]),
+                      BASICS_PRIORITY)[:n_basics]
+    per_goal = {g: _ordered([u for f in SCENARIO_FILES[g] for u in teachable_units(retriever, language, f, used[g])],
                             UNIT_PRIORITY.get(g, []))
                 for g in goals}
     if not any(per_goal.values()):
@@ -227,6 +279,7 @@ def build_plan(language: str, goals: list[str], days: int, retriever) -> list[di
             "title": " + ".join(u["title"] for _, u in chunk),
             "units": [u for _, u in chunk],
             "scenario": scenario,
+            "variety": used[scenario],
         })
     if days > 1:
         sessions.append({
@@ -234,6 +287,7 @@ def build_plan(language: str, goals: list[str], days: int, retriever) -> list[di
             "title": "Review and roleplay rehearsal: " + ", ".join(goals),
             "units": [u for s in sessions for u in s["units"]],
             "scenario": goals[0],
+            "variety": used[goals[0]],
             "review": True,
         })
     return sessions
@@ -268,16 +322,26 @@ def _allocate_minutes(total, weights, minimum=0):
     return result
 
 
-def build_schedule(language, goals, days, weekdays, minutes, start_date):
+def build_schedule(language, goals, days, weekdays, minutes, start_date,
+                   variety=None, topic_variety=None):
     """Create dated sessions before departure, split into stage/topic blocks.
 
     Include today if selected. Departure day is excluded. Stage percentages
     apply to practice minutes, so one session may cross a stage boundary.
     Every selected topic has at least one minute in every stage. Return only
     plain dictionaries/lists so the UI can store the schedule safely.
+
+    variety: the learner's chosen variety (default: the language's default).
+    topic_variety: {topic: resolve_variety() result}, from plan_varieties();
+    stored in the schedule so each topic's practice uses its notes.
     """
     if language not in LANGUAGE_HINTS:
         raise ValueError("Choose Spanish or Macedonian.")
+    variety = variety or DEFAULT_VARIETY[language]
+    if language == "spanish" and variety not in VARIETIES:
+        raise ValueError(f"Unknown Spanish variety {variety!r}.")
+    topic_variety = topic_variety or {g: {"requested": variety, "used": variety, "fallback": False,
+                                          "alternatives": [variety]} for g in goals}
     if not goals or len(set(goals)) != len(goals) or any(g not in SCENARIO_FILES for g in goals):
         raise ValueError("Select topics and give each one a unique priority.")
     if not weekdays or any(d not in WEEKDAYS for d in weekdays):
@@ -326,4 +390,6 @@ def build_schedule(language, goals, days, weekdays, minutes, start_date):
             "departure_date": (start_date + timedelta(days=days)).isoformat(),
             "total_minutes": total, "stage_minutes": stage_minutes,
             "topic_weights": {g: weights[i] / sum(weights) for i, g in enumerate(goals)},
+            "variety": variety,
+            "topic_variety": {g: dict(topic_variety[g]) for g in goals},
             "sessions": sessions}
