@@ -12,6 +12,8 @@ differences in output come from the mode, not from the question.
 
 from dataclasses import dataclass
 
+from retriever import DEFAULT_VARIETY, LATIN_AMERICA, VARIETIES
+
 LANGUAGES = {"spanish": "Spanish", "macedonian": "Macedonian"}
 SCENARIOS = {
     "restaurant": "ordering food and drinks at a restaurant",
@@ -46,6 +48,9 @@ class TutorSettings:
     goal: str = "a vacation"
     timeline: str = "2 weeks"
     lora: bool = False            # use the fine-tuned model (tutor-lora) instead of the base model
+    # Variety of the language for THIS scenario ("ES", "PR", "419", ...), i.e. the
+    # "used" value from planner.resolve_variety(); "" = the language's default.
+    country: str = ""
 
     def __post_init__(self):
         for name, value, allowed in [
@@ -56,6 +61,14 @@ class TutorSettings:
         ]:
             if value not in allowed:
                 raise ValueError(f"{name}={value!r}; use one of {list(allowed)}")
+        allowed = VARIETIES if self.language == "spanish" else {DEFAULT_VARIETY[self.language]}
+        if self.country and self.country not in allowed:
+            raise ValueError(f"country={self.country!r}; use one of {sorted(allowed)}")
+
+    @property
+    def variety(self) -> str:
+        """The variety in use: the chosen one, or the language's default."""
+        return self.country or DEFAULT_VARIETY[self.language]
 
 
 SYSTEM_TEMPLATE = """You are a patient, encouraging {language} tutor for an English-speaking traveler.
@@ -96,6 +109,42 @@ LANGUAGE_RULES = {
         "'Повелете' or 'Како можам да ви помогнам?' (never 'Каде ви помагам?').\n"
     ),
 }
+
+# Spanish rules for the variety in use (LANGUAGE_RULES["spanish"] is Spain's).
+# Words listed for a country all appear in that country's sections of the notes.
+LATIN_AMERICA_RULES = (
+    "- Use Latin American Spanish: ustedes for 'you all' (never vosotros), and polite usted "
+    "with customers and strangers: '¿En qué puedo ayudarle?', '¿Qué desea?'.\n"
+    "- Latin American words: el menú (menu), el boleto or el pasaje (ticket), el celular (phone), "
+    "el carro or el auto (car), mesero (waiter), la cuadra (block). For buses and taxis say tomar, "
+    "never coger.\n"
+    "- dónde means WHERE and is only for places; to ask what someone wants use qué.\n"
+)
+COUNTRY_RULES = {
+    "AR": "- Argentina: vos for informal 'you' (vos tenés, vos querés), usted with staff. "
+          "Words: el colectivo (city bus), el subte (metro), el mozo (waiter), la heladera (fridge).\n",
+    "UY": "- Uruguay: vos for informal 'you' (vos tenés), usted with staff. "
+          "Words: el ómnibus (bus), el mozo (waiter), el boleto (ticket).\n",
+    "PY": "- Paraguay: vos for informal 'you' (vos tenés), usted with staff. "
+          "Words: el micro (bus), el mozo (waiter), el vuelto (change).\n",
+    "CL": "- Chile: la micro (city bus), el auto (car).\n",
+    "MX": "- Mexico: el camión (city bus), el platillo (dish), platicar (to chat).\n",
+    "PR": "- Puerto Rico: la guagua (bus), el carro público (shared van between towns), "
+          "A la orden (you're welcome).\n",
+    "CU": "- Cuba: el ciclón (hurricane), el guajiro (country person).\n",
+    "DO": "- Dominican Republic: el sector (neighbourhood), el malecón (seafront).\n",
+    "CO": "- Colombia: la plata (money), chévere (great), tengo gripa (I have a cold).\n",
+    "PE": "- Peru: la combi (minibus).\n",
+    "VE": "- Venezuela: la cotufa (popcorn).\n",
+}
+
+
+def language_rules(s: "TutorSettings") -> str:
+    """Language rules for the variety in use, so a Spain fallback gets Spain rules."""
+    if s.language == "spanish" and (s.variety == "419" or s.variety in LATIN_AMERICA):
+        return LATIN_AMERICA_RULES + COUNTRY_RULES.get(s.variety, "")
+    return LANGUAGE_RULES[s.language]
+
 
 SCRIPT = {
     "spanish": "in Spanish",
@@ -165,14 +214,15 @@ def system_prompt(s: TutorSettings, passages=None) -> str:
         timeline=s.timeline,
         scenario=SCENARIOS[s.scenario],
         script=SCRIPT[s.language],
-        language_rules=LANGUAGE_RULES[s.language],
+        language_rules=language_rules(s),
         task_rules=TASK_RULES[s.task].format(
             partner=ROLEPLAY_PARTNER[s.scenario], language=language
         ),
     )
     if passages:
         numbered = "\n\n".join(
-            f"[{i}] ({p['source']})\n{p['text']}" for i, p in enumerate(passages, 1)
+            f"[{i}] ({p['source']}" + (f", {p['country']}" if p.get("country") else "") + f")\n{p['text']}"
+            for i, p in enumerate(passages, 1)
         )
         text += RAG_TEMPLATE[s.task].format(
             language=language, partner=ROLEPLAY_PARTNER[s.scenario], passages=numbered

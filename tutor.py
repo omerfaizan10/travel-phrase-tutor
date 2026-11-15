@@ -26,10 +26,10 @@ import re
 import numpy as np
 
 from llm import LLMError, generate_response_with_stats
-from prompts import (LANGUAGE_RULES, LANGUAGES, LESSON_PICK_TEMPLATE, LESSON_SCHEMA,
+from prompts import (LANGUAGES, LESSON_PICK_TEMPLATE, LESSON_SCHEMA,
                      ROLEPLAY_JSON_TEMPLATE, ROLEPLAY_PARTNER, ROLEPLAY_SCHEMA, SCENARIOS,
-                     SCRIPT, TutorSettings, build_messages, opening_request)
-from retriever import normalize, parse_phrases
+                     SCRIPT, TutorSettings, build_messages, language_rules, opening_request)
+from retriever import accepted_labels, normalize, parse_phrases
 
 TOP_K = 4  # passages added to the prompt in rag mode
 
@@ -84,8 +84,10 @@ def tutor_reply(s: TutorSettings, history, retriever=None, model_config=None) ->
         # first, then the scenario for background. Searching both together let
         # the scenario text drown out the question (e.g. train times got lost
         # under bus/taxi notes).
-        by_message = retriever.search(history[-1]["content"], language=s.language, k=TOP_K)
-        by_scenario = retriever.search(SCENARIOS[s.scenario], language=s.language, k=TOP_K)
+        by_message = retriever.search(history[-1]["content"], language=s.language, k=TOP_K,
+                                      country=s.variety)
+        by_scenario = retriever.search(SCENARIOS[s.scenario], language=s.language, k=TOP_K,
+                                       country=s.variety)
         passages = by_message[: TOP_K - 1]
         for p in by_scenario + by_message:
             if len(passages) == TOP_K:
@@ -272,7 +274,9 @@ def notes_tip(session, s, retriever):
 
     own = list(session["units"])
     files = {u["source"] for u in own}          # same files as today's units only
-    rest = [c for c in retriever.chunks if c["source"] in files and c not in own]
+    allowed = accepted_labels(s.language, s.variety)   # and the same variety
+    rest = [c for c in retriever.chunks if c["source"] in files and c not in own
+            and c.get("country") in allowed]
     return next(candidates(own), None) or next(candidates(rest), "")
 
 
@@ -326,9 +330,9 @@ def _context(s, history, session, retriever):
     """Notes and numbered phrasebook for this roleplay turn."""
     last_learner = next((m["content"] for m in reversed(history) if m["role"] == "user"), "")
     query = last_learner or SCENARIOS[s.scenario]
-    found = retriever.search(query, language=s.language, k=TOP_K)
+    found = retriever.search(query, language=s.language, k=TOP_K, country=s.variety)
     if last_learner:
-        found += retriever.search(SCENARIOS[s.scenario], language=s.language, k=2)
+        found += retriever.search(SCENARIOS[s.scenario], language=s.language, k=2, country=s.variety)
     chunks, seen = [], set()
     for c in list(session["units"]) + found:
         if c["text"] not in seen:
@@ -502,15 +506,17 @@ QUESTION_FALLBACK = {
 }
 
 
-def _fallback_line(language, retriever, first_turn, last_learner=""):
-    """A safe in-character line taken from the notes."""
+def _fallback_line(language, retriever, first_turn, last_learner="", variety=None):
+    """A safe in-character line taken from the notes (of the learner's variety)."""
     if last_learner.strip().endswith("?"):
         return QUESTION_FALLBACK[language]
     # Mid-conversation, a neutral acknowledgement keeps the scene going better
     # than "I don't understand".
     wanted = ["may i help", "here you are", "welcome"] if first_turn else \
         ["of course", "right away", "let me see", "ok, agreed", "very well", "don't understand"]
-    phrases = [p for c in retriever.chunks if c["language"] == language for p in parse_phrases(c)]
+    allowed = accepted_labels(language, variety)
+    phrases = [p for c in retriever.chunks if c["language"] == language
+               and c.get("country") in allowed for p in parse_phrases(c)]
     staff_first = [p for p in phrases if is_partner_phrase(p)] + [p for p in phrases if not is_partner_phrase(p)]
     for w in wanted:
         for p in staff_first:
@@ -766,7 +772,7 @@ def roleplay_turn(s: TutorSettings, history: list[dict], session: dict, trip: st
     system = ROLEPLAY_JSON_TEMPLATE.format(
         partner=partner, language=LANGUAGES[s.language], scenario=SCENARIOS[s.scenario],
         trip=trip, script=" (" + SCRIPT[s.language] + ")",
-        language_rules=LANGUAGE_RULES[s.language], numbered=_numbered(phrases),
+        language_rules=language_rules(s), numbered=_numbered(phrases),
         notes=notes_text[:4000],
     )
     convo = [{"role": "system", "content": system}]
@@ -841,7 +847,7 @@ def roleplay_turn(s: TutorSettings, history: list[dict], session: dict, trip: st
     fallback = bool(problems)
     if fallback:
         reply, reply_en = _fallback_line(s.language, retriever, first_turn=not history,
-                                         last_learner=last_learner)
+                                         last_learner=last_learner, variety=s.variety)
     else:
         reply = fix_common_errors(data["reply"].strip(), s.language)
         reply_en = data.get("reply_english", "").strip()

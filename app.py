@@ -3,9 +3,11 @@ app.py: Streamlit UI for the travel language tutor.
 
 Run:   .venv/bin/streamlit run app.py
 
-Flow (as in the proposal):
-  1. Trip     - the learner describes their trip in English.
-  2. Plan     - detected language/timeline/goals are confirmed and a
+Calendar review version: questionnaire -> summary -> confirmation -> dated sessions.
+
+Original app flow (practice screens will be reconnected in a later update):
+  1. Preferences - guided language, timeline, availability and topic questionnaire.
+  2. Plan     - confirmed language/timeline/goals are used to build a
                 day-by-day plan is built from the curated notes.
   3. Lesson   - phrase cards for the chosen day, with a short quiz.
   4. Practice - a roleplay starts automatically, with a translation,
@@ -15,14 +17,19 @@ The sidebar "Mode" is for the evaluation: "Full system" is the grounded,
 checked pipeline; "Prompt only" and "Baseline" are the comparison conditions.
 """
 
+from practice import vocabulary_activity, spanish_typing_activity
+from spanish_practice import render_spanish_practice
+from sentence_practice import render_sentence_practice
+from roleplay_practice import render_roleplay
 from html import escape
+from datetime import date
 
 import streamlit as st
 
 from llm import LLMError
-from planner import GOAL_HINTS, build_plan, parse_trip
+from planner import GOAL_HINTS, MAX_DAYS, build_schedule, parse_timeline, plan_varieties, STAGE_NAMES
 from prompts import LANGUAGES, ROLEPLAY_PARTNER, SCENARIOS, TutorSettings
-from retriever import Retriever
+from retriever import DEFAULT_VARIETY, LATIN_AMERICA, VARIETIES, Retriever
 from tutor import make_lesson, roleplay_turn, start_session, tutor_reply, wrong_language
 
 MODE_LABELS = {
@@ -34,12 +41,7 @@ MODE_LABELS = {
 }
 GOAL_LABELS = {g: g.capitalize() for g in GOAL_HINTS}
 NATIVE_NAME = {"spanish": "Español", "macedonian": "Македонски"}
-EXAMPLES = {
-    "Madrid · restaurants": "I'm going to Madrid in two weeks and want to order at local restaurants.",
-    "Skopje · train to Bitola": "Visiting Skopje next week. I need directions and the train to Bitola.",
-    "Seville · markets, hotel": "Trip to Seville in 5 days, I want to shop at markets and check into my hotel.",
-}
-STEPS = ["Trip", "Plan", "Lesson", "Practice"]
+STEPS = ["Preferences", "Summary", "Calendar"]
 
 st.set_page_config(page_title="Travel Phrase Tutor", initial_sidebar_state="collapsed")
 
@@ -132,8 +134,48 @@ def get_retriever():
 
 
 def reset(*keys):
+    if "practice_progress" in keys:
+        st.session_state.pop("studied_banks", None)
+        for widget_key in list(st.session_state):
+            if widget_key.startswith(("answer_", "es_", "s2_", "s3_")):
+                del st.session_state[widget_key]
     for k in keys:
         st.session_state.pop(k, None)
+
+
+def reset_topic_varieties():
+    """Forget per-topic variety switches (they belong to one built schedule)."""
+    for k in [k for k in st.session_state if k.startswith("tv_")]:
+        del st.session_state[k]
+
+
+def calendar_blocks(session, schedule):
+    """Combine matching stage/topic/variety blocks in first-appearance order.
+
+    This changes the calendar display only. Separate stages never merge and
+    the original scheduling data is left intact.
+    """
+    grouped = {}
+    for block in session["blocks"]:
+        topic = block["topic"]
+        used = schedule.get("topic_variety", {}).get(topic, {}).get("used")
+        key = (block["stage"], topic, used)
+        if key not in grouped:
+            grouped[key] = {**block, "variety": used}
+        else:
+            grouped[key]["minutes"] += block["minutes"]
+    return list(grouped.values())
+
+
+CALENDAR_TOPICS = {
+    "restaurant": "Restaurants", "directions": "Directions", "shopping": "Shopping",
+    "hotel": "Hotels", "transport": "Transportation", "weather": "Weather",
+    "sightseeing": "Sightseeing", "emergency": "Getting help",
+}
+
+
+def variety_name(code):
+    return VARIETIES.get(code, code)
 
 
 def html(s):
@@ -212,215 +254,351 @@ with st.sidebar:
     mode_key = next(k for k, v in MODE_LABELS.items() if v == mode_label)
     mode, use_lora = mode_key.split("+")[0], mode_key.endswith("+lora")
     if st.button("Start over"):
-        reset("trip", "parsed", "plan", "session", "lesson", "roleplay", "free_chat", "draft")
+        reset("trip", "parsed", "plan", "session", "lesson", "roleplay", "free_chat", "draft", "preferences", "schedule_draft", "schedule_confirmed")
+        for key in list(st.session_state):
+            if key.startswith("q_"):
+                del st.session_state[key]
+        reset_topic_varieties()
+        reset("active_practice", "practice_progress", "practice_results")
         st.rerun()
 
-stage = (3 if "lesson" in st.session_state
-         else 2 if "session" in st.session_state
-         else 1 if "parsed" in st.session_state else 0)
-step_bar(stage)
+step_bar(2 if st.session_state.get("schedule_confirmed") else
+         1 if "schedule_draft" in st.session_state else 0)
 
-# --- 1. Trip ---------------------------------------------------------------------------
-html('<div class="lede">Tell me about your trip: where you are going, when, and what you '
-     'want to be able to do there. I will plan your lessons around it.</div>')
-trip = st.text_area("Your trip", key="draft", height=90, label_visibility="collapsed",
-                    placeholder="e.g. I'm going to Madrid in two weeks and want to order at local restaurants.")
-html('<div class="quiet" style="margin:.2rem 0 .3rem">Or start from an example:</div>')
-def use_example(text):
-    st.session_state.draft = text   # runs before the text box is drawn
-
-
-for col, (short, ex) in zip(st.columns(len(EXAMPLES)), EXAMPLES.items()):
-    col.button(short, key=f"ex-{short}", help=ex, use_container_width=True,
-               on_click=use_example, args=(ex,))
-
-if st.button("Plan my trip", type="primary"):
-    if not trip.strip():
-        st.warning("Describe your trip first.")
+if "schedule_draft" not in st.session_state:
+    # --- 1. Guided questionnaire ---------------------------------------------------
+    st.markdown("## Your learning preferences")
+    st.caption("Choose your topics and practice availability.")
+    start_date = date.today()
+    st.caption("Your calendar starts today, using your selected practice weekdays, and ends the day before departure.")
+    language = st.selectbox("Which language would you like to learn?", list(LANGUAGES),
+                            format_func=lambda value: LANGUAGES[value], key="q_language")
+    variety = DEFAULT_VARIETY[language]
+    if language == "spanish":
+        # Spain is preselected (the default when no country is chosen). Countries
+        # with no notes of their own are marked; their topics use Spain Spanish.
+        have = {code for counts in get_retriever().coverage("spanish").values() for code in counts}
+        options = ["ES", "419"] + sorted(LATIN_AMERICA, key=variety_name)
+        variety = st.selectbox(
+            "Which Spanish would you like to learn?", options, index=0, key="q_variety",
+            format_func=lambda c: "Spain (default)" if c == "ES" else
+            variety_name(c) + ("" if c in have else " (no country notes yet, uses Spain)"),
+            help="Pick the country you are traveling to. Topics without notes for that country "
+                 "use Spain Spanish; you can change each topic on the next screen.")
+    timeline = st.text_input("How long until your trip?", value="two weeks", key="q_timeline",
+                             help="For example: 10 days, two weeks, next month, or simply 14.")
+    detected_days = parse_timeline(timeline)
+    if detected_days is None:
+        st.info("Please give a duration such as 'two weeks' or '10 days'.")
+        days = None
     else:
-        reset("plan", "session", "lesson", "roleplay", "free_chat")
-        st.session_state.trip = trip.strip()
-        st.session_state.parsed = parse_trip(trip)
-        st.rerun()
-
-if "parsed" not in st.session_state:
-    st.stop()
-
-# --- 2. Confirm + plan ------------------------------------------------------------------
-p = st.session_state.parsed
-label("What I understood")
-if not p["found"]["language"]:
-    st.warning("I couldn't tell which language you need. Please choose it.")
-langs = list(LANGUAGES)
-c1, c2 = st.columns([3, 2])
-lang_label = c1.selectbox("Language", [LANGUAGES[l] for l in langs],
-                          index=langs.index(p["language"]) if p["language"] else 0)
-language = langs[[LANGUAGES[l] for l in langs].index(lang_label)]
-days = c2.number_input("Days until you leave", 1, 60, value=int(p["days"]))
-goal_labels = st.multiselect("You want to be able to", list(GOAL_LABELS.values()),
-                             default=[GOAL_LABELS[g] for g in p["goals"]])
-goals = [g for g, lab in GOAL_LABELS.items() if lab in goal_labels]
-missing = [k for k in ("days", "goals") if not p["found"][k]]
-if missing:
-    html(f'<div class="quiet">Not in your description, so I guessed: {", ".join(missing)}. '
-         'Change them above if needed.</div>')
-
-if st.button("Build my plan", type="primary"):
-    if not goals:
-        st.warning("Choose at least one goal.")
-    else:
-        reset("session", "lesson", "roleplay", "free_chat")
-        st.session_state.plan = build_plan(language, goals, int(days), get_retriever())
-        st.session_state.plan_lang = language
-        st.session_state.plan_days = int(days)
-        st.rerun()
-
-if "plan" not in st.session_state:
-    st.stop()
-
-plan = st.session_state.plan
-language = st.session_state.plan_lang
-if not plan:
-    st.error(f"There are no {LANGUAGES[language]} notes for these goals yet.")
-    st.stop()
-
-label(f"Your plan · {NATIVE_NAME[language]} · {st.session_state.plan_days} days")
-is_any_open = "session" in st.session_state
-plan_box = (st.expander(f"Day {plan[st.session_state.session]['day']} is open · change day")
-            if is_any_open else st.container())
-with plan_box:
-  for i, s in enumerate(plan):
-    c_day, c_topic, c_btn = st.columns([1.1, 6, 1.6])
-    c_day.markdown(f'<div class="day-num">Day {s["day"]}</div>', unsafe_allow_html=True)
-    c_topic.markdown(f'<div class="day-topic">{escape(s["title"])} &nbsp;'
-                     f'<span class="tag">{escape(GOAL_LABELS[s["scenario"]])}</span></div>',
-                     unsafe_allow_html=True)
-    is_open = st.session_state.get("session") == i
-    if c_btn.button("Open", key=f"open-{i}", type="primary" if is_open else "secondary",
-                    use_container_width=True):
-        reset("lesson", "roleplay", "free_chat")
-        st.session_state.session = i
-        st.rerun()
-
-if "session" not in st.session_state:
-    st.stop()
-
-session = plan[st.session_state.session]
-settings = TutorSettings(language=language, scenario=session["scenario"], task="roleplay",
-                         mode=mode, lora=use_lora, goal=st.session_state.trip,
-                         timeline=f"{st.session_state.plan_days} days")
-partner = ROLEPLAY_PARTNER[session["scenario"]].removeprefix("the ").removeprefix("a ").capitalize()
-r = get_retriever()
-
-# --- Baseline / prompt-only: plain chat (comparison conditions) -------------------------
-if mode != "rag":
-    label(f"Day {session['day']} · {MODE_LABELS[mode_key]}")
-    if "free_chat" not in st.session_state:
-        lesson_settings = TutorSettings(**{**settings.__dict__, "task": "lesson"})
-        history = start_session(lesson_settings)
-        with st.spinner("Writing your lesson…"):
+        if detected_days > MAX_DAYS:
+            st.warning(f"This initial version supports up to {MAX_DAYS} preparation days. "
+                       "Choose a shorter study window below if appropriate.")
+        days = st.number_input("Confirm days until departure / study window", min_value=1,
+                               max_value=MAX_DAYS, value=min(detected_days, MAX_DAYS),
+                               key=f"q_days_{detected_days}")
+    weekdays = st.multiselect("What days of the week can you practice?",
+                             ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                             default=["Monday", "Wednesday", "Friday"], key="q_weekdays")
+    minutes = st.number_input("How long can you typically practice for, in minutes?",
+                              min_value=1, max_value=240, value=15, step=1, key="q_minutes")
+    selected = st.multiselect("Which topics would you like to learn?", list(GOAL_LABELS),
+                              default=["restaurant", "directions"],
+                              format_func=lambda value: GOAL_LABELS[value], key="q_topics")
+    st.markdown("**Rank your selected topics**")
+    st.caption("Choose a different topic for each position. Rank 1 is most important.")
+    goals = []
+    # Separate ranking controls allow priorities to be changed without relying on
+    # multiselect click order. A selection change starts a fresh set of controls.
+    signature = "-".join(selected)
+    for i in range(len(selected)):
+        goals.append(st.selectbox(f"Priority {i + 1}", selected, index=i,
+                                  format_func=lambda value: GOAL_LABELS[value],
+                                  key=f"q_rank_{signature}_{i}"))
+    valid_ranks = len(set(goals)) == len(goals)
+    if not valid_ranks:
+        st.warning("Each topic must appear exactly once in your rankings.")
+    if goals and valid_ranks:
+        total = len(goals) * (len(goals) + 1) / 2
+        st.caption("Target share of practice within each stage:")
+        for i, goal in enumerate(goals):
+            st.write(f"{i + 1}. {GOAL_LABELS[goal]}: {100 * (len(goals) - i) / total:.1f}%")
+    
+    if st.button("Build my plan", type="primary"):
+        if days is None or not weekdays or not goals or not valid_ranks:
+            st.warning("Enter a valid timeline, select practice days and topics, and use unique ranks.")
+        else:
             try:
-                out = tutor_reply(lesson_settings, history, r)
-            except LLMError as e:
-                fail(e)
-        st.session_state.free_chat = history + [{"role": "assistant", "content": out["text"]}]
-    for m in st.session_state.free_chat[1:]:
-        if m["role"] == "user":
-            my_bubble(m["content"])
-        else:
-            html(f'<div class="bubble partner">{escape(m["content"]).replace(chr(10), "<br>")}</div>')
-    if text := st.chat_input("Reply…"):
-        st.session_state.free_chat.append({"role": "user", "content": text})
-        try:
-            out = tutor_reply(settings, st.session_state.free_chat, r)
-            st.session_state.free_chat.append({"role": "assistant", "content": out["text"]})
-        except LLMError as e:
-            fail(e)
+                topic_variety = plan_varieties(get_retriever(), language, variety, goals)
+                schedule = build_schedule(language, goals, int(days), weekdays, int(minutes), start_date,
+                                          variety=variety, topic_variety=topic_variety)
+            except ValueError as error:
+                st.warning(str(error))
+            else:
+                st.session_state.schedule_draft = schedule
+                st.session_state.preferences = {
+                    "language": language, "variety": variety, "days": int(days), "timeline": timeline,
+                    "weekdays": weekdays, "minutes": int(minutes), "goals": goals,
+                    "starting_stage": 1,
+                }
+                st.session_state.schedule_confirmed = False
+                reset("active_practice", "practice_progress", "practice_results")
+                reset_topic_varieties()
+                st.rerun()
+    st.stop()
+
+# --- 2. Explain the plan before showing any dated sessions --------------------
+schedule = st.session_state.schedule_draft
+prefs = st.session_state.preferences
+if not st.session_state.get("schedule_confirmed"):
+    st.markdown("## Your suggested learning plan")
+    st.write(f"You will practice {LANGUAGES[prefs['language']]} before your trip on "
+             f"{schedule['departure_date']}.")
+    st.write(f"Practice days: {', '.join(prefs['weekdays'])}. "
+             f"Each session: {prefs['minutes']} minutes.")
+    st.write(f"Your schedule has {len(schedule['sessions'])} sessions, "
+             f"with {schedule['total_minutes']} minutes of practice in total.")
+    st.markdown("**Your three learning stages**")
+    descriptions = [
+        "Learn and recall useful words and short expressions from the reference materials.",
+        "Expand phrases into sentences, revisit vocabulary, and receive focused corrections.",
+        "Use what you have learned in short travel conversations, with feedback afterward.",
+    ]
+    for i, (name, description, budget) in enumerate(zip(STAGE_NAMES.values(), descriptions,
+                                                       schedule['stage_minutes']), 1):
+        target = [30, 30, 40][i - 1]
+        st.markdown(f"**{i}. {name} — about {target}% ({budget} minutes)**  \n{description}")
+    st.markdown("**Your topic priorities**")
+    for i, goal in enumerate(prefs['goals'], 1):
+        st.write(f"{i}. {GOAL_LABELS[goal]} — target {schedule['topic_weights'][goal]:.1%}")
+    st.write("All selected topics appear in every stage. Everyone starts with vocabulary. "
+             "Practice minutes are rounded, so topic shares are approximate.")
+    if prefs["language"] == "spanish":
+        st.markdown(f"**Your Spanish, by topic** (you chose {variety_name(prefs['variety'])})")
+        for goal in prefs["goals"]:
+            tv = schedule["topic_variety"][goal]
+            choice = st.selectbox(
+                GOAL_LABELS[goal], tv["alternatives"], index=tv["alternatives"].index(tv["used"]),
+                format_func=variety_name, key=f"tv_{goal}",
+                help="Only varieties with notes for this topic are listed.")
+            if choice != tv["used"]:
+                tv["used"], tv["switched"] = choice, True
+            if tv["fallback"] and not tv.get("switched") and tv["used"] == DEFAULT_VARIETY["spanish"]:
+                st.caption(f"No {variety_name(tv['requested'])} notes for this topic yet, "
+                           f"so Spain Spanish is used. You can pick another variety above.")
+    st.caption("A short schedule may offer only a brief introduction to lower-priority topics.")
+    st.write("This is your starting plan. You can choose to move forward or return to a stage "
+             "when the practice activities are available.")
+    if st.button("Yes, this sounds good — show my calendar", type="primary"):
+        st.session_state.schedule_confirmed = True
+        st.rerun()
+    if st.button("Change my preferences"):
+        reset("schedule_draft", "schedule_confirmed", "active_practice", "practice_progress", "practice_results")
+        reset_topic_varieties()
+        reset("active_practice", "practice_progress", "practice_results")
         st.rerun()
     st.stop()
 
-# --- 3. Lesson ---------------------------------------------------------------------------
-if "lesson" not in st.session_state:
-    with st.spinner("Preparing today's lesson…"):
-        try:
-            st.session_state.lesson = make_lesson(settings, session, st.session_state.trip, r)
-        except LLMError as e:
-            fail(e)
-    st.rerun()
-
-L = st.session_state.lesson
-label(f"Day {session['day']}")
-st.markdown(f"## {session['title']}")
-html(f'<div class="lede">{escape(L["intro"])}</div>')
-st.write("")
-cols = st.columns(2)
-for i, ph in enumerate(L["phrases"], 1):
-    with cols[(i - 1) % 2]:
-        phrase_card(i, ph)
-if L["tip"]:
-    html(f'<div class="note">{escape(L["tip"])}</div>')
-if L["quiz"]:
-    with st.expander("Check yourself"):
-        for q in L["quiz"]:
-            st.markdown(f"**{q['q']}**")
-            st.markdown(f'<span class="quiet">{escape(q["a"])}</span>', unsafe_allow_html=True)
-html(f'<div class="sources">From the curated notes: {escape(", ".join(L["sources"]))}</div>')
-
-# --- 4. Practice (starts automatically) -------------------------------------------------
-label("Practice")
-st.markdown(f"## {SCENARIOS[session['scenario']].capitalize()}")
-if "roleplay" not in st.session_state:
-    with st.spinner(f"The {partner.lower()} is on the way…"):
-        try:
-            first = roleplay_turn(settings, [], session, st.session_state.trip, r)
-        except LLMError as e:
-            fail(e)
-    st.session_state.roleplay = [{"role": "assistant", "content": first["reply"], "turn": first}]
-
-
-def send(text):
-    # Keep the partner's English translations: tutor.py uses them to track how far
-    # the scene has got (so suggestions only move forward).
-    history = [{"role": m["role"], "content": m["content"],
-                **({"english": m["turn"].get("reply_english", "")} if m["role"] == "assistant" else {})}
-               for m in st.session_state.roleplay]
-    history.append({"role": "user", "content": text})
-    my_bubble(text)                       # show the learner's line straight away
-    with st.spinner(f"The {partner.lower()} is replying…"):
-        try:
-            t = roleplay_turn(settings, history, session, st.session_state.trip, r)
-        except LLMError as e:
-            fail(e)
-    st.session_state.roleplay += [{"role": "user", "content": text},
-                                  {"role": "assistant", "content": t["reply"], "turn": t}]
-    st.rerun()
-
-
-for m in st.session_state.roleplay:
-    if m["role"] == "assistant":
-        partner_bubble(m["turn"], partner)
-    else:
-        my_bubble(m["content"])
-
-last = st.session_state.roleplay[-1]["turn"]
-if last.get("scene_done"):
-    # The scene has ended: more lines would only go off-script, so offer a restart.
-    html('<div class="note">Scene complete. Open the next day in your plan, or run this '
-         'scene again to practise it.</div>')
-    if st.button("Practise this scene again", key="restart-scene"):
-        del st.session_state["roleplay"]
+# --- 3. Calendar -------------------------------------------------------------
+if "active_practice" not in st.session_state:
+    st.markdown("## Your learning calendar")
+    lang_label = LANGUAGES[prefs['language']]
+    if prefs['language'] == "spanish":
+        lang_label += f" ({variety_name(prefs.get('variety', 'ES'))})"
+    st.write(f"{lang_label} · {prefs['minutes']} minutes per session · "
+             f"Departure: {schedule['departure_date']}")
+    st.caption("Open a Stage 1 activity to study and check your recall. "
+               "Spanish sentence building and roleplay are available in Stages 2 and 3. Stage switching is coming next.")
+    for index, session in enumerate(schedule['sessions'], 1):
+        day = date.fromisoformat(session['date'])
+        heading = f"Session {index} · {day.strftime('%A, %b %d, %Y')} · {session['minutes']} minutes"
+        with st.expander(heading, expanded=index == 1):
+            for block_index, block in enumerate(calendar_blocks(session, schedule)):
+                used = block["variety"]
+                where = f"{variety_name(used)} " if prefs['language'] == "spanish" and used else ""
+                st.write(f"Stage {block['stage']}: {where}"
+                         f"{CALENDAR_TOPICS[block['topic']]} - {block['minutes']} min")
+                if block['stage'] == 1 or (block['stage'] in (2, 3) and prefs['language'] == 'spanish'):
+                    activity_id = f"{session['date']}_{block['stage']}_{block['topic']}_{used}"
+                    done = activity_id in st.session_state.get("practice_progress", {})
+                    start_label = {1: "Start vocabulary practice", 2: "Start sentence practice", 3: "Start roleplay"}[block["stage"]]
+                    if st.button("Practice again" if done else start_label,
+                                 key=f"practice_{activity_id}"):
+                        st.session_state.active_practice = {
+                            "id": activity_id, "session": index - 1, "block": block_index,
+                        }
+                        st.rerun()
+                    if done:
+                        st.caption("Practice completed — you can revisit it at any time.")
+            st.caption("Minutes are pacing suggestions; they do not measure mastery.")
+    if st.button("Change my preferences"):
+        reset("schedule_draft", "schedule_confirmed", "active_practice", "practice_progress", "practice_results")
+        reset_topic_varieties()
         st.rerun()
-else:
-    if last.get("suggestion"):
-        sg = last["suggestion"]
-        html('<div class="quiet" style="margin-top:.6rem">You could say:</div>')
-        if st.button(f"{sg['text']}  ·  {sg['meaning']}", key=f"say-{len(st.session_state.roleplay)}"):
-            send(sg["text"])
-    if text := st.chat_input(f"Answer in {LANGUAGES[language]}…"):
-        if wrong_language(text, language):
-            # Don't pass English to the partner: it would answer nonsense in character.
-            script = " (Cyrillic letters)" if language == "macedonian" else ""
-            st.warning(f"Please write it in {LANGUAGES[language]}{script}, "
-                       "or tap the suggested line above.")
-        else:
-            send(text)
+    
+    
+# --- Stage 1: study -> recall -> reference-based feedback ----------------------
+if "active_practice" in st.session_state:
+    active = st.session_state.active_practice
+    session = schedule['sessions'][active['session']]
+    block = calendar_blocks(session, schedule)[active['block']]
+    activity_id = active['id']
+    variety = block['variety'] or DEFAULT_VARIETY[prefs['language']]
+    if block['stage'] == 3 and prefs['language'] == 'spanish':
+        st.markdown(f"## Stage 3: {CALENDAR_TOPICS[block['topic']]}")
+        st.caption(f"Spanish variety: {variety_name(variety)}. Practice minutes are flexible.")
+        if st.button("Close activity and return to calendar"):
+            reset("active_practice")
+            st.rerun()
+        vocabulary, seen = [], set()
+        for bank in st.session_state.get("studied_banks", {}).values():
+            if bank['topic'] == block['topic'] and bank['variety'] == variety:
+                for phrase in bank['phrases']:
+                    if phrase['text'] not in seen:
+                        vocabulary.append(phrase)
+                        seen.add(phrase['text'])
+        if not vocabulary:
+            st.info("Complete the Stage 1 study typing for this topic and Spanish variety first. "
+                    "The roleplay will use your studied vocabulary.")
+            st.stop()
+        examples = []
+        for completed in st.session_state.get("practice_progress", {}).values():
+            if (completed['stage'] == 2 and completed['topic'] == block['topic']
+                and completed['variety'] == variety):
+                examples.extend({'english': row['english'], 'spanish': row['reference']}
+                                for row in completed.get('result', {}).get('records', []))
+        result = render_roleplay(activity_id, vocabulary, variety, variety_name(variety),
+                                 block['topic'], get_retriever(), examples[-10:])
+        if result is not None:
+            # Save every finished scenario, even when the learner continues.
+            progress = dict(st.session_state.get("practice_progress", {}))
+            progress[activity_id] = {"stage": 3, "topic": block['topic'], "variety": variety,
+                                     "date": session['date'], "result": result}
+            st.session_state.practice_progress = progress
+            if st.button("Finish roleplay and return to calendar", key=f"finish_roleplay_{activity_id}"):
+                reset("active_practice")
+                st.rerun()
+        st.caption("Progress is kept during this browser session, not across app restarts.")
+        st.stop()
+    if block['stage'] == 2 and prefs['language'] == 'spanish':
+        st.markdown(f"## Stage 2: {CALENDAR_TOPICS[block['topic']]}")
+        st.caption(f"Spanish variety: {variety_name(variety)}. Practice minutes are flexible.")
+        if st.button("Close activity and return to calendar"):
+            reset("active_practice")
+            st.rerun()
+        # Use snapshots of the vocabulary the learner actually typed three times,
+        # not an unrelated newly selected bank or a presumed word list.
+        banks = st.session_state.get("studied_banks", {})
+        vocabulary, seen = [], set()
+        for bank in banks.values():
+            if bank['topic'] != block['topic'] or bank['variety'] != variety:
+                continue
+            for phrase in bank['phrases']:
+                if phrase['text'] not in seen:
+                    vocabulary.append(phrase)
+                    seen.add(phrase['text'])
+        if not vocabulary:
+            st.info("Complete the study typing for a Stage 1 activity in this topic and Spanish "
+                    "variety first. Stage 2 will use that vocabulary.")
+            st.stop()
+        result = render_sentence_practice(activity_id, vocabulary, variety_name(variety), block['topic'])
+        if result is not None:
+            if st.button("Finish this sentence practice", key=f"finish_sentences_{activity_id}"):
+                progress = dict(st.session_state.get("practice_progress", {}))
+                progress[activity_id] = {
+                    "stage": 2, "topic": block['topic'], "variety": variety,
+                    "date": session['date'], "result": result,
+                }
+                st.session_state.practice_progress = progress
+                reset("active_practice")
+                st.rerun()
+        st.caption("Progress is kept during this browser session, not across app restarts.")
+        st.stop()
+    previous_minutes = sum(
+        b['minutes'] for earlier in schedule['sessions'][:active['session']]
+        for b in earlier['blocks'] if b['stage'] == 1 and b['topic'] == block['topic'])
+    activity = (spanish_typing_activity(get_retriever(), block['topic'], variety,
+                                        offset=previous_minutes // 2)
+                if prefs['language'] == 'spanish' else
+                vocabulary_activity(get_retriever(), prefs['language'], block['topic'],
+                                    variety, block['minutes'], offset=previous_minutes // 2))
+    st.divider()
+    st.markdown(f"## Stage 1: {CALENDAR_TOPICS[block['topic']]}")
+    st.write("Goal: learn useful words and expressions for this topic.")
+    st.caption("The suggested minutes are flexible; there is no timer.")
+    if st.button("Close activity and return to calendar"):
+        reset("active_practice")
+        st.rerun()
+    if prefs['language'] == 'spanish':
+        study = st.session_state.get(f'es_study_{activity_id}', {})
+        if activity['phrases'] and study.get('index', 0) >= len(activity['phrases']):
+            banks = dict(st.session_state.get('studied_banks', {}))
+            banks[activity_id] = {'topic': block['topic'], 'variety': variety,
+                                  'phrases': [dict(p) for p in activity['phrases']]}
+            st.session_state.studied_banks = banks
+        result = render_spanish_practice(activity, activity_id)
+        if result is not None:
+            if st.button("Finish this practice", key=f"finish_spanish_{activity_id}"):
+                progress = dict(st.session_state.get("practice_progress", {}))
+                progress[activity_id] = {
+                    "stage": 1, "topic": block['topic'], "variety": variety,
+                    "date": session['date'], "result": result,
+                }
+                st.session_state.practice_progress = progress
+                reset("active_practice")
+                st.rerun()
+        st.caption("Progress is kept during this browser session, not across app restarts.")
+        st.stop()
+    # Existing Macedonian practice remains unchanged.
+    st.caption("Study the cards, then close them and try the meaning questions.")
+    if not activity['phrases']:
+        st.warning("There are no suitable short phrases for this topic and variety yet. "
+                   "Choose another available variety in your plan preferences.")
+        st.stop()
+    with st.expander("Study the vocabulary and expressions", expanded=True):
+        for i, phrase in enumerate(activity['phrases'], 1):
+            phrase_card(i, phrase)
+        st.caption("From: " + ", ".join(sorted({p['source'] for p in activity['phrases']})))
+    st.markdown("### Check your recall")
+    questions = activity['questions']
+    if questions:
+        with st.form(f"recall_{activity_id}"):
+            answers = []
+            for i, question in enumerate(questions):
+                answers.append(st.radio(f"What does ‘{question['phrase']}’ mean?",
+                                        question['options'], index=None,
+                                        key=f"answer_{activity_id}_{i}"))
+            submitted = st.form_submit_button("Check my answers")
+        if submitted:
+            if any(answer is None for answer in answers):
+                st.warning("Choose an answer for every question, then check again.")
+            else:
+                correct = sum(answer == q['answer'] for answer, q in zip(answers, questions))
+                results = dict(st.session_state.get("practice_results", {}))
+                results[activity_id] = {"correct": correct, "total": len(questions), "answers": answers}
+                st.session_state.practice_results = results
+        result = st.session_state.get("practice_results", {}).get(activity_id)
+        if result:
+            st.write(f"You matched {result['correct']} of {result['total']} meanings correctly.")
+            for answer, q in zip(result['answers'], questions):
+                if answer == q['answer']:
+                    st.success(f"{q['phrase']} — {q['answer']}")
+                else:
+                    st.info(f"Review: {q['phrase']} means {q['answer']}. You chose: {answer}")
+            st.caption("You can change your answers and try again. This check does not measure overall proficiency.")
+    else:
+        st.info("This bank does not have enough distinct meanings for a multiple-choice check. "
+                "Cover the meanings and recall them, then reopen the cards to check yourself.")
+    can_finish = not questions or activity_id in st.session_state.get("practice_results", {})
+    if st.button("Finish this practice", disabled=not can_finish):
+        progress = dict(st.session_state.get("practice_progress", {}))
+        progress[activity_id] = {
+            "stage": 1, "topic": block['topic'], "variety": variety,
+            "date": session['date'],
+            "result": st.session_state.get("practice_results", {}).get(activity_id),
+        }
+        st.session_state.practice_progress = progress
+        reset("active_practice")
+        st.rerun()
+    st.caption("Progress is kept during this browser session. It is not yet saved across app restarts.")

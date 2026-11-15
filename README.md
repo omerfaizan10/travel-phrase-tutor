@@ -18,6 +18,7 @@ brew services start ollama          # runs Ollama in the background
 ollama pull qwen3:4b-instruct       # 2.5 GB, one time
 
 /opt/homebrew/opt/python@3.12/bin/python3.12 -m venv .venv
+
 .venv/bin/pip install -r requirements.txt
 ```
 
