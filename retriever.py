@@ -59,7 +59,12 @@ class Retriever:
     def _encode(self, texts):
         if self._model is None:
             from sentence_transformers import SentenceTransformer
-            self._model = SentenceTransformer(self.model_name)
+            try:
+                self._model = SentenceTransformer(self.model_name)
+            except RuntimeError:
+                # Intel Macs with an AMD GPU report MPS but can't use it ("only supported
+                # on devices with unified memory"); the small embedding model runs fine on CPU.
+                self._model = SentenceTransformer(self.model_name, device="cpu")
         return self._model.encode(
             texts, normalize_embeddings=True, convert_to_numpy=True
         )
