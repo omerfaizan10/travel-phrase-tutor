@@ -553,9 +553,11 @@ def _overlap(a, b, content_only=False):
 SCENE_STAGES = {
     "restaurant": [
         ("arrive", ["table", "menu", "reserve", "how many", "for two", "for one", "people"]),
-        ("order food", ["i'd like", "i want", "dish", "recommend", "special", "for me", "eat",
-                        "salad", "soup", "paella", "meat", "fish", "chicken", "starter", "main course"]),
-        ("order drinks", ["drink", "water", "beer", "wine", "coffee", "tea", "juice", "glass", "round"]),
+        ("order food", ["i'd like", "i would like", "i want", "order", "dish", "recommend", "special",
+                        "for me", "eat", "salad", "soup", "paella", "meat", "fish", "chicken",
+                        "starter", "main course"]),
+        ("order drinks", ["drink", "water", "beer", "wine", "coffee", "tea", "juice", "glass", "round",
+                          "rakija", "brandy", "lemonade", "soda"]),
         ("during the meal", ["delicious", "tasty", "another", "spoon", "fork", "spicy", "salt", "dessert"]),
         ("bill", ["bill", "check", "how much", "cost", "price", "pay", "card", "cash", "denar", "euro"]),
         ("leave", ["keep the change", "thank", "goodbye", "see you", "here you are"]),
@@ -609,8 +611,12 @@ SCENE_STAGES = {
 # What the partner should do at each stage (fed to the model every turn).
 STAFF_MOVES = {
     "restaurant": ["greet them, offer a table and give them the menu",
-                   "take their food order or recommend a dish from the notes",
-                   "confirm their food and ask what they would like to drink",
+                   "if they asked for a recommendation, recommend one dish from the notes; if they "
+                   "ordered, repeat their order back as the waiter and ask what they would like to "
+                   "drink, like 'Great, one <their dish>. And to drink?' (do not ask what they "
+                   "want to eat again, and do not order anything yourself)",
+                   "repeat their order back and say it will come soon (do not ask about food or "
+                   "drinks again)",
                    "check that everything is fine and offer dessert or coffee",
                    "tell them the total of the bill (a made-up price is fine)",
                    "thank them and say goodbye"],
@@ -670,6 +676,27 @@ def _meaning_map(language, retriever):
                            if c["language"] == language for p in parse_phrases(c)}
         retriever._meaning_maps = cache
     return cache[language]
+
+
+def guess_meaning(text, language, retriever):
+    """English meaning of a learner line, for scene tracking.
+    Exact phrasebook match first; for a line the learner wrote themselves, join the
+    meanings of the notes phrases it contains ("шопска салата") and of the closest
+    full phrase ("Би сакал тавче гравче и една шопска салата" for "Би сакал шопска
+    салата и ракија"), so the scene step is still recognised."""
+    meanings = _meaning_map(language, retriever)
+    key = normalize(text)
+    if key in meanings:
+        return meanings[key]
+    padded = f" {key} "
+    parts = [m for p, m in meanings.items()
+             if p and (len(p.split()) >= 2 or len(p) >= 5) and f" {p} " in padded]
+    content = {w for w in key.split() if len(w) > 3}
+    best = max(meanings, key=lambda p: _overlap(text, p, content_only=True), default="")
+    shared = content & {w for w in best.split() if len(w) > 3}
+    if len(shared) >= 2 and _overlap(text, best, content_only=True) >= 0.5:
+        parts.append(meanings[best])
+    return " / ".join(parts) or text
 
 
 def scene_stage(history_en, scenario):
@@ -785,13 +812,19 @@ def roleplay_turn(s: TutorSettings, history: list[dict], session: dict, trip: st
     if s.scenario in SCENE_STAGES and history:
         # Tell the partner which step of the scene the traveler just took and the
         # matching staff move, so its line connects to the traveler's.
-        meaning = _meaning_map(s.language, retriever).get(normalize(last_learner), last_learner)
+        exact = _meaning_map(s.language, retriever).get(normalize(last_learner))
+        guessed = guess_meaning(last_learner, s.language, retriever)
         names = [n for n, _ in SCENE_STAGES[s.scenario]]
-        hist_en = [_meaning_map(s.language, retriever).get(normalize(m["content"]), m["content"])
+        hist_en = [guess_meaning(m["content"], s.language, retriever)
                    if m["role"] == "user" else m.get("english", "") for m in history]
-        step = stage_of(meaning, s.scenario)
-        if step is None:
-            step = scene_stage(hist_en, s.scenario)
+        # The scene only moves forward: never fall back to an earlier step than the
+        # conversation already reached (e.g. offering the menu after the order).
+        reached = scene_stage(hist_en[:-1], s.scenario)
+        step = stage_of(guessed, s.scenario)
+        step = reached if step is None else max(step, reached)
+        # Only a phrasebook meaning is passed on as a translation; a guessed one is
+        # just for tracking, and the model reads the Macedonian line itself.
+        meaning = exact or last_learner
         stage_note = (f"\n(The traveler's last line means: \"{meaning}\" - step: {names[step]}. "
                       f"Respond to exactly that. Then, as {partner}: {STAFF_MOVES[s.scenario][step]}. "
                       f"Keep it to one or two short sentences. Do not just say a filler like "
@@ -918,8 +951,7 @@ def roleplay_turn(s: TutorSettings, history: list[dict], session: dict, trip: st
         # Scene script: the suggestion is the traveler's NEXT step. If the partner
         # just asked about a later step ("What would you like to drink?"), answer
         # that; otherwise move one step on from the traveler's last line.
-        meaning_of = _meaning_map(s.language, retriever)
-        last_step = stage_of(meaning_of.get(normalize(last_learner), last_learner), s.scenario) \
+        last_step = stage_of(guess_meaning(last_learner, s.language, retriever), s.scenario) \
             if last_learner else -1
         last_step = -1 if last_step is None else last_step
         partner_step = stage_of(reply_en or "", s.scenario)
