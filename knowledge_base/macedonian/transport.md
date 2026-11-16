@@ -100,7 +100,7 @@ Source for this and the following sections: team-authored notes, written and rev
 - Колку трае патувањето? [Kolku trae patuvanjeto?] [KOL-koo TRA-e pa-too-VA-nye-to?] = How long is the trip?
 - Благајничката: Околу три часа. [Okolu tri chasa.] [O-ko-loo TREE CHA-sa.] = Cashier: About three hours.
 - Дали автобусот застанува некаде? [Dali avtobusot zastanuva nekade?] [DA-lee av-TO-boo-sot zas-TA-noo-va NE-ka-de?] = Does the bus stop anywhere?
-- Благајничката: Да, има една пауза од петнаесет минути. [Da, ima edna pauza od petnaeset minuti.] [da, EE-ma ED-na PA-oo-za od pet-NA-e-set MEE-noo-tee.] = Cashier: Yes, there is one fifteen-minute break.
+- Благајничката: Да, има една пауза од петнаесет минути. [Da, ima edna pauza od petnaeset minuti.] [DA, EE-ma ED-na PA-oo-za od pet-NA-e-set MEE-noo-tee.] = Cashier: Yes, there is one fifteen-minute break.
 
 ## Bus and taxi: Dialogue 2: Taxi from the airport
 - Добар ден. До центарот на Скопје, ве молам. [Dobar den. Do centarot na Skopje, ve molam.] [DO-bar DEN. do TSEN-ta-rot na SKOP-ye, VE mo-lam.] = Hello. To the center of Skopje, please.
@@ -113,7 +113,7 @@ Source for this and the following sections: team-authored notes, written and rev
 
 ## Bus and taxi: Dialogue 3: On the city bus
 - Извинете, дали овој автобус оди до Градскиот парк? [Izvinete, dali ovoj avtobus odi do Gradskiot park?] [eez-VEE-ne-te, DA-lee O-voy AV-to-boos O-dee do GRAD-skee-ot PARK?] = Excuse me, does this bus go to the City Park?
-- Возачот: Да. Ќе ви кажам каде да слезете. [Da. Kje vi kazham kade da slezete.] [da. kye VEE ka-zham KA-de da SLE-ze-te.] = Driver: Yes. I'll tell you where to get off.
+- Возачот: Да. Ќе ви кажам каде да слезете. [Da. Kje vi kazham kade da slezete.] [DA. kye VEE ka-zham KA-de da SLE-ze-te.] = Driver: Yes. I'll tell you where to get off.
 - Благодарам. Каде да купам билет? [Blagodaram. Kade da kupam bilet?] [bla-GO-da-ram. KA-de da KOO-pam BEE-let?] = Thank you. Where do I buy a ticket?
 - Возачот: Со картичка во автобусот. [So kartichka vo avtobusot.] [so KAR-teech-ka vo av-TO-boo-sot.] = Driver: With a card on the bus.
 

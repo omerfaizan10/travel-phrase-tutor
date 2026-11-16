@@ -134,7 +134,7 @@ Pharmacies are easy to find (look for a green cross) and pharmacists often give 
 - Едно кафе, ве молам. [Edno kafe, ve molam.] [ED-no KA-fe, VE mo-lam.] = A coffee, please.
 - Домаќинката: Повелете, пријатно! [Povelete, prijatno!] [po-VE-le-te, PREE-yat-no!] = Host: Here you go, enjoy!
 - Многу е вкусно. Вие ли го направивте? [Mnogu e vkusno. Vie li go napravivte?] [MNO-goo e VKOOS-no. VEE-e lee go na-PRA-veev-te?] = It's very tasty. Did you make it?
-- Домаќинката: Да, домашно е. [Da, domashno e.] [da, DO-mash-no e.] = Host: Yes, it's homemade.
+- Домаќинката: Да, домашно е. [Da, domashno e.] [DA, DO-mash-no e.] = Host: Yes, it's homemade.
 
 ## Meeting locals: Culture notes
 Macedonians are known for hospitality: guests are offered food and drinks, and saying no once is often taken as politeness, so the host may offer again. Bringing a small gift (sweets, coffee or a bottle of wine) when you visit a home is a nice gesture. Many people take off their shoes at home, so it is polite to ask. Use "ти" with young people and friends, and "Вие" with older people and people you have just met.

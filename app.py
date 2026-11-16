@@ -28,6 +28,7 @@ import streamlit as st
 
 from llm import LLMError
 from planner import GOAL_HINTS, MAX_DAYS, build_schedule, parse_timeline, plan_varieties, STAGE_NAMES
+from pronounce import say, transliterate
 from prompts import LANGUAGES, ROLEPLAY_PARTNER, SCENARIOS, TutorSettings
 from retriever import DEFAULT_VARIETY, LATIN_AMERICA, VARIETIES, Retriever
 from tutor import make_lesson, roleplay_turn, start_session, tutor_reply, wrong_language
@@ -107,6 +108,8 @@ h1, h2, h3 { font-family: var(--serif) !important; font-weight: 600 !important;
 .who-label { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin-bottom: .15rem; }
 .partner .line { font-family: var(--serif); font-size: 1.15rem; }
 .partner .tr { font-size: .85rem; color: var(--muted); margin-top: .2rem; }
+.bubble .pron { font-family: var(--mono); font-size: .78rem; color: var(--muted); margin-top: .1rem; }
+.chip .pron { font-family: var(--mono); font-size: .74rem; color: var(--muted); }
 .vocab { margin-top: .5rem; font-size: .82rem; }
 .vocab b { font-family: var(--serif); font-weight: 600; }
 .chip { display: inline-block; background: var(--accent-soft); border-radius: 3px; padding: 1px 7px;
@@ -209,6 +212,15 @@ def phrase_card(i, p):
          f'{pron}<div class="m">{escape(p["meaning"])}</div>{who}</div>')
 
 
+def pron_lines(text):
+    """Transliteration + "say:" guide under a Macedonian line ("" for other languages)."""
+    guide = say(text)
+    if not guide:
+        return ""
+    return (f'<div class="pron">{escape(transliterate(text))}</div>'
+            f'<div class="pron" title="Capitals mark the stressed syllable">say: {escape(guide)}</div>')
+
+
 def partner_bubble(t, partner):
     # The translation is model-written (not from the notes), so it is marked as approximate.
     tr = (f'<div class="tr" title="Approximate translation by the model; the vocabulary '
@@ -217,15 +229,18 @@ def partner_bubble(t, partner):
     vocab = ""
     if t.get("vocab"):
         vocab = '<div class="vocab"><span class="quiet">In this line: </span>' + "".join(
-            f'<span class="chip"><b>{escape(v["text"])}</b> &nbsp;{escape(v["meaning"])}</span>'
+            f'<span class="chip"><b>{escape(v["text"])}</b>'
+            + (f' <span class="pron">{escape(v.get("say") or say(v["text"]))}</span>'
+               if v.get("say") or say(v["text"]) else "")
+            + f' &nbsp;{escape(v["meaning"])}</span>'
             for v in t["vocab"]) + "</div>"
     tip = f'<div class="tipline">{escape(t["tip"])}</div>' if t.get("tip") else ""
     html(f'<div class="bubble partner"><div class="who-label">{escape(partner)}</div>'
-         f'<div class="line">{escape(t["reply"])}</div>{tr}{vocab}{tip}</div>')
+         f'<div class="line">{escape(t["reply"])}</div>{pron_lines(t["reply"])}{tr}{vocab}{tip}</div>')
 
 
 def my_bubble(text):
-    html(f'<div class="bubble me"><div class="who-label">You</div>{escape(text)}</div>')
+    html(f'<div class="bubble me"><div class="who-label">You</div>{escape(text)}{pron_lines(text)}</div>')
 
 
 # --- Masthead + sidebar ----------------------------------------------------------
