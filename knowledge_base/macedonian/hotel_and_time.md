@@ -3,27 +3,27 @@
 Source: Daniela Jankovska, "Tips & Guide to: Learn Macedonian Language" (native speaker). https://static1.squarespace.com/static/5795274dc534a514ed1a2672/t/5ff8c0fa576d293b16b788fe/1610137853068/Learn+Macedonian+Language+By+Daniela+Jankovska.pdf. Spelling typos in the source corrected. Lessons 3, 6, 15, 16.
 
 ## Finding a hotel
-- Барам хотел. = I'm looking for a hotel.
-- Каде има ...? [kade ima] = Where is there a ...?
-- Хотел во близина = a hotel nearby;  Добар хотел = a good hotel
+- Барам хотел. [Baram hotel.] = I'm looking for a hotel.
+- Каде има ...? [Kade ima ...?] = Where is there a ...?
+- Хотел во близина [Hotel vo blizina] = a hotel nearby;  Добар хотел [Dobar hotel] = a good hotel
 
 ## At the hotel reception
-- Дали имате слободни соби? [dali imate slobodni sobi] = Do you have any rooms available?
-- Колку е по ноќ / по човек? [kolku e po noḱ / po čovek] = How much is it per night / per person?
-- Дали собата доаѓа со приватна бања / тоалет? = Does the room come with a private bathroom / toilet?
-- Дали имате друга соба? = Do you have a different room?
-- Ок, ќе ја земам. [ok, ḱe ja zemam] = OK, I'll take it.
-- Јас ќе престојувам __ ноќи. [jas ḱe prestojuvam __ noḱi] = I will stay for __ nights.
-- Дали појадокот е вклучен во цената? = Is breakfast included in the price?
-- Дали имате кафе / појадок за носење? = Do you have coffee / breakfast to go?
-- Ве молам, исчистете ја мојата соба. = Please clean my room.
-- Сметката, ве молам. = The bill, please (when checking out).
-- Дали имате интернет? = Do you have internet / wifi?
+- Дали имате слободни соби? [Dali imate slobodni sobi?] = Do you have any rooms available?
+- Колку е по ноќ / по човек? [Kolku e po nokj / po chovek?] = How much is it per night / per person?
+- Дали собата доаѓа со приватна бања / тоалет? [Dali sobata doagja so privatna banja / toalet?] = Does the room come with a private bathroom / toilet?
+- Дали имате друга соба? [Dali imate druga soba?] = Do you have a different room?
+- Ок, ќе ја земам. [Ok, kje ja zemam.] = OK, I'll take it.
+- Јас ќе престојувам __ ноќи. [Jas kje prestojuvam __ nokji.] = I will stay for __ nights.
+- Дали појадокот е вклучен во цената? [Dali pojadokot e vkluchen vo cenata?] = Is breakfast included in the price?
+- Дали имате кафе / појадок за носење? [Dali imate kafe / pojadok za nosenje?] = Do you have coffee / breakfast to go?
+- Ве молам, исчистете ја мојата соба. [Ve molam, ischistete ja mojata soba.] = Please clean my room.
+- Сметката, ве молам. [Smetkata, ve molam.] = The bill, please (when checking out).
+- Дали имате интернет? [Dali imate internet?] = Do you have internet / wifi?
 
 ## Telling the time
-- Колку е часот? [kolku e časot] = What time is it?
-- Сега е __ часот претпладне / попладне. = It's __ o'clock am / pm.
-- Кој датум е денеска? [koj datum e deneska] = What's the date today?
+- Колку е часот? [Kolku e chasot?] = What time is it?
+- Сега е __ часот претпладне / попладне. [Sega e __ chasot pretpladne / popladne.] = It's __ o'clock am / pm.
+- Кој датум е денеска? [Koj datum e deneska?] = What's the date today?
 - сега now, потоа later, пред before, час hour, минута minute, ден day, месец month
 - утро morning, попладне afternoon, вечер evening, ноќ night
 
@@ -52,7 +52,7 @@ Source for this and the following sections: team-authored notes, written and rev
 - ...почисто? [...pochisto?] = ...cleaner?
 - ...поефтино? [...poeftino?] = ...cheaper?
 - Добро, ќе ја земам. [Dobro, kje ja zemam.] = OK, I'll take it.
-- Јас ќе останам  _____ ноќ(и). [Jas kje ostanam ____ nokj(i).] = I will stay for _____ night(s).
+- Јас ќе останам  _____ ноќ(и). [_____ nokj(i).] = I will stay for _____ night(s).
 - Може ли да предложете друг хотел? [Mozhe li da predlozhete drug hotel?] = Can you suggest another hotel?
 - Имате ли сеф? [Imate li sef?] = Do you have a safe?
 - Дали е доручек/вечера вклучено? [Dali e doruchek/vechera vklucheno?] = Is breakfast/dinner included?

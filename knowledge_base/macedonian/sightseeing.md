@@ -3,13 +3,13 @@
 Source: Christina E. Kramer & Liljana Mitkovska, "Macedonian: A Course for Beginning and Intermediate Students", 3rd ed., University of Wisconsin Press, 2011, Lesson 9 (tour adverts and questions, pp. 195-196) and Lesson 16 (Cultural Sites, letter "Спомени", pp. 381-382). Place descriptions summarised in our own words; English glosses ours.
 
 ## Planning a trip or tour
-- Како можам да патувам до ...? = How can I travel to ...?
-- Со авион? Со воз? Со автобус? Со кола? Со брод? = By plane? By train? By bus? By car? By boat?
-- За колку дена е патувањето? = How many days is the trip?
-- Колку чини патувањето? = How much does the trip cost?
-- Кое е најевтино / најскапо? = Which is the cheapest / most expensive? (the book spells it најефтино)
-- Кое патување најмногу ви се допаѓа? Зошто? = Which trip do you like most? Why?
-- Каде има посета и на други места? = Where are there visits to other places too?
+- Како можам да патувам до ...? [Kako mozham da patuvam do ...?] = How can I travel to ...?
+- Со авион? Со воз? Со автобус? Со кола? Со брод? [So avion? So voz? So avtobus? So kola? So brod?] = By plane? By train? By bus? By car? By boat?
+- За колку дена е патувањето? [Za kolku dena e patuvanjeto?] = How many days is the trip?
+- Колку чини патувањето? [Kolku chini patuvanjeto?] = How much does the trip cost?
+- Кое е најевтино / најскапо? [Koe e najevtino / najskapo?] = Which is the cheapest / most expensive? (the book spells it најефтино)
+- Кое патување најмногу ви се допаѓа? Зошто? [Koe patuvanje najmnogu vi se dopagja? Zoshto?] = Which trip do you like most? Why?
+- Каде има посета и на други места? [Kade ima poseta i na drugi mesta?] = Where are there visits to other places too?
 
 ## Tour and travel words
 - патување trip, патува to travel, излет excursion / day trip, посета visit
@@ -28,11 +28,11 @@ Source: Christina E. Kramer & Liljana Mitkovska, "Macedonian: A Course for Begin
 - Битола (Bitola): a major city in the south-west.
 
 ## Useful sightseeing sentences
-- Шетавме по чаршијата. = We strolled through the old bazaar.
-- Утре одиме на излет до Свети Наум. = Tomorrow we're going on an excursion to Sveti Naum.
-- Со чамец отидовме до пештерата. = We went to the cave by boat.
-- Ги разгледавме фреските. = We looked at the frescoes.
-- Таму има многу убава природа. = There's very beautiful nature there.
+- Шетавме по чаршијата. [Shetavme po charshijata.] = We strolled through the old bazaar.
+- Утре одиме на излет до Свети Наум. [Utre odime na izlet do Sveti Naum.] = Tomorrow we're going on an excursion to Sveti Naum.
+- Со чамец отидовме до пештерата. [So chamec otidovme do peshterata.] = We went to the cave by boat.
+- Ги разгледавме фреските. [Gi razgledavme freskite.] = We looked at the frescoes.
+- Таму има многу убава природа. [Tamu ima mnogu ubava priroda.] = There's very beautiful nature there.
 - црква church, манастир monastery, пештера cave, езеро lake, река river, планина mountain, фрески frescoes, галерија gallery, туристи tourists
 
 ## Skopje: Sights in the city center

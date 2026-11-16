@@ -4,57 +4,57 @@ Source: Peace Corps Macedonia, "Macedonian Language / Makedonski Jazik", Lesson 
 https://www.fsi-language-courses.org/macedonian/courses/peace-corps-macedonian-language-lessons/
 
 ## Getting attention and being served
-- Добар ден! [do-bar dein] = Good day! (polite greeting when you walk in)
-- Извинете. [eez-vee-nei-tei] = Excuse me. (to call the waiter)
-- Повелете. [po-vei-lei-tei] = Here you are. / May I help you? (the waiter will often say this to you)
-- Благодарам. [bla-go-da-ram] = Thank you.
+- Добар ден! [Dobar den!] = Good day! (polite greeting when you walk in)
+- Извинете. [Izvinete.] = Excuse me. (to call the waiter)
+- Повелете. [Povelete.] = Here you are. / May I help you? (the waiter will often say this to you)
+- Благодарам. [Blagodaram.] = Thank you.
 
 ## Asking about food and prices
-- Што е ова? [shto ei o-va] = What is this?
-- Колку чини? [kol-kou chee-nee] = How much is it?
-- Како се вика ... на македонски? [ka-ko sei vee-ka ... na ma-kei-don-skee] = How do you say ... in Macedonian? (useful for coffee, water, etc.)
-- вода [vo-da] = water.  храна [hra-na] = food.
+- Што е ова? [Shto e ova?] = What is this?
+- Колку чини? [Kolku chini?] = How much is it?
+- Како се вика ... на македонски? [Kako se vika ... na makedonski?] = How do you say ... in Macedonian? (useful for coffee, water, etc.)
+- вода [voda] = water.  храна [hrana] = food.
 
 ## Dietary needs and how you feel
 Macedonian adjectives change with the speaker's gender: (m.) = a man says it, (f.) = a woman says it.
-- Јас сум вегетаријанец. (m.) / Јас сум вегетаријанка. (f.) [yas soum vei-gei-ta-ree-ya-nets / -yan-ka] = I am a vegetarian.
-- Гладен сум. (m.) / Гладна сум. (f.) [gla-dein soum / glad-na soum] = I'm hungry.
-- Сит сум. (m.) / Сита сум. (f.) [seet soum / see-ta soum] = I'm full.
+- Јас сум вегетаријанец. (m.) / Јас сум вегетаријанка. (f.) [Jas sum vegetarijanec. / Jas sum vegetarijanka.] = I am a vegetarian.
+- Гладен сум. (m.) / Гладна сум. (f.) [Gladen sum. / Gladna sum.] = I'm hungry.
+- Сит сум. (m.) / Сита сум. (f.) [Sit sum. / Sita sum.] = I'm full.
 
 ## Toasting
-- На здравје! [na zdrav-yei] = Cheers! (The same phrase also means "Bless you" after a sneeze.)
+- На здравје! [Na zdravje!] = Cheers! (The same phrase also means "Bless you" after a sneeze.)
 
 ## Understanding prices
 Tens and units are joined with и ("and"): дваесет и пет = 25. Useful round numbers: педесет 50, сто 100, илјада 1000.
-If the waiter speaks too fast: Ве молам, зборувајте побавно. [vei mo-lam, zbo-rou-vay-tei po-bav-no] = Please, speak slowly.
+If the waiter speaks too fast: Ве молам, зборувајте побавно. [Ve molam, zboruvajte pobavno.] = Please, speak slowly.
 
 ## Getting a table and the menu
 Source for this and the following sections: Daniela Jankovska, "Tips & Guide to: Learn Macedonian Language" (native speaker), Lessons 17-20. https://static1.squarespace.com/static/5795274dc534a514ed1a2672/t/5ff8c0fa576d293b16b788fe/1610137853068/Learn+Macedonian+Language+By+Daniela+Jankovska.pdf
-- Ве молам, маса за __ луѓе. [ve molam, masa za __ luǵe] = A table for __ people, please.
-- Дали имате мени? [dali imate meni] = Do you have a menu? / Can I look at the menu?
-- Кој е локалниот специјалитет? [koj e lokalniot specijalitet] = What is the local specialty?
-- Појадок / Ручек / Вечера [pojadok / ruček / večera] = Breakfast / Lunch / Dinner
+- Ве молам, маса за __ луѓе. [Ve molam, masa za __ lugje.] = A table for __ people, please.
+- Дали имате мени? [Dali imate meni?] = Do you have a menu? / Can I look at the menu?
+- Кој е локалниот специјалитет? [Koj e lokalniot specijalitet?] = What is the local specialty?
+- Појадок / Ручек / Вечера [Pojadok / Ruchek / Vechera] = Breakfast / Lunch / Dinner
 
 ## Ordering food
-- Сакам ... [sakam] = I want ...
-- Сакам храна која содржи пилешко / говедско / риба / колбас / салата. [sakam hrana koja sodrži pileško / govedsko / riba / kolbas / salata] = I want a dish with chicken / beef / fish / sausage / salad.
-- Јас не јадам свинско / говедско месо. [jas ne jadam svinsko / govedsko meso] = I don't eat pork / beef.
-- Луто. [luto] = Spicy.  Не сакам луто. [ne sakam luto] = I don't want it spicy.
-- Ми треба друга лажица / виљушка / чаша. [mi treba druga lažica / viljuška / čaša] = I need another spoon / fork / glass.
+- Сакам ... [Sakam ...] = I want ...
+- Сакам храна која содржи пилешко / говедско / риба / колбас / салата. [Sakam hrana koja sodrzhi pileshko / govedsko / riba / kolbas / salata.] = I want a dish with chicken / beef / fish / sausage / salad.
+- Јас не јадам свинско / говедско месо. [Jas ne jadam svinsko / govedsko meso.] = I don't eat pork / beef.
+- Луто. [Luto.] = Spicy.  Не сакам луто. [Ne sakam luto.] = I don't want it spicy.
+- Ми треба друга лажица / виљушка / чаша. [Mi treba druga lazhica / viljushka / chasha.] = I need another spoon / fork / glass.
 
 ## Ordering drinks
-- Може една чаша вода / сок / кафе / чај? [može edna čaša voda / sok / kafe / čaj] = May I have a glass of water / juice / coffee / tea?
-- Може една чаша бело вино / црвено вино? [može edna čaša belo vino / crveno vino] = May I have a glass of white wine / red wine?
-- Едно пиво, ве молам. [edno pivo, ve molam] = A beer, please.
-- Друга тура! [druga tura] = Another round!
-- Вода со лед [voda so led] = water with ice.  Без лед [bez led] = no ice.
-- Кисела вода [kisela voda] = sparkling (mineral) water.
-- Ракија [rakija] = local brandy.  Пиво [pivo] = beer.  Кафе [kafe] = coffee.  Чај [čaj] = tea.
+- Може една чаша вода / сок / кафе / чај? [Mozhe edna chasha voda / sok / kafe / chaj?] = May I have a glass of water / juice / coffee / tea?
+- Може една чаша бело вино / црвено вино? [Mozhe edna chasha belo vino / crveno vino?] = May I have a glass of white wine / red wine?
+- Едно пиво, ве молам. [Edno pivo, ve molam.] = A beer, please.
+- Друга тура! [Druga tura!] = Another round!
+- Вода со лед [Voda so led] = water with ice.  Без лед [Bez led] = no ice.
+- Кисела вода [Kisela voda] = sparkling (mineral) water.
+- Ракија [Rakija] = local brandy.  Пиво [Pivo] = beer.  Кафе [Kafe] = coffee.  Чај [Chaj] = tea.
 
 ## Paying
-- Многу беше вкусно. Сметката, ве молам. [mnogu beše vkusno. smetkata, ve molam] = It was delicious. The check, please.
-- Сметката, ве молам. [smetkata, ve molam] = The bill, please.
-- Пари [pari] = money.  Кредитна картичка [kreditna kartička] = credit card.
+- Многу беше вкусно. Сметката, ве молам. [Mnogu beshe vkusno. Smetkata, ve molam.] = It was delicious. The check, please.
+- Сметката, ве молам. [Smetkata, ve molam.] = The bill, please.
+- Пари [Pari] = money.  Кредитна картичка [Kreditna kartichka] = credit card.
 
 ## Food words
 - Салата salad, Пиперки peppers, Домат tomato (colloquially патлиџан), Модар патлиџан eggplant, Краставици cucumbers, Моркови carrots, Компири potatoes, Пржени компири French fries
@@ -65,38 +65,38 @@ Source for this and the following sections: Daniela Jankovska, "Tips & Guide to:
 
 ## Waiter dialogue: what's on the menu
 Source for this and the next section: Christina E. Kramer & Liljana Mitkovska, "Macedonian: A Course for Beginning and Intermediate Students", 3rd ed., University of Wisconsin Press, 2011, Lesson 5 (Food), dialogue "Во ресторан" (p. 68). Phrases selected; English glosses are ours.
-- Келнерот: Повелете! = Waiter: Welcome! / What can I get you?
-- Што има за вечера? = What is there for dinner?
-- За предјадење има ... = For starters there is ...
-- Имаме добра чорба. = We have good soup.
-- За десерт имаме баклава, торта, овошје ... = For dessert we have baklava, cake, fruit ...
-- Не сакам да јадам многу месо. = I don't want to eat much meat.
-- Може една шопска салата. = A shopska salad, please.
-- За мене тавче гравче и печени пиперки. = For me, tavče gravče and roasted peppers.
-- Јас сакам и торта и сладолед. = I want both cake and ice cream.
-- Јас не пијам ни Кока-кола ни сок. = I drink neither Coca-Cola nor juice.
-- Добра идеја! = Good idea!
+- Келнерот: Повелете! [Povelete!] = Waiter: Welcome! / What can I get you?
+- Што има за вечера? [Shto ima za vechera?] = What is there for dinner?
+- За предјадење има ... [Za predjadenje ima ...] = For starters there is ...
+- Имаме добра чорба. [Imame dobra chorba.] = We have good soup.
+- За десерт имаме баклава, торта, овошје ... [Za desert imame baklava, torta, ovoshje ...] = For dessert we have baklava, cake, fruit ...
+- Не сакам да јадам многу месо. [Ne sakam da jadam mnogu meso.] = I don't want to eat much meat.
+- Може една шопска салата. [Mozhe edna shopska salata.] = A shopska salad, please.
+- За мене тавче гравче и печени пиперки. [Za mene tavche gravche i pecheni piperki.] = For me, tavče gravče and roasted peppers.
+- Јас сакам и торта и сладолед. [Jas sakam i torta i sladoled.] = I want both cake and ice cream.
+- Јас не пијам ни Кока-кола ни сок. [Jas ne pijam ni Koka-kola ni sok.] = I drink neither Coca-Cola nor juice.
+- Добра идеја! [Dobra ideja!] = Good idea!
 
 ## Macedonian dishes you will see on menus
-- шопска салата = shopska salad (tomato, cucumber, pepper, white cheese)
-- салата од кисела зелка = sauerkraut salad
-- туршија = pickled vegetables
-- печени пиперки = roasted peppers;  полнети пиперки = stuffed peppers
-- тавче гравче = baked beans in a clay dish (a national dish)
-- скара = grilled meat;  ќебапчиња со кромид = small grilled sausages (kebabs) with onion;  плескавица = grilled burger patty
-- пита со сирење / со спанаќ = pie with cheese / with spinach
-- чорба = soup
-- баклава = baklava;  торта = cake;  сладолед = ice cream
+- шопска салата [shopska salata] = shopska salad (tomato, cucumber, pepper, white cheese)
+- салата од кисела зелка [salata od kisela zelka] = sauerkraut salad
+- туршија [turshija] = pickled vegetables
+- печени пиперки [pecheni piperki] = roasted peppers;  полнети пиперки [polneti piperki] = stuffed peppers
+- тавче гравче [tavche gravche] = baked beans in a clay dish (a national dish)
+- скара [skara] = grilled meat;  ќебапчиња со кромид [kjebapchinja so kromid] = small grilled sausages (kebabs) with onion;  плескавица [pleskavica] = grilled burger patty
+- пита со сирење / со спанаќ [pita so sirenje / so spanakj] = pie with cheese / with spinach
+- чорба [chorba] = soup
+- баклава [baklava] = baklava;  торта [torta] = cake;  сладолед [sladoled] = ice cream
 
 ## What the waiter asks you
 Source for this and the following "Kramer" sections: Christina E. Kramer & Liljana Mitkovska, "Macedonian: A Course for Beginning and Intermediate Students", 3rd ed., University of Wisconsin Press, 2011, Lesson 5 (Food), vocabulary and notes, pp. 81-88. Selected items; organisation ours.
-- Што ќе порачате? = What will you order?
-- Што сакате за пиење? = What would you like to drink?
-- Што сакате за јадење? = What would you like to eat?
-- Какво кафе сакате? = How would you like your coffee? (asked when you order Turkish coffee). Answers: слатко / благо = sweet, средно = medium, горко = bitter (no sugar), без шеќер = without sugar.
-- Повелете! = said when inviting you to sit down, come in, or help yourself to food. You will hear it constantly.
-- Колку чини? / Колку чинат? = How much does it / do they cost?
-- Да видам. = Let me see.  Се разбира. = Of course.  Важи. = OK, agreed.  Одлично! = Excellent!
+- Што ќе порачате? [Shto kje porachate?] = What will you order?
+- Што сакате за пиење? [Shto sakate za pienje?] = What would you like to drink?
+- Што сакате за јадење? [Shto sakate za jadenje?] = What would you like to eat?
+- Какво кафе сакате? [Kakvo kafe sakate?] = How would you like your coffee? (asked when you order Turkish coffee). Answers: слатко / благо = sweet, средно = medium, горко = bitter (no sugar), без шеќер = without sugar.
+- Повелете! [Povelete!] = said when inviting you to sit down, come in, or help yourself to food. You will hear it constantly.
+- Колку чини? / Колку чинат? [Kolku chini? / Kolku chinat?] = How much does it / do they cost?
+- Да видам. [Da vidam.] = Let me see.  Се разбира. [Se razbira.] = Of course.  Важи. [Vazhi.] = OK, agreed.  Одлично! [Odlichno!] = Excellent!
 
 ## A typical Macedonian menu (Kramer)
 Based on the sample menu of the restaurant "Македонска куќа" in the textbook.
@@ -127,11 +127,11 @@ Based on the sample menu of the restaurant "Македонска куќа" in th
 
 ## Meals and basic food words (Kramer)
 - појадок breakfast, ручек lunch, вечера dinner, предјадење appetizer, десерт dessert, јадење food/dish, пиење drink, храна food
-- руча = to eat lunch, вечера = to eat dinner, чини = to cost, може = can/may, мора = must
+- руча [rucha] = to eat lunch, вечера = to eat dinner, чини = to cost, може = can/may, мора = must
 - вода water, вино wine, пиво beer, млеко milk, овошен сок fruit juice, кисела вода mineral water, турско кафе Turkish coffee, чај tea
 - леб bread, месо meat, риба fish, јајце egg, сирење cheese, путер butter, мед honey, сол salt, пипер black pepper, шеќер sugar
 - салата salad, супа soup, чорба thick soup, скара grilled meat, тавче гравче baked bean casserole, манџа stew, пита filled pastry, плескавица spiced meat patty, ќебапче grilled sausage-shaped minced meat, торта cake, сладолед ice cream, чоколада chocolate
-- без = without (без шеќер, без месо)
+- без [bez] = without (без шеќер, без месо)
 
 ## Drinks list (Kramer)
 боза boza (millet drink), газиран сок fizzy drink, какао cocoa, кафе coffee, кисела вода / минерална вода mineral water, лимонада lemonade, млеко milk, овошен сок fruit juice, чај tea, вино wine, вињак brandy, ликер liqueur, пиво beer, ракија brandy (rakija)
@@ -222,7 +222,7 @@ A kafana is a traditional restaurant, often with live music in the evening. Peop
 - Може ли да видам во кујната? [Mozhe li da vidam vo kujnata?] = Can I look in the kitchen?
 - Дали постои специјалитет на куќата? [Dali postoi specijalitet na kukjata?] = Is there a house specialty?
 - Дали постои локален специјалитет? [Dali postoi lokalen specijalitet?] = Is there a local specialty?
-- Јас сум вегетаријанец. (m)/Јас сум вегетаријанка. (f) [Jas sum vegetarijanec. (m)/Jas sum vegetarijanka (f)] = I'm a vegetarian.
+- Јас сум вегетаријанец. (m)/Јас сум вегетаријанка. (f) [Jas sum vegetarijanec./Jas sum vegetarijanka.] = I'm a vegetarian.
 - Јас не јадам свинско месо. [Jas ne jadam svinsko meso.] = I don't eat pork.
 - Јас не јадам телешко месо. [Jas ne jadam teleshko meso.] = I don't eat beef.
 - појадок/доручек [pojadok/doruchek] = breakfast
@@ -258,7 +258,7 @@ A kafana is a traditional restaurant, often with live music in the evening. Peop
 - тестенини [testenini] = pasta
 - ориз [oriz] = rice
 - грав [grav] = beans
-- Може ли една чаша _____? [Mozhe li edna chasha ____?] = May I have a glass of _____?
+- Може ли една чаша _____? [Mozhe li edna chasha _____?] = May I have a glass of _____?
 - Може ли едно шише _____? [Mozhe li edno shishe _____?] = May I have a bottle of _____?
 - пиво [pivo] = beer
 - црвено/бело вино [crveno/belo vino] = red/white wine
@@ -266,8 +266,8 @@ A kafana is a traditional restaurant, often with live music in the evening. Peop
 - сол [sol] = salt
 - бибер [biber] = black pepper
 - путер [puter] = butter
-- Извинете, келнер(m)/келнерка(f)? [Izvinete, kelner(m)/kelnerka(f)?] = Excuse me, waiter/waitress? (getting attention of server)
-- Јас сум готов(m)/готова(f). [Jas sum gotov(m)/gotova(f).] = I'm done.
+- Извинете, келнер(m)/келнерка(f)? [Izvinete, kelner/kelnerka?] = Excuse me, waiter/waitress? (getting attention of server)
+- Јас сум готов(m)/готова(f). [Jas sum gotov/gotova.] = I'm done.
 - Тоа беше вкусно. [Toa beshe vkusno.] = It was delicious.
 - Сметката, ве молам. [Smetkata, ve molam.] = The check, please.
 - На здравје! [Na zdravje!] = Cheers!

@@ -3,26 +3,26 @@
 Source: Железници на Република Северна Македонија (national railway), "Извод од возен ред" (timetable extract) for Железничка станица Скопје, valid 09.11.2026 до 12.12.2026. Original PDF kept in sources/. Times change; always tell the learner to check the current timetable at the station or on the railway website.
 
 ## Timetable words (as printed on the Skopje timetable)
-- Извод од возен ред = timetable extract;  возен ред = timetable
-- Железничка станица = railway station
-- Тргнувања = Departures;  Пристигнувања = Arrivals
-- Воз = Train;  Колосек = Platform (literally "track");  Време = Time
-- Интер регионален (iR) = inter-regional train (longer routes, e.g. Skopje–Bitola, Skopje–Gevgelija)
-- Регионален (R) = regional train (short routes, e.g. Skopje–Kumanovo, Skopje–Veles)
-- (Не) = Не сообраќа во недела = Does not run on Sundays
-- Привремено не сообраќа = Temporarily not running
-- Од 7.8.2026 година не сообраќа = Not running since 7 August 2026
-- Железнички превозник = rail operator
+- Извод од возен ред [Izvod od vozen red] = timetable extract;  возен ред [vozen red] = timetable
+- Железничка станица [Zheleznichka stanica] = railway station
+- Тргнувања [Trgnuvanja] = Departures;  Пристигнувања [Pristignuvanja] = Arrivals
+- Воз [Voz] = Train;  Колосек [Kolosek] = Platform (literally "track");  Време [Vreme] = Time
+- Интер регионален (iR) [Inter regionalen] = inter-regional train (longer routes, e.g. Skopje–Bitola, Skopje–Gevgelija)
+- Регионален (R) [Regionalen] = regional train (short routes, e.g. Skopje–Kumanovo, Skopje–Veles)
+- (Не) [(Ne)] = Не сообраќа во недела = Does not run on Sundays
+- Привремено не сообраќа [Privremeno ne soobrakja] = Temporarily not running
+- Од 7.8.2026 година не сообраќа [Od 7.8.2026 godina ne soobrakja] = Not running since 7 August 2026
+- Железнички превозник [Zheleznichki prevoznik] = rail operator
 
 ## Asking about trains
 Built from the timetable's own words plus phrases from the Jankovska guide. Simple constructions; a native speaker should confirm them.
-- Кога тргнува возот за Битола? = When does the train to Bitola leave?
-- Кога пристигнува возот од Гевгелија? = When does the train from Gevgelija arrive?
-- Од кој колосек тргнува? = Which platform does it leave from?
-- Дали возот сообраќа во недела? = Does the train run on Sundays?
-- Каде можам да купам карта? = Where can I buy a ticket? (Jankovska)
-- Карта во еден правец / повратна карта до Велес, ве молам. = A one-way / return ticket to Veles, please. (Jankovska)
-- Колку чини картата? = How much is the ticket?
+- Кога тргнува возот за Битола? [Koga trgnuva vozot za Bitola?] = When does the train to Bitola leave?
+- Кога пристигнува возот од Гевгелија? [Koga pristignuva vozot od Gevgelija?] = When does the train from Gevgelija arrive?
+- Од кој колосек тргнува? [Od koj kolosek trgnuva?] = Which platform does it leave from?
+- Дали возот сообраќа во недела? [Dali vozot soobrakja vo nedela?] = Does the train run on Sundays?
+- Каде можам да купам карта? [Kade mozham da kupam karta?] = Where can I buy a ticket? (Jankovska)
+- Карта во еден правец / повратна карта до Велес, ве молам. [Karta vo eden pravec / povratna karta do Veles, ve molam.] = A one-way / return ticket to Veles, please. (Jankovska)
+- Колку чини картата? [Kolku chini kartata?] = How much is the ticket?
 
 ## Quick answer: train times from Skopje by destination (Возови од Скопје)
 All the train departure times from Skopje, 09.11–12.12.2026. There are no other trains.
@@ -68,9 +68,9 @@ Format: time, platform, train, then main stops and arrival time.
 Source for this and the following sections: team-authored notes, written and reviewed by a native Macedonian speaker (Marija), November 2026.
 - воз [voz] = train
 - Каде можам да купам билет? [Kade mozham da kupam bilet?] = Where can I buy a ticket?
-- Дали е ова перон за___? [Dali e ova peron za____?] = Is this the right platform for____?
-- Сакам да одам во___. [Sakam da odam vo____.] = I want to go to____.
-- Сакам___ [Sakam____] = I'd like___
+- Дали е ова перон за___? [Dali e ova peron za___?] = Is this the right platform for____?
+- Сакам да одам во___. [Sakam da odam vo___.] = I want to go to____.
+- Сакам___ [Sakam___] = I'd like___
 - ...билет во еден правец. [...bilet vo eden pravec.] = ...a one way ticket.
 - ...повратен билет. [...povraten bilet.] = ...a return ticket.
 - ...два билета. [...dva bileta.] = ...two tickets.

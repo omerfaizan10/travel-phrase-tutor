@@ -3,31 +3,31 @@
 Source: Daniela Jankovska, "Tips & Guide to: Learn Macedonian Language" (native speaker). https://static1.squarespace.com/static/5795274dc534a514ed1a2672/t/5ff8c0fa576d293b16b788fe/1610137853068/Learn+Macedonian+Language+By+Daniela+Jankovska.pdf. Spelling typos in the source corrected. Lessons 22 and 31.
 
 ## Bus
-- Каде е автобуската станица? [kade e avtobuskata stanica] = Where is the bus station / bus stop?
-- Кој автобус оди до ...? [koj avtobus odi do] = Which bus goes to ...?
-- Каде можам да купам карта? [kade možam da kupam karta] = Where can I buy a ticket?
-- Може ли да купам карта во еден правец / повратна карта? = Can I buy a one-way / return ticket?
-- Може ли да ми кажете кога ќе стигнеме до ...? = Can you tell me when we get to ...?
-- Може ли тука да ме оставите? = Can you let me off here?
+- Каде е автобуската станица? [Kade e avtobuskata stanica?] = Where is the bus station / bus stop?
+- Кој автобус оди до ...? [Koj avtobus odi do ...?] = Which bus goes to ...?
+- Каде можам да купам карта? [Kade mozham da kupam karta?] = Where can I buy a ticket?
+- Може ли да купам карта во еден правец / повратна карта? [Mozhe li da kupam karta vo eden pravec / povratna karta?] = Can I buy a one-way / return ticket?
+- Може ли да ми кажете кога ќе стигнеме до ...? [Mozhe li da mi kazhete koga kje stigneme do ...?] = Can you tell me when we get to ...?
+- Може ли тука да ме оставите? [Mozhe li tuka da me ostavite?] = Can you let me off here?
 
 ## Taxi
-- Може ли да ме одвезете до ...? [može li da me odvezete do] = Can you take me to ...?
-- Колку ќе чини да ме одвезете до ...? = How much will it cost to take me to ...?
+- Може ли да ме одвезете до ...? [Mozhe li da me odvezete do ...?] = Can you take me to ...?
+- Колку ќе чини да ме одвезете до ...? [Kolku kje chini da me odvezete do ...?] = How much will it cost to take me to ...?
 
 ## Renting and driving a car
-- Каде можам да изнајмам кола? [kade možam da iznajmam kola] = Where can I rent a car?
-- Колку е за еден ден / една недела? = How much is it per day / per week?
-- Дали колата има осигурување? = Does the car come with insurance?
-- Каде е следната бензинска станица? = Where is the next petrol station?
-- Каде е најблискиот паркинг? = Where is the nearest parking?
-- Колку долго можам да паркирам тука? = How long can I park here?
-- Дали овој пат води до ...? = Does this road lead to ...?
-- Каде можам да најдам механичар? = Where can I find a mechanic?
+- Каде можам да изнајмам кола? [Kade mozham da iznajmam kola?] = Where can I rent a car?
+- Колку е за еден ден / една недела? [Kolku e za eden den / edna nedela?] = How much is it per day / per week?
+- Дали колата има осигурување? [Dali kolata ima osiguruvanje?] = Does the car come with insurance?
+- Каде е следната бензинска станица? [Kade e slednata benzinska stanica?] = Where is the next petrol station?
+- Каде е најблискиот паркинг? [Kade e najbliskiot parking?] = Where is the nearest parking?
+- Колку долго можам да паркирам тука? [Kolku dolgo mozham da parkiram tuka?] = How long can I park here?
+- Дали овој пат води до ...? [Dali ovoj pat vodi do ...?] = Does this road lead to ...?
+- Каде можам да најдам механичар? [Kade mozham da najdam mehanichar?] = Where can I find a mechanic?
 
 ## Road signs
-- Стоп = Stop;  Паркинг = Parking;  Забрането паркирање = No parking
-- Ограничување на брзината = Speed limit;  Предност = Yield / right of way
-- Бензин = petrol;  Казна = fine / ticket (penalty)
+- Стоп [Stop] = Stop;  Паркинг [Parking] = Parking;  Забрането паркирање [Zabraneto parkiranje] = No parking
+- Ограничување на брзината [Ogranichuvanje na brzinata] = Speed limit;  Предност [Prednost] = Yield / right of way
+- Бензин [Benzin] = petrol;  Казна [Kazna] = fine / ticket (penalty)
 
 ## Getting around: Vocabulary
 Source for this and the following sections: team-authored notes, written and reviewed by a native Macedonian speaker (Marija), November 2026.
@@ -56,20 +56,20 @@ Source for this and the following sections: team-authored notes, written and rev
 - Дали е вклучено осигурување? [Dali e vklucheno osiguruvanje?] = Does that include insurance?
 - Каде е следната бензинска пумпа? [Kade e slednata benzinska pumpa?] = Where's the next gas station?
 - Колку долго може да паркирам овде? [Kolku dolgo mozhe da parkiram ovde?] = How long can I park here?
-- Дали е ова патот до _____? [Dali e ova patot do ______?] = Does this way lead to____?
+- Дали е ова патот до _____? [Dali e ova patot do _____?] = Does this way lead to____?
 - Ми треба механичар. [Mi treba mehanichar.] = I need a mechanic.
 
 ## Getting around: Bus
 - Каде е автобуската станица? [Kade e avtobuskata stanica?] = Where's the bus station?
-- Кој автобус оди за_____? [Koj avtobus odi za _____?] = Which bus goes to____?
-- Дали овој автобус оди за___? [Dali ovoj avtobus odi za _____?] = Does this bus go to____?
+- Кој автобус оди за_____? [Koj avtobus odi za_____?] = Which bus goes to____?
+- Дали овој автобус оди за___? [Dali ovoj avtobus odi za___?] = Does this bus go to____?
 - Колку често има автобуси? [Kolku chesto ima avtobusi?] = How often do buses come?
 - Кога поаѓа [ првиот, следниот, последниот ] автобус? [Koga poagja [ prviot, sledniot, posledniot ] avtobus?] = What time's the [ first, next, last ] bus?
-- Можете ли да ми кажете кога ќе стигнеме во___? [Mozhete li da mi kazhete koga kje stigneme vo ____?] = Could you let me know when we get to____?
+- Можете ли да ми кажете кога ќе стигнеме во___? [Mozhete li da mi kazhete koga kje stigneme vo___?] = Could you let me know when we get to____?
 - Сакам да слезам! [Sakam da slezam!] = I want to get off!
 
 ## Getting around: Directions
-- Каде е___? [Kade e...?] = Where's___?
+- Каде е___? [Kade e___?] = Where's___?
 - Како да стигнам до___? [Kako da stignam do___?] = How do I get to___?
 - Далеку/блиску ли е? [Daleku/blisku li e?] = Is it far/close by?
 - Можам ли да пешачам до таму? [Mozham li da peshacham do tamu?] = Can I walk there?
@@ -77,7 +77,7 @@ Source for this and the following sections: team-authored notes, written and rev
 - Одете право напред. [Odete pravo napred.] = Go straight ahead.
 - Свртете лево/десно на [Svrtete levo/desno na] = Turn left/right at the
 - ...следниот агол. [...sledniot agol.] = ...next corner.
-- ...семафорите. [semaforite.] = ...traffic lights.
+- ...семафорите. [...semaforite.] = ...traffic lights.
 - Тоа е два блока подолу. [Toa e dva bloka podolu.] = It's two blocks down.
 - зад. [zad.] = behind.
 - пред. [pred.] = in front of.

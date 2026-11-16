@@ -3,39 +3,39 @@
 Source: Daniela Jankovska, "Tips & Guide to: Learn Macedonian Language" (native speaker). https://static1.squarespace.com/static/5795274dc534a514ed1a2672/t/5ff8c0fa576d293b16b788fe/1610137853068/Learn+Macedonian+Language+By+Daniela+Jankovska.pdf. Spelling typos in the source corrected. Lessons 2, 12, 14, 31.
 
 ## Question words
-- Каде е ...? / Каде се ...? = Where is / are ...?
-- Кога е ...? = When is ...?
-- Што е ова? = What is this?
-- Кој е тоа? = Who is that?
-- Како сте? = How are you?
-- Колку години имате? = How old are you?
+- Каде е ...? / Каде се ...? [Kade e ...? / Kade se ...?] = Where is / are ...?
+- Кога е ...? [Koga e ...?] = When is ...?
+- Што е ова? [Shto e ova?] = What is this?
+- Кој е тоа? [Koj e toa?] = Who is that?
+- Како сте? [Kako ste?] = How are you?
+- Колку години имате? [Kolku godini imate?] = How old are you?
 
 ## Asking for help and chatting
-- Може ли да ми помогнете? [može li da mi pomognete] = Can you help me?
-- Дали знаете ...? [dali znaete] = Do you know ...?
-- Каде можам да најдам ...? = Where can I find ...?
-- Јас сум тука на одмор. [jas sum tuka na odmor] = I'm here on vacation.
-- Полека! = Slow down!  Побрзај! = Hurry up!
+- Може ли да ми помогнете? [Mozhe li da mi pomognete?] = Can you help me?
+- Дали знаете ...? [Dali znaete ...?] = Do you know ...?
+- Каде можам да најдам ...? [Kade mozham da najdam ...?] = Where can I find ...?
+- Јас сум тука на одмор. [Jas sum tuka na odmor.] = I'm here on vacation.
+- Полека! [Poleka!] = Slow down!  Побрзај! [Pobrzaj!] = Hurry up!
 
 ## Saying goodbye and wishing well
-- Фала. = Thanks (informal; Благодарам is more formal).
-- Чао! = Bye! (informal)
-- Се гледаме наскоро! [se gledame naskoro] = See you soon!
-- Ќе ми недостигаш. [ḱe mi nedostigaš] = I'll miss you.
-- Со среќа! [so sreḱa] = Good luck!
+- Фала. [Fala.] = Thanks (informal; Благодарам is more formal).
+- Чао! [Chao!] = Bye! (informal)
+- Се гледаме наскоро! [Se gledame naskoro!] = See you soon!
+- Ќе ми недостигаш. [Kje mi nedostigash.] = I'll miss you.
+- Со среќа! [So srekja!] = Good luck!
 
 ## Holiday greetings
-- Среќна Нова Година! = Happy New Year!
-- Среќен Божиќ! = Merry Christmas!
-- Среќен роденден! = Happy birthday!
+- Среќна Нова Година! [Srekjna Nova Godina!] = Happy New Year!
+- Среќен Божиќ! [Srekjen Bozhikj!] = Merry Christmas!
+- Среќен роденден! [Srekjen rodenden!] = Happy birthday!
 
 ## Emergencies
-- Итно е! [itno e] = It's an emergency!
-- Изгубен сум. (m.) / Изгубена сум. (f.) = I'm lost.
-- Го изгубив паричникот. = I lost my wallet.
-- Ја изгубив торбата. = I lost my bag.
-- Крадец! [kradec] = Thief!
-- Остави ме! = Leave me alone!
+- Итно е! [Itno e!] = It's an emergency!
+- Изгубен сум. (m.) / Изгубена сум. (f.) [Izguben sum. / Izgubena sum.] = I'm lost.
+- Го изгубив паричникот. [Go izgubiv parichnikot.] = I lost my wallet.
+- Ја изгубив торбата. [Ja izgubiv torbata.] = I lost my bag.
+- Крадец! [Kradec!] = Thief!
+- Остави ме! [Ostavi me!] = Leave me alone!
 - Emergency numbers in North Macedonia: 112 general emergency, 192 police, 193 fire brigade, 194 ambulance, 196 road help (AMSM).
 
 ## Emergencies: Useful phrases
@@ -52,11 +52,11 @@ Source for this and the following sections: team-authored notes, written and rev
 - Стоп! Крадец! [Stop! Kradec!] = Stop! Thief!
 - Ми треба вашата помош. [Mi treba vashata pomosh.] = I need your help.
 - Итно е. [Itno e.] = It's an emergency.
-- Јас сум изгубен. (m) / Јас сум изгубена. (f) [Jas sum izguben. (m) / Jas sum izgubena. (f)] = I'm lost.
+- Јас сум изгубен. (m) / Јас сум изгубена. (f) [Jas sum izguben. / Jas sum izgubena.] = I'm lost.
 - Ја изгубив мојата торба. [Ja izgubiv mojata torba.] = I lost my bag.
 - Го изгубив мојот паричник. [Go izgubiv mojot parichnik.] = I lost my wallet.
-- Јас сум болен. (m) / Јас сум болна. (f) [Jas sum bolen. (m) / Jas sum bolna. (f)] = I'm sick.
-- Повреден сум. (m) / Повредена сум. (f) [Povreden sum. (m) / Povredena sum. (f)] = I've been injured.
+- Јас сум болен. (m) / Јас сум болна. (f) [Jas sum bolen. / Jas sum bolna.] = I'm sick.
+- Повреден сум. (m) / Повредена сум. (f) [Povreden sum. / Povredena sum.] = I've been injured.
 - Ми треба лекар. [Mi treba lekar.] = I need a doctor.
 - Може ли да го користам вашиот телефон? [Mozhe li da go koristam vashiot telefon?] = Can I use your phone?
 
