@@ -125,3 +125,42 @@ From Kramer & Mitkovska, Lesson 7 vocabulary (pp. 137-139). Verbs are given as i
 - Ало = Hello (on the phone);  Чао = Bye / Hi (informal)
 - бидејќи = because;  за да = in order to;  па = and so, then
 - нај- = most (најблиску = closest);  по- = more (поблиску = closer, подалеку = farther)
+
+## Asking the way: Vocabulary
+Source for this and the following sections: team-authored notes, written and reviewed by a native Macedonian speaker (Marija), November 2026.
+- лево [levo] = left
+- десно [desno] = right
+- право [pravo] = straight ahead
+- блиску [blisku] = near, close
+- далеку [daleku] = far
+- улица [ulica] = street
+- плоштад [ploshtad] = square
+- центар [centar] = city center
+- автобуска станица [avtobuska stanica] = bus station
+- железничка станица [zheleznichka stanica] = train station
+- аеродром [aerodrom] = airport
+- такси [taksi] = taxi
+- билет [bilet] = ticket
+
+## Asking the way: Useful phrases
+- Извинете, каде е ...? [Izvinete, kade e ...?] = Excuse me, where is ...?
+- Како да стигнам до центарот? [Kako da stignam do centarot?] = How do I get to the city center?
+- Дали е далеку? [Dali e daleku?] = Is it far?
+- Свртете лево / десно. [Svrtete levo / desno.] = Turn left / right.
+- Одете право. [Odete pravo.] = Go straight ahead.
+- Може ли да ми покажете на мапата? [Mozhe li da mi pokazhete na mapata?] = Can you show me on the map?
+- Еден билет за Охрид, ве молам. [Eden bilet za Ohrid, ve molam.] = One ticket to Ohrid, please.
+- Колку чини билетот? [Kolku chini biletot?] = How much is the ticket?
+- Не разбирам. [Ne razbiram.] = I don't understand.
+- Можете ли да зборувате побавно? [Mozhete li da zboruvate pobavno?] = Could you speak more slowly?
+
+## Asking the way: Sample dialogue
+- Извинете, каде е автобуската станица? [Izvinete, kade e avtobuskata stanica?] = Excuse me, where is the bus station?
+- Минувачот: Одете право до плоштадот, потоа свртете лево. [Odete pravo do ploshtadot, potoa svrtete levo.] = Passer-by: Go straight to the square, then turn left.
+- Дали е далеку? [Dali e daleku?] = Is it far?
+- Минувачот: Не, околу десет минути пешки. [Ne, okolu deset minuti peshki.] = Passer-by: No, about ten minutes on foot.
+- Благодарам! [Blagodaram!] = Thank you!
+- Минувачот: Нема за што. / Нема проблем. [Nema za shto. / Nema problem.] = Passer-by: You're welcome. / No problem.
+
+## Asking the way: Culture notes
+Street signs are in Cyrillic, and in city centers often also in Latin letters, so learning to read Cyrillic street names helps a lot. Intercity buses connect Skopje with Ohrid, Bitola and other cities; buy the ticket at the bus station counter. In taxis, check that the meter is running (Ве молам, вклучете го таксиметарот / Ve molam, vkluchete go taksimetarot. / Please turn on the meter).

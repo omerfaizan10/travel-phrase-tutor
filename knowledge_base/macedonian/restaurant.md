@@ -144,3 +144,226 @@ Based on the sample menu of the restaurant "Македонска куќа" in th
 - Зеленчук: боранија green beans, брокула broccoli, грав beans, грашок peas, домат tomato, зелена салата lettuce, зелка cabbage, карфиол cauliflower, компир potato, краставица cucumber, кромид onion, лук garlic, модар патлиџан eggplant, печурка mushroom, пиперка pepper, спанаќ spinach, тиква pumpkin, тиквичка courgette/squash, цвекло beetroot, целер celery
 - Овошје: ананас pineapple, банана banana, боровинка blueberry, вишна sour cherry, грозје grapes, диња melon, дуња quince, јаболко apple, јагода strawberry, кајсија apricot, калинка pomegranate, капинка blackberry, круша pear, лимон lemon, лубеница watermelon, малина raspberry, мандарина tangerine, портокал orange, праска peach, слива plum
 - Јаткасти: бадем almond, кикиритка peanut, лешник hazelnut, орев walnut
+
+## Restaurant basics: Vocabulary
+Source for this and the following sections: team-authored notes, written and reviewed by a native Macedonian speaker (Marija), November 2026.
+- келнер / келнерка [kelner / kelnerka] = waiter / waitress
+- мени [meni] = menu
+- маса [masa] = table
+- сметка [smetka] = bill, check
+- вода [voda] = water
+- леб [leb] = bread
+- вино [vino] = wine
+- пиво [pivo] = beer
+- кафе [kafe] = coffee
+- месо [meso] = meat
+- риба [riba] = fish
+- салата [salata] = salad
+- шопска салата [shopska salata] = shopska salad (tomato, cucumber, pepper, white cheese)
+- тавче гравче [tavche gravche] = baked beans in a clay pot (national dish)
+- ајвар [ajvar] = roasted red pepper spread
+
+## Restaurant basics: Useful phrases
+- Добар ден! / Здраво! [Dobar den! / Zdravo!] = Good afternoon! / Hello!
+- Маса за двајца, ве молам. [Masa za dvajca, ve molam.] = A table for two, please.
+- Може ли менито? [Mozhe li menito?] = Can I have the menu?
+- Што препорачувате? [Shto preporachuvate?] = What do you recommend?
+- Би сакал / Би сакала ... [Bi sakal / Bi sakala ...] = I would like ... (m / f)
+- Една шопска салата, ве молам. [Edna shopska salata, ve molam.] = One shopska salad, please.
+- Чаша вода, ве молам. [Chasha voda, ve molam.] = A glass of water, please.
+- Јас сум вегетаријанец / вегетаријанка. [Jas sum vegetarijanec / vegetarijanka.] = I am vegetarian. (m / f)
+- Сметката, ве молам. [Smetkata, ve molam.] = The bill, please.
+- Може ли да платам со картичка? [Mozhe li da platam so kartichka?] = Can I pay by card?
+- Благодарам! [Blagodaram!] = Thank you!
+- На здравје! [Na zdravje!] = Cheers!
+
+## Restaurant basics: Sample dialogue
+- Келнерот: Добар ден! Повелете, што би сакале да нарачате? [Dobar den! Povelete, shto bi sakale da narachate?] = Waiter: Good afternoon! What would you like to order?
+- Добар ден. Би сакал тавче гравче и една шопска салата. [Dobar den. Bi sakal tavche gravche i edna shopska salata.] = Hello. I would like tavche gravche and a shopska salad.
+- Келнерот: Нешто за пиење? [Neshto za pienje?] = Waiter: Anything to drink?
+- Една чаша црвено вино, ве молам. [Edna chasha crveno vino, ve molam.] = A glass of red wine, please.
+- Келнерот: Веднаш. Пријатно! [Vednash. Prijatno!] = Waiter: Right away. Enjoy your meal!
+- Сметката, ве молам. [Smetkata, ve molam.] = The bill, please.
+
+## Restaurant basics: Culture notes
+Use the polite form (Вие, "ve molam") with waiters and staff. "Пријатно" is said when food is served (enjoy your meal) and also as a polite goodbye. Leaving about 10% or rounding up the bill is a common, friendly tip but not required. Lunch is often the main meal of the day, and traditional restaurants (кафана, kafana) serve grilled meat, salads and rakija.
+
+## Kafana: Dialogue 1: Getting a table and asking for a recommendation
+- Добра вечер. Имате ли слободна маса за двајца? [Dobra vecher. Imate li slobodna masa za dvajca?] = Good evening. Do you have a free table for two?
+- Келнерот: Да, повелете. Сакате внатре или на тераса? [Da, povelete. Sakate vnatre ili na terasa?] = Waiter: Yes, please. Would you like inside or on the terrace?
+- На тераса, ве молам. [Na terasa, ve molam.] = On the terrace, please.
+- Што е специјалитет на куќата? [Shto e specijalitet na kukjata?] = What is the house specialty?
+- Келнерот: Селско месо во тава. Многу е вкусно. [Selsko meso vo tava. Mnogu e vkusno.] = Waiter: Village meat in a clay pot. It's very tasty.
+- Дали е луто? [Dali e luto?] = Is it spicy?
+- Келнерот: Малку, но може и без лута пиперка. [Malku, no mozhe i bez luta piperka.] = Waiter: A little, but it can be made without hot pepper.
+- Добро, едно селско месо без луто и една шопска салата. [Dobro, edno selsko meso bez luto i edna shopska salata.] = OK, one village meat, not spicy, and one shopska salad.
+
+## Kafana: Dialogue 2: Special requests
+- Мојата пријателка е вегетаријанка. Што препорачувате? [Mojata prijatelka e vegetarijanka. Shto preporachuvate?] = My friend (f) is vegetarian. What do you recommend?
+- Келнерот: Тавче гравче или полнети пиперки со ориз. [Tavche gravche ili polneti piperki so oriz.] = Waiter: Tavche gravche or peppers stuffed with rice.
+- Тавче гравче, ве молам. Дали има месо во него? [Tavche gravche, ve molam. Dali ima meso vo nego?] = Tavche gravche, please. Is there meat in it?
+- Келнерот: Не, без месо е. [Ne, bez meso e.] = Waiter: No, it's without meat.
+- Јас сум алергичен на ореви. [Jas sum alergichen na orevi.] = I am allergic to nuts. (m)
+
+## Kafana: Dialogue 3: Paying
+- Извинете, може ли сметката? [Izvinete, mozhe li smetkata?] = Excuse me, can we have the bill?
+- Келнерот: Веднаш. Заедно или одделно? [Vednash. Zaedno ili oddelno?] = Waiter: Right away. Together or separately?
+- Заедно. Може ли со картичка? [Zaedno. Mozhe li so kartichka?] = Together. Can I pay by card?
+- Келнерот: Да, може. [Da, mozhe.] = Waiter: Yes, you can.
+- Сè беше многу вкусно. Благодарам! [Se beshe mnogu vkusno. Blagodaram!] = Everything was very tasty. Thank you!
+- Келнерот: Благодарам и вам. Повелете пак! [Blagodaram i vam. Povelete pak!] = Waiter: Thank you too. Come again!
+
+## Kafana: Culture notes
+A kafana is a traditional restaurant, often with live music in the evening. People order salads and rakija first and the main dish later, and meals are slow and social. Portions are big, so it is normal to share. "Повелете пак" (come again) is a common goodbye from staff.
+
+## Eating out: Useful phrases and words
+- Маса за еден/двајца, ве молам. [Masa za eden/dvajca, ve molam.] = A table for one/two , please.
+- Може ли да го видам менито, молам? [Mozhe li da go vidam menito, molam?] = Can I look at the menu, please?
+- Може ли да видам во кујната? [Mozhe li da vidam vo kujnata?] = Can I look in the kitchen?
+- Дали постои специјалитет на куќата? [Dali postoi specijalitet na kukjata?] = Is there a house specialty?
+- Дали постои локален специјалитет? [Dali postoi lokalen specijalitet?] = Is there a local specialty?
+- Јас сум вегетаријанец. (m)/Јас сум вегетаријанка. (f) [Jas sum vegetarijanec. (m)/Jas sum vegetarijanka (f)] = I'm a vegetarian.
+- Јас не јадам свинско месо. [Jas ne jadam svinsko meso.] = I don't eat pork.
+- Јас не јадам телешко месо. [Jas ne jadam teleshko meso.] = I don't eat beef.
+- појадок/доручек [pojadok/doruchek] = breakfast
+- ручек [ruchek] = lunch
+- вечера [vechera] = dinner
+- чај [chaj] = tea
+- кафе [kafe] = coffee
+- вода [voda] = water
+- ракија [rakija] = rakija
+- вино [vino] = wine
+- газирана вода [gazirana voda] = sparkling water
+- сок од портокал/јаболко [sok od portokal/jabolko] = orange/apple juice
+- оброк [obrok] = meal
+- Сакам _____. [Sakam _____.] = I want _____.
+- лажица [lazhica] = spoon
+- вилушка [vilushka] = fork
+- нож [nozh] = knife
+- чинија [chinija] = plate
+- чаша [chasha] = glass
+- пилешко [pileshko] = chicken
+- говедско месо [govedsko meso] = beef
+- риба [riba] = fish
+- шунка [shunka] = ham
+- колбас [kolbas] = sausage
+- кашкавал [kashkaval] = cheese
+- сирење [sirenje] = white cheese
+- јајца [jajca] = eggs
+- салата [salata] = salad
+- (свеж) зеленчук [(svezh) zelenchuk] = (fresh) vegetables
+- (свежо) овошје [(svezho) ovoshje] = (fresh) fruit
+- леб [leb] = bread
+- сендвич [sendvich] = sandwich
+- тестенини [testenini] = pasta
+- ориз [oriz] = rice
+- грав [grav] = beans
+- Може ли една чаша _____? [Mozhe li edna chasha ____?] = May I have a glass of _____?
+- Може ли едно шише _____? [Mozhe li edno shishe _____?] = May I have a bottle of _____?
+- пиво [pivo] = beer
+- црвено/бело вино [crveno/belo vino] = red/white wine
+- Може ли малку _____? [Mozhe li malku _____?] = May I have some _____?
+- сол [sol] = salt
+- бибер [biber] = black pepper
+- путер [puter] = butter
+- Извинете, келнер(m)/келнерка(f)? [Izvinete, kelner(m)/kelnerka(f)?] = Excuse me, waiter/waitress? (getting attention of server)
+- Јас сум готов(m)/готова(f). [Jas sum gotov(m)/gotova(f).] = I'm done.
+- Тоа беше вкусно. [Toa beshe vkusno.] = It was delicious.
+- Сметката, ве молам. [Smetkata, ve molam.] = The check, please.
+- На здравје! [Na zdravje!] = Cheers!
+
+## Eating out: Culture notes
+Macedonians generally take their main meal at midday or early afternoon.
+
+## Café: Vocabulary
+- кафуле [kafule] = café
+- макијато [makijato] = macchiato (espresso with milk foam)
+- големо / мало макијато [golemo / malo makijato] = large / small macchiato
+- еспресо [espreso] = espresso
+- турско кафе [tursko kafe] = Turkish coffee
+- со шеќер / без шеќер [so shekjer / bez shekjer] = with sugar / without sugar
+- средно [sredno] = medium sweet (for Turkish coffee)
+- со млеко [so mleko] = with milk
+- чај [chaj] = tea
+- лимонада [limonada] = lemonade
+- сок [sok] = juice
+- минерална вода [mineralna voda] = sparkling mineral water
+- колач [kolach] = cake, pastry
+
+## Café: Useful phrases
+- Едно макијато, ве молам. [Edno makijato, ve molam.] = One macchiato, please.
+- Едно големо макијато и едно еспресо. [Edno golemo makijato i edno espreso.] = One large macchiato and one espresso.
+- Едно турско кафе, средно. [Edno tursko kafe, sredno.] = One Turkish coffee, medium sweet.
+- Дали имате безлактозно млеко? [Dali imate bezlaktozno mleko?] = Do you have lactose-free milk?
+- Дали имате интернет? Која е лозинката? [Dali imate internet? Koja e lozinkata?] = Do you have Wi-Fi? What's the password?
+- Може ли уште една вода? [Mozhe li ushte edna voda?] = Can I have another water?
+- Колку треба да платам? [Kolku treba da platam?] = How much do I owe?
+
+## Café: Sample dialogue
+- Келнерот: Добар ден, повелете. [Dobar den, povelete.] = Waiter: Hello, what can I get you?
+- Едно големо макијато, ве молам. [Edno golemo makijato, ve molam.] = One large macchiato, please.
+- Келнерот: Со шеќер или без? [So shekjer ili bez?] = Waiter: With sugar or without?
+- Без шеќер. И една чаша вода. [Bez shekjer. I edna chasha voda.] = Without sugar. And a glass of water.
+- Келнерот: Нешто друго? Имаме и колачи. [Neshto drugo? Imame i kolachi.] = Waiter: Anything else? We also have cakes.
+- Не, тоа е сè, благодарам. [Ne, toa e se, blagodaram.] = No, that's all, thank you.
+- Извинете, колку ќе платам? [Izvinete, kolku kje platam?] = Excuse me, how much do I owe?
+- Келнерот: Сто денари. [Sto denari.] = Waiter: One hundred denars.
+- Повелете. Задржете го кусурот. [Povelete. Zadrzhete go kusurot.] = Here you go. Keep the change.
+
+## Café: Culture notes
+Going for coffee ("на кафе") is a big part of social life: people sit for an hour or more with one coffee, and nobody will rush you. The macchiato is the default coffee in most cafés. Turkish coffee is more common at home and in traditional places in the Old Bazaar. You usually pay at the table when you are ready to leave.
+
+## Local dishes: Main dishes
+- тавче гравче [tavche gravche] = baked beans in a clay pot with onion and red pepper; the national dish, traditionally a meatless (fasting) meal
+- селско месо [selsko meso] = "village meat": pork or veal cooked with mushrooms, peppers and wine, served in a clay pot
+- сарма [sarma] = cabbage or vine leaves stuffed with minced meat and rice
+- полнети пиперки [polneti piperki] = peppers stuffed with minced meat and rice (or with beans, as a fasting dish)
+- мусака [musaka] = baked layers of potatoes and minced meat
+- кебапчиња [kebapchinja] = small grilled minced-meat rolls, served with chopped onion and bread
+- пастрмајлија [pastrmajlija] = oval bread pie topped with salted meat and egg, famous in Shtip
+- турли тава [turli tava] = mixed vegetables (and sometimes meat) baked in a clay dish
+- пастрмка [pastrmka] = trout; Ohrid trout (охридска пастрмка) is endemic and protected
+
+## Local dishes: Breakfast and street food
+- бурек [burek] = flaky pastry filled with cheese, meat or spinach, usually eaten with drinkable yogurt
+- јогурт [jogurt] = drinkable yogurt, the classic drink with burek
+- ѓеврек [gjevrek] = ring-shaped bread with sesame, sold on the street
+- зелник [zelnik] = homemade layered pie with leeks, spinach or cheese
+- пржени пиперки [przheni piperki] = fried peppers, often with garlic, a summer side dish
+
+## Local dishes: Salads, spreads and cheese
+- шопска салата [shopska salata] = tomato, cucumber, onion with grated white cheese on top
+- ајвар [ajvar] = roasted red pepper spread, made at home every autumn
+- пинџур [pindzhur] = spread of roasted peppers, tomatoes and garlic
+- макало [makalo] = garlic dip, eaten with bread
+- таратор [tarator] = cold yogurt and cucumber soup with garlic, for hot days
+- овчо сирење [ovcho sirenje] = white sheep's cheese
+- кашкавал [kashkaval] = yellow hard cheese
+
+## Local dishes: Sweets
+- баклава [baklava] = layers of thin pastry with walnuts and syrup
+- тулумби [tulumbi] = fried dough soaked in syrup
+- кадаиф [kadaif] = shredded pastry with walnuts and syrup
+- сутлијаш [sutlijash] = rice pudding with cinnamon
+- слатко [slatko] = fruit preserve, offered to guests with a glass of water
+
+## Local dishes: Drinks
+- домашна ракија [domashna rakija] = homemade rakija (usually grape brandy), offered to guests
+- мастика [mastika] = anise-flavored liqueur
+- Вранец [Vranec] = the best-known Macedonian red grape and wine, from the Tikvesh wine region
+- Скопско [Skopsko] = the most popular local beer
+- турско кафе [tursko kafe] = Turkish coffee, cooked in a small pot (џезве)
+- макијато [makijato] = macchiato, the most ordered coffee in Macedonian cafés
+- боза [boza] = sweet, thick fermented drink, sold in pastry shops in the Old Bazaar
+
+## Local dishes: Useful phrases
+- Што е типично македонско? [Shto e tipichno makedonsko?] = What is typically Macedonian?
+- Што е ова? [Shto e ova?] = What is this?
+- Дали е луто? [Dali e luto?] = Is it spicy?
+- Без месо, ве молам. [Bez meso, ve molam.] = Without meat, please.
+- Дали е домашно? [Dali e domashno?] = Is it homemade?
+- Би сакал / Би сакала да пробам нешто локално. [Bi sakal / Bi sakala da probam neshto lokalno.] = I would like to try something local. (m / f)
+- Многу е вкусно! [Mnogu e vkusno!] = It's very tasty!
+
+## Local dishes: Culture notes
+Bread is served with almost every meal, and salads with rakija come before the main dish. Many dishes are baked in clay pots (тава / grne). On religious fasting days people eat meatless versions of the same dishes, so restaurants usually have vegetarian options such as tavche gravche or stuffed peppers with beans. In autumn families make "зимница" (winter preserves) like ajvar and pickles at home. If you are invited into someone's home, expect to be offered coffee, slatko, or rakija; it's polite to accept at least a little.

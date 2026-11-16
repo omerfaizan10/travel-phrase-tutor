@@ -63,3 +63,14 @@ Format: time, platform, train, then main stops and arrival time.
 - Only three trains a day each way to Bitola, and two to Gevgelija, so it's worth checking times in advance.
 - The timetable has no trains to Охрид (Ohrid). For Ohrid, ask about buses: Кој автобус оди до Охрид?
 - Trains marked (Не) do not run on Sundays.
+
+## Asking about trains: more phrases
+Source for this and the following sections: team-authored notes, written and reviewed by a native Macedonian speaker (Marija), November 2026.
+- воз [voz] = train
+- Каде можам да купам билет? [Kade mozham da kupam bilet?] = Where can I buy a ticket?
+- Дали е ова перон за___? [Dali e ova peron za____?] = Is this the right platform for____?
+- Сакам да одам во___. [Sakam da odam vo____.] = I want to go to____.
+- Сакам___ [Sakam____] = I'd like___
+- ...билет во еден правец. [...bilet vo eden pravec.] = ...a one way ticket.
+- ...повратен билет. [...povraten bilet.] = ...a return ticket.
+- ...два билета. [...dva bileta.] = ...two tickets.
