@@ -24,6 +24,40 @@ EMBED_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 DOCS_DIR = Path(__file__).parent / "knowledge_base"
 MAX_CHUNK_CHARS = 1500  # keeps each passage small enough for the prompt
 
+# ---------------------------------------------------------------------------
+# Language varieties. Every "## " section in the notes starts with a line
+#     Country: <CODE> (<name>)
+# e.g. "Country: PR (Puerto Rico)". ALL = correct in every Spanish-speaking
+# country; 419 = Latin America in general. A section without the line counts
+# as the language's default variety.
+# ---------------------------------------------------------------------------
+VARIETIES = {   # code -> learner-facing name (Spanish varieties)
+    "ES": "Spain", "419": "Latin America (no specific country)",
+    "AR": "Argentina", "BO": "Bolivia", "CL": "Chile", "CO": "Colombia", "CR": "Costa Rica",
+    "CU": "Cuba", "DO": "Dominican Republic", "EC": "Ecuador", "SV": "El Salvador",
+    "GT": "Guatemala", "HN": "Honduras", "MX": "Mexico", "NI": "Nicaragua", "PA": "Panama",
+    "PY": "Paraguay", "PE": "Peru", "PR": "Puerto Rico", "UY": "Uruguay", "VE": "Venezuela",
+}
+LATIN_AMERICA = set(VARIETIES) - {"ES", "419"}
+DEFAULT_VARIETY = {"spanish": "ES", "macedonian": "MK"}
+_COUNTRY_LINE = re.compile(r"^Country:\s*(\S+)")
+
+
+def accepted_labels(language: str, variety: str | None) -> list[str]:
+    """
+    Section labels that may be used for a learner of `variety`, best first:
+        a Latin American country -> [country, "419", "ALL"]
+        "419"                    -> ["419", "ALL"]
+        "ES" (or none given)     -> ["ES", "ALL"]
+    Macedonian has a single variety, "MK".
+    """
+    variety = variety or DEFAULT_VARIETY.get(language, "")
+    if language != "spanish":
+        return [variety]
+    if variety in LATIN_AMERICA:
+        return [variety, "419", "ALL"]
+    return [variety, "ALL"]
+
 
 class Retriever:
     def __init__(self, docs_dir=DOCS_DIR, model_name=EMBED_MODEL):
@@ -32,15 +66,19 @@ class Retriever:
         self._model = None        # loaded on first search (takes a few seconds)
         self._embeddings = None   # one row per chunk
 
-    def search(self, query, language=None, k=3) -> list[dict]:
+    def search(self, query, language=None, k=3, country=None) -> list[dict]:
         """
         Return the k chunks most similar to `query`, best first.
         language: "spanish" / "macedonian" to only search that folder.
-        Each result: {"text", "source", "language", "score"} (score 0..1).
+        country: a variety code ("ES", "PR", "419", ...) to only search the
+                 sections labeled for it (see accepted_labels); None = all.
+        Each result: {"text", "source", "language", "country", "score"} (score 0..1).
         """
+        allowed = set(accepted_labels(language.lower(), country)) if (language and country) else None
         candidates = [
             i for i, c in enumerate(self.chunks)
-            if language is None or c["language"] == language.lower()
+            if (language is None or c["language"] == language.lower())
+            and (allowed is None or c["country"] in allowed)
         ]
         if not candidates:
             return []
@@ -64,13 +102,35 @@ class Retriever:
             texts, normalize_embeddings=True, convert_to_numpy=True
         )
 
+    def coverage(self, language: str, min_phrases: int = 2) -> dict:
+        """
+        {filename: {variety code: number of teachable sections}} for one
+        language. A section is teachable when it has at least `min_phrases`
+        phrase lines (the planner's minimum). Pieces of one split section
+        count once.
+        """
+        out, seen = {}, set()
+        for c in self.chunks:
+            if c["language"] != language.lower():
+                continue
+            name = c["source"].split("/", 1)[1]
+            heading = c["text"].splitlines()[1] if "\n" in c["text"] else ""
+            key = (name, heading, c["country"])
+            if key in seen or len(parse_phrases(c)) < min_phrases:
+                continue
+            seen.add(key)
+            counts = out.setdefault(name, {})
+            counts[c["country"]] = counts.get(c["country"], 0) + 1
+        return out
+
 
 def load_chunks(docs_dir=DOCS_DIR) -> list[dict]:
     """Read every knowledge_base/<language>/*.md file and split it into chunks."""
     chunks = []
     for path in sorted(Path(docs_dir).glob("*/*.md")):
         language = path.parent.name.lower()
-        text = path.read_text(encoding="utf-8")
+        text, countries = _take_country_lines(path.read_text(encoding="utf-8"),
+                                              DEFAULT_VARIETY.get(language, ""))
         title_match = re.search(r"(?m)^# (.+)$", text)
         title = title_match.group(1).strip() if title_match else path.stem
         for section in _split_sections(text):
@@ -84,8 +144,30 @@ def load_chunks(docs_dir=DOCS_DIR) -> list[dict]:
                 "text": body,
                 "source": f"{language}/{path.name}",
                 "language": language,
+                # Every piece of a split section keeps its section's label.
+                "country": countries.get(section.partition("\n")[0],
+                                         DEFAULT_VARIETY.get(language, "")),
             })
     return chunks
+
+
+def _take_country_lines(text, default):
+    """
+    Remove each section's "Country: ..." line (it is metadata, not teaching
+    text) and return (text, {"## heading": code}). Headings are unique within
+    a file, so the heading identifies the section.
+    """
+    countries, out, heading = {}, [], None
+    for line in text.splitlines():
+        if line.startswith("## "):
+            heading = line.strip()
+            countries[heading] = default
+        elif heading and countries.get(heading) == default and _COUNTRY_LINE.match(line) \
+                and out and out[-1].strip() == heading:
+            countries[heading] = _COUNTRY_LINE.match(line).group(1)
+            continue
+        out.append(line)
+    return "\n".join(out) + "\n", countries
 
 
 def _split_sections(text):
