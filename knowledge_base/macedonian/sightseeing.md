@@ -12,11 +12,11 @@ Source: Christina E. Kramer & Liljana Mitkovska, "Macedonian: A Course for Begin
 - Каде има посета и на други места? [Kade ima poseta i na drugi mesta?] [KA-de EE-ma PO-se-ta ee na DROO-gee MES-ta?] = Where are there visits to other places too?
 
 ## Tour and travel words
-- патување trip, патува to travel, излет excursion / day trip, посета visit
-- разгледување на градот city sightseeing tour, пловење со брод boat trip
-- ноќевање overnight stay (4 дена / 2 ноќевања = 4 days / 2 nights)
-- вечера во национален ресторан dinner in a traditional restaurant
-- воз train, авион plane, брод boat / ship, чамец small boat
+- патување [patuvanje] [pa-TOO-va-nye] trip, патува [patuva] [PA-too-va] to travel, излет [izlet] [EEZ-let] excursion / day trip, посета [poseta] [PO-se-ta] visit
+- разгледување на градот [razgleduvanje na gradot] [raz-gle-DOO-va-nye na GRA-dot] city sightseeing tour, пловење со брод [plovenje so brod] [PLO-ve-nye so BROD] boat trip
+- ноќевање [nokjevanje] [no-KYE-va-nye] overnight stay (четири дена [chetiri dena] [CHE-tee-ree DE-na] / две ноќевања [dve nokjevanja] [DVE no-KYE-va-nya]: 4 days / 2 nights)
+- вечера во традиционален ресторан [vechera vo tradicionalen restoran] [VE-che-ra vo tra-dee-tsee-O-na-len RES-to-ran] dinner in a traditional restaurant
+- воз [voz] [VOZ] train, авион [avion] [A-vee-on] plane, брод [brod] [BROD] boat / ship, чамец [chamec] [CHA-mets] / кајче [kajche] [KAY-che] small boat
 
 ## Famous places in North Macedonia (from Kramer, Lesson 16)
 - Охрид (Ohrid): a lakeside town; a popular excursion goes from Ohrid to Свети Наум (Sveti Naum), a monastery on the lake.
@@ -24,7 +24,7 @@ Source: Christina E. Kramer & Liljana Mitkovska, "Macedonian: A Course for Begin
 - Водно (Vodno): the mountain above Skopje, going up to Пантелејмон (St Panteleimon monastery). From above you can see the city stretched along the river.
 - Езерото Матка (Lake Matka): near Skopje. You can take a small boat to the cave Врело, one of the deepest underwater caves in the world. Beautiful nature.
 - Курбиново (Kurbinovo): its church of Св. Ѓорѓија (St George) has 12th-century frescoes.
-- Брајчино (Brajčino): a village that has become a centre of eco-tourism, with tourists from all over the world.
+- Брајчино (Brajchino): a village that has become a centre of eco-tourism, with tourists from all over the world.
 - Битола (Bitola): a major city in the south-west.
 
 ## Useful sightseeing sentences
@@ -202,7 +202,7 @@ Wine making in Tikvesh is a family tradition, and many families still make homem
 - Охридско лето [Ohridsko leto] [O-hreed-sko LE-to] = Ohrid Summer Festival, concerts and theatre in July and August
 - Струшки вечери на поезијата [Strushki vecheri na poezijata] [STROOSH-kee VE-che-ree na po-e-ZEE-ya-ta] = Struga Poetry Evenings, an international poetry festival in late August
 - Скопски џез фестивал [Skopski dzhez festival] [SKOP-skee JEZ FES-tee-val] = Skopje Jazz Festival, in October
-- Вевчански карнeвал [Vevchanski karneval] [VEV-chan-skee KARNeVAL] = Vevchani Carnival, in mid-January, with masks and costumes
+- Вевчански карневал [Vevchanski karneval] [VEV-chan-skee KAR-ne-val] = Vevchani Carnival, in mid-January, with masks and costumes
 - Илинден [Ilinden] [EE-leen-den] = Ilinden, a national holiday on 2 August
 - Ден на независноста [Den na nezavisnosta] [DEN na ne-za-VEES-nos-ta] = Independence Day, 8 September
 

@@ -22,16 +22,15 @@ Source: Christina E. Kramer & Liljana Mitkovska, "Macedonian: A Course for Begin
 - Времето е многу подобро. [Vremeto e mnogu podobro.] [VRE-me-to e MNO-goo PO-do-bro.] = The weather is much better.
 
 ## Weather forecast words
-- дожд rain, слаб дожд light rain, снег snow, врнежи precipitation, магла fog, облак cloud, ветар wind
-- грмеж thunder, молња lightning
-- облачен cloudy, сончев sunny, променлив changeable, умерен moderate
-- степен degree, максимален maximum, минимален minimum, утрински morning (adj.), дневен daily
-- Example forecast: "Облачно со дожд, а на планините слаб снег. Во утринските часови ќе има магла. Температурата ќе се движи од 4 до 10 степени." = Cloudy with rain, light snow in the mountains. Fog in the morning. Temperatures from 4 to 10 degrees.
-- Example: "Облачно и студено со повремени врнежи од снег." ["Oblachno i studeno so povremeni vrnezhi od sneg."] ["O-blach-no ee STOO-de-no so po-VRE-me-nee VR-ne-zhee od SNEG."] = Cloudy and cold with occasional snow.
+- дожд [dozhd] [DOZHD] rain, слаб дожд [slab dozhd] [SLAB DOZHD] light rain, снег [sneg] [SNEG] snow, врнежи [vrnezhi] [VR-ne-zhee] precipitation, магла [magla] [MAG-la] fog, облак [oblak] [OB-lak] cloud, ветар [vetar] [VE-tar] wind
+- грмеж [grmezh] [GR-mezh] thunder, молња [molnja] [MOL-nya] lightning
+- облачно [oblachno] [OB-lach-no] cloudy, сончево [sonchevo] [SON-che-vo] sunny, променливо [promenlivo] [pro-MEN-lee-vo] changeable, умерено [umereno] [oo-ME-re-no] moderate
+- степен [stepen] [STE-pen] degree, максимален [maksimalen] [mak-SEE-ma-len] maximum, минимален [minimalen] [mee-NEE-ma-len] minimum, утрински [utrinski] [OO-treen-skee] morning (adj.), дневен [dneven] [DNE-ven] daily
+- "Облачно со дожд, а на планините слаб снег. Во утринските часови ќе има магла. Температурата ќе се движи од 4 до 10 степени." [Oblachno so dozhd, a na planinite slab sneg. Vo utrinskite chasovi kje ima magla. Temperaturata kje se dvizhi od 4 do 10 stepeni.] [OB-lach-no so DOZHD, a na pla-NEE-nee-te SLAB SNEG. vo oo-TREEN-skee-te CHA-so-vee KYE ee-ma MAG-la. tem-pe-ra-TOO-ra-ta kye SE dvee-zhee od CHE-tee-ree do DE-set STE-pe-nee.] = Cloudy with rain, light snow in the mountains. Fog in the morning. Temperatures from 4 to 10 degrees.
+- Example: "Облачно и студено со повремени врнежи од снег." [Oblachno i studeno so povremeni vrnezhi od sneg.] [OB-lach-no ee STOO-de-no so po-VRE-me-nee VR-ne-zhee od SNEG.] = Cloudy and cold with occasional snow.
 
 ## Seasons and what to wear
-- пролет spring, лето summer, есен autumn, зима winter
-- "In spring/autumn" uses на: на пролет, на есен. "In summer/winter" uses во: во лето, во зима.
+- пролет [prolet] [PRO-let] spring, лето [leto] [LE-to] summer, есен [esen] [E-sen] autumn, зима [zima] [ZEE-ma] winter
 - Кое годишно време најмногу го сакате? [Koe godishno vreme najmnogu go sakate?] [KO-e GO-deesh-no VRE-me NAY-mno-goo go SA-ka-te?] = Which season do you like best?
-- чадор umbrella, мантил raincoat, ракавици gloves, капа hat, шал scarf, џемпер sweater, ветровка windbreaker
+- чадор [chador] [CHA-dor] umbrella, мантил [mantil] [MAN-teel] raincoat, ракавици [rakavici] [ra-KA-vee-tsee] gloves, капа [kapa] [KA-pa] hat, шал [shal] [SHAL] scarf, џемпер [dzhemper] [JEM-per] sweater, ветровка [vetrovka] [VET-rov-ka] windbreaker
 - Дали носите чадор кога врне? [Dali nosite chador koga vrne?] [DA-lee NO-see-te CHA-dor KO-ga VR-ne?] = Do you take an umbrella when it rains?

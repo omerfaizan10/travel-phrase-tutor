@@ -98,28 +98,30 @@ From Kramer & Mitkovska, Lesson 7 vocabulary (pp. 137-139). Verbs are given as i
 - чека / почека [cheka / pocheka] [CHE-ka / PO-che-ka] = wait (Почекајте! = Wait!)
 - шета / прошета [sheta / prosheta] [SHE-ta / PRO-she-ta] = stroll, go for a walk
 - посетува / посети [posetuva / poseti] [po-SE-too-va / PO-se-tee] = visit
-- плаќа / плати [plakja / plati] [PLA-kya / PLA-tee] = pay;  чини [chini] [CHEE-nee] = cost
+- плаќа / плати [plakja / plati] [PLA-kya / PLA-tee] = pay
+- чини [chini] [CHEE-nee] = cost
 - се извинува / се извини [se izvinuva / se izvini] [se eez-VEE-noo-va / se EEZ-vee-nee] = excuse oneself (Извинете = Excuse me)
 - се јавува / се јави [se javuva / se javi] [se YA-voo-va / SE ya-vee] = call, get in touch
 - треба [treba] [TRE-ba] = need to, should (Треба да одам во ... = I need to go to ...)
-- Ве молам [Ve molam] [VE mo-lam] = please;  Немој! / Немојте! [Nemoj! / Nemojte!] [NE-moy! / NE-moy-te!] = Don't!
+- Ве молам [Ve molam] [VE mo-lam] = please
+- Немој! / Немојте! [Nemoj! / Nemojte!] [NE-moy! / NE-moy-te!] = Don't!
 
 ## Direction adverbs and prepositions (Kramer)
-- лево left, десно right, право straight, назад back
-- далеку (од) far (from), близина vicinity / neighbourhood (во близина = nearby)
-- тука here, таму there, оттаму from there, некаде somewhere, насекаде everywhere
-- зад behind, пред in front of, покрај alongside / next to, преку across, по along, меѓу between, спроти / карши opposite
-- веднаш immediately, бавно slowly, точно exactly, рано early, доцна late, утре tomorrow
-- лево left, десно right, право straight, на десната страна = on the right side, на левата страна = on the left side
-- прво first, второ second, првата улица лево = the first street on the left
+- лево [levo] [LE-vo] left, десно [desno] [DES-no] right, право [pravo] [PRA-vo] straight, назад [nazad] [NA-zad] back
+- далеку (од) [daleku (od)] [DA-le-koo (od)] far (from), близина [blizina] [BLEE-zee-na] vicinity / neighbourhood (во близина [vo blizina] [vo BLEE-zee-na] nearby)
+- тука [tuka] [TOO-ka] here, таму [tamu] [TA-moo] there, оттаму [ottamu] [O-ta-moo] from there, некаде [nekade] [NE-ka-de] somewhere, насекаде [nasekade] [na-SE-ka-de] everywhere
+- зад [zad] [ZAD] behind, пред [pred] [PRED] in front of, покрај [pokraj] [PO-kray] alongside / next to, преку [preku] [PRE-koo] across, по [po] [PO] along, меѓу [megju] [ME-gyoo] between, спроти / карши [sproti / karshi] [SPRO-tee / KAR-shee] opposite
+- веднаш [vednash] [VED-nash] immediately, бавно [bavno] [BAV-no] slowly, точно [tochno] [TOCH-no] exactly, рано [rano] [RA-no] early, доцна [docna] [DOTS-na] late, утре [utre] [OO-tre] tomorrow
+- на десната страна [na desnata strana] [na DES-na-ta STRA-na] on the right side, на левата страна [na levata strana] [na LE-va-ta STRA-na] on the left side
+- прво [prvo] [PR-vo] first, второ [vtoro] [VTO-ro] second, првата улица лево [prvata ulica levo] [PR-va-ta OO-lee-tsa LE-vo] the first street on the left
 
 ## Places in the city (Kramer)
-- автобуска постојка bus stop, метро subway, мост bridge, раскрсница intersection, семафор traffic light, булевар boulevard, улица street, уличка narrow street / alley, кеј quay (riverside walk), страна side, влез entrance
-- Бит-пазар the (flea) market in Skopje's old bazaar area, чаршија old market place / bazaar, амам Turkish bath, бања bath, кале fortress (Skopje's Kale), тврдина fortress
-- црква church, џамија mosque, галерија / уметничка галерија art gallery, изложба exhibition, спомен-куќа memorial house, сала за концерти concert hall, клуб club, дискотека disco
-- река river, езеро lake, планина mountain, зеленило greenery, главен град capital
-- водич guide, план plan / map, денар denar (Macedonian currency), картичка credit card, мобилен (телефон) mobile phone, бутик boutique
-- Useful adjectives: ефтин cheap, скап expensive, слободен free / unoccupied, главен main, градски city (adj.), познат famous, широк wide, тесен narrow, долг long
+- автобуска постојка [avtobuska postojka] bus stop, метро [metro] subway, мост [most] bridge, раскрсница [raskrsnica] intersection, семафор [semafor] traffic light, булевар [bulevar] boulevard, улица [ulica] street, уличка [ulichka] narrow street / alley, кеј [key] quay (riverside walk), страна [strana] side, влез [vlez] entrance
+- Бит-пазар [Bit-pazar] the (flea) market in Skopje's old bazaar area, чаршија [charshija] old market place / bazaar, амам [amam] Turkish bath, бања [banja] bath, кале [kale] fortress (Skopje's Kale), тврдина [tvrdina] fortress (Ohrid's Samoilova tvrdina)
+- црква [crkva] church, џамија [dzamija] mosque, галерија / уметничка галерија [galerija / umetnichka galerija] art gallery, изложба [izlozhba] exhibition, спомен-куќа [spomen-kukja] memorial house, сала за концерти [sala za koncerti] concert hall, клуб [klub] club, дискотека [diskoteka] disco
+- река [reka] river, езеро [ezero] lake, планина [planina] mountain, зеленило [zelenilo] greenery, главен град [glaven grad] capital
+- водич [vodich] guide, план [plan] plan / map, денар [denar] denar (Macedonian currency), картичка [kartichka] credit card, мобилен (телефон) [mobilen (telefon)] mobile phone, бутик [butik] boutique
+- Useful adjectives: ефтин [eftin] cheap, скап [skap] expensive, слободен [sloboden] free / unoccupied, главен [glaven] main, градски [gradski] city (adj.), познат [poznat] famous, широк [shirok] wide, тесен [tesen] narrow, долг [dolg] long
 
 ## Small words for conversations (Kramer)
 - Ало [Alo] [A-lo] = Hello (on the phone);  Чао [Chao] [CHA-o] = Bye / Hi (informal)

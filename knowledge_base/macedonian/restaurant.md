@@ -49,7 +49,7 @@ Source for this and the following sections: Daniela Jankovska, "Tips & Guide to:
 - Друга тура! [Druga tura!] [DROO-ga TOO-ra!] = Another round!
 - Вода со лед [Voda so led] [VO-da so LED] = water with ice.  Без лед [Bez led] [bez LED] = no ice.
 - Кисела вода [Kisela voda] [KEE-se-la VO-da] = sparkling (mineral) water.
-- Ракија [Rakija] [RA-kee-ya] = local brandy.  Пиво [Pivo] [PEE-vo] = beer.  Кафе [Kafe] [KA-fe] = coffee.  Чај [Chaj] [CHAY] = tea.
+- Ракија [Rakija] [RA-kee-ya] = local grape brandy.  Пиво [Pivo] [PEE-vo] = beer.  Кафе [Kafe] [KA-fe] = coffee.  Чај [Chaj] [CHAY] = tea.
 
 ## Paying
 - Многу беше вкусно. Сметката, ве молам. [Mnogu beshe vkusno. Smetkata, ve molam.] [MNO-goo BE-she VKOOS-no. SMET-ka-ta, VE mo-lam.] = It was delicious. The check, please.
@@ -57,11 +57,11 @@ Source for this and the following sections: Daniela Jankovska, "Tips & Guide to:
 - Пари [Pari] [PA-ree] = money.  Кредитна картичка [Kreditna kartichka] [KRE-deet-na KAR-teech-ka] = credit card.
 
 ## Food words
-- Салата salad, Пиперки peppers, Домат tomato (colloquially патлиџан), Модар патлиџан eggplant, Краставици cucumbers, Моркови carrots, Компири potatoes, Пржени компири French fries
-- Пилешко chicken, Говедско beef, Свинско pork, Јагнешко lamb, Колбас sausage, Риба fish
-- Јајца eggs, Леб bread, Сирење white (feta) cheese, Кашкавал yellow cheese, Млеко milk, Кисело млеко kefir-style sour milk
-- Грав beans, Ориз rice, Палачинки crêpes, Овошје fruit, Зеленчук vegetables
-- Сол salt, Пипер pepper
+- Салата [Salata] [SA-la-ta] salad, Пиперки [Piperki] [PEE-per-kee] peppers, Домат [Domat] [DO-mat] tomato (colloquially патлиџан [patlidzhan] [PAT-lee-jan]), Модар патлиџан [Modar patlidzhan] [MO-dar PAT-lee-jan] eggplant, Краставици [Krastavici] [kras-TA-vee-tsee] cucumbers, Моркови [Morkovi] [MOR-ko-vee] carrots, Компири [Kompiri] [KOM-pee-ree] potatoes, Пржени компири [Przheni kompiri] [PR-zhe-nee KOM-pee-ree] French fries
+- Пилешко [Pileshko] [PEE-lesh-ko] chicken, Говедско [Govedsko] [GO-ved-sko] beef, Свинско [Svinsko] [SVEEN-sko] pork, Јагнешко [Jagneshko] [YAG-nesh-ko] lamb, Колбас [Kolbas] [KOL-bas] sausage, Риба [Riba] [REE-ba] fish
+- Јајца [Jajca] [YAY-tsa] eggs, Леб [Leb] [LEB] bread, Сирење [Sirenje] [SEE-re-nye] white (feta) cheese, Кашкавал [Kashkaval] [KASH-ka-val] yellow cheese, Млеко [Mleko] [MLE-ko] milk, Кисело млеко [Kiselo mleko] [KEE-se-lo MLE-ko] kefir-style sour milk
+- Грав [Grav] [GRAV] beans, Ориз [Oriz] [O-reez] rice, Палачинки [Palachinki] [pa-LA-cheen-kee] crêpes, Овошје [Ovoshje] [O-vosh-ye] fruit, Зеленчук [Zelenchuk] [ZE-len-chook] vegetables
+- Сол [Sol] [SOL] salt, Пипер [Piper] [PEE-per] pepper
 
 ## Waiter dialogue: what's on the menu
 Source for this and the next section: Christina E. Kramer & Liljana Mitkovska, "Macedonian: A Course for Beginning and Intermediate Students", 3rd ed., University of Wisconsin Press, 2011, Lesson 5 (Food), dialogue "Во ресторан" (p. 68). Phrases selected; English glosses are ours.
@@ -100,50 +100,70 @@ Source for this and the following "Kramer" sections: Christina E. Kramer & Lilja
 
 ## A typical Macedonian menu (Kramer)
 Based on the sample menu of the restaurant "Македонска куќа" in the textbook.
-- Предјадења (starters): бело сирење, печени пиперки, пита со месо, пита со сирење, пита со месо и печурки
-- Супи и чорби (soups): јагнешка чорба, пилешка супа, говедска супа
-- Риби (fish): бела риба, пастрмка на охридски начин (Ohrid-style trout), печен крап (baked carp)
-- Месо (meat): печено јагнешко месо, печено свинско месо, печено пилешко месо, селско месо, ќофте
-- Јадења на скара (grilled): мешано месо на скара (mixed grill), свински кременадли (pork chops), плескавица, ќебапчиња
-- Салати: шопска салата, туршија, салата од кисела зелка, салата од домати, салата од краставици
-- Слатки (desserts): баклава, кадаиф, овошје, сладолед
-- Безалкохолни пијалоци (soft drinks): кисела вода, Кока-кола, сок од јаболка, чај, турско кафе
-- Алкохолни пијалоци: бело и црно вино (note: red wine is "црно вино", literally black wine), пиво
+- Предјадења [Predjadenja] [pred-YA-de-nya] (starters): бело сирење [belo sirenje] [BE-lo SEE-re-nye] white cheese (like feta), печени пиперки [pecheni piperki] [PE-che-nee PEE-per-kee] roasted peppers, пита со месо [pita so meso] [PEE-ta so ME-so] meat pie, пита со сирење [pita so sirenje] [PEE-ta so SEE-re-nye] cheese pie, пита со месо и печурки [pita so meso i pechurki] [PEE-ta so ME-so ee PE-choor-kee] meat and mushroom pie
+- Супи и чорби [Supi i chorbi] [SOO-pee ee CHOR-bee] (soups): јагнешка чорба [jagneshka chorba] [YAG-nesh-ka CHOR-ba] thick lamb soup, пилешка супа [pileshka supa] [PEE-lesh-ka SOO-pa] chicken soup, говедска супа [govedska supa] [GO-ved-ska SOO-pa] beef soup
+- Риби [Ribi] [REE-bee] (fish): бела риба [bela riba] [BE-la REE-ba] white fish, пастрмка на охридски начин [pastrmka na ohridski nachin] [PAS-trm-ka na O-hreed-skee NA-cheen] Ohrid-style trout, печен крап [pechen krap] [PE-chen KRAP] baked carp
+- Месо [Meso] [ME-so] (meat): печено јагнешко месо [pecheno jagneshko meso] [PE-che-no YAG-nesh-ko ME-so] roast lamb, печено свинско месо [pecheno svinsko meso] [PE-che-no SVEEN-sko ME-so] roast pork, печено пилешко месо [pecheno pileshko meso] [PE-che-no PEE-lesh-ko ME-so] roast chicken, селско месо [selsko meso] [SEL-sko ME-so] village-style meat (pork and mushrooms baked in a clay pot), ќофте [kjofte] [KYOF-te] meatballs
+- Јадења на скара [Jadenja na skara] [YA-de-nya na SKA-ra] (grilled): мешано месо на скара [meshano meso na skara] [ME-sha-no ME-so na SKA-ra] mixed grill, свински кременадли [svinski kremenadli] [SVEEN-skee kre-ME-na-dlee] pork chops, плескавица [pleskavica] [ples-KA-vee-tsa] grilled minced-meat patty (like a burger without the bun), ќебапчиња [kjebapchinja] [kye-BAP-chee-nya] small grilled minced-meat sausages
+- Салати [Salati] [SA-la-tee] (salads): шопска салата [shopska salata] [SHOP-ska SA-la-ta] Shopska salad (tomato, cucumber, pepper, onion and grated white cheese), туршија [turshija] [TOOR-shee-ya] pickled vegetables, салата од кисела зелка [salata od kisela zelka] [SA-la-ta od KEE-se-la ZEL-ka] sauerkraut salad, салата од домати [salata od domati] [SA-la-ta od DO-ma-tee] tomato salad, салата од краставици [salata od krastavici] [SA-la-ta od kras-TA-vee-tsee] cucumber salad
+- Слатки [Slatki] [SLAT-kee] (desserts): баклава [baklava] [BA-kla-va] baklava (layered pastry with nuts and syrup), кадаиф [kadaif] [KA-da-eef] kadaif (shredded pastry with nuts and syrup), овошје [ovoshje] [O-vosh-ye] fruit, сладолед [sladoled] [SLA-do-led] ice cream
+- Безалкохолни пијалоци [Bezalkoholni pijaloci] [be-zal-KO-hol-nee pee-YA-lo-tsee] (soft drinks): кисела вода [kisela voda] [KEE-se-la VO-da] sparkling mineral water, Кока-кола [Koka-kola] [KO-ka-ko-la] Coca-Cola, сок од јаболка [sok od jabolka] [SOK od YA-bol-ka] apple juice, чај [chaj] [CHAY] tea, турско кафе [tursko kafe] [TOOR-sko KA-fe] Turkish coffee
+- Алкохолни пијалоци [Alkoholni pijaloci] [al-KO-hol-nee pee-YA-lo-tsee] (alcoholic drinks): бело и црно вино [belo i crno vino] [BE-lo ee TSR-no VEE-no] white and red wine (red wine is literally "black wine"), пиво [pivo] [PEE-vo] beer
 
 ## Food culture notes (Kramer)
-- Meat types are adjectives in the neuter, modifying месо: свинско (pork), јагнешко (lamb), пилешко (chicken), говедско (beef). You can say just "свинско" for pork.
-- Пита is a phyllo-like dough stuffed with fillings; бурек is similar and sold at take-out stands.
-- Супа is a soup with a water-based broth; чорба is a thick soup with a cream- or milk-based broth and more pieces of meat and vegetables.
-- Сирење means cheese; the most common is бело сирење (white, feta-style cheese). Кашкавал is a yellow sheep's-milk cheese; restaurants often serve поховано кашкавал (breaded and fried).
-- Шопска салата: chopped tomatoes, peppers, cucumbers, onion (кромид) and grated feta cheese.
-- Peppers are either лут (hot) or благ (mild/sweet). Лут also means "angry": Тој е лут = He is angry.
-- Many Macedonians say патлиџан for tomato in speech; the standard written word (on menus and in recipes) is домат. Eggplant is модар (or црн) патлиџан.
-- Кисело млеко is thick yogurt eaten with a spoon; јогурт is a drinkable, liquid yogurt.
-- Селско месо: a casserole of meat chunks with onions, peppers, carrots and mushrooms. Кадаиф: a pastry of shredded dough in sweet syrup. Баклава: phyllo pastry with nuts and honey.
-- Печен (roasted), пржен (fried) and полнет (stuffed) agree with the noun: печени пиперки, пржени пиперки, пржено јајце, полнети пиперки.
+- Meat types are adjectives in the neuter, modifying месо [meso] [ME-so] (meat): свинско [svinsko] [SVEEN-sko] (pork), јагнешко [jagneshko] [YAG-nesh-ko] (lamb), пилешко [pileshko] [PEE-lesh-ko] (chicken), говедско [govedsko] [GO-ved-sko] (beef). You can say just "свинско" for pork.
+- Пита [Pita] [PEE-ta] (pie) is a phyllo-like dough stuffed with fillings; бурек [burek] [BOO-rek] (burek) is similar and sold at take-out stands.
+- Супа [Supa] [SOO-pa] (soup) is a soup with a water-based broth; чорба [chorba] [CHOR-ba] (thick soup) is a thick soup with a cream- or milk-based broth and more pieces of meat and vegetables.
+- Сирење [Sirenje] [SEE-re-nye] means cheese; the most common is бело сирење [belo sirenje] [BE-lo SEE-re-nye] (white, feta-style cheese). Кашкавал [Kashkaval] [KASH-ka-val] is a yellow sheep's-milk cheese; restaurants often serve похован кашкавал [pohovan kashkaval] [PO-ho-van KASH-ka-val] (breaded and fried).
+- Шопска салата [Shopska salata] [SHOP-ska SA-la-ta] (Shopska salad): chopped tomatoes, peppers, cucumbers, onion (кромид [kromid] [KRO-meed]) and grated feta cheese.
+- Peppers are either лут [lut] [LOOT] (hot) or благ [blag] [BLAG] (mild / sweet). Лут also means "angry": Тој е лут. [Toj e lut.] [TOY e LOOT.] means "He is angry."
+- Many Macedonians say патлиџан [patlidzhan] [PAT-lee-jan] for tomato in speech; the standard written word (on menus and in recipes) is домат [domat] [DO-mat]. Eggplant is модар патлиџан [modar patlidzhan] [MO-dar PAT-lee-jan] (or црн патлиџан [crn patlidzhan] [TSRN PAT-lee-jan]).
+- Кисело млеко [Kiselo mleko] [KEE-se-lo MLE-ko] (sour milk) is thick yogurt eaten with a spoon; јогурт [jogurt] [YO-goort] (yogurt) is a drinkable, liquid yogurt.
+- Селско месо [Selsko meso] [SEL-sko ME-so] (village-style meat): a casserole of meat chunks with onions, peppers, carrots and mushrooms. Кадаиф [Kadaif] [KA-da-eef]: a pastry of shredded dough in sweet syrup. Баклава [Baklava] [BA-kla-va]: phyllo pastry with nuts and honey.
+- Печен [pechen] [PE-chen] (roasted), пржен [przhen] [PR-zhen] (fried) and полнет [polnet] [POL-net] (stuffed) agree with the noun: печени пиперки [pecheni piperki] [PE-che-nee PEE-per-kee] (roasted peppers), пржени пиперки [przheni piperki] [PR-zhe-nee PEE-per-kee] (fried peppers), пржено јајце [przheno jajce] [PR-zhe-no YAY-tse] (fried egg), полнети пиперки [polneti piperki] [POL-ne-tee PEE-per-kee] (stuffed peppers).
 
 ## Describing food (Kramer)
-бел white, благ sweet/mild, горко / горчлив bitter, домашен homemade, кисел sour, лут spicy (hot), мешан mixed, нормален normal, омилен favourite, печен roasted, пилешки chicken (adj.), полнет stuffed, пржен fried, специјален special, среден medium, тазе fresh, турски Turkish, црвен red, црн black
+- Adjectives (m / f / n / pl):
+- бел / бела / бело / бели [bel / bela / belo / beli] [BEL / BE-la / BE-lo / BE-lee] white
+- благ / блага / благо / благи [blag / blaga / blago / blagi] [BLAG / BLA-ga / BLA-go / BLA-gee] sweet / mild
+- горок / горка / горко / горки [gorok / gorka / gorko / gorki] [GO-rok / GOR-ka / GOR-ko / GOR-kee] bitter
+- горчлив / горчлива / горчливо / горчливи [gorchliv / gorchliva / gorchlivo / gorchlivi] [GOR-chleev / GOR-chlee-va / GOR-chlee-vo / GOR-chlee-vee] bitter
+- домашен / домашна / домашно / домашни [domashen / domashna / domashno / domashni] [DO-ma-shen / DO-mash-na / DO-mash-no / DO-mash-nee] homemade
+- кисел / кисела / кисело / кисели [kisel / kisela / kiselo / kiseli] [KEE-sel / KEE-se-la / KEE-se-lo / KEE-se-lee] sour
+- лут / лута / луто / лути [lut / luta / luto / luti] [LOOT / LOO-ta / LOO-to / LOO-tee] spicy (hot)
+- мешан / мешана / мешано / мешани [meshan / meshana / meshano / meshani] [ME-shan / ME-sha-na / ME-sha-no / ME-sha-nee] mixed
+- нормален / нормална / нормално / нормални [normalen / normalna / normalno / normalni] [NOR-ma-len / NOR-mal-na / NOR-mal-no / NOR-mal-nee] normal
+- омилен / омилена / омилено / омилени [omilen / omilena / omileno / omileni] [O-mee-len / o-MEE-le-na / o-MEE-le-no / o-MEE-le-nee] favourite
+- печен / печена / печено / печени [pechen / pechena / pecheno / pecheni] [PE-chen / PE-che-na / PE-che-no / PE-che-nee] roasted
+- пилешки / пилешка / пилешко / пилешки [pileshki / pileshka / pileshko / pileshki] [PEE-lesh-kee / PEE-lesh-ka / PEE-lesh-ko / PEE-lesh-kee] chicken (adj.)
+- полнет / полнета / полнето / полнети [polnet / polneta / polneto / polneti] [POL-net / POL-ne-ta / POL-ne-to / POL-ne-tee] stuffed
+- пржен / пржена / пржено / пржени [przhen / przhena / przheno / przheni] [PR-zhen / PR-zhe-na / PR-zhe-no / PR-zhe-nee] fried
+- специјален / специјална / специјално / специјални [specijalen / specijalna / specijalno / specijalni] [spe-TSEE-ya-len / spe-TSEE-yal-na / spe-TSEE-yal-no / spe-TSEE-yal-nee] special
+- среден / средна / средно / средни [sreden / sredna / sredno / sredni] [SRE-den / SRED-na / SRED-no / SRED-nee] medium
+- тазе [taze] [ta-ZE] fresh (the same in all forms)
+- турски / турска / турско / турски [turski / turska / tursko / turski] [TOOR-skee / TOOR-ska / TOOR-sko / TOOR-skee] Turkish
+- црвен / црвена / црвено / црвени [crven / crvena / crveno / crveni] [TSR-ven / TSR-ve-na / TSR-ve-no / TSR-ve-nee] red
+- црн / црна / црно / црни [crn / crna / crno / crni] [TSRN / TSR-na / TSR-no / TSR-nee] black
 
 ## Meals and basic food words (Kramer)
-- појадок breakfast, ручек lunch, вечера dinner, предјадење appetizer, десерт dessert, јадење food/dish, пиење drink, храна food
-- руча [rucha] [ROO-cha] = to eat lunch, вечера = to eat dinner, чини = to cost, може = can/may, мора = must
-- вода water, вино wine, пиво beer, млеко milk, овошен сок fruit juice, кисела вода mineral water, турско кафе Turkish coffee, чај tea
-- леб bread, месо meat, риба fish, јајце egg, сирење cheese, путер butter, мед honey, сол salt, пипер black pepper, шеќер sugar
-- салата salad, супа soup, чорба thick soup, скара grilled meat, тавче гравче baked bean casserole, манџа stew, пита filled pastry, плескавица spiced meat patty, ќебапче grilled sausage-shaped minced meat, торта cake, сладолед ice cream, чоколада chocolate
-- без [bez] [BEZ] = without (без шеќер, без месо)
+- појадок [pojadok] [PO-ya-dok] breakfast, ручек [ruchek] [ROO-chek] lunch, вечера [vechera] [VE-che-ra] dinner, предјадење [predjadenje] [pred-YA-de-nye] appetizer, десерт [desert] [DE-sert] dessert, јадење [jadenje] [YA-de-nye] food / dish, пиење [pienje] [PEE-e-nye] drink, храна [hrana] [HRA-na] food
+- руча [rucha] [ROO-cha] to eat lunch, вечера [vechera] [VE-che-ra] to eat dinner, чини [chini] [CHEE-nee] to cost, може [mozhe] [MO-zhe] can / may, мора [mora] [MO-ra] must
+- вода [voda] [VO-da] water, вино [vino] [VEE-no] wine, пиво [pivo] [PEE-vo] beer, млеко [mleko] [MLE-ko] milk, овошен сок [ovoshen sok] [O-vo-shen SOK] fruit juice, кисела вода [kisela voda] [KEE-se-la VO-da] mineral water, турско кафе [tursko kafe] [TOOR-sko KA-fe] Turkish coffee, чај [chaj] [CHAY] tea
+- леб [leb] [LEB] bread, месо [meso] [ME-so] meat, риба [riba] [REE-ba] fish, јајце [jajce] [YAY-tse] egg, сирење [sirenje] [SEE-re-nye] cheese, путер [puter] [POO-ter] butter, мед [med] [MED] honey, сол [sol] [SOL] salt, пипер [piper] [PEE-per] black pepper, шеќер [shekjer] [SHE-kyer] sugar
+- салата [salata] [SA-la-ta] salad, супа [supa] [SOO-pa] soup, чорба [chorba] [CHOR-ba] thick soup, скара [skara] [SKA-ra] grilled meat, тавче гравче [tavche gravche] [TAV-che GRAV-che] baked bean casserole, манџа [mandzha] [MAN-ja] stew, пита [pita] [PEE-ta] filled pastry, плескавица [pleskavica] [ples-KA-vee-tsa] spiced meat patty, ќебапче [kjebapche] [KYE-bap-che] grilled sausage-shaped minced meat, торта [torta] [TOR-ta] cake, сладолед [sladoled] [SLA-do-led] ice cream, чоколада [chokolada] [cho-KO-la-da] chocolate
+- без [bez] [BEZ] = without (без шеќер [bez shekjer] [bez SHE-kyer] without sugar, без месо [bez meso] [bez ME-so] without meat)
 
 ## Drinks list (Kramer)
-боза boza (millet drink), газиран сок fizzy drink, какао cocoa, кафе coffee, кисела вода / минерална вода mineral water, лимонада lemonade, млеко milk, овошен сок fruit juice, чај tea, вино wine, вињак brandy, ликер liqueur, пиво beer, ракија brandy (rakija)
+боза [boza] [BO-za] boza (millet drink), газиран сок [gaziran sok] [GA-zee-ran SOK] fizzy drink, какао [kakao] [KA-ka-o] cocoa, кафе [kafe] [KA-fe] coffee, кисела вода / минерална вода [kisela voda / mineralna voda] [KEE-se-la VO-da / mee-NE-ral-na VO-da] sparkling / mineral water, лимонада [limonada] [lee-MO-na-da] lemonade, млеко [mleko] [MLE-ko] milk, овошен сок [ovoshen sok] [O-vo-shen SOK] fruit juice, чај [chaj] [CHAY] tea, вино [vino] [VEE-no] wine, вињак [vinjak] [VEE-nyak] brandy, ликер [liker] [LEE-ker] liqueur, пиво [pivo] [PEE-vo] beer, ракија [rakija] [RA-kee-ya] brandy (rakija)
 
 ## Meat, fish and dairy list (Kramer)
-- Месо и риба: бакалар cod, јагнешко месо lamb, јунешко месо young beef, кокошка chicken, колбас sausage, крап carp, кременадла pork chop, лигња squid, пастрмка trout, пилешко месо chicken, плескавица beef patty, рак crab, салама salami, свинско месо pork, телешко месо veal, ќебап grilled meat sausage, цигер liver, шкембе tripe, шницла schnitzel, шунка ham
-- Млечни производи: јогурт drinkable yogurt, кајмак clotted cream, кашкавал yellow cheese, кисело млеко yogurt, крем сирење cream cheese, путер butter, павлака cream, сирење cheese
+- Месо [meso] [ME-so] и риба [riba] [REE-ba]: бакалар [bakalar] [BA-ka-lar] cod, јагнешко месо [jagneshko meso] [YAG-nesh-ko ME-so] lamb, јунешко месо [juneshko meso] [YOO-nesh-ko ME-so] young beef, кокошка [kokoshka] [KO-kosh-ka] hen (chicken), колбас [kolbas] [KOL-bas] sausage, крап [krap] [KRAP] carp, кременадла [kremenadla] [kre-ME-na-dla] pork chop, лигња [lignja] [LEEG-nya] squid, пастрмка [pastrmka] [PAS-trm-ka] trout, пилешко месо [pileshko meso] [PEE-lesh-ko ME-so] chicken, плескавица [pleskavica] [ples-KA-vee-tsa] beef patty, рак [rak] [RAK] crab, салама [salama] [SA-la-ma] salami, свинско месо [svinsko meso] [SVEEN-sko ME-so] pork, телешко месо [teleshko meso] [TE-lesh-ko ME-so] veal, ќебап [kjebap] [KYE-bap] grilled meat sausage, џигер [dzhiger] [JEE-ger] liver, шкембе [shkembe] [SHKEM-be] tripe, шницла [shnicla] [SHNEETS-la] schnitzel, шунка [shunka] [SHOON-ka] ham
+- Млечни производи [mlechni proizvodi] [MLECH-nee pro-EEZ-vo-dee]: јогурт [jogurt] [YO-goort] drinkable yogurt, кајмак [kajmak] [KAY-mak] clotted cream, кашкавал [kashkaval] [KASH-ka-val] yellow cheese, кисело млеко [kiselo mleko] [KEE-se-lo MLE-ko] yogurt, крем сирење [krem sirenje] [KREM SEE-re-nye] cream cheese, путер [puter] [POO-ter] butter, павлака [pavlaka] [PAV-la-ka] cream, сирење [sirenje] [SEE-re-nye] cheese
 
 ## Vegetables and fruit list (Kramer)
-- Зеленчук: боранија green beans, брокула broccoli, грав beans, грашок peas, домат tomato, зелена салата lettuce, зелка cabbage, карфиол cauliflower, компир potato, краставица cucumber, кромид onion, лук garlic, модар патлиџан eggplant, печурка mushroom, пиперка pepper, спанаќ spinach, тиква pumpkin, тиквичка courgette/squash, цвекло beetroot, целер celery
-- Овошје: ананас pineapple, банана banana, боровинка blueberry, вишна sour cherry, грозје grapes, диња melon, дуња quince, јаболко apple, јагода strawberry, кајсија apricot, калинка pomegranate, капинка blackberry, круша pear, лимон lemon, лубеница watermelon, малина raspberry, мандарина tangerine, портокал orange, праска peach, слива plum
-- Јаткасти: бадем almond, кикиритка peanut, лешник hazelnut, орев walnut
+- Зеленчук [zelenchuk] [ZE-len-chook]: боранија [boranija] [bo-RA-nee-ya] green beans, брокула [brokula] [BRO-koo-la] broccoli, грав [grav] [GRAV] beans, грашок [grashok] [GRA-shok] peas, домат [domat] [DO-mat] tomato, зелена салата [zelena salata] [ZE-le-na SA-la-ta] lettuce, зелка [zelka] [ZEL-ka] cabbage, карфиол [karfiol] [KAR-fee-ol] cauliflower, компир [kompir] [KOM-peer] potato, краставица [krastavica] [kras-TA-vee-tsa] cucumber, кромид [kromid] [KRO-meed] onion, лук [luk] [LOOK] garlic, модар патлиџан [modar patlidzhan] [MO-dar PAT-lee-jan] eggplant, печурка [pechurka] [PE-choor-ka] mushroom, пиперка [piperka] [PEE-per-ka] pepper, спанаќ [spanakj] [SPA-naky] spinach, тиква [tikva] [TEEK-va] pumpkin, тиквичка [tikvichka] [TEEK-veech-ka] courgette / squash, цвекло [cveklo] [TSVE-klo] beetroot, целер [celer] [TSE-ler] celery
+- Овошје [ovoshje] [O-vosh-ye]: ананас [ananas] [A-na-nas] pineapple, банана [banana] [BA-na-na] banana, боровинка [borovinka] [bo-RO-veen-ka] blueberry, вишна [vishna] [VEESH-na] sour cherry, грозје [grozje] [GROZ-ye] grapes, диња [dinja] [DEE-nya] melon, дуња [dunja] [DOO-nya] quince, јаболко [jabolko] [YA-bol-ko] apple, јагода [jagoda] [YA-go-da] strawberry, кајсија [kajsija] [KAY-see-ya] apricot, калинка [kalinka] [KA-leen-ka] pomegranate, капинка [kapinka] [KA-peen-ka] blackberry, круша [krusha] [KROO-sha] pear, лимон [limon] [LEE-mon] lemon, лубеница [lubenica] [loo-BE-nee-tsa] watermelon, малина [malina] [MA-lee-na] raspberry, мандарина [mandarina] [man-DA-ree-na] tangerine, портокал [portokal] [POR-to-kal] orange, праска [praska] [PRAS-ka] peach, слива [sliva] [SLEE-va] plum
+- Јаткасти [jatkasti] [YAT-kas-tee]: бадем [badem] [BA-dem] almond, кикиритка [kikiritka] [kee-KEE-reet-ka] peanut, лешник [leshnik] [LESH-neek] hazelnut, орев [orev] [O-rev] walnut
 
 ## Restaurant basics: Vocabulary
 Source for this and the following sections: team-authored notes, written and reviewed by a native Macedonian speaker (Marija), November 2026.

@@ -45,16 +45,8 @@ Letters English speakers often miss: ѓ (gy, as in "argue"), ќ (ky, as in "cute
 - Ве молам. [Ve molam.] [VE mo-lam.] = Please.
 - Повелете. [Povelete.] [po-VE-le-te.] = Here you are. / May I help you?
 
-## Numbers 1-20
-еден [eden] 1, два [dva] 2, три [tri] 3, четири [chetiri] 4, пет [pet] 5, шест [shest] 6, седум [sedum] 7, осум [osum] 8, девет [devet] 9, десет [deset] 10,
-единаесет 11, дванаесет 12, тринаесет 13, четиринаесет 14, петнаесет 15, шеснаесет 16, седумнаесет 17, осумнаесет 18, деветнаесет 19, дваесет [dvaeset] 20.
-
-## Numbers 20-1000 (for prices)
-Tens and units are joined with и ("and"): дваесет и еден = 21, дваесет и пет = 25.
-триесет 30, четириесет 40, педесет 50, шеесет 60, седумдесет 70, осумдесет 80, деведесет 90, сто [sto] 100, илјада [iljada] 1000.
-
 ## Days of the week
-Понеделник Monday, Вторник Tuesday, Среда Wednesday, Четврток Thursday, Петок Friday, Сабота Saturday, Недела Sunday.
+Понеделник [Ponedelnik] [po-NE-del-neek] Monday, Вторник [Vtornik] [VTOR-neek] Tuesday, Среда [Sreda] [SRE-da] Wednesday, Четврток [Chetvrtok] [CHE-tvr-tok] Thursday, Петок [Petok] [PE-tok] Friday, Сабота [Sabota] [SA-bo-ta] Saturday, Недела [Nedela] [NE-de-la] Sunday.
 
 ## Everyday basics: Common signs
 Source for this and the following sections: team-authored notes, written and reviewed by a native Macedonian speaker (Marija), November 2026.

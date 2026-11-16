@@ -26,7 +26,10 @@ Source: Daniela Jankovska, "Tips & Guide to: Learn Macedonian Language" (native 
 
 ## Holiday greetings
 - Среќна Нова Година! [Srekjna Nova Godina!] [SREKY-na NO-va GO-dee-na!] = Happy New Year!
-- Среќен Божиќ! [Srekjen Bozhikj!] [SRE-kyen BO-zheeky!] = Merry Christmas!
+- Среќен Божиќ! Христос се роди. [Srekjen Bozhikj! Hristos se rodi.] [SRE-kyen BO-zheeky! HREES-tos SE ro-dee.] = Merry Christmas!
+- Навистина се роди! [Navistina se rodi!] [na-VEES-tee-na SE ro-dee!] = He is truly born! (the reply to "Христос се роди")
+- Среќен Велигден! Христос воскресе. [Srekjen Veligden! Hristos voskrese.] [SRE-kyen VE-leeg-den! HREES-tos VOS-kre-se.] = Happy Easter!
+- Навистина воскресе! [Navistina voskrese!] [na-VEES-tee-na VOS-kre-se!] = He is truly risen! (the reply to "Христос воскресе")
 - Среќен роденден! [Srekjen rodenden!] [SRE-kyen RO-den-den!] = Happy birthday!
 
 ## Emergencies
