@@ -159,6 +159,9 @@ def fail(e):
 
 def phrase_card(i, p):
     pron = f'<div class="p">{escape(p["pron"])}</div>' if p.get("pron") else ""
+    if p.get("say"):  # stress guide: capitals mark the stressed syllable
+        pron += (f'<div class="p" title="Capitals mark the stressed syllable">'
+                 f'say: {escape(p["say"])}</div>')
     who = f'<div class="who">the {escape(p["speaker"])} says this</div>' if p.get("speaker") else ""
     html(f'<div class="phrase"><span class="n">{i:02d}</span><div class="t">{escape(p["text"])}</div>'
          f'{pron}<div class="m">{escape(p["meaning"])}</div>{who}</div>')

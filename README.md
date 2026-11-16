@@ -112,6 +112,12 @@ passage and one possible lesson unit. Phrase lines must look like
 `- phrase [pronunciation] = English meaning`. Sources and corrections are
 logged in `sources/`.
 
+Macedonian lines carry two brackets: the transliteration (sh / ch / zh / kj / gj)
+and an English-style respelling with the stressed syllable in capitals, shown on
+the phrase card as "say: ...":
+`- Сита сум. [Sita sum.] [SEE-ta soom.] = I'm full.`
+Respelling: и = ee, у = oo, ј = y, ц = ts, ќ / ѓ = ky / gy, џ = j, љ / њ = ly / ny.
+
 ## Using the model from your code (Member A — `llm.py`)
 
 ```python
