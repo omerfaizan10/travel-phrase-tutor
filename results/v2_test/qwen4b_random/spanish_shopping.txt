@@ -1,0 +1,45 @@
+### spanish / shopping / random  (20s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: Busco un regalo para mi madre. = I'm looking for a present for my mother. [pb])
+YOU:     Busco un regalo para mi madre. [pb]
+   = I'm looking for a present for my mother.
+PARTNER: ¿Qué desea comprarle a su madre?
+   = What would you like to buy for your mother?
+   tip: Good choice! A gift for a mother is very thoughtful.
+   (also: Quisiera comprar una bufanda azul para mi madre. = I want to buy a blue scarf for my mother.)
+   (also: Quisiera comprar un pequeño vaso para mi madre. = I want to buy a small vase for my mother.)
+YOU:     Quisiera comprar una bufanda azul para mi madre.
+   = I want to buy a blue scarf for my mother.
+PARTNER: Esa bufanda azul cuesta 15 euros.
+   = That blue scarf costs 15 euros.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: ¿Cuánto cuesta esa bufanda azul?  <- asks the price; that is the customer's question. As the staf
+   tip: You said the price correctly in Spanish, well done!
+   (also: ¿Puedo probármela? = Can I try it on? [pb])
+   (also: ¿No me hace una rebajita? = Won't you give me a small discount? [pb])
+YOU:     ¿Tiene una talla más pequeña?
+   = Do you have a smaller size?
+PARTNER: Sí, tenemos una talla más pequeña.
+   = Yes, we have a smaller size.
+   tip: Good! You're asking for a smaller size, which is natural when buying for someone else.
+   (also: May I try it on? = ¿Puedo probármela?)
+YOU:     ¿Qué talla tiene?
+   = What size do you have?
+PARTNER: Tiene talla 46.
+   = It has size 46.
+   tip: Good question! You asked about the size clearly.
+   (also: ¿Tiene talla 46 para niño? = Do you have a size 46 for a child?)
+YOU:     ¿Tiene talla 46 para mujer?
+   = Do you have a women's size 46?
+PARTNER: Sí, tenemos talla 46 para mujer.
+   = Yes, we have size 46 for women.
+   tip: Good question! You're asking about the right size for your mother.
+   (also: ¿Puedo probármela? = Can I try it on? [pb])
+   (also: ¿Tiene otra color para mujer? = Is there another color for women?)
+YOU:     ¿Puedo probármela? [pb]
+   = Can I try it on?
+PARTNER: No, no tiene probación para bufandas.
+   = No, it doesn't have try-on for scarves.
+   tip: Good choice! A scarf is a nice present for a mother.
+   (scene done)

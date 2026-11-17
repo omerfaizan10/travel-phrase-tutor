@@ -1,0 +1,54 @@
+### spanish / transport / random  (27s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: ¿A qué hora sale el autobús para Toledo? = What time does the bus to Toledo leave? [pb])
+   (also: ¿Cuánto cuesta un billete a Barcelona? = How much is a ticket to Barcelona? [pb])
+YOU:     ¿Cuánto cuesta un billete a Barcelona? [pb]
+   = How much is a ticket to Barcelona?
+PARTNER: Lo siento, no tengo información sobre un billete a Barcelona.
+   = I'm sorry, I don't have information about a ticket to Barcelona.
+   tip: Good question! But I don't have that info. Try asking about a different place instead.
+   (also: Un billete a Toledo, por favor. = Ask about a ticket to Toledo instead.)
+   (also: ¿A qué hora sale el próximo tren para Zaragoza? = What time does the next train to Zaragoza leave? [pb])
+YOU:     Un billete a Toledo, por favor.
+   = Ask about a ticket to Toledo instead.
+PARTNER: El próximo autobús a Toledo sale a las 10.15.
+   = The next bus to Toledo leaves at 10.15.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: ¿A qué hora sale el próximo autobús para Toledo?  <- asks when a train/bus leaves or arrives; that is the travele
+   tip: Good! You asked for a bus to Toledo, and I gave the correct time from the timetable.
+   (also: ¿Hay un autobús para Toledo mañana? = Is there a bus to Toledo tomorrow?)
+YOU:     ¿Hay un autobús para Toledo mañana?
+   = Is there a bus to Toledo tomorrow?
+PARTNER: Sí, hay un autobús para Toledo mañana a las 10.15.
+   = Yes, there is a bus to Toledo tomorrow at 10.15.
+   tip: Great question! You asked about a bus tomorrow, and I answered with a time.
+YOU:     ¿Tiene el precio del billete para Toledo?
+   = Do you have the price for a ticket to Toledo?
+PARTNER: Sí, el billete de ida a Toledo cuesta 6 euros.
+   = Yes, the one-way ticket to Toledo costs 6 euros.
+   tip: Great question! You asked for the price clearly.
+YOU:     ¿Puedo comprar un billete para dos personas?
+   = Can I get a ticket for two people?
+PARTNER: Sí, puede comprar un billete para dos personas.
+   = Yes, you can buy a ticket for two people.
+   tip: Good question! You're asking about a group ticket correctly.
+YOU:     ¿Tiene un billete para dos personas?
+   = Do you have a ticket for two people?
+PARTNER: Sí, tenemos billetes para dos personas.
+   = Yes, we have tickets for two people.
+   tip: Good question! You're asking about a group ticket, which is natural.
+   (also: ¿A qué hora sale el autobús para Toledo? = What time does the bus to Toledo leave? [pb])
+   (also: ¿Puedo pagar en efectivo? = Can I pay in cash? [pb])
+YOU:     ¿A qué hora sale el autobús para Toledo? [pb]
+   = What time does the bus to Toledo leave?
+PARTNER: El próximo autobús para Toledo sale a las 10.15.
+   = The next bus to Toledo leaves at 10.15.
+   tip: Good question. You asked about the time clearly and directly.
+   (also: ¿Puedo pagar con tarjeta? = Can I pay with a card?)
+YOU:     Sí, quiero un billete para dos personas para Toledo.
+   = Yes, I'd like a ticket for two people to Toledo.
+PARTNER: El billete para dos personas a Toledo cuesta 11 euros.
+   = The ticket for two people to Toledo costs 11 euros.
+   tip: Good, you asked clearly and directly about the ticket for two people to Toledo.
+

@@ -1,0 +1,20 @@
+### macedonian / directions / first  (21s, fallbacks=0)
+PARTNER: Добар ден! Што сакате?
+   = Good afternoon! What do you want?
+   (also: Ми треба помош. = I need help. [pb])
+   (also: Каде можам да купам карта? = Where can I buy a ticket? [pb])
+YOU:     Каде е автобуската станица? [pb]
+   = Where is the bus stop / bus station?
+PARTNER: Право е, на крај на улицата.
+   = It's straight ahead, at the end of the street.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Автобуската станица е право напред. Помини ги семафорите.  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good effort with the pronunciation!
+   (also: Дали е далеку? = Is it far? [pb])
+   (also: Кажи ми како да стигнам таму. = Tell me how to get there. [pb])
+YOU:     Благодарам! [pb]
+   = Thank you!
+PARTNER: Убав ден!
+   = Have a nice day!
+   tip: Excellent! You used the correct phrase.
+   (scene done)

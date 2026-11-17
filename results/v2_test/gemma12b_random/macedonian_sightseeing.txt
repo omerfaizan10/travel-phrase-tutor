@@ -1,0 +1,48 @@
+### macedonian / sightseeing / random  (53s, fallbacks=0)
+PARTNER: Добар ден! Што сакате?
+   = Good afternoon! What do you want?
+   (also: Што да видам во Скопје? = What should I see in Skopje? [pb])
+   (also: Дали има брод до Св. Наум? = Is there a boat to St. Naum? [pb])
+YOU:     Што препорачувате да видам? [pb]
+   = What do you recommend I see?
+PARTNER: Препорачувам да посетите Охрид. Таму има многу историја и убава природа.
+   = I recommend you visit Ohrid. There is a lot of history and beautiful nature there.
+   tip: Excellent use of the question 'What do you recommend I see?'
+   (also: Каде има посета и на други места? = Where are there visits to other places too? [pb])
+YOU:     Кое патување најмногу ви се допаѓа? Зошто? [pb]
+   = Which trip do you like most? Why?
+PARTNER: Охрид најмногу ми се допаѓа, бидејќи е многу убаво место со многу историја.
+   = I like Ohrid the most because it is a very beautiful place with a lot of history.
+   tip: Excellent! Your Macedonian is improving.
+   (also: Дали има брод до Охрид? = Is there a boat to Ohrid?)
+   (also: Што да видам во Охрид? = What should I see in Ohrid?)
+YOU:     Дали има брод до Охрид?
+   = Is there a boat to Ohrid?
+PARTNER: Да, има брод до Охрид. Од Скопје до Охрид, автобус е полесен.
+   = Yes, there is a boat to Ohrid. From Skopje to Ohrid, the bus is easier.
+   tip: Excellent use of the phrase! It's a very natural way to ask.
+YOU:     Колку чини автобусот до Охрид?
+   = How much does the bus to Ohrid cost?
+PARTNER: Автобусот до Охрид чини околу 500 денари.
+   = The bus to Ohrid costs around 500 denars.
+   tip: Excellent use of the phrase 'Колку чини?'
+   (also: Дали има автобус до Маврово? = Is there a bus to Mavrovo? [pb])
+   (also: Каде е Камениот мост? = Where is the Stone Bridge? [pb])
+YOU:     Каде е Камениот мост? [pb]
+   = Where is the Stone Bridge?
+PARTNER: Камениот мост е во Охрид, во стариот град.
+   = The Stone Bridge is in Ohrid, in the old town.
+   tip: Excellent! You used the correct phrase for asking a question.
+   (also: Може ли пешки до таму? = Can I walk there? [pb])
+   (also: Што да видам во Скопје? = What should I see in Skopje? [pb])
+YOU:     Како да стигнам до Старата чаршија? [pb]
+   = How do I get to the Old Bazaar?
+PARTNER: Старата чаршија е во Скопје. Може да одидете со автобус.
+   = The Old Bazaar is in Skopje. You can go by bus.
+   tip: Their Macedonian is improving nicely!
+YOU:     Благодарам многу! [pb]
+   = Thank you very much!
+PARTNER: Ве молам! Убав ден!
+   = You're welcome! Have a nice day!
+   tip: The traveler's thanks were very polite and well-phrased.
+   (scene done)

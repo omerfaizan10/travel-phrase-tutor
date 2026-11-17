@@ -1,0 +1,25 @@
+### macedonian / hotel / detour  (7s, fallbacks=0)
+PARTNER: Добар ден! Може ли пасошот, ве молам?
+   = Good day! May I have your passport, please?
+   (also: Дали имате слободни соби? = Do you have any rooms available? [pb])
+   (also: Дали имате друга соба? = Do you have a different room? [pb])
+YOU:     Дали имате друга соба? [pb]
+   = Do you have a different room?
+PARTNER: Секако. Вашиот пасош е нареден.
+   = Of course. Your passport is registered.
+   tip: Good! You used the correct phrase for asking about a different room.
+   (also: Сакам да ја видам прво собата. = I'd like to see the room first.)
+   (also: Дали имате пасош? = I'd like to know the price.)
+YOU:     Сакам да ја видам прво собата.
+   = I'd like to see the room first.
+PARTNER: Извинете, но на сега немаме преглед на соби.
+   = Sorry, but right now we don't have room viewing.
+   tip: Good. You asked about seeing the room first, which is natural.
+   (also: Сакам да се одјавам. Собата 204. = I'd like to check out. Room 204. [pb])
+   (also: Извинете, климата во собата не работи. = Excuse me, the air conditioning in the room doesn't work. [pb])
+YOU:     Колку чини ова?  <- DETOUR (from shopping)
+   = How much is this?
+PARTNER: Извинете, но не разбирам што сакате.
+   = Sorry, but I don't understand what you mean.
+   tip: Good: that's a phrasebook sentence.
+   (scene done)

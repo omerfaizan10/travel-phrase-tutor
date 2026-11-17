@@ -1,0 +1,30 @@
+### macedonian / transport / first  (17s, fallbacks=0)
+PARTNER: Добар ден. Како можам да ви помогнам?
+   = Good day. How can I help you?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добар ден. Каде можам да купам билет?  <- uses 'where' (каде) wrongly; to offer help say Повелете or К; says a line the TRAVELER would say; answer as the staff/loca
+   (also: Ми треба повратен билет. = I need a return ticket.)
+   (also: Сакам да оди до Битола. = I want to go to Bitola.)
+YOU:     Сакам да оди до Охрид.
+   = I want to go to Ohrid.
+PARTNER: Во еден правец или повратен?
+   = One way or return?
+   tip: Good choice! You said what you want clearly and correctly in Macedonian.
+   (also: Сакам повратен до Охрид. = I want a return ticket to Ohrid.)
+   (also: Сакам да оди до Охрид и да се вратам. = I want to go to Ohrid and come back.)
+YOU:     Добар ден. Еден билет за Охрид, ве молам. [pb]
+   = Hello. One ticket to Ohrid, please.
+PARTNER: Еден правец: 600 денари.
+   = One way: 600 denari.
+   [attempts=3 problems=[] fallback=False]
+   x rejected: Во еден правец или повратен?  <- repeats your previous line
+   x rejected: Колку чини еден билет за Охрид?  <- asks the price; that is the customer's question. As the staf
+   tip: Perfect! You gave the correct price for a one-way ticket to Ohrid.
+   (also: Каде е автобуската станица? = Where's the bus station? [pb])
+   (also: Кога тргнува автобусот за Охрид? = When does the bus leave for Ohrid?)
+YOU:     Повратен, ве молам.
+   = Come back, I beg you.
+PARTNER: Повратен билет: 900 денари.
+   = Return ticket: 900 denari.
+   tip: Great! You said exactly what I needed to know.
+   (scene done)

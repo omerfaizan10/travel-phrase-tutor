@@ -1,0 +1,62 @@
+### macedonian / weather / detour  (200s, fallbacks=0)
+PARTNER: Добар ден! Времето е малку облачно денес.
+   = Good afternoon! The weather is a little cloudy today.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добар ден! Какво е времето?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: Какво ќе биде времето утре? = What will the weather be like tomorrow? [pb])
+   (also: Облачно е. = It's cloudy. [pb])
+YOU:     Какво ќе биде времето утре? [pb]
+   = What will the weather be like tomorrow?
+PARTNER: Утре ќе биде сончево и топло.
+   = Tomorrow will be sunny and warm.
+   tip: Excellent pronunciation! You used the future tense perfectly.
+   (also: Дали е потопло или постудено денес? = Is it warmer or colder today? [pb])
+   (also: Што да носам утре? = What should I wear tomorrow?)
+YOU:     Што да носам утре?
+   = What should I wear tomorrow?
+PARTNER: Носете лесна облека, можеби џемпер.
+   = Wear light clothes, maybe a sweater.
+   tip: Excellent! You used the correct phrase to ask what to wear.
+   (also: Дали ќе биде многу топло? = Will it be very warm?)
+   (also: Што велите за јакна? = What about a jacket?)
+YOU:     Каде е автобуската станица?  <- DETOUR (from transport)
+   = Where is the bus station / bus stop?
+PARTNER: Автобуската станица е на втората улица од лево.
+   = The bus station is on the second street on the left.
+   tip: Good job asking about the bus station!
+   (also: Далечна е? = Is it far?)
+   (also: Во која насока треба да одам? = Which way should I go?)
+YOU:     Во која насока треба да одам?
+   = Which way should I go?
+PARTNER: Идете право, па свртете од лево.
+   = Go straight, then turn left.
+   tip: Your Macedonian is improving!
+   (also: Далеку ли е? = Is it far?)
+YOU:     Какво ќе биде времето утре? [pb]  <- REPEAT of first line
+   = What will the weather be like tomorrow?
+PARTNER: Утре ќе биде сончево и топло.
+   = Tomorrow will be sunny and warm.
+   tip: You repeated your previous question, but it's a natural thing to do!
+   (also: Дали ќе биде топло за маица? = Will it be warm enough for a t-shirt?)
+   (also: Што за презавтре? = What about the day after tomorrow?)
+YOU:     Што за презавтре?
+   = What about the day after tomorrow?
+PARTNER: Презавтре ќе биде исто, сончево и топло.
+   = The day after tomorrow will be the same, sunny and warm.
+   tip: Excellent repetition of the question! It shows you're trying to remember.
+   (also: Благодарам за помошта. = Thank you for your help.)
+   (also: довидување = goodbye [pb])
+YOU:     Благодарам за помошта.
+   = Thank you for your help.
+PARTNER: Убаво е што можев да помогнам. Пријатно!
+   = I'm glad I could help. Goodbye!
+   tip: Excellent! You used 'Благодарам' perfectly.
+   (also: Благодарам многу! = Thank you very much! [pb])
+   (also: Добар ден! = Good day! [pb])
+YOU:     Благодарам многу! [pb]
+   = Thank you very much!
+PARTNER: И вам благодарам! Се надевам дека ќе уживате во Скопје.
+   = Thank you too! I hope you enjoy Skopje.
+   tip: Excellent! You used 'Thank you very much!' perfectly.
+   (also: Добар ден! = Good day! [pb])
+

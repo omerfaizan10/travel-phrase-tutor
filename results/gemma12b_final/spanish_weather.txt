@@ -1,0 +1,19 @@
+### spanish / weather  (92s, fallbacks=0)
+PARTNER: ¡Bienvenido! ¿Le puedo ayudar con algo?
+   = Welcome! Can I help you with something?
+YOU:     ¿Qué tiempo hace?
+   = What's the weather like?
+PARTNER: ¡Claro! Hoy hace sol y un poco de calor.
+   = Of course! It's sunny and a little hot today.
+   tip: Exactly right: "¿Qué tiempo hace?" is straight from the phrasebook (What's the weather like?).
+YOU:     Gracias.
+   = Thank you.
+PARTNER: De nada. ¡Que tenga un buen viaje a Madrid y Sevilla!
+   = You're welcome. Have a good trip to Madrid and Seville!
+   tip: Exactly right: "Gracias." is straight from the phrasebook (Thank you.).
+YOU:     Muchas gracias.
+   = Thank you very much.
+PARTNER: ¡Igualmente! Que disfrute mucho de su visita.
+   = You too! I hope you enjoy your visit very much.
+   tip: Exactly right: "Muchas gracias." is straight from the phrasebook (Thank you very much.).
+   (scene done)

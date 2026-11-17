@@ -1,0 +1,19 @@
+### macedonian / sightseeing  (40s, fallbacks=0)
+PARTNER: Добро утро! Повелете, како можам да ви помогнам?
+   = Good morning! Welcome, how can I help you?
+YOU:     Каде има посета и на други места?
+   = Where are there visits to other places too?
+PARTNER: Охрид има многу, но и Струга е убава. Има стари цркви и многу риби во езерото.
+   = Ohrid has many, but Struga is also beautiful. There are old churches and many fish in the lake.
+   tip: Exactly right: "Каде има посета и на други места?" is straight from the phrasebook (Where are there visits to other places too?).
+YOU:     Дали има брод до Св. Наум?
+   = Is there a boat to St. Naum?
+PARTNER: Да, има брод, но оди само во летните месеци. Можете да фатите автобус од Охрид.
+   = Yes, there's a boat, but it only runs during the summer months. You can take a bus from Ohrid.
+   tip: Exactly right: "Дали има брод до Св. Наум?" is straight from the phrasebook (Is there a boat to St. Naum?).
+YOU:     Довидување!
+   = Goodbye!
+PARTNER: Довидување! Убаво патување.
+   = Goodbye! Have a nice trip.
+   tip: Exactly right: "Довидување!" is straight from the phrasebook (Goodbye!).
+   (scene done)

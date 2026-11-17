@@ -1,0 +1,57 @@
+### macedonian / transport / first  (46s, fallbacks=0)
+PARTNER: Добар ден! Што сакате?
+   = Good afternoon! What would you like?
+   (also: Еден билет за Битола, ве молам. = One ticket to Bitola, please.)
+   (also: Ми треба билет за Скопје. = I need a ticket to Skopje.)
+YOU:     Благодарам. Каде да купам билет? [pb]
+   = Thank you. Where do I buy a ticket?
+PARTNER: Тука, на билетот. Повелете.
+   = Right here, at the ticket window. Please, come.
+   tip: Excellent! You used the correct phrase.
+   (also: Еден момент, ве молам. = One moment, please.)
+YOU:     Каде е билетот?
+   = Where is the ticket window?
+PARTNER: На десната страна.
+   = It's on the right side.
+   tip: Excellent! You used the correct phrase.
+   (also: Далеку ли е? = Is it far?)
+YOU:     Можете ли да ми покажете?
+   = Can you show me?
+PARTNER: Се разбира. Следете ме.
+   = Of course. Follow me.
+   tip: Excellent! You used the correct phrase to ask for help.
+   (also: Можам ли да пешачам до таму? = Can I walk there? [pb])
+   (also: Повратен, ве молам. Кога тргнува следниот автобус? = Return, please. When does the next bus leave? [pb])
+YOU:     Одете право напред. [pb]
+   = Go straight ahead.
+PARTNER: Да, точно така. Тука е билетот.
+   = Yes, that’s right. Here is the ticket window.
+   tip: Excellent! You used the phrase perfectly.
+   (also: Добар ден. Еден билет за Охрид, ве молам. = Hello. One ticket to Ohrid, please. [pb])
+   (also: Повратен, ве молам. Кога тргнува следниот автобус? = Return, please. When does the next bus leave? [pb])
+YOU:     Колку чини картата? [pb]
+   = How much is the ticket?
+PARTNER: За каде сакате карта?
+   = Where do you want a ticket to?
+   tip: Your Macedonian is improving! Remember to use 'карта' for ticket.
+   (also: Сакам карта за Битола. = I want a ticket to Bitola.)
+   (also: Сакам повратна карта. = I want a return ticket.)
+YOU:     Добар ден. Еден билет за Охрид, ве молам. [pb]
+   = Hello. One ticket to Ohrid, please.
+PARTNER: Во еден правец или повратен?
+   = One way or return?
+   tip: Excellent! You used the correct phrase for 'one ticket, please.'
+   (also: Не сум сигурен/сигурна. = I'm not sure yet.)
+YOU:     Повратен, ве молам.
+   = Return, please.
+PARTNER: Во десет и триесет, од перон пет. Повратен билет е деветстотини денари.
+   = At ten thirty, from platform five. A return ticket is nine hundred denars.
+   tip: Excellent! You used the correct phrase for a return ticket.
+   (also: Тоа ли е се? = Is that all?)
+YOU:     Можам ли да платам сега?
+   = Can I pay now?
+PARTNER: Секако. Како ќе платите?
+   = Certainly. How will you pay?
+   tip: Good job asking how you want to pay!
+   (also: Со картичка. = With a card.)
+

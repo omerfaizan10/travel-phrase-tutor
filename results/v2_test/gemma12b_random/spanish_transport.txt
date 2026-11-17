@@ -1,0 +1,59 @@
+### spanish / transport / random  (53s, fallbacks=0)
+PARTNER: Buenos días. ¿En qué puedo ayudarle?
+   = Good morning. How can I help you?
+   (also: Un billete de ida y vuelta para Zaragoza. = A return ticket to Zaragoza. [pb])
+   (also: ¿A qué hora sale el autobús para Toledo? = What time does the bus to Toledo leave? [pb])
+YOU:     ¿A qué hora sale el autobús para Toledo? [pb]
+   = What time does the bus to Toledo leave?
+PARTNER: Sale a las diez y quince. Está en el andén cinco.
+   = It leaves at ten fifteen. It's on platform five.
+   tip: Excellent! You used a complete sentence to ask a question.
+   (also: ¿Hay otro autobús? = Is there another bus?)
+YOU:     ¿Hay otro autobús?
+   = Is there another bus?
+PARTNER: Sí, sale a la una y cuarenta y cinco, también en el andén cinco.
+   = Yes, it leaves at one forty-five, also on platform five.
+   tip: Excellent! You used the correct phrase to ask about another bus.
+   (also: ¿Hay un billete de ida y vuelta a Toledo? = Ask if there's a return ticket.)
+   (also: ¿Es el andén cinco? = Confirm the platform.)
+YOU:     ¿Hay un billete de ida y vuelta a Toledo?
+   = Ask if there's a return ticket.
+PARTNER: Sí, tenemos billetes de ida y vuelta a Toledo. Cuestan once euros.
+   = Yes, we have return tickets to Toledo. They cost eleven euros.
+   tip: Excellent! You're using the correct phrase structure.
+   (also: ¿Cuánto cuesta primera? = How much is first class? [pb])
+   (also: ¿En qué andén? = Confirm the platform.)
+YOU:     Hay un billete de ida a Toledo?
+   = Ask about a one-way ticket.
+PARTNER: Sí, un billete de ida cuesta seis euros.
+   = Yes, a one-way ticket costs six euros.
+   tip: Excellent! You correctly used 'hay' to ask if something exists.
+   (also: ¿Cuánto cuesta la ida y vuelta? = How much is the return ticket?)
+   (also: Voy a tomar un billete de ida. = I'll take a one-way ticket.)
+YOU:     Quiero un billete de ida y vuelta.
+   = I'd like a return ticket.
+PARTNER: De acuerdo. Un billete de ida y vuelta a Toledo, ¿verdad?
+   = Alright. A return ticket to Toledo, right?
+   tip: Excellent! You've confirmed your request clearly.
+   (also: Toledo, de vuelta. = Toledo, return.)
+   (also: Un billete de vuelta, por favor. = One return ticket, please.)
+YOU:     Un billete de vuelta, por favor.
+   = One return ticket, please.
+PARTNER: Muy bien. Un billete de ida y vuelta a Toledo. Son once euros, por favor.
+   = Very well. A return ticket to Toledo. That's eleven euros, please.
+   tip: Excellent! You’re clearly understanding the flow of the conversation.
+   (also: ¿Acepta tarjeta? = Do you accept card?)
+   (also: Tome. = Here's the money.)
+YOU:     Tome.
+   = Here's the money.
+PARTNER: Muchas gracias. Aquí tiene su billete. Que tenga un buen viaje.
+   = Thank you very much. Here's your ticket. Have a good trip.
+   tip: Excellent! You've successfully completed your goal.
+   (also: Adiós. = Goodbye. [pb])
+   (also: Que tenga un buen día. = Have a good day.)
+YOU:     Adiós. [pb]
+   = Goodbye.
+PARTNER: Adiós. ¡Que vaya bien!
+   = Goodbye. Have a good one!
+   tip: Excellent! You've successfully completed your goal and ended the conversation naturally.
+   (scene done)

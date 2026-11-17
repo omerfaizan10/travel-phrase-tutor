@@ -1,0 +1,37 @@
+### macedonian / directions / detour  (16s, fallbacks=1)
+PARTNER: Повелете, ако ви помогнам.
+   = I can help you, if you want.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Извинете, каде е автобуската станица?  <- asks where a place is; that is the TRAVELER's question. As t; says a line the TRAVELER would say; answer as the staff/loca
+   (also: Каде е автобуската станица? = Where is the bus stop / bus station? [pb])
+YOU:     Каде е автобуската станица? [pb]
+   = Where is the bus stop / bus station?
+PARTNER: На таа раскрсница, на десната страна.
+   = At that intersection, on the right side.
+   tip: Good! You used the correct word for bus station. Keep going like that, you're doing great! (You can also say 'автобуска постојка' for bus stop).
+   (also: Покажи ми како да стигнам. = I'll show you the way.)
+   (also: Помогните ми да го најдам. = I can help you find it.)
+YOU:     Покажи ми како да стигнам.
+   = I'll show you the way.
+PARTNER: Оди право, потоа помини ги семафорите.
+   = Go straight, then go past the traffic lights.
+   tip: Good! You used the correct Macedonian for 'go straight' and 'traffic lights'.
+   (also: Оди право, потоа поврзи лево. = I go straight and then turn left.)
+   (also: Оди право, потоа поврзи десно. = I go straight and then turn right.)
+YOU:     Добар ден. Колку чини овој прстен?  <- DETOUR (from shopping)
+   = Hello. How much is this ring?
+PARTNER: Извинете, не сум сигурен.
+   = Sorry, I'm not sure.
+   [attempts=3 problems=["asks where a place is; that is the TRAVELER's question. As the local/staff, answer or ask how you can help instead", 'says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: Не разбирам. Можете ли да зборувате побавно?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Не разбирам. Можете ли да зборувате побавно?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Каде е автобуската станица?  <- asks where a place is; that is the TRAVELER's question. As t; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good question — you asked for directions.
+   (also: Чекај, кажи ми побавно. = Wait, tell me more slowly. [pb])
+   (also: Каде е тоалетот? = Where is the toilet? [pb])
+YOU:     Чекај, кажи ми побавно. [pb]
+   = Wait, tell me more slowly.
+PARTNER: Покажи ми прстенот.
+   = Show me the ring.
+   tip: Good! You asked for the object clearly.
+   (scene done)

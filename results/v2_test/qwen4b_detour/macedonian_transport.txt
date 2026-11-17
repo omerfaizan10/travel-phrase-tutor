@@ -1,0 +1,37 @@
+### macedonian / transport / detour  (17s, fallbacks=0)
+PARTNER: Добар ден. Како можам да ви помогнам?
+   = Good day. How can I help you?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добар ден. Каде можам да купам билет?  <- uses 'where' (каде) wrongly; to offer help say Повелете or К; says a line the TRAVELER would say; answer as the staff/loca
+   (also: Ми треба повратен билет за Битола. = I need a return ticket to Bitola.)
+   (also: Добар ден. До центарот на Скопје, ве молам. = Hello. To the center of Skopje, please. [pb])
+YOU:     Добар ден. До центарот на Скопје, ве молам. [pb]
+   = Hello. To the center of Skopje, please.
+PARTNER: Добар ден. Повелете?
+   = Good day. May I help you?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добар ден. Каде можам да купам билет?  <- uses 'where' (каде) wrongly; to offer help say Повелете or К; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good to hear you want to go to the center of Skopje!
+   (also: Колку чини билетот? = How much is the ticket? [pb])
+YOU:     Каде е автобуската станица? [pb]
+   = Where's the bus station?
+PARTNER: Автобуската станица е најблискиот паркинг, два блока подолу.
+   = The bus station is at the nearest parking, two blocks down.
+   tip: Good choice! You're asking for the right place.
+   (also: Можете ли да ми покажете на картава? = Can you show me on the map? [pb])
+   (also: Колку чини картата? = How much is the ticket? [pb])
+YOU:     Оди право по таа улица до ќошето.  <- DETOUR (from directions)
+   = Go straight along that street to the corner.
+PARTNER: Добар ден. Можам да ви помогнам да купите билет за Скопје.
+   = Good day. I can help you buy a ticket to Skopje.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Да, оди право по таа улица до ќошето.  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good start! You asked for a ticket to Skopje.
+   (also: Колку чини билетот? = How much is the ticket? [pb])
+   (also: Дали има повратен билет? = Do you have a return ticket?)
+YOU:     Повратен, ве молам. Кога тргнува следниот автобус? [pb]
+   = Return, please. When does the next bus leave?
+PARTNER: Во десет и триесет, од перон пет.
+   = At ten thirty, from platform five.
+   tip: Great! You used the correct phrase for a return ticket.
+   (scene done)

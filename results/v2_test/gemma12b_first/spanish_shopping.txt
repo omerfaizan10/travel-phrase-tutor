@@ -1,0 +1,63 @@
+### spanish / shopping / first  (59s, fallbacks=1)
+PARTNER: Buenos días. ¿En qué puedo ayudarle?
+   = Good morning. How can I help you?
+   (also: Buenos días. Quisiera ver algunos sombreros. = Good morning. I'd like to see some hats.)
+   (also: Buenos días. Busco una camisa. = Good morning. I'm looking for a shirt.)
+YOU:     Buenos días. Busco un regalo.
+   = Good morning. I'm looking for a souvenir.
+PARTNER: Desde luego.
+   = Of course. / Sure.
+   [attempts=3 problems=['repeats your previous line'] fallback=True]
+   x rejected: ¡Qué bien! Busco un regalo para mi madre. Tenemos muchas cosas bonitas. ¿Qué tipo de regalo le gustaría?  <- speaks as the customer ('I want / I'd like'); you are the st; says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Buenos días. ¿En qué puedo ayudarle?  <- repeats your previous line
+   x rejected: Buenos días. ¿En qué puedo ayudarle?  <- repeats your previous line
+   tip: Excellent start! You used 'busco' correctly.
+   (also: ¿Aceptan dólares estadounidenses? = Do you accept US dollars? [pb])
+   (also: ¿Cuánto quiere por eso? = How much do you want for that? [pb])
+YOU:     De acuerdo, me lo llevaré. [pb]
+   = OK, I'll take it.
+PARTNER: ¿Qué desea llevarse?
+   = What would you like to take?
+   tip: Excellent! You've confirmed you want to buy something.
+   (also: Entonces me llevo la mantelería y el cántaro. = Then I'll take the tablecloth set and the pitcher. [pb])
+YOU:     Me llevo los pendientes. [pb]
+   = I'll take the earrings.
+PARTNER: Muy bien. ¿Algo más?
+   = Very good. Anything else?
+   tip: Perfect! You clearly stated what you wanted to buy.
+   (also: No, eso es todo. = No, that's all.)
+   (also: ¿Tiene pulseras? = Do you have any bracelets?)
+YOU:     Sí, me gustaría ver algunos collares.
+   = Yes, I'd like to see some necklaces.
+PARTNER: Por supuesto. Aquí tiene. Tenemos de muchos estilos.
+   = Of course. Here you are. We have many styles.
+   tip: Excellent! You used 'gustaría' correctly to express a polite desire.
+   (also: Me gusta ese. = I like that one.)
+   (also: ¿Cuánto cuestan? = How much are they?)
+YOU:     ¿Puedo ver los de plata?
+   = Can I see the silver ones?
+PARTNER: Sí, claro. Aquí tiene esta selección de plata.
+   = Yes, of course. Here's a selection of silver ones.
+   tip: Excellent! You used 'claro' perfectly.
+   (also: ¿Cuánto cuesta? = How much does it cost? [pb])
+   (also: Me gusta ese. = I like that one.)
+YOU:     Gracias. [pb]
+   = Thank you.
+PARTNER: De nada. ¿Le gusta alguno?
+   = You're welcome. Do you like any of them?
+   tip: Excellent! You used 'éste' correctly to refer to a specific necklace.
+   (also: No, son demasiado caros. = No, they are too expensive.)
+   (also: ¿Puedo ver más? = Could I see some more?)
+YOU:     Sí, me gusta éste.
+   = Yes, I like this one.
+PARTNER: Es muy bonito. ¿Quiere verlo más de cerca?
+   = It's very pretty. Would you like to see it more closely?
+   tip: Excellent! You used 'éste' correctly to refer to something nearby.
+   (also: ¿Cuánto cuesta? = How much is it? [pb])
+YOU:     Sí, por favor.
+   = Yes, please.
+PARTNER: Este collar de plata cuesta 35 euros.
+   = This silver necklace costs 35 euros.
+   tip: Excellent! You used 'cuánto cuesta' perfectly.
+   (also: Es demasiado caro. = That's too expensive. [pb])
+

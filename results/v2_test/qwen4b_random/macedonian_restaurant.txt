@@ -1,0 +1,65 @@
+### macedonian / restaurant / random  (37s, fallbacks=1)
+PARTNER: Добар ден!
+   = Good day!
+   (also: Дали имате мени? = Do you have a menu? / Can I look at the menu? [pb])
+   (also: Што препорачувате? = What do you recommend? [pb])
+YOU:     Што препорачувате? [pb]
+   = What do you recommend?
+PARTNER: Препорачувам тавче гравче и една шопска салата.
+   = I recommend tavche gravche and a shopska salad.
+   tip: Great question! You asked for a recommendation, and I gave one right away, which is natural in a restaurant conversation. Well done, and keep going with the next step of your goal: ordering food and drink for the group of five at a table.
+   (also: Може ли менито? = Can I have the menu? [pb])
+   (also: Што е специјалитет на куќата? = What is the house specialty? [pb])
+YOU:     Добар ден. Би сакал тавче гравче и една шопска салата. [pb]
+   = Hello. I would like tavche gravche and a shopska salad.
+PARTNER: Се разбира.
+   = Of course.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: Може ли да го видам менито, молам?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Дали имате мени?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Дали имате мени?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good! You asked for the menu correctly in Macedonian.
+   (also: Една шопска салата, ве молам. = One shopska salad, please. [pb])
+   (also: Тавче гравче, ве молам. Дали има месо во него? = Tavche gravche, please. Is there meat in it? [pb])
+YOU:     Тавче гравче, ве молам. Дали има месо во него? [pb]
+   = Tavche gravche, please. Is there meat in it?
+PARTNER: Да, има месо во тавче гравче.
+   = Yes, there is meat in tavche gravche.
+   tip: Good question — you asked about meat, which is important for many dishes.
+   (also: Кој е локалниот специјалитет? = What is the local specialty? [pb])
+   (also: Дали имате вино? = Do you have wine?)
+YOU:     Кој е локалниот специјалитет? [pb]
+   = What is the local specialty?
+PARTNER: Локалниот специјалитет е селско месо.
+   = The local specialty is village meat.
+   tip: Good choice! Village meat is a classic Macedonian dish.
+   (also: Дали е луто? = Is it spicy? [pb])
+   (also: Мојата пријателка е вегетаријанка. Што препорачувате? = My friend is vegetarian. What do you recommend? [pb])
+YOU:     Може ли да го видам менито, молам? [pb]
+   = Can I look at the menu, please?
+PARTNER: Да, има месо. Може ли да го видам менито?
+   = Yes, there is meat. Can I see the menu?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Повелете, ве молам.  <- repeats the traveler's request with 'please'; confirm it in 
+   tip: Good request — you asked for the menu politely.
+YOU:     Дали имате мени? [pb]
+   = Do you have a menu? / Can I look at the menu?
+PARTNER: Да, имаме мени. Повелете го, ве молам.
+   = Yes, we have a menu. Here it is, please.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Дали имате мени?  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good: that's a phrasebook sentence.
+   (also: Добро, едно селско месо без луто и една шопска салата. = OK, one village meat, not spicy, and one shopska salad. [pb])
+   (also: Многу е вкусно! = It's very tasty! [pb])
+YOU:     Добро, едно селско месо без луто и една шопска салата. [pb]
+   = OK, one village meat, not spicy, and one shopska salad.
+PARTNER: Се разбира.
+   = Of course.
+   tip: Good choice! Селско месо is a great local dish.
+   (also: Едно пиво, ве молам. = A beer, please. [pb])
+YOU:     Имате ли слободна маса за двајца?
+   = Do you have a table for two?
+PARTNER: Да, имаме слободна маса за двајца.
+   = Yes, we have a free table for two.
+   tip: Good choice! Village meat is a classic in Macedonia.
+

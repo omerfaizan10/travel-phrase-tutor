@@ -1,0 +1,57 @@
+### macedonian / shopping / detour  (49s, fallbacks=0)
+PARTNER: Добар ден! Повелете. Што сакате?
+   = Good afternoon! Welcome. What would you like?
+   (also: Колку чини ова? = How much is this? [pb])
+   (also: Го имате ова во мој број? = Do you have this in my size? [pb])
+YOU:     Само гледам, благодарам. [pb]
+   = I'm just looking, thank you.
+PARTNER: Разбирам. Нешто друго?
+   = I understand. Anything else?
+   tip: Excellent! You used the phrase perfectly.
+   (also: Имате ли прстени? = Do you have rings?)
+   (also: Што имате? = What do you have?)
+YOU:     Имате ли прстени?
+   = Do you have rings?
+PARTNER: Да, имаме. Еве погледнете.
+   = Yes, we do. Here, take a look.
+   tip: Excellent! You used the correct phrase.
+   (also: Го имате ова во мој број? = Do you have this in my size? [pb])
+YOU:     Јас сум тука на одмор.  <- DETOUR (from emergency)
+   = I'm here on vacation.
+PARTNER: Одлично! Убаво ви е на одмор.
+   = Excellent! I hope you're enjoying your vacation.
+   tip: Good: that's a phrasebook sentence.
+   (also: Колку чини ова? = How much is this? [pb])
+YOU:     Колку чини ова? [pb]
+   = How much is this?
+PARTNER: Осумдесет денари.
+   = Eighty denars.
+   tip: Excellent use of 'Колку чини ова?' - very natural!
+   (also: Може ли малку поефтино? = Can it be a bit cheaper? [pb])
+   (also: Ќе го земам. = I'll take it. [pb])
+YOU:     Само гледам, благодарам. [pb]  <- REPEAT of first line
+   = I'm just looking, thank you.
+PARTNER: Разбирам. Нешто друго?
+   = I understand. Anything else?
+   tip: Good: that's a phrasebook sentence.
+   (also: Тоа е скапо. = That's expensive. [pb])
+   (also: Ќе го земам. = I'll take it. [pb])
+YOU:     Тоа е скапо. [pb]
+   = That's expensive.
+PARTNER: Можеби имам нешто друго што ќе ви се допадне. Повелете.
+   = Perhaps I have something else you might like. Please, have a look.
+   tip: Good observation! 'Скапо' is the correct word for 'expensive'.
+   (also: Имате ли поевтини прстења? = Do you have cheaper rings?)
+   (also: Ќе го земам. = I'll take it. [pb])
+YOU:     Покажете ми нешто друго.
+   = Show me something else.
+PARTNER: Еве, погледнете овој џеберан. Тоа е налик на стариот стил.
+   = Here, look at this waistcoat. It’s in the old style.
+   tip: Good! You used 'покажете ми' correctly.
+YOU:     Ќе го земам. [pb]
+   = I'll take it.
+PARTNER: Одлично! Колку пари ви требаат?
+   = Excellent! How much money do you need?
+   tip: Good! You've used a simple sentence to express your decision.
+   (also: Сакам да разменам пари. = I want to exchange some money. [pb])
+

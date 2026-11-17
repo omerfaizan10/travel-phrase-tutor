@@ -1,0 +1,25 @@
+### spanish / directions / random  (7s, fallbacks=0)
+PARTNER: Siga derecho por esta calle.
+   = Continue straight ahead down this street.
+   (also: ¿Puede enseñarme en el mapa? = Can you show me on the map? [pb])
+   (also: ¿Hay un restaurante cerca de aquí? = Is there a restaurant near here? [pb])
+YOU:     Voy al centro. [pb]
+   = I'm going to the town centre.
+PARTNER: Siga derecho hasta el semáforo y gire a la izquierda.
+   = Continue straight ahead to the traffic light and turn left.
+   tip: Great! You used the correct word for downtown in Spain: centro.
+   (also: Lo veo. Gracias. = I see. Thank you.)
+   (also: ¿Queda lejos? = Is it far? [pb])
+YOU:     ¿Queda lejos? [pb]
+   = Is it far?
+PARTNER: Queda a dos manzanas de aquí.
+   = It's two blocks from here.
+   tip: Great question! You asked about distance clearly.
+   (also: ¿Adónde vas? = Where are you going? [pb])
+   (also: ¿Cómo puedo llegar al centro? = How do I get downtown? [pb])
+YOU:     ¿Queda lejos de aquí ese taller? [pb]
+   = Is that garage far from here?
+PARTNER: Pues no. A dos o tres manzanas de aquí.
+   = Well, no. Two or three blocks from here.
+   tip: Great question! You're asking about distance clearly.
+   (scene done)

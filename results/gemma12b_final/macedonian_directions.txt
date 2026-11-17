@@ -1,0 +1,19 @@
+### macedonian / directions  (29s, fallbacks=0)
+PARTNER: Здраво! Повелете, дали ви треба помош?
+   = Hello! Welcome, do you need help?
+YOU:     Извинете, каде е автобуската станица?
+   = Excuse me, where is the bus station?
+PARTNER: Извинете, автобуската станица е право напред.
+   = Excuse me, the bus station is straight ahead.
+   tip: Exactly right: "Извинете, каде е автобуската станица?" is straight from the phrasebook (Excuse me, where is the bus station?).
+YOU:     Од десната страна ќе видиш пошта.
+   = On the right side you'll see a post office.
+PARTNER: Да, автобуската станица е близу поштата.
+   = Yes, the bus station is near the post office.
+   tip: Exactly right: "Од десната страна ќе видиш пошта." is straight from the phrasebook (On the right side you'll see a post office.).
+YOU:     Благодарам.
+   = Thank you.
+PARTNER: Нема за што. Убав ден!
+   = You're welcome. Have a nice day!
+   tip: Exactly right: "Благодарам." is straight from the phrasebook (Thank you.).
+   (scene done)

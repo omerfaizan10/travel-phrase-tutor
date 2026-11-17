@@ -1,0 +1,61 @@
+### macedonian / weather / first  (47s, fallbacks=0)
+PARTNER: Добар ден! Времето е малку облачно денеска.
+   = Good afternoon! The weather is a little cloudy today.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добар ден! Какво е времето?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: Што треба да облечам? = What should I wear?)
+   (also: Топло е. = It's warm. [pb])
+YOU:     Облачно е. [pb]
+   = It's cloudy.
+PARTNER: Да, малку облачно е. Но, не врне.
+   = Yes, it's a little cloudy. But it's not raining.
+   tip: Excellent! You repeated what I said, which is a great way to practice.
+   (also: Дали е потопло или постудено денес? = Is it warmer or colder today? [pb])
+   (also: Што треба да облечам? = What should I wear?)
+YOU:     Какво е времето денеска? [pb]
+   = What's the weather like today?
+PARTNER: Денеска е облачно и малку студено.
+   = Today it's cloudy and a little cold.
+   tip: Excellent! You repeated the question in a natural way.
+   (also: Потопло ли е утре? = Is it warmer tomorrow?)
+   (also: Ќе врне ли? = Will it rain? [pb])
+YOU:     Што треба да облечам?
+   = What should I wear?
+PARTNER: Облечете си џемпер и можеби чадор.
+   = Wear a sweater and maybe an umbrella.
+   tip: Excellent! You used the correct phrase to ask what to wear.
+   (also: Што за капут? = What about a coat?)
+   (also: Дали е многу студено? = Is it very cold?)
+YOU:     Звучи добро.
+   = That sounds good.
+PARTNER: Да, добро е да сте подготвени.
+   = Yes, it's good to be prepared.
+   tip: Excellent! You confirmed my suggestion using the perfect phrase.
+   (also: Добро е тоа. = That's a good idea.)
+   (also: Ок, фала. = Okay, thank you.)
+YOU:     Точно е.
+   = I agree.
+PARTNER: Пријатно останете!
+   = Have a good time!
+   tip: Excellent! You've confirmed my statement.
+   (also: Какво ќе биде времето утре? = What will the weather be like tomorrow? [pb])
+   (also: Чисто е, дува пријатен, свеж ветар. = It's clear, with a pleasant fresh breeze. [pb])
+YOU:     Топло е. [pb]
+   = It's warm.
+PARTNER: Не е толку топло, но се надевам дека ќе уживате.
+   = It's not that warm, but I hope you enjoy it.
+   tip: Excellent! You used a common phrase to agree and continue the conversation.
+   (also: довидување = goodbye [pb])
+   (also: Пријатно! = Enjoy your meal! / Goodbye! [pb])
+YOU:     Благодарам за разговорот.
+   = Thank you for the conversation.
+PARTNER: И јас благодарам. Довидување!
+   = Me too. Goodbye!
+   tip: Excellent! You used 'Благодарам' perfectly.
+   (also: Пријатно! = Enjoy your meal! / Goodbye! [pb])
+YOU:     довидување [pb]
+   = goodbye
+PARTNER: Се надевам дека ќе се видите уште еднаш.
+   = I hope to see you again.
+   tip: Excellent! You used 'Довидување!' perfectly to signal the end of the conversation.
+   (scene done)

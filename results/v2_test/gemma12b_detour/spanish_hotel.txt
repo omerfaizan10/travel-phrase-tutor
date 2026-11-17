@@ -1,0 +1,60 @@
+### spanish / hotel / detour  (45s, fallbacks=0)
+PARTNER: Buenos días. ¿En qué puedo ayudarle?
+   = Good morning. How can I help you?
+   (also: ¿Hay habitaciones libres? = Do you have any rooms available? [pb])
+   (also: ¿Cuánto cuesta una habitación para una persona? = How much is a room for one person? [pb])
+YOU:     ¿Quisiera una habitación.
+   = I'd like a room.
+PARTNER: Por supuesto. ¿Para cuántas personas?
+   = Of course. For how many people?
+   tip: Excellent! You used a very polite and standard phrase.
+   (also: ¿Para dos personas? = For two people.)
+   (also: Sólo por esta noche. = Just for tonight. [pb])
+YOU:     ¿Para una persona?
+   = For one person.
+PARTNER: Tenemos habitaciones individuales. Son sesenta y cinco euros por día.
+   = We have single rooms. They are sixty-five euros per day.
+   tip: Excellent! You used the correct verb tense to ask for a room.
+   (also: ¿Puedo ver la habitación primero? = May I see the room first? [pb])
+YOU:     Está despejado.  <- DETOUR (from weather)
+   = It's clear.
+PARTNER: Muy bien. ¿Cuánto tiempo piensa quedarse?
+   = Very well. How long are you planning to stay?
+   tip: Excellent! You used the correct verb tense.
+   (also: Sólo por esta noche. = Just for tonight. [pb])
+   (also: Sólo por una noche. = Only one night.)
+YOU:     Sólo por una noche.
+   = Only one night.
+PARTNER: De acuerdo. ¿Desea ver la habitación?
+   = Alright. Would you like to see the room?
+   tip: Excellent! You used 'Sí, por favor' perfectly.
+   (also: No, la tomaré. = No, I'll take it.)
+   (also: ¿Cuánto cuesta? = How much is it? [pb])
+YOU:     ¿Quisiera una habitación.  <- REPEAT of first line
+   = I'd like a room.
+PARTNER: Por supuesto. ¿Para cuántas personas?
+   = Of course. For how many people?
+   tip: Excellent! You used the correct verb form to request a room.
+   (also: ¿Para tres personas? = For three people.)
+YOU:     ¿Para dos personas?
+   = For two people.
+PARTNER: Tenemos una habitación doble. Son ochenta y cinco euros por noche.
+   = We have a double room. It’s eighty-five euros per night.
+   tip: Excellent! You've clearly understood the question and responded appropriately.
+   (also: ¿Puede recomendarme otros hoteles? = Can you suggest other hotels? [pb])
+   (also: ¿Qué número de habitación es? = What's the room number? [pb])
+YOU:     ¿Puede recomendarme otros hoteles? [pb]
+   = Can you suggest other hotels?
+PARTNER: Lo siento, no conozco otros hoteles. Este es muy bueno.
+   = I’m sorry, I don't know any other hotels. This one is very good.
+   tip: Excellent! You used a complete sentence to ask for a suggestion.
+   (also: ¿Cuánto cuesta una habitación para una persona? = How much is a room for one person? [pb])
+   (also: ¿Qué número de habitación es? = What's the room number? [pb])
+YOU:     ¿Qué número de habitación es? [pb]
+   = What's the room number?
+PARTNER: Es en el segundo piso, habitación 234.
+   = It's on the second floor, room 234.
+   tip: Excellent question! You used the correct phrasing to ask for the room number.
+   (also: ¿En qué piso está? = What floor is it on?)
+   (also: Gracias, adiós. = Thank you, goodbye.)
+

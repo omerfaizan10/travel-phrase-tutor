@@ -1,0 +1,51 @@
+### spanish / hotel / first  (43s, fallbacks=0)
+PARTNER: ¿Buenos días. ¿En qué puedo ayudarle?
+   = Good morning. How can I help you?
+   (also: ¿Hay habitaciones libres? = Do you have any rooms available? [pb])
+YOU:     Quisiera una habitación, por favor.
+   = I'd like a room, please.
+PARTNER: Claro. ¿Para cuántas personas?
+   = Of course. For how many people?
+   tip: Excellent! You used 'Quisiera' which is a very polite way to ask for something.
+   (also: Para dos personas. = For two people.)
+   (also: Para tres personas. = For three people.)
+YOU:     Para una persona.
+   = For one person.
+PARTNER: ¿Cuánto tiempo piensa quedarse?
+   = How long are you planning to stay?
+   tip: Excellent! You used the correct verb tense to express future actions.
+   (also: Sólo por esta noche. = Just for tonight. [pb])
+   (also: Sólo por una noche. = Only one night.)
+YOU:     Me quedaré tres noches. [pb]
+   = I will stay three nights.
+PARTNER: Son 65 euros por noche. Es en el segundo piso, habitación 234.
+   = That's 65 euros per night. It's on the second floor, room 234.
+   tip: Excellent! You used the correct verb tense to express your intention to stay.
+   (also: ¿Puedo ver la habitación primero? = May I see the room first? [pb])
+   (also: ¿Tiene algo más barato? = Do you have anything cheaper? [pb])
+YOU:     ¿Cuánto cuesta una habitación para dos personas? [pb]
+   = How much is a room for two people?
+PARTNER: Una habitación doble son 85 euros por noche.
+   = A double room is 85 euros per night.
+   tip: Excellent! You've used the correct phrase to ask about a different option.
+   (also: Tomaré la doble. = I'll take the double room.)
+YOU:     La tomaré.
+   = I'll take the single room.
+PARTNER: Muy bien. ¿Puedo ver su pasaporte, por favor?
+   = Very well. May I see your passport, please?
+   tip: Excellent! You used 'la tomaré' perfectly to accept the offer.
+   (also: ¿El desayuno va incluido? = Is breakfast included? [pb])
+   (also: ¿Qué número de habitación es? = What's the room number? [pb])
+YOU:     Le doy mi pasaporte.
+   = I'll give you my passport.
+PARTNER: Gracias. Aquí tiene su llave. El desayuno va incluido, de 7:30 a 10:30 en el comedor.
+   = Thank you. Here is your key. Breakfast is included, from 7:30 to 10:30 in the dining room.
+   tip: Excellent! You used 'Le doy' correctly to offer something.
+   (also: ¿A qué hora es el desayuno? = What time is breakfast? [pb])
+   (also: ¿Qué número de habitación es? = What's the room number? [pb])
+YOU:     Muchas gracias. [pb]
+   = Thank you very much.
+PARTNER: De nada. Que tenga un buen día.
+   = You're welcome. Have a good day.
+   tip: Excellent! You used 'muchas gracias' appropriately.
+   (scene done)

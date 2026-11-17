@@ -1,0 +1,31 @@
+### macedonian / restaurant / first  (27s, fallbacks=1)
+PARTNER: Добар ден! Имате ли слободна маса за двајца?
+   = Good day! Do you have a free table for two?
+   (also: Повелете, имаме слободна маса. = I can show you a free table.)
+   (also: Провери, има ли маса за двајца? = Let me check if there's a table for two.)
+YOU:     Да, имаме маса за двајца на терасата.
+   = Yes, we have a table for two on the terrace.
+PARTNER: Повелете. Може ли да го видам менито?
+   = Here you go. Can I see the menu?
+   [attempts=3 problems=[] fallback=False]
+   x rejected: Повелете. Може ли да го видам менито, молам?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Повелете. Може ли да го видам менито, молам?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good! You asked for the menu correctly and politely.
+   (also: Дали имате мени? = Do you have a menu? / Can I look at the menu? [pb])
+YOU:     Може ли да го видам менито, молам? [pb]
+   = Can I look at the menu, please?
+PARTNER: Извинете, не сум сигурен.
+   = Sorry, I'm not sure.
+   [attempts=3 problems=['repeats your previous line'] fallback=True]
+   x rejected: Повелете. Може ли да го видам менито?  <- repeats your previous line
+   x rejected: Повелете. Може ли да го видам менито?  <- repeats your previous line
+   x rejected: Повелете. Може ли да го видам менито?  <- repeats your previous line
+   tip: Good job using the correct phrase 'може ли da го видам менито'!
+   (also: Добра вечер. Имате ли слободна маса за двајца? = Good evening. Do you have a free table for two? [pb])
+   (also: Едно пиво, ве молам. = A beer, please. [pb])
+YOU:     Маса за двајца, ве молам. [pb]
+   = A table for two, please.
+PARTNER: Добар ден! Имате ли слободна маса за двајца?
+   = Good day! Do you have a free table for two?
+   tip: Good: that's a phrasebook sentence.
+   (scene done)

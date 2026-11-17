@@ -1,0 +1,31 @@
+### macedonian / shopping / first  (16s, fallbacks=0)
+PARTNER: Добар ден! Имате ли кеса?
+   = Good day! Do you have a bag?
+   [attempts=3 problems=[] fallback=False]
+   x rejected: Добар ден! Што сакате за пиење?  <- talks about food or drinks, which is not part of this scene;
+   x rejected: Добар ден! Имате ли кесе?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: Не, немам. = No, I don't have it.)
+   (also: Може ли кеса? = Can I have a bag? [pb])
+YOU:     Да, имам.
+   = Yes, I have it.
+PARTNER: Осумдесет денари.
+   = Eighty denars.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Колку чини ова?  <- asks the price; that is the customer's question. As the staf; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good choice! You're asking for the price first, which is natural in a shop.
+   (also: Колку чини килото? = How much is a kilo? [pb])
+YOU:     Сакам да го земам.
+   = I want to buy this item.
+PARTNER: Добар ден! Имате ли кеса?
+   = Good day! Do you have a bag?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добро, ќе го земам.  <- speaks as the customer ('I want / I'd like'); you are the st
+   tip: Good start! You asked a natural question.
+   (also: Колку чини ова? = How much is this? [pb])
+   (also: Може ли со картичка? = Can I pay by card? [pb])
+YOU:     Дајте ми едно кило домати, ве молам. [pb]
+   = Give me a kilo of tomatoes, please.
+PARTNER: Повелете, свежи домати!
+   = Here you go, fresh tomatoes!
+   tip: Great! You used the correct phrase.
+   (scene done)

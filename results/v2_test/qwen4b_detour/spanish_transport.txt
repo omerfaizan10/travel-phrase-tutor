@@ -1,0 +1,24 @@
+### spanish / transport / detour  (10s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: ¿A qué hora sale el autobús para Toledo? = What time does the bus to Toledo leave? [pb])
+   (also: ¿Cuánto cuesta un billete a Toledo? = How much is a ticket to Toledo?)
+YOU:     ¿Cuánto cuesta un billete a Toledo?
+   = How much is a ticket to Toledo?
+PARTNER: Un billete de ida cuesta 6 euros.
+   = A one-way ticket costs 6 euros.
+   tip: Good! You asked about the price of a ticket to Toledo, which is correct for a one-way trip to Toledo, and you said it in a natural way, using the right phrase in Spanish.
+   (also: Un billete a Toledo, por favor. = I want to go to Toledo by bus.)
+   (also: ¿A qué hora sale el autobús para Toledo? = What time does the bus to Toledo leave? [pb])
+YOU:     Un billete a Toledo, por favor.
+   = I want to go to Toledo by bus.
+PARTNER: ¿Cuánto desea? Un billete de ida cuesta 6 euros.
+   = How many? A one-way ticket costs 6 euros.
+   tip: Good choice! You said exactly what I meant in my reply.
+   (also: Un billete a Toledo, por favor. Sólo una maleta. = I want to go to Toledo with one suitcase.)
+YOU:     Perdone, agente, ¿hay una gasolinera cerca de aquí?  <- DETOUR (from directions)
+   = Excuse me, officer, is there a petrol station near here? (Address a police officer in Spain as agente.)
+PARTNER: No, no hay una gasolinera cerca de aquí.
+   = No, there is no gas station nearby.
+   tip: Good question, but there is no gas station near here.
+   (scene done)

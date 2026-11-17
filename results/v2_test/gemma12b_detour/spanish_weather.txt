@@ -1,0 +1,63 @@
+### spanish / weather / detour  (49s, fallbacks=0)
+PARTNER: ¡Hola! Buenos días. ¿En qué puedo ayudarle?
+   = Hello! Good morning. How can I help you?
+   (also: Estoy bien, gracias. = I'm fine, thank you.)
+   (also: ¿Qué tiempo hace? = What's the weather like? [pb])
+YOU:     ¿Qué tiempo hace? [pb]
+   = What's the weather like?
+PARTNER: Hoy hace sol y fresco. La temperatura está a 18 grados.
+   = Today it's sunny and cool. The temperature is 18 degrees.
+   tip: Perfect! You used the correct phrase to ask about the weather.
+   (also: Hace calor. = It's hot. [pb])
+YOU:     Hace frío. [pb]
+   = It's cold.
+PARTNER: Sí, un poco. Es mejor llevar una chaqueta ligera.
+   = Yes, a little. It’s best to wear a light jacket.
+   tip: Perfect! You’ve agreed with what I said and kept the conversation flowing.
+   (also: ¿Qué debo llevar? = What should I wear?)
+   (also: ¿Hace frío mañana? = Is it cold tomorrow?)
+YOU:     ¿Hay un hotel cerca de aquí?  <- DETOUR (from directions)
+   = Is there a hotel near here?
+PARTNER: No, no hay hoteles muy cerca. Hay uno en la segunda calle a la izquierda.
+   = No, there aren’t any hotels very close. There’s one on the second street on the left.
+   tip: Excellent! You used a complete sentence and asked a relevant follow-up question.
+   (also: ¿Qué tan lejos está? = How far is it?)
+   (also: ¿Puede repetir eso? = Can you repeat that?)
+YOU:     ¿Qué tan lejos está?
+   = How far is it?
+PARTNER: Está a unos diez minutos caminando.
+   = It's about a ten-minute walk.
+   tip: Excellent! You used 'unos' correctly to indicate 'about'.
+   (also: Eso es bueno saber. = That's good to know.)
+   (also: ¿Es caro? = Is it expensive?)
+YOU:     ¿Qué tiempo hace? [pb]  <- REPEAT of first line
+   = What's the weather like?
+PARTNER: Hoy hace sol y fresco. La temperatura está a 18 grados.
+   = Today it's sunny and cool. The temperature is 18 degrees.
+   tip: Excellent! You repeated the question, showing you were listening.
+   (also: La temperatura, ¿cuántos grados? = Ask about the temperature.)
+   (also: ¿Qué ropa debo llevar? = Ask what to wear.)
+YOU:     La temperatura, ¿cuántos grados?
+   = Ask about the temperature.
+PARTNER: La temperatura está a 18 grados, pero bajará un poco esta noche.
+   = The temperature is 18 degrees, but it will drop a little tonight.
+   tip: Excellent! You remembered the question and asked for clarification. Very natural.
+   (also: Adiós. = Goodbye. [pb])
+   (also: Que tenga un buen día. = Have a good day.)
+YOU:     Que tenga un buen día.
+   = Have a good day.
+PARTNER: Sí, la temperatura está a 18 grados ahora.
+   = Yes, the temperature is 18 degrees now.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Igualmente. ¡Que tenga un buen día!  <- starts by repeating the traveler's sentence word for word; a
+   tip: You're doing well! Just avoid repeating the traveler’s phrases exactly.
+   (also: Ha sido un placer hablar con usted. = It was nice talking to you.)
+   (also: Adiós, que pase un buen día. = Goodbye, enjoy your day.)
+YOU:     Ha sido un placer hablar con usted.
+   = It was nice talking to you.
+PARTNER: El placer ha sido mío. ¡Que tenga un buen día también!
+   = The pleasure was mine. Have a good day too!
+   tip: Excellent! You used a polite farewell phrase perfectly.
+   (also: Muchas gracias. = Thank you very much. [pb])
+   (also: Mucho gusto. = Pleased to meet you. [pb])
+

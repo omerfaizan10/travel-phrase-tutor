@@ -1,0 +1,24 @@
+### macedonian / emergency  (48s, fallbacks=0)
+PARTNER: Добар ден! Како можам да ви помогнам?
+   = Good afternoon! How can I help you?
+YOU:     Ми треба вашата помош.
+   = I need your help.
+PARTNER: Се разбира. Што се случи?
+   = Of course. What happened?
+   tip: Exactly right: "Ми треба вашата помош." is straight from the phrasebook (I need your help.).
+YOU:     Ја изгубив торбата.
+   = I lost my bag.
+PARTNER: Жал ми е што ја изгубите торбата. Каде тоа се случи?
+   = I'm sorry you lost your bag. Where did that happen?
+   tip: Exactly right: "Ја изгубив торбата." is straight from the phrasebook (I lost my bag.).
+YOU:     Повикајте брза помош!
+   = Call an ambulance!
+PARTNER: Не е потребно брза помош. Треба да пријавите крадеж.
+   = An ambulance isn't necessary. You need to report the theft.
+   tip: Exactly right: "Повикајте брза помош!" is straight from the phrasebook (Call an ambulance!).
+YOU:     Пријатно!
+   = Goodbye!
+PARTNER: Нема потреба да се пријавувате сега. Можеме да го направиме тоа подоцна.
+   = There's no need to report it now. We can do it later.
+   tip: Exactly right: "Пријатно!" is straight from the phrasebook (Goodbye!).
+   (scene done)

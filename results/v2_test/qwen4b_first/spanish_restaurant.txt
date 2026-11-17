@@ -1,0 +1,57 @@
+### spanish / restaurant / first  (24s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: ¿Puedo mirar la carta, por favor? = Can I look at the menu, please? [pb])
+   (also: ¿Qué nos recomienda? = What do you recommend? [pb])
+YOU:     Una mesa para dos personas, por favor. [pb]
+   = A table for two, please.
+PARTNER: ¿Sí, señor? ¿Tiene una reserva?
+   = Yes, sir? Do you have a reservation?
+   tip: Good start! You used the correct form for asking about a reservation.
+   (also: No, no tenemos reserva. Vamos a entrar. = No, we don't have a reservation. We'll just come in.)
+   (also: Necesitamos esperar a alguien más. Podemos volver más tarde. = We need to wait for someone else. Can we come back later?)
+YOU:     Sí, tenemos una reserva. Estamos listos.
+   = Yes, we have a reservation. We're ready.
+PARTNER: Perfecto, ya está lista una mesa para dos personas.
+   = Perfect, a table for two is ready.
+   tip: Great, you said 'estamos listos' which means 'we are ready'.
+YOU:     Estaremos allí en un minuto.
+   = We will be there in a minute.
+PARTNER: Perfecto, espero por un minuto.
+   = Perfect, I'll wait for one minute.
+   tip: Great! You said it clearly and naturally.
+YOU:     Voy a volver en un momento.
+   = I'll be right back.
+PARTNER: Perfecto, vuelva cuando quiera.
+   = Perfect, come back when you want.
+   tip: Good, you said 'estamos listos' which means 'we're ready'.
+   (also: ¿Cuál es el plato del día? = What is the special of the day? [pb])
+   (also: ¿Qué nos recomienda? = What do you recommend? [pb])
+YOU:     ¿Puedo mirar la carta, por favor? [pb]
+   = Can I look at the menu, please?
+PARTNER: ¡Claro! ¿Qué desea comer?
+   = Of course! What would you like to eat?
+   tip: Great! You used the correct phrase for chicken.
+   (also: Quisiera la sopa del día. = I would like the soup of the day. [pb])
+   (also: ¿Cuál es el plato del día? = What is the special of the day? [pb])
+YOU:     Quisiera un plato que lleve pollo. [pb]
+   = I want a dish containing chicken.
+PARTNER: ¿Qué va a tomar?
+   = What would you like to drink?
+   tip: Great choice! Pollo is a common dish in Spain.
+   (also: Un chato, por favor. = I'd like a glass of wine.)
+YOU:     Para beber, me gustaría agua, por favor. [pb]
+   = To drink, I'd like water, please.
+PARTNER: Perfecto, traigo un vaso de agua.
+   = Perfect, I'm bringing a glass of water.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Traiga un vaso de agua, por favor.  <- repeats the traveler's request with 'please'; confirm it in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Great! You asked for water and a dish with chicken.
+   (also: Do you have any bar snacks? = ¿Tiene algo para picar?)
+YOU:     ¿Qué es cocido? ¿Puedo tenerlo?
+   = What is cocido? Can I have it?
+PARTNER: ¿Puedo poner poco aceite?
+   = Can I use less oil?
+   tip: Good question — you're learning fast!
+   (also: Quisiera el filete bien asado. = I would like the steak well done. [pb])
+

@@ -1,0 +1,58 @@
+### macedonian / restaurant / first  (57s, fallbacks=0)
+PARTNER: Добар ден! Повелете. Колку лица?
+   = Good day! Welcome. How many people?
+   (also: Маса за еден/двајца, ве молам. = A table for one/two , please. [pb])
+   (also: Добра вечер. Имате ли слободна маса за двајца? = Good evening. Do you have a free table for two? [pb])
+YOU:     Маса за двајца, ве молам. [pb]
+   = A table for two, please.
+PARTNER: Добро. Една минута.
+   = Okay. One minute.
+   tip: Excellent! You used the correct phrase for requesting a table.
+   (also: Може ли менито? = Can I have the menu? [pb])
+   (also: Имате ли маса на тераса? = Do you have a table on the terrace?)
+YOU:     Благодарам! [pb]
+   = Thank you!
+PARTNER: Ве повикуваме.
+   = We’ll call you.
+   tip: Excellent! You used 'благодарам' perfectly.
+   (also: Што препорачувате? = What do you recommend? [pb])
+   (also: Дали имате мени? = Do you have a menu? / Can I look at the menu? [pb])
+YOU:     Може ли менито? [pb]
+   = Can I have the menu?
+PARTNER: Се разбира. Еве го менито.
+   = Of course. Here is the menu.
+   tip: Excellent! You used the correct phrase to ask for the menu.
+   (also: Што препорачувате? = What do you recommend? [pb])
+YOU:     Што е специјалитет на куќата? [pb]
+   = What is the house specialty?
+PARTNER: Селското месо е специјалитет на куќата. Многу е вкусно.
+   = The village meat is the house specialty. It’s very tasty.
+   tip: Excellent question! Using ‘Што е специјалитет на куќата?’ is a very natural way to ask.
+   (also: Дали имате мени? = Do you have a menu? / Can I look at the menu? [pb])
+YOU:     Кој е локалниот специјалитет? [pb]
+   = What is the local specialty?
+PARTNER: Тавче гравче е локален специјалитет. Со гравче и месо е.
+   = Tavche gravche is a local specialty. It's with beans and meat.
+   tip: Excellent question! You used the correct phrasing.
+   (also: Дали е луто? = Is it spicy? [pb])
+YOU:     Може ли тавче гравче, ве молам?
+   = Can I have that, please?
+PARTNER: Да, секако. Што сакате за пиење?
+   = Yes, of course. What would you like to drink?
+   tip: Excellent! You’ve successfully ordered a dish.
+   (also: Едно пиво, ве молам. = A beer, please. [pb])
+   (also: Ќе го видам само менито. = I'll just look at the menu.)
+YOU:     Една чаша црвено вино, ве молам. [pb]
+   = A glass of red wine, please.
+PARTNER: Добро. Една чаша црвено вино. Се уште нешто сакате?
+   = Okay. One glass of red wine. Would you like anything else?
+   tip: Excellent! You're using the correct sentence structure.
+   (also: Да, сакам салата. = Yes, I'd like a salad.)
+YOU:     Само тоа.
+   = I'll just have that.
+PARTNER: Добро. Чекај малку.
+   = Okay. Wait a moment.
+   tip: Excellent! You're doing very well with the language.
+   (also: Сè беше многу вкусно. Благодарам! = Everything was very tasty. Thank you! [pb])
+   (also: Може ли да платам со картичка? = Can I pay by card? [pb])
+

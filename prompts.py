@@ -286,12 +286,16 @@ ROLEPLAY_JSON_TEMPLATE = """You are {partner} in a {language} roleplay with an E
 Rules for "reply" (your line, in character):
 - Write ONLY in {language}{script}. One or two short, simple sentences a real {partner} would say.
 - You are {partner}, never the traveler. Answer or respond to what the traveler just said. Never repeat the traveler's words back.
+- Talk like a real person in an ongoing conversation: remember everything said so far (what they asked, ordered, chose or told you) and stay consistent with it. Don't ask for something they already gave you, and don't change details you already said (a price, a dish, a platform).
+- Use the notes only for what is relevant to THIS moment of the conversation; ignore notes about other topics.
+- When the traveler asks a yes/no question, your yes/no must match what you say next ("Is there meat in it?" -> "No, it has no meat." / "Yes, it has beef."), never "Yes, it has no meat".
+- Write every clock time as digits (e.g. 07.06, 14.30), never in words, and use only times from the notes.
 - Never ask where a place is (the traveler asks YOU that), and never ask a question and then answer it yourself: say your line, then wait for the traveler.
 - If the traveler asks for a recommendation, a specialty, a price or a direction, ANSWER it concretely (e.g. name a dish, place or item from the notes). Do not dodge with another question.
 - Typical moves for staff: if asked for the bill, say the total (a made-up price is fine, e.g. "Тоа е 600 денари." / "Son 25 euros."); if thanked, reply "you're welcome" ("Нема зошто." / "De nada."); if greeted, greet back and offer help.
 - When the traveler orders or answers you, first acknowledge it in your own words (e.g. "Muy bien, una paella." / "Одлично, една шопска салата."), then move the scene on (drinks, dessert, the bill, the next step). Never ignore what they just said.
 - Prefer wording from the phrasebook and notes below.
-- Never invent real-world facts such as train or bus times, opening hours or what is at a real address: use only times from the notes. If the traveler asks for a time that is NOT in the notes, stay in character and tell them to check the departures board or the timetable (in {language}). Small made-up details for the scene are fine (a price in a shop, "go straight, then left").
+- Never invent real-world facts such as train or bus times, opening hours or what is at a real address: use only times from the notes. If the traveler asks for a time that is NOT in the notes, stay in character and say you're not sure and where they could check, in a way that fits your job (a ticket seller: the departures board; a receptionist: the card in the room; others: "I'm not sure") (in {language}). Small made-up details for the scene are fine (a price in a shop, "go straight, then left").
 - If the traveler asks about something outside your job (e.g. a plane or a train at a bus-station ticket desk, a hotel room from a waiter), politely say in {language} that you can't help with that here, then steer back to your own job.
 {language_rules}
 Also return:
@@ -326,4 +330,89 @@ ROLEPLAY_SCHEMA = {
         "tip": {"type": "string"},
     },
     "required": ["reply", "reply_english", "vocab_ids", "suggestion_id", "tip"],
+}
+
+
+# ---------------------------------------------------------------------------
+# Chat roleplay (chat_turn in tutor.py): the model writes the partner's reply
+# AND chooses the traveler's suggested replies, with the whole conversation in
+# view. Suggestions are restricted to checked phrasebook lines: the model picks
+# them by number, and the JSON schema only allows numbers that exist.
+# ---------------------------------------------------------------------------
+
+CHAT_TEMPLATE = """You are role-playing {partner} in {language}, in a realistic conversation with an English-speaking traveler who is practising {language}. Scenario: {scenario}.
+The traveler's goal in this scene: {goal}.
+
+Have a natural conversation, the way a real {partner} would: listen to what the traveler just said, answer it, remember everything said so far, and help them reach their goal. Stay in your role: you are {partner}, never the traveler (you don't order food, ask for prices or ask for directions; you answer, offer and serve). You are a stranger doing your job: don't ask about their trip, where they are from or other personal small talk, and never write stage directions or notes in brackets.
+
+Answer with JSON:
+- "reply": your next line, ONLY in {language}{script}. One to three short, simple sentences a beginner can follow.
+- "reply_english": its English translation.
+- "suggestions": the 3 best things the TRAVELER could say next, replying to your line, each {{"english": what they mean, "text": the same in simple beginner {language}{script}}}. The FIRST is the most natural next step at this exact moment (answer your question, or take the next step of the goal); the others are reasonable alternatives. Agree with everything already said (same destination, same item, same group size: at a table of five, everyone has to order) and never repeat something the traveler already said or did. Never suggest the bill, a thank-you or a goodbye before the earlier steps of the goal are done for everyone, unless the traveler asked. When a listed traveler phrase says what you mean, use its exact wording. Answers are statements, not questions. Keep each under 12 words.
+- "tip": one short sentence in English about the traveler's last line (praise it, or gently give the correct {language}); "" if the traveler hasn't spoken yet.
+- "scene_over": true only when the conversation has naturally finished (goodbyes exchanged); then "suggestions" can be empty.
+
+Facts: for timetables use only times and platforms from the notes, written as digits (e.g. 14.30). If the traveler asks for a time that is not in the notes, say you're not sure and where they could check. Small made-up details for the scene are fine (a price in a shop, "second street on the left").
+When the traveler asks a yes/no question, your yes/no must match what you say next.
+{language_rules}
+{phrases}
+
+Notes:
+{notes}"""
+
+# What the traveler is there to do in each scene, so the conversation has a
+# direction (and an end) instead of drifting into small talk.
+SCENE_GOALS = {
+    "restaurant": "have a meal: get a table, order food and a drink, then ask for the bill and pay",
+    "directions": "find the way to a place (for example the bus station or the city centre), check it is clear, and thank the local",
+    "shopping": "buy something (a souvenir or a piece of clothing): ask about it, ask the price, decide, pay",
+    "hotel": "check in: ask for a room, ask the price, give the passport, get the key (maybe ask about breakfast)",
+    "transport": "buy a ticket: say where to, one-way or return, ask when it leaves and from which platform, pay",
+    "weather": "a short friendly chat about today's weather and what to wear, then say goodbye",
+    "sightseeing": "get a recommendation for something to see, ask how to get there, and thank the local",
+    "emergency": "the traveler has lost their bag: report it, answer the officer's questions (what, where, when), and find out what to do next",
+}
+
+# Made-up timetables for the roleplay, for scenes whose notes have no times
+# (so the partner can answer "when does it leave?" instead of going in circles).
+# Shown to the model as practice data, not real schedules. Macedonian bus and
+# breakfast times match the notes (Ohrid 10.30 platform 5; breakfast 7-10).
+PRACTICE_FACTS = {
+    ("spanish", "transport"): (
+        "Practice timetable for this roleplay (made-up, not a real schedule):\n"
+        "- Autobús a Sevilla: 09.00 y 15.30, andén 3. Billete de ida: 22 euros; ida y vuelta: 40 euros.\n"
+        "- Autobús a Toledo: 10.15 y 13.45, andén 5. Ida: 6 euros; ida y vuelta: 11 euros.\n"
+        "- Autobús a Granada: 11.20, andén 7. Ida: 25 euros.\n"
+        "- Tren a Sevilla: 08.00, 12.00 y 17.30, vía 2. Ida: 45 euros."),
+    ("spanish", "hotel"): (
+        "Practice details for this roleplay (made-up):\n"
+        "- Desayuno: de 07.30 a 10.30, en el comedor. Habitación individual: 65 euros por noche; doble: 85 euros."),
+    ("macedonian", "transport"): (
+        "Practice timetable for this roleplay (made-up, not a real schedule; Ohrid matches the notes):\n"
+        "- Автобус за Охрид: 10.30, перон 5 (околу три часа). Повратен билет: 900 денари.\n"
+        "- Автобус за Битола: 08.15 и 14.00, перон 2. Еден правец: 600 денари.\n"
+        "- Автобус за Струга: 12.00, перон 4. Еден правец: 550 денари."),
+    ("macedonian", "hotel"): (
+        "Practice details for this roleplay (made-up; breakfast matches the notes):\n"
+        "- Доручек: од 07.00 до 10.00, во ресторанот. Соба за еден: 2500 денари по ноќ; за двајца: 3500 денари."),
+}
+
+CHAT_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "reply": {"type": "string"},
+        "reply_english": {"type": "string"},
+        # The model writes what the traveler could say; tutor.chat_turn() swaps
+        # each one for the phrasebook phrase with the same meaning when there is
+        # one, and checks the rest strictly.
+        "suggestions": {
+            "type": "array", "maxItems": 3,
+            "items": {"type": "object",
+                      "properties": {"english": {"type": "string"}, "text": {"type": "string"}},
+                      "required": ["english", "text"]},
+        },
+        "tip": {"type": "string"},
+        "scene_over": {"type": "boolean"},
+    },
+    "required": ["reply", "reply_english", "suggestions", "tip", "scene_over"],
 }

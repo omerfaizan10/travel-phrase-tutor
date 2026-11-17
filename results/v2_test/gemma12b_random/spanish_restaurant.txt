@@ -1,0 +1,59 @@
+### spanish / restaurant / random  (52s, fallbacks=0)
+PARTNER: Buenas tardes. ¿En qué puedo ayudarle?
+   = Good afternoon. How can I help you?
+   (also: ¿Puedo mirar la carta, por favor? = Can I look at the menu, please? [pb])
+   (also: Me gustaría reservar una mesa para esta noche. = I'd like to reserve a table for tonight. [pb])
+YOU:     Me gustaría reservar una mesa para esta noche. [pb]
+   = I'd like to reserve a table for tonight.
+PARTNER: Por supuesto. ¿Para cuántas personas?
+   = Of course. For how many people?
+   tip: Excellent! You used the correct phrase to request a reservation.
+   (also: Para cuatro personas. = For four people.)
+   (also: Para cinco personas. = For five people.)
+YOU:     Para dos personas.
+   = For two people.
+PARTNER: Perfecto. ¿A qué hora le gustaría?
+   = Perfect. What time would you like?
+   tip: Excellent! You used the correct phrase and gave a clear answer.
+   (also: A las nueve. = At 9:00)
+   (also: A las diez. = At 10:00)
+YOU:     A las ocho y media.
+   = At 8:30
+PARTNER: Muy bien. Mesa para dos a las ocho y media. ¿A su nombre, por favor?
+   = Very well. A table for two at 8:30. May I have your name, please?
+   tip: Excellent! You used the correct time format.
+   (also: ¿Puedo confirmar la reserva? = Can I confirm the reservation?)
+   (also: ¿Tiene un número de teléfono? = Do you have a phone number?)
+YOU:     ¿Cuál es su nombre?
+   = What is your name?
+PARTNER: Me llamo Miguel. ¿Ya va a cenar o es para más tarde?
+   = My name is Miguel. Are you going to have dinner now or is it for later?
+   tip: Excellent! You asked my name, showing politeness.
+   (also: Es para más tarde. = It's for later.)
+   (also: Primero voy a mirar la carta. = I'll look at the menu first.)
+YOU:     Primero voy a mirar la carta.
+   = I'll look at the menu first.
+PARTNER: Por supuesto. Aquí tiene la carta.
+   = Of course. Here's the menu.
+   tip: Excellent! You used the correct phrase to ask for the menu.
+   (also: ¿Cuál es el plato del día? = What is the special of the day? [pb])
+   (also: ¿Qué nos recomienda? = What do you recommend? [pb])
+YOU:     ¿Cuál es la sopa del día? [pb]
+   = What is the soup of the day?
+PARTNER: La sopa del día es de tomate. ¿Le apetece?
+   = The soup of the day is tomato soup. Does that sound good to you?
+   tip: Excellent question! You used the correct phrase.
+   (also: ¿Cuál es el plato del día? = What is the special of the day? [pb])
+YOU:     Sí, por favor.
+   = Yes, please.
+PARTNER: Perfecto. ¿Algo más para beber mientras mira la carta?
+   = Perfect. Would you like something to drink while you look at the menu?
+   tip: Excellent! You used 'sí, por favor' perfectly.
+   (also: ¿Qué bebidas tiene? = What drinks do you have?)
+YOU:     Sí, por favor. Me gustaría algo de beber.
+   = Yes, please. I'd like a drink.
+PARTNER: Tenemos agua, vino, cerveza... ¿Qué le apetece?
+   = We have water, wine, beer... What would you like?
+   tip: Excellent! You used 'Me gustaría' which is a very polite way to ask for something.
+   (also: Tráigame un chato, por favor. = I'd like a glass of wine, please.)
+

@@ -1,0 +1,114 @@
+[
+ {
+  "lang": "macedonian",
+  "scen": "restaurant",
+  "seconds": 57,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "macedonian",
+  "scen": "directions",
+  "seconds": 21,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "macedonian",
+  "scen": "shopping",
+  "seconds": 43,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "macedonian",
+  "scen": "hotel",
+  "seconds": 37,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "macedonian",
+  "scen": "transport",
+  "seconds": 46,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "macedonian",
+  "scen": "weather",
+  "seconds": 47,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "macedonian",
+  "scen": "sightseeing",
+  "seconds": 54,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "macedonian",
+  "scen": "emergency",
+  "seconds": 55,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "spanish",
+  "scen": "restaurant",
+  "seconds": 56,
+  "fallbacks": 0,
+  "turns_with_problems": 1
+ },
+ {
+  "lang": "spanish",
+  "scen": "directions",
+  "seconds": 16,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "spanish",
+  "scen": "shopping",
+  "seconds": 59,
+  "fallbacks": 1,
+  "turns_with_problems": 1
+ },
+ {
+  "lang": "spanish",
+  "scen": "hotel",
+  "seconds": 43,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "spanish",
+  "scen": "transport",
+  "seconds": 151,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "spanish",
+  "scen": "weather",
+  "seconds": 67,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "spanish",
+  "scen": "sightseeing",
+  "seconds": 50,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ },
+ {
+  "lang": "spanish",
+  "scen": "emergency",
+  "seconds": 57,
+  "fallbacks": 0,
+  "turns_with_problems": 0
+ }
+]

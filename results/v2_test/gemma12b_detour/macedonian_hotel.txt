@@ -1,0 +1,62 @@
+### macedonian / hotel / detour  (49s, fallbacks=0)
+PARTNER: Добредојдовте! Може ли пасошот, ве молам?
+   = Welcome! May I have your passport, please?
+   (also: Имам резервација. = I have a reservation.)
+   (also: Добар ден! = Good day! [pb])
+YOU:     Добар ден! [pb]
+   = Good day!
+PARTNER: Добра вечер! Може ли пасошот, ве молам?
+   = Good afternoon! May I have your passport, please?
+   tip: Excellent start! You used a greeting perfectly.
+   (also: Може ли да видам пасошот? = May I see the passport?)
+   (also: Колку е часот? = What time is it? [pb])
+YOU:     Може ли да видам пасошот?
+   = May I see the passport?
+PARTNER: Да, може ли пасошот, ве молам?
+   = Yes, may I have your passport, please?
+   tip: Excellent! You're using the correct phrasing.
+   (also: Немам го. = I don't have it.)
+   (also: Еве го мојот пасош. = Here's my passport.)
+YOU:     Колку чини ова?  <- DETOUR (from shopping)
+   = How much is this?
+PARTNER: Собата е 2500 денари по ноќ за еден човек.
+   = The room is 2500 denars per night for one person.
+   tip: Excellent! You used a very natural way to ask about the price.
+   (also: Колку е соба за двајца? = Ask about the price for two people.)
+   (also: Ок, ќе ја земам. = OK, I'll take it. [pb])
+YOU:     Дали имате друга соба? [pb]
+   = Do you have a different room?
+PARTNER: Имаме и соби за двајца. Чини 3500 денари по ноќ.
+   = We also have rooms for two people. It costs 3500 denars per night.
+   tip: Excellent! You used the correct phrase to ask about an alternative.
+   (also: На кој кат е? = What floor is it on?)
+   (also: Можете ли да ми кажете повеќе? = Could you tell me more about it?)
+YOU:     Добар ден! [pb]  <- REPEAT of first line
+   = Good day!
+PARTNER: Добра вечер! Може ли пасошот, ве молам?
+   = Good afternoon! May I have your passport, please?
+   tip: Your Macedonian is improving! Remember to use 'Добра вечер' (Good evening) at this time of day.
+   (also: Од колку часот е доручекот? = What time is breakfast? [pb])
+   (also: Дали имате интернет? = Do you have internet / wifi? [pb])
+YOU:     Од колку часот е доручекот? [pb]
+   = What time is breakfast?
+PARTNER: Од седум до десет часот, во ресторанот.
+   = From seven to ten, in the restaurant.
+   tip: Your Macedonian is improving! Remember to use 'Dobar den' for good afternoon.
+   (also: Дали појадокот е вклучен во цената? = Is breakfast included in the price? [pb])
+   (also: Дали имате интернет? = Do you have internet / wifi? [pb])
+YOU:     Дали појадокот е вклучен во цената? [pb]
+   = Is breakfast included in the price?
+PARTNER: Да, појадокот е вклучен во цената.
+   = Yes, breakfast is included in the price.
+   tip: Excellent! You used the phrase perfectly.
+   (also: Може ли да ја видам прво собата? = May I see the room first? [pb])
+   (also: Благодарам! = Thank you! [pb])
+YOU:     Ок, ќе ја земам. [pb]
+   = OK, I'll take it.
+PARTNER: Вашата соба е 204, на вториот кат. Ова е клучот.
+   = Your room is 204, on the second floor. Here is the key.
+   tip: Excellent! You've successfully confirmed the inclusion of breakfast.
+   (also: Имате ли нешто потивко? = Do you have anything quieter? [pb])
+   (also: Благодарам, довидување. = Thank you, goodbye.)
+

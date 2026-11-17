@@ -1,0 +1,60 @@
+### macedonian / emergency / first  (55s, fallbacks=0)
+PARTNER: Добар ден. Што се случува?
+   = Good afternoon. What's happening?
+   (also: Ми треба вашата помош. = I need your help. [pb])
+   (also: Се загубив. = I am lost. [pb])
+YOU:     Ја изгубив торбата. [pb]
+   = I lost my bag.
+PARTNER: О, жал ми е. Кажете ми повеќе. Што изгубихте?
+   = Oh, I'm sorry. Tell me more. What did you lose?
+   tip: Excellent! You used the correct phrase 'Ја изгубив торбата.'
+YOU:     Го изгубив мојот паричник. [pb]
+   = I lost my wallet.
+PARTNER: Жал ми е што го изгубихте вашиот паричник. Каде го изгубихте?
+   = I'm sorry you lost your wallet. Where did you lose it?
+   tip: Excellent! You used the correct phrase 'Го изгубив мојот паричник.'
+   (also: Во близина на пазарот. = Near the market.)
+   (also: Не сум сигурен. = I'm not sure.)
+YOU:     Не знам. [pb]
+   = I don't know.
+PARTNER: Добро. Кога го изгубихте?
+   = Okay. When did you lose it?
+   tip: Good: that's a phrasebook sentence.
+   (also: Ова утро. = This morning.)
+   (also: Пред еден час. = An hour ago.)
+YOU:     Од вчера. [pb]
+   = Since yesterday.
+PARTNER: Од вчера? Дали знаете што имаше во паричникот?
+   = Since yesterday? Do you know what was in the wallet?
+   tip: Good! You answered clearly and concisely.
+   (also: Пари и картички. = Money and cards.)
+   (also: Не се сеќавам. = I don't remember.)
+YOU:     Да, знам.
+   = Yes, I do.
+PARTNER: Добро. Можеме да провериме камерите на улицата. Дајте ми повеќе детали.
+   = Good. We can check the street cameras. Please give me more details.
+   tip: Excellent! You confirmed you remember the contents.
+   (also: Имав мојата патна исправа. = I had my passport.)
+   (also: Имав кредитни картички. = I had credit cards.)
+YOU:     Имав пари.
+   = I had money.
+PARTNER: Колку пари имаше во паричникот?
+   = How much money was in the wallet?
+   tip: Excellent, you're using numbers well!
+   (also: Не се сеќавам точно. = I don't remember exactly.)
+YOU:     Околу еден куп евра.
+   = About one hundred euros.
+PARTNER: Разбирам. Околу еден куп евра, кажувате. Дајте ми име и документ за идентификација, ве молам.
+   = I understand. You say around a pile of euros. Please give me your name and identification document.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Околу еден куп евра? Добро, ќе провериме. Дајте ми име и документ за идентификација.  <- starts by repeating the traveler's sentence word for word; a
+   tip: Excellent, you’re clearly communicating the amount lost.
+   (also: Благодарам за помошта. = Thank you for your help.)
+YOU:     Имам пасошан.
+   = I have my passport.
+PARTNER: Одлично. Ве молам, дајте го пасошанот за да проверам.
+   = Excellent. Please give me your passport so I can check it.
+   tip: Good! You used the correct phrase to indicate you will hand over the document.
+   (also: Може ли да го видам? = Can I see it?)
+   (also: Дали е во ред? = Is that okay?)
+

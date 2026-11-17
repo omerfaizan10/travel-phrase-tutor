@@ -1,0 +1,19 @@
+### spanish / directions  (37s, fallbacks=0)
+PARTNER: ¡Hola! ¿Necesita algo?
+   = Hi? Do you need something?
+YOU:     ¿Cómo puedo llegar al centro?
+   = How do I get downtown?
+PARTNER: Sí, claro. Vaya recto por esta calle, luego gire a la izquierda en la segunda esquina.
+   = Yes, of course. Go straight down this street, then turn left at the second corner.
+   tip: Exactly right: "¿Cómo puedo llegar al centro?" is straight from the phrasebook (How do I get downtown?).
+YOU:     ¿Queda lejos?
+   = Is it far?
+PARTNER: No, no está muy lejos. Unos diez minutos caminando.
+   = No, it's not very far. About ten minutes walking.
+   tip: Exactly right: "¿Queda lejos?" is straight from the phrasebook (Is it far?).
+YOU:     Gracias.
+   = Thank you.
+PARTNER: De nada. ¡Que tenga un buen día!
+   = You're welcome. Have a good day!
+   tip: Exactly right: "Gracias." is straight from the phrasebook (Thank you.).
+   (scene done)

@@ -1,0 +1,26 @@
+### spanish / transport  (610s, fallbacks=0)
+PARTNER: ¿Qué desea?
+   = What would you like?
+YOU:     ¿Hay una estación de autobuses cerca de aquí?
+   = Is there a bus station near here?
+PARTNER: Sí, está justo al lado.
+   = Yes, it's right next door.
+   tip: Exactly right: "¿Hay una estación de autobuses cerca de aquí?" is straight from the phrasebook (Is there a bus station near here?).
+YOU:     Un billete de ida para Toledo.
+   = A one-way ticket to Toledo.
+PARTNER: De acuerdo. ¿Primera o segunda clase?
+   = Alright. First or second class?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Muy bien, un billete de ida para Toledo.  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Exactly right: "Un billete de ida para Toledo." is straight from the phrasebook (A one-way ticket to Toledo.).
+YOU:     ¿Cuándo llegará este tren a Sevilla?
+   = When will this train arrive in Seville?
+PARTNER: No vendo billetes de tren, señor. Puede consultar el horario en la pantalla de salidas.
+   = I don't sell train tickets, sir. You can check the timetable on the departures screen.
+   tip: Exactly right: "¿Cuándo llegará este tren a Sevilla?" is straight from the phrasebook (When will this train arrive in Seville?).
+YOU:     Gracias.
+   = Thank you.
+PARTNER: De nada. ¡Que tenga un buen viaje!
+   = You're welcome. Have a good trip!
+   tip: Exactly right: "Gracias." is straight from the phrasebook (Thank you.).
+   (scene done)

@@ -1,0 +1,48 @@
+### spanish / emergency / random  (25s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: Estoy perdido. I'm lost. = I'm lost.)
+   (also: Necesito ayuda. = I need help. [pb])
+YOU:     Estoy perdido. I'm lost.
+   = I'm lost.
+PARTNER: ¿Puede decirme el nombre de la calle y el número de la puerta?
+   = Can you tell me the name of the street and the door number?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: ¿Dónde está usted? ¿Puede decirme la calle?  <- asks where a place is; that is the TRAVELER's question. As t
+   tip: Good. You said 'estoy perdido' correctly and naturally in Spanish.
+   (also: Necesito encontrar mi hotel. = I need to find my hotel.)
+   (also: Estoy perdido y no sé dónde estoy. = I am lost and don't know where I am.)
+YOU:     No sé cuál es la calle.
+   = I don't know which street I am on.
+PARTNER: ¿Puedo ver su móvil para saber en qué lugar está?
+   = Can I see your phone to know where you are?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: ¿Puedo ver su mapa o su móvil para saber dónde está?  <- asks where a place is; that is the TRAVELER's question. As t
+   tip: Good. You said you are lost and asked for help clearly.
+   (also: No puedo encontrar la calle, así que voy a pedir ayuda a un transeúnte. = I can't find the street, so I will ask a passerby for directions.)
+   (also: No sé dónde estoy, así que necesito llamar a la policía. = I don't know where I am, so I need to call the police.)
+YOU:     No sé dónde estoy, así que necesito llamar a la policía.
+   = I don't know where I am, so I need to call the police.
+PARTNER: ¡Es una emergencia! ¿Puede usar su teléfono para llamar a la policía?
+   = It's an emergency! Can you use your phone to call the police?
+   tip: Good. You said 'I need to call the police' clearly.
+   (also: Perdí mi bolso, necesito reportarlo a la policía. = I lost my bag, I need to report it to the police.)
+YOU:     ¿Dónde está la comisaría? [pb]
+   = Where is the police station?
+PARTNER: La comisaría está al lado de la estación de tren, número 3.
+   = The police station is next to the train station, number 3.
+   tip: Good. You said exactly what you need: help to find the police station.
+   (also: No sé cómo encontrarlo. = I don't know how to find it.)
+YOU:     ¿Puede mostrarme la forma a la comisaría?
+   = Can you show me the way to the police station?
+PARTNER: Lo siento, pero no puedo mostrarle el camino. Usted debe ir a la estación de tren y luego a la derecha.
+   = I'm sorry, but I can't show you the way. You must go to the train station and then turn right.
+   tip: Great! You're using the correct words to ask for help.
+   (also: Puedo preguntar a un transeunte para que me dé direcciones. = Can I ask a passerby for directions?)
+   (also: Voy a caminar a la estación de tren y luego voy a la derecha. = I will walk to the train station and then go right.)
+YOU:     Voy a caminar a la estación de tren y luego voy a la derecha.
+   = I will walk to the train station and then go right.
+PARTNER: ¡Bueno! Que pase un buen día.
+   = Well! Have a good day.
+   tip: Great! You said exactly what you meant.
+   (scene done)

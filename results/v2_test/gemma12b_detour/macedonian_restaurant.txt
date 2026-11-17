@@ -1,0 +1,62 @@
+### macedonian / restaurant / detour  (59s, fallbacks=0)
+PARTNER: Добар ден! Повелете. Колку лица?
+   = Good day! Welcome. How many people?
+   (also: Маса за еден/двајца, ве молам. = A table for one/two , please. [pb])
+   (also: Добра вечер. Имате ли слободна маса за двајца? = Good evening. Do you have a free table for two? [pb])
+YOU:     Добра вечер. Имате ли слободна маса за двајца? [pb]
+   = Good evening. Do you have a free table for two?
+PARTNER: Добра вечер! Да, имаме слободна маса на терасата. Повелете.
+   = Good evening! Yes, we have a free table on the terrace. Please, come in.
+   tip: Excellent! You used the correct greeting and phrasing.
+   (also: Имате ли маса внатре? = Do you have a table inside?)
+   (also: Маса за двајца, ве молам. = A table for two, please. [pb])
+YOU:     Сакам маса на терасата.
+   = I would like a table on the terrace.
+PARTNER: Се разбира. Ве водам.
+   = Of course. I’ll show you.
+   tip: Excellent! They’ve confirmed their preference and are ready to be seated.
+   (also: Може ли да го видам менито, молам? = Can I look at the menu, please? [pb])
+   (also: Можам ли да седнам тука? = Can I sit here?)
+YOU:     Може ли да ми повикате такси?  <- DETOUR (from hotel)
+   = Can you call me a taxi?
+PARTNER: Жал ми е, јас не можам да ви повикам такси. Но, можете да нарачате преку апликација или да прошетате до главниот пат, таму има такси.
+   = I'm sorry, I can’t call a taxi for you. But you can order through an app or walk to the main road, there are taxis there.
+   tip: The traveler is showing a willingness to follow your instructions and is using polite language.
+   (also: Можете ли да ми препорачате апликација? = Can you recommend an app?)
+   (also: Каде е главниот пат? = Where is the main road?)
+YOU:     Можете ли да ми препорачате апликација?
+   = Can you recommend an app?
+PARTNER: Не сум сигурен. Можете да проверите на интернет.
+   = I'm not sure. You can check online.
+   tip: The traveler is showing good understanding and is trying to navigate a slightly more complex request.
+   (also: Разбирам. = I understand.)
+   (also: Ок. = Okay.)
+YOU:     Добра вечер. Имате ли слободна маса за двајца? [pb]  <- REPEAT of first line
+   = Good evening. Do you have a free table for two?
+PARTNER: Добра вечер! Да, имаме слободна маса на терасата. Повелете.
+   = Good evening! Yes, we have a free table on the terrace. Please, come in.
+   tip: Excellent! They are repeating a phrase they already used, but it's understandable in context.
+   (also: Дали имате мени? = Do you have a menu? / Can I look at the menu? [pb])
+   (also: Може ли да го видам менито, молам? = Can I look at the menu, please? [pb])
+YOU:     Дали имате мени? [pb]
+   = Do you have a menu? / Can I look at the menu?
+PARTNER: Да, секако. Еве го менито.
+   = Yes, of course. Here is the menu.
+   tip: Excellent! You used the correct phrase for asking for the menu.
+   (also: Што препорачувате? = What do you recommend? [pb])
+   (also: Благодарам! = Thank you! [pb])
+YOU:     Што препорачувате? [pb]
+   = What do you recommend?
+PARTNER: Препорачувам тавче гравче. Тоа е многу вкусно.
+   = I recommend tavche gravche. It’s very tasty.
+   tip: Good choice! Tavche gravche is a classic.
+   (also: Кој е локалниот специјалитет? = What is the local specialty? [pb])
+   (also: Благодарам, ќе пробам. = Thank you, I'll try it.)
+YOU:     Благодарам, ќе пробам.
+   = Thank you, I'll try it.
+PARTNER: Одлично! Што сакате да пиете?
+   = Excellent! What would you like to drink?
+   tip: Good choice! Tavche gravche is a great dish to try.
+   (also: Една чаша црвено вино, ве молам. = A glass of red wine, please. [pb])
+   (also: Чаша вода, ве молам. = A glass of water, please. [pb])
+

@@ -1,0 +1,32 @@
+### spanish / shopping / first  (19s, fallbacks=2)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: ¿Tiene algo para regalar? = Do you have anything to give?)
+YOU:     ¿Cuánto valen estos sombreros? [pb]
+   = How much do these hats cost?
+PARTNER: Lo siento, no estoy seguro.
+   = Sorry, I'm not sure.
+   [attempts=3 problems=["repeats the traveler's words. Acknowledge what they said in YOUR own words (e.g. 'Muy bien.' / 'Одлично.' plus what you will do) and continue the scene; do not ignore what they ordered or asked", 'says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: ¿Cuánto valen estos sombreros?  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Cuánto valen estos sombreros?  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Sí, ¿cuánto valen estos sombreros?  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good! You acknowledged their question and repeated it naturally in a way a shop assistant would. Now you're ready to move to the next step—like saying what you want to do with the hats.
+   (also: Esta tarde me voy de tiendas. = This afternoon I'm going shopping. [pb])
+   (also: ¿No me hace una rebajita? = Won't you give me a small discount? [pb])
+YOU:     No sé. Las tallas americanas son diferentes. [pb]
+   = I don't know. American sizes are different.
+PARTNER: Desde luego.
+   = Of course. / Sure.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: ¿Tiene esto de mi talla?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Tiene esto de mi talla?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Tiene esto de mi talla?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Perfect! You used the correct phrase for asking about size in Spanish.
+   (also: Nada más. = That's all. [pb])
+   (also: Aquí tiene. = Here you are. [pb])
+YOU:     ¿Aceptan dólares estadounidenses? [pb]
+   = Do you accept US dollars?
+PARTNER: No, no aceptamos dólares.
+   = No, we don't accept US dollars.
+   tip: Good: you asked about payment options.
+   (scene done)

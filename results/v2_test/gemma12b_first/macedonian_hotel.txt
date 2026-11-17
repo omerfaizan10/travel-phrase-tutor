@@ -1,0 +1,45 @@
+### macedonian / hotel / first  (37s, fallbacks=0)
+PARTNER: Добредојдовте! Може ли пасошот, ве молам?
+   = Welcome! May I have your passport, please?
+   (also: Имам резервација. = I have a reservation.)
+   (also: Добар ден! = Good day! [pb])
+YOU:     Еве го мојот пасош, ве молам.
+   = Here is my passport.
+PARTNER: Благодарам. Вашата соба е 204, на вториот кат. Ова е клучот.
+   = Thank you. Your room is 204, on the second floor. Here is the key.
+   tip: Excellent! You used the correct phrase to hand over your passport.
+   (also: Која е цената за ноќ? = Ask how much the room costs.)
+   (also: Од колку часот е доручекот? = What time is breakfast? [pb])
+YOU:     Дали појадокот е вклучен во цената? [pb]
+   = Is breakfast included in the price?
+PARTNER: Да, појадокот е вклучен во цената.
+   = Yes, breakfast is included in the price.
+   tip: Excellent! You used the correct question structure.
+   (also: Дали имате интернет? = Do you have internet / wifi? [pb])
+   (also: Може ли да ја видам прво собата? = May I see the room first? [pb])
+YOU:     Од колку часот е доручекот? [pb]
+   = What time is breakfast?
+PARTNER: Од седум до десет часот, во ресторанот.
+   = From seven to ten, in the restaurant.
+   tip: Excellent! You used the question structure correctly.
+   (also: Може ли да ја видам прво собата? = May I see the room first? [pb])
+YOU:     Дали имате интернет? [pb]
+   = Do you have internet / wifi?
+PARTNER: Секако. Напишана е на картичката.
+   = Of course. It's written on the card.
+   tip: Excellent! You used the correct phrase to ask about internet access.
+   (also: Каде можам да ја најдам картичката? = Where can I find the card?)
+   (also: Благодарам! = Thank you! [pb])
+YOU:     Која е лозинката за интернет? [pb]
+   = What's the Wi-Fi password?
+PARTNER: Напишана е на картичката.
+   = It's written on the card.
+   tip: Excellent! You used the correct phrasing to ask about the Wi-Fi password.
+   (also: Може ли да го повторите тоа? = Can you repeat that?)
+   (also: Ок, благодарам. = OK, thank you.)
+YOU:     Благодарам! [pb]
+   = Thank you!
+PARTNER: Пријатен престој!
+   = Enjoy your stay!
+   tip: Excellent! You've used a polite phrase to acknowledge my help.
+   (scene done)

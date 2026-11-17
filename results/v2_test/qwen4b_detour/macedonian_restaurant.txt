@@ -1,0 +1,24 @@
+### macedonian / restaurant / detour  (14s, fallbacks=0)
+PARTNER: Добар ден! Имате ли слободна маса за двајца?
+   = Good day! Do you have a free table for two?
+   (also: Повелете. Можам да ви помогнам. = I can show you the menu.)
+   (also: Имате маса близу до прозорец. = We have a table near the window.)
+YOU:     Имате маса близу до прозорец.
+   = We have a table near the window.
+PARTNER: Да, е тука. Повелете.
+   = Yes, it's right here. Here you go.
+   tip: Good choice! You're using the right words to ask for a table.
+   (also: Може ли менито? = Can I have the menu? [pb])
+YOU:     Да, е тука. Повелете.
+   = Yes, it's right here. Here you go.
+PARTNER: Што сакате за јадење?
+   = What would you like to eat?
+   tip: Good choice! Tavche gravche is a local favorite.
+   (also: Добар ден. Би сакал селско месо и една шопска салата. = I would like village meat and a shopska salad.)
+   (also: Добар ден. Би сакал мешано месо на скара и една шопска салата. = I would like grilled meat and a salad.)
+YOU:     Може ли да ми повикате такси?  <- DETOUR (from hotel)
+   = Can you call me a taxi?
+PARTNER: Не, тоа е ресторант. Не имаме такси.
+   = No, that's a restaurant. We don't have taxis.
+   tip: Good to know you're asking for help, but you're at a restaurant, not a taxi stand.
+   (scene done)

@@ -1,0 +1,53 @@
+### macedonian / shopping / random  (47s, fallbacks=0)
+PARTNER: Добар ден! Повелете. Што сакате?
+   = Good afternoon! Welcome. What would you like?
+   (also: Колку чини ова? = How much is this? [pb])
+   (also: Го имате ова во мој број? = Do you have this in my size? [pb])
+YOU:     Само гледам, благодарам. [pb]
+   = I'm just looking, thank you.
+PARTNER: Разбирам. Погледнете слободно.
+   = I understand. Look around freely.
+   tip: Excellent! You used the phrase perfectly.
+   (also: Колку чини ова? = How much is this? [pb])
+YOU:     Колку чини ова? [pb]
+   = How much is this?
+PARTNER: Осумдесет денари.
+   = Eighty denars.
+   tip: Excellent! You used the correct phrase.
+   (also: Може ли кеса? = Can I have a bag? [pb])
+   (also: Ќе го земам. = I'll take it. [pb])
+YOU:     Тоа е скапо. [pb]
+   = That's expensive.
+PARTNER: Имаме и други предмети, поевтини.
+   = We have other items, cheaper.
+   tip: Excellent! You used 'Toa e skapo' perfectly.
+   (also: Имате ли нешто поевтино? = Do you have anything cheaper?)
+YOU:     Имате ли нешто поевтино?
+   = Do you have anything cheaper?
+PARTNER: Да, имаме малчиња шишиња со мед. Петесет денари секое.
+   = Yes, we have small jars of honey. Fifty denars each.
+   tip: It's a very useful word.
+YOU:     Може ли да го видам?
+   = Can I see it?
+PARTNER: Секако. Еве еден.
+   = Of course. Here's one.
+   tip: Good! You used 'How much is it?' correctly.
+   (also: Ќе го земам. = I'll take it. [pb])
+YOU:     Ќе го земам. [pb]
+   = I'll take it.
+PARTNER: Одлично! Дајте ми пари.
+   = Excellent! Give me the money.
+   tip: Good! You used 'Ќе го земам' correctly to indicate you're buying something.
+   (also: Ми треба менувачница за размена на пари. = I need an exchange office to change money. [pb])
+   (also: Благодарам, довидување. = Thank you, goodbye.)
+YOU:     Ќе платам со картичка.
+   = I'll pay with a card.
+PARTNER: Добро. Може со кредитна картичка.
+   = Good. You can pay with a credit card.
+   tip: Excellent use of 'со картичка' to indicate credit card payment.
+YOU:     Довидува.
+   = Goodbye.
+PARTNER: Довидува! Убав ден!
+   = Goodbye! Have a nice day!
+   tip: Excellent! You ended the conversation naturally.
+   (scene done)

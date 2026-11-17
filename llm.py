@@ -22,7 +22,8 @@ from ollama import Client, ResponseError
 # Settings (change these here, not in other files)
 # ---------------------------------------------------------------------------
 
-DEFAULT_MODEL = "qwen3:4b-instruct"  # = qwen3:4b-instruct-2507-q4_K_M, 2.5 GB
+DEFAULT_MODEL = "gemma3:12b"  # = gemma3:12b-it-q4_K_M, 8.2 GB (this folder's experiment)
+# The original project (../travel-phrase-tutor) uses "qwen3:4b-instruct".
 
 # Sampling settings recommended on the Qwen3-4B-Instruct-2507 model card.
 # num_ctx = how many tokens the model can "see" at once (prompt + reply).
@@ -171,3 +172,12 @@ def _split_config(model_config):
 
 def _ns_to_s(nanoseconds):
     return round((nanoseconds or 0) / 1e9, 2)
+
+
+def unload(model: str) -> None:
+    """Free a model's memory right away (keep_alive=0), e.g. when the app
+    switches models. Errors are ignored: unloading is only housekeeping."""
+    try:
+        Client(host=OLLAMA_HOST, timeout=30).generate(model=model, prompt="", keep_alive=0)
+    except Exception:
+        pass

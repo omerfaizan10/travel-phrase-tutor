@@ -1,0 +1,63 @@
+### spanish / emergency / first  (57s, fallbacks=0)
+PARTNER: Buenos días, señor/señora. ¿En qué puedo ayudarle?
+   = Good morning, sir/madam. How can I help you?
+   (also: Necesito ayuda. = I need help. [pb])
+   (also: ¿Qué puede hacer usted? = What can you do?)
+YOU:     Perdí mi bolso. [pb]
+   = I lost my handbag.
+PARTNER: Lo siento mucho. ¿Qué ha perdido exactamente?
+   = I'm very sorry. What exactly have you lost?
+   tip: Excellent! You used the correct verb 'perder' (to lose).
+   (also: Todo lo de dentro. = Everything inside.)
+YOU:     Mi cartera y mi móvil.
+   = My wallet and phone.
+PARTNER: Entiendo. ¿Dónde perdió su cartera y su móvil, por favor?
+   = I understand. Where did you lose your wallet and your mobile phone, please?
+   tip: Excellent! You used 'cartera' and 'móvil' correctly.
+   (also: Creo que lo perdí en el parque. = I think I lost it in the park.)
+   (also: No estoy seguro/a de dónde lo perdí. = I'm not sure where I lost it.)
+YOU:     Lo perdí cerca de la estación de tren.
+   = I lost it near the train station.
+PARTNER: De acuerdo. ¿A qué hora perdió su bolso?
+   = Alright. What time did you lose your bag?
+   tip: Excellent! You used 'hace' correctly to indicate 'ago'.
+   (also: Sobre la hora del almuerzo. = Around lunchtime.)
+   (also: Esta mañana. = This morning.)
+YOU:     Hace una hora.
+   = About an hour ago.
+PARTNER: Comprendo. ¿Puede describir el bolso, por favor?
+   = I understand. Can you describe the bag, please?
+   tip: Excellent! You used 'Puedo describirlo' perfectly.
+   (also: Era negro. = It was black.)
+   (also: Era una bolsa pequeña. = It was a small bag.)
+YOU:     Puedo describirlo.
+   = I can describe it.
+PARTNER: Perfecto. Por favor, dígame cómo es.
+   = Perfect. Please tell me what it's like.
+   tip: Excellent! You used 'es' correctly to describe the bag.
+   (also: Es de cuero marrón. = It's brown leather.)
+   (also: Es un bolso pequeño. = It's a small bag.)
+YOU:     Es negro.
+   = It's black.
+PARTNER: De acuerdo. ¿Tiene algún documento dentro, como su pasaporte o dinero?
+   = Okay. Do you have any documents inside, like your passport or money?
+   tip: Excellent! You used 'Sí, tengo' correctly to confirm you have something.
+   (also: No, no tengo. = No, I don't. [pb])
+   (also: Solo mi pasaporte. = Just my passport.)
+YOU:     Sí, tengo.
+   = Yes, I do.
+PARTNER: Lo siento mucho. Vamos a hacer una denuncia en la comisaría. ¿Quiere venir conmigo?
+   = I'm very sorry. We're going to file a report at the police station. Would you like to come with me?
+   tip: Excellent! You used 'Sí, por favor' perfectly.
+   (also: ¿Dónde está la comisaría? = Where is the police station? [pb])
+   (also: ¿Puedo usar su teléfono? = Can I use your phone? [pb])
+YOU:     Sí, por favor.
+   = Yes, please.
+PARTNER: De acuerdo. Vamos a la comisaría.
+   = Alright. Let's go to the police station.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Muy bien. Por favor, sígame.  <- repeats the traveler's request with 'please'; confirm it in 
+   tip: Good. You are keeping the conversation flowing.
+   (also: ¿Dónde está la comisaría? = Where is the police station? [pb])
+   (also: ¿Puedo usar su teléfono? = Can I use your phone? [pb])
+

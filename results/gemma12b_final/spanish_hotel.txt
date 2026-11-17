@@ -1,0 +1,29 @@
+### spanish / hotel  (56s, fallbacks=0)
+PARTNER: ¡Buenos días! ¿En qué puedo ayudarle?
+   = Good morning? How can I help you?
+YOU:     ¿Hay habitaciones libres?
+   = Do you have any rooms available?
+PARTNER: Sí, tenemos habitaciones disponibles. Tenemos habitaciones individuales y dobles.
+   = Yes, we have rooms available. We have single and double rooms.
+   tip: Exactly right: "¿Hay habitaciones libres?" is straight from the phrasebook (Do you have any rooms available?).
+YOU:     ¿Cuánto cuesta una habitación para una persona?
+   = How much is a room for one person?
+PARTNER: Son 65 euros por noche.
+   = It's 65 euros per night.
+   tip: Exactly right: "¿Cuánto cuesta una habitación para una persona?" is straight from the phrasebook (How much is a room for one person?).
+YOU:     Me alojo en un hotel del centro.
+   = I'm staying at a hotel in the centre.
+PARTNER: ¡Perfecto! ¿Tiene usted su pasaporte, por favor?
+   = Perfect! Do you have your passport, please?
+   tip: Exactly right: "Me alojo en un hotel del centro." is straight from the phrasebook (I'm staying at a hotel in the centre.).
+YOU:     Quiero dejar el hotel.
+   = I want to check out.
+PARTNER: Muy bien. La cuenta es de 75 euros.
+   = Very well. The bill is 75 euros.
+   tip: Exactly right: "Quiero dejar el hotel." is straight from the phrasebook (I want to check out.).
+YOU:     Muchas gracias.
+   = Thank you very much.
+PARTNER: De nada. ¡Que tenga un buen viaje a Madrid y Sevilla!
+   = You're welcome. Have a good trip to Madrid and Seville!
+   tip: Exactly right: "Muchas gracias." is straight from the phrasebook (Thank you very much.).
+   (scene done)

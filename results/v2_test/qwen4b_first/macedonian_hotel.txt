@@ -1,0 +1,40 @@
+### macedonian / hotel / first  (21s, fallbacks=1)
+PARTNER: Добар ден! Може ли пасошот, ве молам?
+   = Good day! May I have your passport, please?
+   (also: Дали имате слободни соби? = Do you have any rooms available? [pb])
+   (also: Дали имате друга соба? = Do you have a different room? [pb])
+YOU:     Барам хотел. [pb]
+   = I'm looking for a hotel.
+PARTNER: Добар ден. Барам хотел.
+   = Good day. I'm looking for a hotel.
+   tip: Good start! You used the correct phrase for asking for a hotel.
+   (also: Дали имате друга соба? = Do you have a different room? [pb])
+   (also: Дали појадокот е вклучен во цената? = Is breakfast included in the price? [pb])
+YOU:     Дали имате слободни соби? [pb]
+   = Do you have any rooms available?
+PARTNER: Добар ден.
+   = Good day.
+   [attempts=3 problems=["speaks as the customer ('I want / I'd like'); you are the staff: offer, answer or ask what the traveler would like"] fallback=False]
+   x rejected: Дали имате слободни соби?  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Добар ден. Дали имате слободни соби?  <- starts by repeating the traveler's sentence word for word; a; says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Добар ден. Сакам да барам хотел.  <- speaks as the customer ('I want / I'd like'); you are the st
+   tip: Good! You used the correct phrase for asking about rooms.
+   (also: Дали имате друга соба? = Do you have a different room? [pb])
+   (also: Колку е соба за еден/двајца? = How much is a room for one person/two people? [pb])
+YOU:     Да, имам слободна соба.
+   = Yes, I have a room available.
+PARTNER: Секако.
+   = Of course.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: Секако. Дали имате друга соба?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Добар ден. Дали имате слободни соби?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Добар ден. Дали имате слободни соби?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good! You're using the correct phrase.
+   (also: Добро, ќе ја земам. = OK, I'll take it. [pb])
+   (also: Ве молам, исчистете ја мојата соба. = Please clean my room. [pb])
+YOU:     Ок, ќе ја земам. [pb]
+   = OK, I'll take it.
+PARTNER: Вашата соба е 204, на вториот кат. Ова е клучот.
+   = Your room is 204, on the second floor. Here is the key.
+   tip: Great! You said exactly what the receptionist would say next.
+   (scene done)

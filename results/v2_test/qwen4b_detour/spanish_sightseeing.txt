@@ -1,0 +1,25 @@
+### spanish / sightseeing / detour  (7s, fallbacks=0)
+PARTNER: ¡Buenas! ¿En qué puedo ayudarle?
+   = Good day! How can I help you?
+   (also: ¿Puedes mostrarme dónde está el centro? = Can you show me where the centre is?)
+   (also: ¿Hay alguna especialidad de la zona? = Is there a local specialty? [pb])
+YOU:     ¿Hay alguna especialidad de la zona? [pb]
+   = Is there a local specialty?
+PARTNER: Sí, hay un postre muy famoso: el turrón.
+   = Yes, there's a very famous dessert: the turrón.
+   tip: Great question! You're asking about local food.
+   (also: ¿Dónde puedo comprarlo? = Where can I buy it?)
+   (also: ¿Es caro? = Is it expensive?)
+YOU:     ¿Es caro?
+   = Is it expensive?
+PARTNER: No, no es caro. Cuesta alrededor de 2 euros.
+   = No, it's not expensive. It costs about 2 euros.
+   tip: Great question! You asked about price, and I gave a clear answer.
+   (also: ¿Merece la pena ir a Toledo? = Is it worth going to Toledo? [pb])
+   (also: Merece la pena. = It's worth it. [pb])
+YOU:     ¿Cuánto cuesta?  <- DETOUR (from transport)
+   = How much is it?
+PARTNER: Cuesta alrededor de 2 euros.
+   = It costs about 2 euros.
+   tip: Great question! You're learning about local food.
+   (scene done)

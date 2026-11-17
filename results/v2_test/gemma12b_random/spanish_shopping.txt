@@ -1,0 +1,61 @@
+### spanish / shopping / random  (48s, fallbacks=0)
+PARTNER: Buenos días. ¿En qué puedo ayudarle?
+   = Good morning. How can I help you?
+   (also: Buenos días. Estoy mirando. = Good morning. I'm looking around.)
+   (also: Buenos días. Me gustaría ver algunos sombreros. = Good morning. I'd like to see some hats.)
+YOU:     Buenos días. Estoy mirando.
+   = Good morning. I'm looking around.
+PARTNER: De acuerdo. Avíseme si necesita algo.
+   = Alright. Let me know if you need anything.
+   tip: Perfect! You used 'Estoy mirando' correctly.
+   (also: Busco un regalo. = I'm looking for a souvenir.)
+   (also: ¿Tiene sombreros? = Do you have any hats?)
+YOU:     Busco un regalo.
+   = I'm looking for a souvenir.
+PARTNER: Busco un regalo para usted, ¿verdad?
+   = You're looking for a gift, right?
+   tip: Excellent! You used 'para' correctly to indicate who the gift is for.
+   (also: Para mi madre. = For my mother.)
+   (also: Para un amigo. = For a friend.)
+YOU:     Sí, para alguien.
+   = Yes, for someone.
+PARTNER: Tenemos muchas cosas bonitas. ¿Para hombre o para mujer?
+   = We have many beautiful things. Is it for a man or a woman?
+   tip: Excellent! You correctly used 'para' to indicate 'for'.
+   (also: Para un hombre. = For a man.)
+   (also: No sé. = I'm not sure.)
+YOU:     Para una mujer.
+   = For a woman.
+PARTNER: Perfecto. Tenemos bufandas, joyas, cerámica... ¿Qué le gusta a la señora?
+   = Perfect. We have scarves, jewelry, ceramics... What does the lady like?
+   tip: Excellent! You've clearly understood the question.
+   (also: Le gustan las joyas. = She likes jewelry.)
+   (also: Le gusta la cerámica. = She likes ceramics.)
+YOU:     Le gustan las bufandas.
+   = She likes scarves.
+PARTNER: Tenemos bufandas de seda, lana y algodón. ¿Qué color le gusta?
+   = We have silk, wool and cotton scarves. What color does she like?
+   tip: Excellent! You used 'me gusta' correctly to express preference.
+   (also: Me gusta el amarillo. = I like yellow.)
+YOU:     Me gusta el amarillo.
+   = I like yellow.
+PARTNER: Tenemos una bufanda amarilla muy bonita. ¿Quiere verla?
+   = We have a very pretty yellow scarf. Would you like to see it?
+   tip: Excellent! You used 'por favor' correctly, which is very polite.
+   (also: ¿De qué es? = What is it made of? [pb])
+   (also: ¿Cuánto cuesta? = How much is it? [pb])
+YOU:     ¿Cuánto cuesta? [pb]
+   = How much is it?
+PARTNER: Cuesta veinte euros.
+   = It costs twenty euros.
+   tip: Excellent! You used the correct question to ask the price.
+   (also: De acuerdo, me lo llevaré. = OK, I'll take it. [pb])
+   (also: ¿Tiene otro color? = Do you have another color?)
+YOU:     Es demasiado caro. [pb]
+   = That's too expensive.
+PARTNER: Entiendo. Tenemos otras bufandas amarillas más económicas.
+   = I understand. We have other yellow scarves that are more affordable.
+   tip: Excellent! You used 'es demasiado caro' perfectly.
+   (also: ¿Qué otros colores tiene? = What other colors do you have?)
+   (also: Gracias por su tiempo. = Thank you for your time.)
+

@@ -1,0 +1,74 @@
+### macedonian / sightseeing / random  (51s, fallbacks=1)
+PARTNER: Добар ден. Што препорачувате da видам?
+   = Good day. What do you recommend to see?
+   [attempts=3 problems=[] fallback=False]
+   x rejected: Добар ден. Што да видам во Скопје?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Добар ден. Што препорачувате да видам?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: Може ли да пробам Вранец? = Can I try Vranec? [pb])
+   (also: Што препорачувате да видам? = What do you recommend I see? [pb])
+YOU:     Сакам да посетам винарија. [pb]
+   = I want to visit a winery.
+PARTNER: Што препорачувате da видам во Скопје?
+   = What do you recommend I see in Skopje?
+   [attempts=3 problems=[] fallback=False]
+   x rejected: Таму има многу убава природа. Може ли пешки до таму?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Таму има многу убава природа. Може ли пешки до таму?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good start! Skopje has many beautiful historic sites to explore.
+   (also: Посетијте црквата Св. Јован Канео. = Visit the Church of Saint John Kanios.)
+   (also: Пријатно! Следи автобус до Матка. = Nice! The bus goes to Matka.)
+YOU:     Ги разгледавме фреските во Старата чаршија.
+   = We looked at the frescoes in the Old Town.
+PARTNER: Секако.
+   = Of course.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: Што препорачувате da видам во Скопје?  <- repeats your previous line
+   x rejected: Каде е Старата чаршија? Како да стигнам до неа?  <- asks where a place is; that is the TRAVELER's question. As t
+   x rejected: Што препорачувате да видам во Скопје?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good! You’re focusing on visiting places in Skopje, which is a great start.
+   (also: Благодарам многу! = Thank you very much! [pb])
+   (also: Може ли пешки до таму? = Can I walk there? [pb])
+YOU:     Благодарам многу! [pb]
+   = Thank you very much!
+PARTNER: Добар ден. Што препорачувате da видам во Скопје?
+   = Good day. What do you recommend to see in Skopje?
+   [attempts=2 problems=[] fallback=False]
+   x rejected:   <- empty reply
+   tip: Good choice! Wineries are a great place to visit in Skopje.
+   (also: Таму има многу красиви места за посета. = There are many beautiful places to visit in Skopje.)
+YOU:     Таму има многу красиви места за посета.
+   = There are many beautiful places to visit in Skopje.
+PARTNER: Добар ден. Може ли пешки до Старата чаршија?
+   = Good day. Can I walk to the Old Bazaar?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добар ден. Што препорачувате da видам во Скопје?  <- repeats your previous line
+   tip: You're asking a natural question — walking to the Old Bazaar is common!
+   (also: Што да видам во Скопје? = What should I see in Skopje? [pb])
+   (also: Дали има брод до Св. Наум? = Is there a boat to St. Naum? [pb])
+YOU:     Дали има брод до Св. Наум? [pb]
+   = Is there a boat to St. Naum?
+PARTNER: Да, има брод до Св. Наум денес.
+   = Yes, there is a boat to St. Naum today.
+   [attempts=3 problems=[] fallback=False]
+   x rejected: Дали има брод до Св. Наум денес?  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Дали има брод до Св. Наум денес?  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Boats to St. Naum run only in summer, so it's possible today.
+   (also: Колку чини билетот? = How much is the ticket? [pb])
+   (also: Дали има водич на англиски? Каде може да купам билети? = Is there a water fountain in English? Where can I buy tickets?)
+YOU:     Каде е пристаништето? Како да стигнам до него?
+   = Where is the port? How do I get there?
+PARTNER: Пристаништето е во Охрид. Повелете до Охрид и одат до пристаништето.
+   = The harbor is in Ohrid. I'll take you to Ohrid and then to the harbor.
+   tip: Good that you asked about the boat — it's a great way to see St. Naum!
+   (also: Дали има автобус до Охрид? = Is there a bus to Ohrid?)
+YOU:     Дали има автобус до Охрид?
+   = Is there a bus to Ohrid?
+PARTNER: Да, има автобус до Охрид. Повелете.
+   = Yes, there is a bus to Ohrid. I'll take you.
+   tip: Good question! The bus to Ohrid is a common way to get there.
+   (also: Може ли да се оди со автобус до Охрид и потоа со брод? = Can I take a bus to Ohrid and then go by boat?)
+YOU:     Да, има автобус до Охрид. Повелете.
+   = Yes, there is a bus to Ohrid. I'll take you.
+PARTNER: Добар ден. Што препорачувате da видам во Охрид?
+   = Good day. What do you recommend to see in Ohrid?
+   tip: Good choice! Ohrid is a beautiful place with many things to see.
+

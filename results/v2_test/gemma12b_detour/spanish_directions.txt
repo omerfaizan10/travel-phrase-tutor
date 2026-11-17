@@ -1,0 +1,61 @@
+### spanish / directions / detour  (49s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: Puede decirme dónde está el centro? = Could you tell me where the city centre is?)
+   (also: Necesito encontrar la estación de tren. = I need to find the train station.)
+YOU:     Busco la estación de autobuses.
+   = I'm looking for the bus station.
+PARTNER: Siga derecho por esta calle. Después, tuerza a la derecha.
+   = Continue straight ahead down this street. Then, turn right.
+   tip: Excellent! You used the correct verb form for 'bus station'.
+   (also: ¿Queda lejos? = Is it far? [pb])
+   (also: ¿Puede enseñarme en el mapa? = Can you show me on the map? [pb])
+YOU:     ¿Puede enseñarme en el mapa? [pb]
+   = Can you show me on the map?
+PARTNER: Sí, claro. Aquí está. La estación está a tres manzanas.
+   = Yes, of course. Here it is. The station is three blocks away.
+   tip: Excellent! You used 'Can you show me on the map?' perfectly.
+   (also: ¿Queda lejos? = Is it far? [pb])
+   (also: ¿Puede repetirlo? = Can you repeat that?)
+YOU:     Al aeropuerto, por favor.  <- DETOUR (from transport)
+   = To the airport, please.
+PARTNER: El aeropuerto está lejos. Queda a cinco kilómetros.
+   = The airport is far. It's five kilometers away.
+   tip: Excellent! You used 'por favor' which is very polite.
+   (also: ¿Cómo puedo llegar allí? = How do I get there?)
+   (also: ¿Hay un autobús? = Is there a bus?)
+YOU:     ¿Hay un autobús?
+   = Is there a bus?
+PARTNER: Sí, hay un autobús. No estoy segura de la hora, pero puede mirar en la estación.
+   = Yes, there is a bus. I'm not sure of the time, but you can check at the station.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Sí, hay un autobús. Sale a las 14.30 desde la plataforma 7.  <- time 14.30 is not in the timetable notes
+   tip: Good question. You're showing initiative!
+   (also: ¿Dónde está la estación? = Where is the station?)
+   (also: ¿Queda lejos? = Is it far? [pb])
+YOU:     Busco la estación de autobuses.  <- REPEAT of first line
+   = I'm looking for the bus station.
+PARTNER: Siga derecho por esta calle. Después, tuerza a la derecha.
+   = Continue straight ahead down this street. Then, turn right.
+   tip: Excellent! You repeated the destination, showing you understood.
+   (also: ¿Queda lejos? = Is it far? [pb])
+   (also: ¿Cómo puedo llegar a la estación de tren? = How do I get to the train station? [pb])
+YOU:     ¿Y dónde está eso? [pb]
+   = And where is that?
+PARTNER: Está a dos manzanas más adelante. Es fácil de encontrar.
+   = It's two blocks further ahead. It's easy to find.
+   tip: Excellent! You're using the question structure correctly.
+   (also: Muchas gracias por la información. = Thank you for the information.)
+   (also: Adiós. = Goodbye. [pb])
+YOU:     Muchas gracias por la información.
+   = Thank you for the information.
+PARTNER: De nada. Que tenga un buen día.
+   = You're welcome. Have a good day.
+   tip: Excellent! You used 'Muchas gracias' appropriately.
+   (also: Que pase un buen día. = Have a good day. [pb])
+YOU:     Adiós. [pb]
+   = Goodbye.
+PARTNER: Adiós. ¡Que vaya bien!
+   = Goodbye. Have a good trip!
+   tip: Excellent! You used 'Adiós' appropriately to end the conversation.
+   (scene done)

@@ -1,0 +1,24 @@
+### spanish / directions / first  (7s, fallbacks=0)
+PARTNER: Siga derecho por esta calle.
+   = Continue straight ahead down this street.
+   (also: ¿Puede enseñarme en el mapa? = Can you show me on the map? [pb])
+   (also: ¿Hay un restaurante cerca de aquí? = Is there a restaurant near here? [pb])
+YOU:     Voy al centro. [pb]
+   = I'm going to the town centre.
+PARTNER: Siga derecho hasta el semáforo y gire a la izquierda.
+   = Continue straight ahead to the traffic light and turn left.
+   tip: Great! You used the correct phrase for going to the centre.
+   (also: ¿Queda lejos? = Is it far? [pb])
+YOU:     ¿Puede enseñarme en el mapa? [pb]
+   = Can you show me on the map?
+PARTNER: Lo siento, no tengo mapa.
+   = I'm sorry, I don't have a map.
+   tip: Good choice! You asked for a map, which is a common request.
+   (also: ¿Puede decirme dónde está la Plaza Mayor? = Can you tell me where the Plaza Mayor is? [pb])
+   (also: ¿Y dónde está eso? = And where is that? [pb])
+YOU:     Perdón, ¿puede usted decirme dónde está la estación de Chamartín? [pb]
+   = Excuse me, can you tell me where the Chamartín station is?
+PARTNER: Siga derecho por esta calle y gire a la derecha. La estación está a la derecha.
+   = Continue straight down this street and turn right. The station is on the right.
+   tip: Great! You used the correct phrase and asked clearly.
+   (scene done)

@@ -1,0 +1,36 @@
+### macedonian / restaurant  (66s, fallbacks=0)
+PARTNER: Добро дојдовте! Како можам да ви помогнам?
+   = Welcome! How can I help you?
+YOU:     Дали имате мени?
+   = Do you have a menu? / Can I look at the menu?
+PARTNER: Да, имаме. Еве го менито.
+   = Yes, we do. Here's the menu.
+   tip: Exactly right: "Дали имате мени?" is straight from the phrasebook (Do you have a menu? / Can I look at the menu?).
+YOU:     Добро, едно селско месо без луто и една шопска салата.
+   = OK, one village meat, not spicy, and one shopska salad.
+PARTNER: Одлично, едно селско месо без луто и една шопска салата. Што сакате да пиете?
+   = Excellent, one village meat without spice and one shopska salad. What would you like to drink?
+   tip: Exactly right: "Добро, едно селско месо без луто и една шопска салата." is straight from the phrasebook (OK, one village meat, not spicy, and one shopska salad.).
+YOU:     Едно турско кафе, средно.
+   = One Turkish coffee, medium sweet.
+PARTNER: Се разбира, едно кафе ќе ви донесам веднаш.
+   = Of course, I'll bring you a coffee right away.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добро. Едно турско кафе, средно.  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Exactly right: "Едно турско кафе, средно." is straight from the phrasebook (One Turkish coffee, medium sweet.).
+YOU:     Многу е вкусно!
+   = It's very tasty!
+PARTNER: Радувам се што ви е вкусно! Дали сакате нешто друго?
+   = I'm glad you're enjoying it! Would you like anything else?
+   tip: Exactly right: "Многу е вкусно!" is straight from the phrasebook (It's very tasty!).
+YOU:     Многу беше вкусно. Сметката, ве молам.
+   = It was delicious. The check, please.
+PARTNER: Убав вкус! Сметката е 750 денари.
+   = Glad you enjoyed it! The bill is 750 denars.
+   tip: Exactly right: "Многу беше вкусно. Сметката, ве молам." is straight from the phrasebook (It was delicious. The check, please.).
+YOU:     Благодарам.
+   = Thank you.
+PARTNER: Нема зошто. Убав престој во Македонија!
+   = You're welcome. Have a nice stay in Macedonia!
+   tip: Exactly right: "Благодарам." is straight from the phrasebook (Thank you.).
+   (scene done)

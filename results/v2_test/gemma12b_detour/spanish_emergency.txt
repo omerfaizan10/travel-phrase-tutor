@@ -1,0 +1,62 @@
+### spanish / emergency / detour  (53s, fallbacks=0)
+PARTNER: Buenos días, señor/señora. ¿En qué puedo ayudarle?
+   = Good morning, sir/madam. How can I help you?
+   (also: Necesito ayuda. = I need help. [pb])
+   (also: ¿Puede usted ayudarme, por favor? = Can you help me, please? [pb])
+YOU:     Necesito ayuda. [pb]
+   = I need help.
+PARTNER: Por supuesto. ¿Qué ha ocurrido?
+   = Of course. What has happened?
+   tip: Excellent! You used 'Necesito ayuda' perfectly.
+   (also: Necesito denunciar algo. = I need to report something.)
+   (also: Estoy perdido/a. = I'm lost.)
+YOU:     Perdí mi bolso. [pb]
+   = I lost my handbag.
+PARTNER: Lo siento mucho. ¿Puede decirme qué había en su bolso?
+   = I’m very sorry. Can you tell me what was in your bag?
+   tip: Excellent! You used 'puede decirme' which is a very polite way to ask someone to tell you something.
+   (also: Tenía dinero y documentos. = It had money and documents.)
+   (also: Era un bolso negro. = It was a black bag.)
+YOU:     ¿Qué tiempo hace?  <- DETOUR (from weather)
+   = What's the weather like?
+PARTNER: No entiendo. ¿Quiere decir que perdió su bolso?
+   = I don't understand. Do you mean you lost your bag?
+   tip: Excellent! You tried to use a question, but it wasn't quite the right one. You asked about the weather.
+   (also: Me siento mal. = I feel ill. [pb])
+   (also: ¿Hace mucho que estás aquí? = Have you been here long? [pb])
+YOU:     Perdí la cartera. [pb]
+   = I lost my wallet.
+PARTNER: Comprendo. ¿Qué objetos tenía en su bolso?
+   = I understand. What objects were in your bag?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Ah, perdóname. Perdí mi bolso. ¿Qué había en su bolso?  <- talks as if YOU had the problem (lost, robbed, need help); t; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Very good. You are accurately describing what was in your bag.
+   (also: Dinero y un libro. = Money and a book.)
+   (also: Mi pasaporte y algo de dinero. = My passport and some money.)
+YOU:     Necesito ayuda. [pb]  <- REPEAT of first line
+   = I need help.
+PARTNER: Sí, claro. Ya veo que está usted confundido. ¿Qué ha perdido exactamente?
+   = Yes, of course. I see that you are confused. What exactly have you lost?
+   tip: Excellent! You repeated what I said, showing you understood.
+   (also: Me siento mal. = I feel ill. [pb])
+   (also: ¡Hubo un accidente! = There's been an accident! [pb])
+YOU:     ¡Hubo un accidente! [pb]
+   = There's been an accident!
+PARTNER: ¡Un accidente! ¿Qué tipo de accidente?
+   = An accident! What kind of accident?
+   tip: Good! You used 'Hubo un accidente!' correctly to express 'There's been an accident!'
+YOU:     Fue un robo.
+   = It's a robbery.
+PARTNER: Ya veo. Un robo. Por favor, cuénteme qué pasó. ¿Dónde ocurrió el robo?
+   = I see. A robbery. Please, tell me what happened. Where did the robbery occur?
+   tip: Excellent! You used 'un robo' correctly to describe the incident.
+   (also: Ocurrió en el parque. = It happened in the park.)
+   (also: Quiero denunciar el robo. = I want to report the robbery.)
+YOU:     Quiero denunciar el robo.
+   = I want to report the robbery.
+PARTNER: Por supuesto. Vamos a la comisaría. ¿Puede decirme qué había en su bolso?
+   = Of course. Let’s go to the police station. Can you tell me what was in your bag?
+   tip: Excellent! You used 'por supuesto' perfectly to show agreement.
+   (also: Tenía dinero y documentos. = It had money and documents.)
+   (also: Voy con usted. = I’ll go with you.)
+

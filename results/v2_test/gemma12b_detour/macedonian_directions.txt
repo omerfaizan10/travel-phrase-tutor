@@ -1,0 +1,53 @@
+### macedonian / directions / detour  (44s, fallbacks=0)
+PARTNER: Добар ден! Што сакате?
+   = Good afternoon! What do you want?
+   (also: Може ли да ми помогнете? = Can you help me? [pb])
+   (also: Каде е центарот? = Where is the city center?)
+YOU:     Може ли да ми помогнете? [pb]
+   = Can you help me?
+PARTNER: Да, секако. Како можам да ви помогнам?
+   = Yes, of course. How can I help you?
+   tip: Excellent! You used a very polite way to ask for help.
+   (also: Сакам да одам во центарот. = I want to go to the city centre.)
+   (also: Кажи ми како да стигнам таму. = Tell me how to get there. [pb])
+YOU:     Сакам да одам во центарот.
+   = I want to go to the city centre.
+PARTNER: Центарот е малку подалеку. Одете право напред до раскрсницата.
+   = The city center is a little further. Go straight ahead to the intersection.
+   tip: Excellent! You used the correct phrase to ask for help.
+   (also: Дали е далеку? = Is it far? [pb])
+   (also: Може ли да ми покажете на мапата? = Can you show me on the map? [pb])
+YOU:     Добар ден. Колку чини овој прстен?  <- DETOUR (from shopping)
+   = Hello. How much is this ring?
+PARTNER: Јас не работам тука. Мора да прашате во продавницата.
+   = I don't work here. You have to ask in the shop.
+   tip: The traveler used the correct phrase to ask about the price.
+   (also: Далеку ли е од тука? = Is it far from here?)
+   (also: Може ли да ми покажете на мапата? = Can you show me on the map? [pb])
+YOU:     Далеку ли е од тука?
+   = Is it far from here?
+PARTNER: Не е далеку. Околу десет минути пешки.
+   = It's not far. About ten minutes by foot.
+   tip: Good! You used 'Далеку ли е?' correctly.
+   (also: Може ли да ми покажете на мапата? = Can you show me on the map? [pb])
+   (also: Дали има автобус што можам да го земам? = Is there a bus I can take?)
+YOU:     Може ли да ми помогнете? [pb]  <- REPEAT of first line
+   = Can you help me?
+PARTNER: Да, секако. Што сакате?
+   = Yes, of course. What do you want?
+   tip: Good! You remembered the phrase 'I want to go...'
+   (also: Каде е автобуската станица? = Where's the bus station? [pb])
+   (also: Може ли да ми покажете на мапата? = Can you show me on the map? [pb])
+YOU:     Може ли да ми покажете на мапата? [pb]
+   = Can you show me on the map?
+PARTNER: Жал ми е, немам мапа. Но, може да проверите на телефонот.
+   = I'm sorry, I don't have a map. But you can check on your phone.
+   tip: Good effort! 'Мапата' is the correct word for 'map'.
+   (also: Тоа беше многу корисно. = That was very helpful.)
+   (also: довидување = goodbye [pb])
+YOU:     Благодарам многу! [pb]
+   = Thank you very much!
+PARTNER: Од вас е задоволство. Убав ден!
+   = You're welcome. Have a nice day!
+   tip: Excellent! You used 'Благодарам многу!' appropriately.
+   (scene done)

@@ -1,0 +1,19 @@
+### spanish / sightseeing  (37s, fallbacks=0)
+PARTNER: ¡Bienvenido! ¿En qué puedo ayudarle?
+   = Welcome! How can I help you?
+YOU:     ¿Dónde hay muchos sitios para visitar?
+   = Where are there a lot of sights to see?
+PARTNER: Madrid tiene el Palacio Real, ¡es impresionante! También puede visitar el centro histórico, es muy bonito.
+   = Madrid has the Royal Palace, it's impressive! You can also visit the old town, it's very beautiful.
+   tip: Exactly right: "¿Dónde hay muchos sitios para visitar?" is straight from the phrasebook (Where are there a lot of sights to see?).
+YOU:     ¿Cómo puedo llegar al centro?
+   = How do I get to the centre?
+PARTNER: Puede tomar el metro, línea 1, hasta la estación Sol. ¡Es muy fácil!
+   = You can take the metro, line 1, to Sol station. It's very easy!
+   tip: Exactly right: "¿Cómo puedo llegar al centro?" is straight from the phrasebook (How do I get downtown?).
+YOU:     Muchas gracias.
+   = Thank you very much.
+PARTNER: De nada. ¡Que tenga un buen viaje!
+   = You're welcome. Have a good trip!
+   tip: Exactly right: "Muchas gracias." is straight from the phrasebook (Thank you very much.).
+   (scene done)

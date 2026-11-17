@@ -1,0 +1,24 @@
+### spanish / directions / detour  (6s, fallbacks=0)
+PARTNER: Siga derecho por esta calle.
+   = Continue straight ahead down this street.
+   (also: ¿Puede enseñarme en el mapa? = Can you show me on the map? [pb])
+   (also: ¿Hay un restaurante cerca de aquí? = Is there a restaurant near here? [pb])
+YOU:     Voy al centro. [pb]
+   = I'm going to the town centre.
+PARTNER: Siga derecho hasta el semáforo y gire a la izquierda.
+   = Continue straight ahead to the traffic light and turn left.
+   tip: Great! You used the correct phrase for going to the centre of town.
+   (also: ¿Queda lejos? = Is it far? [pb])
+YOU:     ¿Puede enseñarme en el mapa? [pb]
+   = Can you show me on the map?
+PARTNER: Lo siento, no tengo un mapa.
+   = I'm sorry, I don't have a map.
+   tip: Good choice to ask for a map. In Spain, many people don't have maps.
+   (also: ¿Puede decirme dónde está la Plaza Mayor? = Can you tell me where the Plaza Mayor is? [pb])
+   (also: ¿Y dónde está eso? = And where is that? [pb])
+YOU:     Al aeropuerto, por favor.  <- DETOUR (from transport)
+   = To the airport, please.
+PARTNER: Lo siento, no tengo información del aeropuerto.
+   = I'm sorry, I don't have information about the airport.
+   tip: Good that you asked for the airport — it's a common place to find.
+   (scene done)

@@ -1,0 +1,36 @@
+### spanish / restaurant  (65s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+YOU:     Una mesa para una persona, por favor.
+   = A table for one, please.
+PARTNER: Por supuesto. Aquí tiene.
+   = Of course. Here you are.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Por supuesto. Sígame, por favor.  <- repeats the traveler's request with 'please'; confirm it in 
+   tip: Exactly right: "Una mesa para una persona, por favor." is straight from the phrasebook (A table for one, please.).
+YOU:     ¿Tiene algo para picar?
+   = Do you have any bar snacks?
+PARTNER: Sí, tenemos. Tenemos aceitunas, patatas fritas y boquerones.
+   = Yes, we do. We have olives, crisps, and boquerones.
+   tip: Exactly right: "¿Tiene algo para picar?" is straight from the phrasebook (Do you have any bar snacks?).
+YOU:     Yo, una caña.
+   = For me, a small draught beer. (Una caña is the usual way to order beer in a Spanish bar, about 200 ml.)
+PARTNER: Muy bien, una caña. Enseguida se la traigo.
+   = Very well, a small beer. I'll bring it right away.
+   tip: Exactly right: "Yo, una caña." is straight from the phrasebook (For me, a small draught beer. (Una caña is the usual way to order beer in a Spanish bar, about 200 ml.)).
+YOU:     Otra caña, por favor.
+   = Another beer, please.
+PARTNER: Enseguida. ¿Todo bien con la primera?
+   = Right away. Is everything alright with the first one?
+   tip: Exactly right: "Otra caña, por favor." is straight from the phrasebook (Another beer, please.).
+YOU:     Tráigame la cuenta, por favor.
+   = Bring me the bill, please.
+PARTNER: Por supuesto, enseguida le traigo la cuenta. Son 18 euros.
+   = Of course, I'll bring you the bill right away. That's 18 euros.
+   tip: Exactly right: "Tráigame la cuenta, por favor." is straight from the phrasebook (Bring me the bill, please.).
+YOU:     Gracias.
+   = Thank you.
+PARTNER: De nada. ¡Que tenga un buen viaje!
+   = You're welcome. Have a good trip!
+   tip: Exactly right: "Gracias." is straight from the phrasebook (Thank you.).
+   (scene done)

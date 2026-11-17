@@ -1,0 +1,52 @@
+### spanish / emergency / first  (45s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: Necesito llamar a la embajada. = I need to call the embassy. [pb])
+   (also: Me duele todo el cuerpo, tengo dolor de cabeza. = My whole body hurts, I have a headache. [pb])
+YOU:     Perdí mi bolso. [pb]
+   = I lost my handbag.
+PARTNER: ¿Puede decirme dónde estaba cuando lo perdió?
+   = Can you tell me where you were when you lost it?
+   [attempts=3 problems=[] fallback=False]
+   tip: Good. You told me where you were and what you did before losing it. This helps me help you find it or report it to the police. (Use the exact phrase: 'perdí mi bolso'. It means 'I lost my handbag'. You said it correctly.)
+   (also: Estaba cerca del museo, en la esquina de la Plaza de España. = I was near the museum, on the corner of Plaza de España.)
+   (also: Lo perdió después de comprar un billete en el puesto de billetes. = I lost it after buying a ticket at the ticket booth.)
+YOU:     Estaba en la estación del tren en la segunda calle a la izquierda.
+   = I was at the train station on the second street on the left.
+PARTNER: ¿A qué hora lo perdió?
+   = At what time did you lose it?
+   tip: Good. You used the correct Spanish for 'second street to the left'.
+YOU:     Estaba cerca de la caja de billetes.
+   = I was near the ticket counter.
+PARTNER: ¿A qué hora fue cerca de la caja de billetes?
+   = At what time were you near the ticket counter?
+   tip: Good. You used the correct time format and place.
+   (also: Vi la caja de billetes a las 15.15. = I saw the ticket counter at 15.15.)
+   (also: Estaba cerca de la caja de billetes a las 13.45. = I was near the ticket counter at 13.45.)
+YOU:     Estaba cerca de la caja de billetes a las 14.30.
+   = I was near the ticket counter at 14.30.
+PARTNER: Entendido. Vamos a hacer un informe de pérdida. ¿Puede decirme el color o el tamaño del bolso?
+   = Understood. We'll make a loss report. Can you tell me the color or size of the bag?
+   tip: Good. You told me where and when you lost it.
+   (also: Fue marrón y grande. = It was brown and big.)
+   (also: Fue rojo y mediano. = It was red and medium.)
+YOU:     Fue azul y pequeño.
+   = It was blue and small.
+PARTNER: Gracias. Voy a escribir el informe. ¿Puede dejar su nombre y número de teléfono por favor?
+   = Thank you. I'll write the report. Can you give me your name and phone number, please?
+   tip: Great! You gave clear details about the bag and when you lost it.
+   (also: Soy Maria, tengo el número 612-456-789. = I'm Maria, I have a phone number 612-456-789.)
+   (also: Mi nombre es David, el número de teléfono es 987-654-321. = My name is David, phone number is 987-654-321.)
+YOU:     Mi nombre es Juan y mi número de teléfono es 654-321-098.
+   = My name is Juan and my phone number is 654-321-098.
+PARTNER: Perfecto. Haremos un informe oficial. ¿Quedamos para ver si lo encontramos?
+   = Perfect. We'll make an official report. Shall we check if we find it?
+   tip: Great! You gave clear details about where and when you lost your bag.
+   (also: Ojalá lo encuentren pronto. = I hope it gets found soon.)
+   (also: Gracias, espero los resultados. = Thank you, I'll wait for the results.)
+YOU:     Sí, quiero comprobar si lo encontramos.
+   = Yes, I would like to check if we find it.
+PARTNER: Vale. El informe está listo. Lo revisaremos con la policía local.
+   = OK. The report is ready. We'll check with the local police.
+   tip: Great! You said exactly what you needed to help us find your bag.
+   (scene done)

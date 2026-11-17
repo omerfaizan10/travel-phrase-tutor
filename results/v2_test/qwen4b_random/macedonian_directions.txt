@@ -1,0 +1,29 @@
+### macedonian / directions / random  (13s, fallbacks=0)
+PARTNER: Повелете, ќе ви помогнам.
+   = Please, I'll help you.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Извинете, каде е автобуската станица?  <- asks where a place is; that is the TRAVELER's question. As t; says a line the TRAVELER would say; answer as the staff/loca
+   (also: Каде е автобуската станица? = Where's the bus station? [pb])
+   (also: Може ли да ми покажете каде е автобуската станица? = Can you point me to the bus station?)
+YOU:     Каде е автобуската станица? [pb]
+   = Where's the bus station?
+PARTNER: На таа раскрсница, на десната страна.
+   = At that intersection, on the right side.
+   tip: Good job — you used the correct phrase for asking where something is. Keep going, you're doing great!”,
+   (also: Помини ги семафорите. = Go past the traffic lights. [pb])
+   (also: Кажи ми како да стигнам до центарот? = How do I get to the center?)
+YOU:     Помини ги семафорите. [pb]
+   = Go past the traffic lights.
+PARTNER: Да, помини ги семафорите и одете право.
+   = Yes, go past the traffic lights and go straight ahead.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Да, помини ги семафорите.  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good! You added a clear next step.
+   (also: Таму на лево е продавницата. = There, on the left, is the shop. [pb])
+   (also: Каде можам да купам карта? = Where can I buy a ticket? [pb])
+YOU:     Оди право по таа улица до ќошето. [pb]
+   = Go straight along that street to the corner.
+PARTNER: Да, одете право по таа улица до ќошето.
+   = Yes, go straight along that street to the corner.
+   tip: Great, you're following the directions clearly.
+   (scene done)

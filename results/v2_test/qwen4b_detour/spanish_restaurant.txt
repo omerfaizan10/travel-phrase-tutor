@@ -1,0 +1,32 @@
+### spanish / restaurant / detour  (10s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: ¿Puedo mirar la carta, por favor? = Can I look at the menu, please? [pb])
+   (also: ¿Cuál es el plato del día? = What is the special of the day? [pb])
+YOU:     ¿Cuál es el plato del día? [pb]
+   = What is the special of the day?
+PARTNER: El plato del día es cocido.
+   = The dish of the day is cocido.
+   tip: Good question! You asked about the special dish, and I answered correctly with 'cocido'. That's a common dish in Spain, especially in Madrid. Well done on that one! (Note: 'cocido' is a stew made with meat, chicken, and vegetables, not just any meat.)
+   (also: ¿Qué nos recomienda? = What do you recommend? [pb])
+   (also: Para mí, paella. = For me, paella. [pb])
+YOU:     Sí, estamos listos. [pb]
+   = Yes, we're ready.
+PARTNER: Perfecto, ¿quieren una mesa para cinco personas?
+   = Perfect, do you want a table for five people?
+   tip: Great! You used the correct phrase to confirm readiness.
+   (also: Necesitamos una mesa para cinco personas. = We need a table for five people.)
+   (also: Podemos tener una mesa para cinco personas? = Can we have a table for five people?)
+YOU:     Nos encanta, especialmente Madrid.  <- DETOUR (from sightseeing)
+   = We love it, especially Madrid.
+PARTNER: ¡Genial! ¿Quieren una mesa para cinco personas?
+   = Great! Do you want a table for five people?
+   tip: Great to hear you love Madrid!
+   (also: ¿Puede mostrarnos dónde está la mesa? = Can you show us where the table is?)
+   (also: ¿Tiene una mesa al aire libre? = Do you have a table outside?)
+YOU:     Sí, queremos una mesa para cinco personas.
+   = Yes, we want a table for five people.
+PARTNER: Perfecto, aquí tiene una mesa para cinco personas.
+   = Perfect, here is a table for five people.
+   tip: Great to hear you love Madrid!
+   (scene done)

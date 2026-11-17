@@ -1,0 +1,61 @@
+### macedonian / transport / detour  (98s, fallbacks=1)
+PARTNER: Добар ден. Што сакате?
+   = Good afternoon. What do you want?
+   (also: Ми треба билет за Битола. = I need a ticket to Bitola.)
+   (also: Сакам да знам кога автобусот за Струга тргнува. = I want to know when the bus to Struga leaves.)
+YOU:     Сакам да знам кога автобусот за Струга тргнува.
+   = I want to know when the bus to Struga leaves.
+PARTNER: Автобусот за Струга тргнува во дванаесет часот, од перон четири.
+   = The bus to Struga leaves at twelve o’clock, from platform four.
+   tip: Excellent pronunciation!
+   (also: Еден правец ли е? = Is that a one-way ticket?)
+   (also: И кога пристигнува? = And when does it arrive?)
+YOU:     И кога пристигнува?
+   = And when does it arrive?
+PARTNER: Не знам точно, но проверете на информациониот шалтер.
+   = I don’t know exactly, but check at the information desk.
+   tip: Excellent attempt at using a more complex sentence!
+   (also: Имате ли распоред? = Is there a timetable?)
+   (also: Благодарам! = Thank you! [pb])
+YOU:     Оди право по таа улица до ќошето.  <- DETOUR (from directions)
+   = Go straight along that street to the corner.
+PARTNER: Да, тоа е така.
+   = Yes, that’s right.
+   tip: The traveler’s response was perfectly understandable and showed they are following the conversation.
+   (also: Добро, благодарам. = Fine, thank you. [pb])
+   (also: Можете ли да го повторите тоа? = Can you repeat that?)
+YOU:     Добро, благодарам. [pb]
+   = Fine, thank you.
+PARTNER: Од што ви треба автобусот за Струга?
+   = What do you need the bus to Struga for?
+   tip: Your Macedonian is improving!
+   (also: Одам кај роднина. = I'm visiting family.)
+   (also: Имам состанок. = I have a meeting.)
+YOU:     Сакам да знам кога автобусот за Струга тргнува.  <- REPEAT of first line
+   = I want to know when the bus to Struga leaves.
+PARTNER: Автобусот за Струга тргнува во дванаесет часот, од перон четири.
+   = The bus to Struga leaves at twelve o’clock, from platform four.
+   tip: You repeated your previous question, but your follow-up was appropriate.
+YOU:     Каде е перон четири?
+   = Where is platform four?
+PARTNER: На крајот од станицата, од лева страна.
+   = At the end of the station, on the left side.
+   tip: The traveler is starting to understand more complex sentences. Encourage them to keep practicing!
+   (also: Имате ли уште автобуси за Струга? = Do you have any other buses to Struga?)
+YOU:     Имате ли уште автобуси за Струга?
+   = Do you have any other buses to Struga?
+PARTNER: Извинете, не знам. Погледнете го возниот ред.
+   = Sorry, I don't know. Look at the timetable.
+   [attempts=3 problems=['time 13.30 is not in the timetable notes'] fallback=True]
+   x rejected: Да, има уште еден автобус во еден час и триесет минути.  <- time 1.30 (written in words) is not in the timetable notes; 
+   x rejected: Да, има уште еден автобус во еден час и триесет.  <- time 1.30 (written in words) is not in the timetable notes; 
+   x rejected: Да, има уште еден автобус во 13:30.  <- time 13.30 is not in the timetable notes
+   tip: Excellent! You're remembering to use the digital format for times.
+   (also: Колку често има автобуси? = How often do buses come? [pb])
+   (also: Дали возот сообраќа во недела? = Does the train run on Sundays? [pb])
+YOU:     Дали возот сообраќа во недела? [pb]
+   = Does the train run on Sundays?
+PARTNER: Не, возовите не сообраќаат во недела.
+   = No, the trains don’t run on Sundays.
+   tip: The traveler is using complex sentence structure well, encouraging them to continue practicing.
+

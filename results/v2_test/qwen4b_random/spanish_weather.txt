@@ -1,0 +1,40 @@
+### spanish / weather / random  (14s, fallbacks=2)
+PARTNER: Aquí tiene.
+   = Here you are.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: ¿Qué tiempo hace hoy?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Qué tiempo hace hoy?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Qué tiempo hace hoy?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: ¿Qué tiempo hace? = What's the weather like? [pb])
+   (also: ¿Qué tiempo hizo ayer? = What was the weather like yesterday? [pb])
+YOU:     ¿Qué tiempo hizo ayer? [pb]
+   = What was the weather like yesterday?
+PARTNER: Hace frío ayer.
+   = It was cold yesterday.
+   tip: Great! You used the correct Spanish for 'cold'.
+   (also: ¡Qué frío! = It's so cold! [pb])
+   (also: Hace frío. = It's cold. [pb])
+YOU:     Hace frío. [pb]
+   = It's cold.
+PARTNER: ¿Y hoy?
+   = And today?
+   tip: Good! You said it correctly in Spanish: 'Hace frío.'
+   (also: Hoy hace calor. = It's hot today.)
+   (also: Hay nubes. = It's cloudy. [pb])
+YOU:     Hay nubes. [pb]
+   = It's cloudy.
+PARTNER: Desde luego.
+   = Of course. / Sure.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: ¿Qué tiempo va a hacer mañana?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Qué tiempo va a hacer mañana?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Qué tiempo va a hacer mañana?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Great! You said it correctly in Spanish.
+   (also: ¿Qué tiempo va a hacer mañana? = What will the weather be like tomorrow? [pb])
+   (also: Va a llover. = It's going to rain. [pb])
+YOU:     Está despejado. [pb]
+   = It's clear.
+PARTNER: ¡Qué bueno!
+   = What a good one!
+   tip: Great! You said 'está despejado' correctly.
+   (scene done)

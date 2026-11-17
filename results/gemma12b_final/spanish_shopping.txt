@@ -1,0 +1,29 @@
+### spanish / shopping  (56s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+YOU:     ¿Tiene esto de mi talla?
+   = Do you have this in my size?
+PARTNER: Sí, dígame qué talla usa.
+   = Yes, tell me what size you wear.
+   tip: Exactly right: "¿Tiene esto de mi talla?" is straight from the phrasebook (Do you have this in my size?).
+YOU:     ¿Cuánto quiere por eso?
+   = How much do you want for that?
+PARTNER: Son veinte euros.
+   = It's twenty euros.
+   tip: Exactly right: "¿Cuánto quiere por eso?" is straight from the phrasebook (How much do you want for that?).
+YOU:     Es demasiado caro.
+   = That's too expensive.
+PARTNER: Es verdad, pero es de seda pura.
+   = You're right, but it's made of pure silk.
+   tip: Exactly right: "Es demasiado caro." is straight from the phrasebook (That's too expensive.).
+YOU:     ¿Tiene una bolsa?
+   = Can I have a bag?
+PARTNER: Sí, claro. ¿Va a pagar con tarjeta o en efectivo?
+   = Yes, of course. Will you be paying with card or cash?
+   tip: Exactly right: "¿Tiene una bolsa?" is straight from the phrasebook (Can I have a bag?).
+YOU:     Gracias.
+   = Thank you.
+PARTNER: De nada. ¡Que tenga un buen día!
+   = You're welcome. Have a good day!
+   tip: Exactly right: "Gracias." is straight from the phrasebook (Thank you.).
+   (scene done)

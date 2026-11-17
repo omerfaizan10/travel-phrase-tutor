@@ -1,0 +1,26 @@
+### spanish / sightseeing / first  (11s, fallbacks=0)
+PARTNER: ¡Buenas! ¿En qué puedo ayudarle?
+   = Good day! How can I help you?
+   (also: ¿Puedes mostrarme dónde está el centro? = Can you show me where the centre is?)
+   (also: ¿Hay alguna especialidad de la zona? = Is there a local specialty? [pb])
+YOU:     Quiero ver lugares famosos en Madrid.
+   = I want to see famous places in Madrid.
+PARTNER: ¡Buenas! ¿Qué lugares famosos desea ver en Madrid?
+   = Good day! What famous places would you like to see in Madrid?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: ¡Perfecto! ¿Dónde hay muchos sitios para visitar?  <- asks where a place is; that is the TRAVELER's question. As t; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Great question! You're asking about famous places in Madrid, which is good for sightseeing.
+   (also: ¿Qué haces este fin de semana? = What are you doing this weekend? [pb])
+YOU:     ¿Puede enseñarme en el mapa? [pb]
+   = Can you show me on the map?
+PARTNER: Claro, ¿qué lugares famosos le gustaría ver?
+   = Of course, which famous places would you like to see?
+   tip: Great choice! The Prado is one of Madrid's top museums.
+   (also: Quiero ver el Alcázar. = I want to see the Alcázar.)
+   (also: Quiero ver el Palacio Real. = I want to see the Royal Palace.)
+YOU:     Quiero ver el Museo del Prado.
+   = I want to see the Prado Museum.
+PARTNER: ¡Perfecto! El Museo del Prado está en el Paseo del Prado.
+   = Perfect! The Prado Museum is on the Paseo del Prado.
+   tip: Great choice! The Prado is one of Madrid's top art museums.
+   (scene done)

@@ -1,0 +1,41 @@
+### macedonian / emergency / first  (26s, fallbacks=0)
+PARTNER: Добар ден. Што можам да ви помогнам?
+   = Good day. What can I help you with?
+   (also: Ми треба лекар. = I need a doctor. [pb])
+   (also: Каде е најблиската аптека? = Where is the nearest pharmacy? [pb])
+YOU:     Ја изгубив торбата. [pb]
+   = I lost my bag.
+PARTNER: Каде ја изгубивте торбата?
+   = Where did you lose your bag?
+   tip: Good. You used the correct phrase for losing a bag.
+   (also: Каде е тоа во времето? = Tell me when you lost your bag.)
+   (also: Што го имало таа торба? = Tell me what your bag looked like.)
+YOU:     Каде ја изгубивте торбата?
+   = Tell me where you lost your bag.
+PARTNER: Знаем дека ја изгубивте торбата.
+   = I know you lost your bag.
+   [attempts=3 problems=["asks where a place is; that is the TRAVELER's question. As the local/staff, answer or ask how you can help instead"] fallback=False]
+   x rejected: Каде ја изгубивте торбата?  <- repeats the traveler's words. Acknowledge what they said in ; repeats your previous line
+   x rejected: Каде ја изгубивте торбата? Дали ја видовте некој?   <- starts by repeating the traveler's sentence word for word; a
+   x rejected: Знаем дека ја изгубивте торбата. Каде е тоа место?  <- asks where a place is; that is the TRAVELER's question. As t
+   tip: Good. You used correct place details to help with the search.
+   (also: Беше во паркот, близу до големиот дрво. = It was in the park, near the big tree.)
+   (also: Беше во центарот на градот, на углуот на улицата. = It was in the city center, at the corner of the street.)
+YOU:     Беше на влакот, близу до втора улица на лево.
+   = It was at the train station, near the second street on the left.
+PARTNER: Понекако, на влакот близу до втора улица на лево.
+   = Somewhere, on the train near the second street on the left.
+   tip: Good! You used the correct place and time.
+YOU:     Беше близу до стање на влакот.
+   = Say you saw the bag near the train station.
+PARTNER: Понекако, близу до стање на влакот.
+   = Somewhere, near the train station.
+   tip: Good, you gave a clear location.
+   (also: Дескрипција на торбата? = Can you describe the bag?)
+   (also: Имал ли сте документи во неа? = Did you have any ID in it?)
+YOU:     Што видовте преди да ја изгубивте?
+   = Tell me what you saw before you lost it.
+PARTNER: Не, не видовме претпреди.
+   = No, we didn't see anything before.
+   tip: Good — you used the correct Macedonian form.
+   (scene done)

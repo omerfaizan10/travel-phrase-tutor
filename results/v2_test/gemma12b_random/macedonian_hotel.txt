@@ -1,0 +1,61 @@
+### macedonian / hotel / random  (47s, fallbacks=0)
+PARTNER: Добредојдовте! Може ли пасошот, ве молам?
+   = Welcome! May I have your passport, please?
+   (also: Барам хотел. = I'm looking for a hotel. [pb])
+   (also: Дали имате слободни соби? = Do you have any rooms available? [pb])
+YOU:     Дали имате слободни соби? [pb]
+   = Do you have any rooms available?
+PARTNER: Да, имаме слободни соби. Барам хотел.
+   = Yes, we have available rooms. You are looking for a hotel.
+   tip: Excellent! You used a complete question in Macedonian.
+   (also: Која е цената за ноќ? = Ask about the price.)
+YOU:     Која е цената за ноќ?
+   = Ask about the price.
+PARTNER: Собата за еден е 2500 денари по ноќ.
+   = A room for one person is 2500 denars per night.
+   tip: Excellent! You used the correct phrase to ask about the price.
+   (also: Дали појадокот е вклучен во цената? = Is breakfast included in the price? [pb])
+   (also: Каде е собата? = Ask about the room number.)
+YOU:     Дали појадокот е вклучен во цената? [pb]
+   = Is breakfast included in the price?
+PARTNER: Да, појадокот е вклучен во цената.
+   = Yes, breakfast is included in the price.
+   tip: Excellent! You used a full sentence to ask a question.
+   (also: Дали имате друга соба? = Do you have a different room? [pb])
+   (also: Може ли да ја видам прво собата? = May I see the room first? [pb])
+YOU:     Од колку часот е доручекот? [pb]
+   = What time is breakfast?
+PARTNER: Од седум до десет часот, во ресторанот.
+   = From seven to ten, in the restaurant.
+   tip: Excellent! You used the correct phrase to ask about breakfast.
+   (also: Дали имате друга соба? = Do you have a different room? [pb])
+   (also: Може ли да ја видам прво собата? = May I see the room first? [pb])
+YOU:     Дали имате друга соба? [pb]
+   = Do you have a different room?
+PARTNER: Имаме и други соби. Што сакате?
+   = We have other rooms too. What would you like?
+   tip: Excellent! You used the correct phrase.
+   (also: Имате ли соба со поглед? = Do you have a room with a view?)
+   (also: Имате ли соба за двајца? = I'd like a room for two people.)
+YOU:     Имате ли соба со поглед?
+   = Do you have a room with a view?
+PARTNER: Да, имаме соба со поглед. Собата е на третиот кат.
+   = Yes, we have a room with a view. The room is on the third floor.
+   tip: Excellent! You used the correct phrasing to ask about a room with a view.
+   (also: Може ли да ја видам прво собата? = May I see the room first? [pb])
+   (also: Имате ли нешто потивко? = Do you have anything quieter? [pb])
+YOU:     Може ли да ја видам прво собата? [pb]
+   = May I see the room first?
+PARTNER: Секако. Моментално ќе ви ја покажам.
+   = Of course. I will show it to you right away.
+   tip: Excellent! You used a perfectly natural phrase.
+   (also: Имате ли нешто потивко? = Do you have anything quieter? [pb])
+   (also: Благодарам! = Thank you! [pb])
+YOU:     Ок, ќе ја земам. [pb]
+   = OK, I'll take it.
+PARTNER: Одлично! Може ли пасошот, ве молам?
+   = Excellent! May I have your passport, please?
+   tip: Good! You used 'OK, I'll take it' perfectly.
+   (also: Која е лозинката за интернет? = What's the Wi-Fi password? [pb])
+   (also: Благодарам, довидување. = Thank you, goodbye.)
+

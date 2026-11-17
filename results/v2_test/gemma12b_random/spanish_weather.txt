@@ -1,0 +1,65 @@
+### spanish / weather / random  (52s, fallbacks=0)
+PARTNER: ¡Hola! Buenos días. ¿En qué puedo ayudarle?
+   = Hello! Good morning. How can I help you?
+   (also: ¿Qué tiempo hace hoy? = What's the weather like today? [pb])
+   (also: Buenos días para usted también. = Good morning to you too.)
+YOU:     Buenos días para usted también.
+   = Good morning to you too.
+PARTNER: Gracias. Hoy hace sol, pero un poco fresco.
+   = Thank you. It's sunny today, but a little cool.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Gracias. ¿Qué tiempo hace hoy?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Remember to use 'hace' to describe the weather. 'Hace sol' is correct!
+   (also: Hace fresco. = It's cool. [pb])
+   (also: ¿Qué llevas? = What are you wearing?)
+YOU:     ¿Qué llevas?
+   = What are you wearing?
+PARTNER: Llevo una chaqueta ligera. Quizás necesite una bufanda.
+   = I'm wearing a light jacket. You might need a scarf.
+   tip: Excellent! You used 'llevar' correctly to ask what someone is wearing.
+   (also: Creo que sí. = I think so too.)
+   (also: Lo recordaré. = I'll remember that.)
+YOU:     Lo recordaré.
+   = I'll remember that.
+PARTNER: Sí, es posible que baje la temperatura por la tarde.
+   = Yes, the temperature might drop in the afternoon.
+   tip: Excellent! You used 'recordaré' which is the correct form.
+   (also: Tengo frío. = I'm cold. [pb])
+   (also: Va a hacer frío. = It's going to be cold. [pb])
+YOU:     ¿Qué dice la previsión para mañana? [pb]
+   = What does the forecast say for tomorrow?
+PARTNER: Mañana dicen que va a hacer frío.
+   = Tomorrow they say it will be cold.
+   tip: Excellent use of the phrase '¿Qué dice la previsión para mañana?'
+   (also: ¿Cuál es la temperatura? = What's the temperature?)
+   (also: Va a llover. = It's going to rain. [pb])
+YOU:     Va a llover. [pb]
+   = It's going to rain.
+PARTNER: Sí, parece que va a llover un poco.
+   = Yes, it seems like it will rain a little.
+   tip: Perfect! You used 'cogeré' correctly to express future action.
+   (also: Me abrigaré bien. = I'll wrap up warm.)
+   (also: Es bueno saberlo. = It's good to know.)
+YOU:     Me abrigaré bien.
+   = I'll wrap up warm.
+PARTNER: Buena idea. ¡Que tenga un buen día!
+   = Good idea. Have a good day!
+   tip: Excellent! You used the correct verb construction to say you will wrap up warm.
+   (also: Gracias, fue un placer hablar con usted. = Thank you, it was nice talking to you.)
+   (also: Adiós, hasta luego. = Goodbye, see you later.)
+YOU:     Adiós, hasta luego.
+   = Goodbye, see you later.
+PARTNER: ¡Claro que sí! Que tenga un buen día, y sí, abríguese bien para mañana.
+   = Of course! Have a good day, and yes, wrap up warm for tomorrow.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Adiós. ¡Hasta luego!  <- repeats the traveler's words. Acknowledge what they said in 
+   tip: You successfully expressed agreement and offered a final piece of advice!
+   (also: ¿Qué tiempo hace hoy? = What's the weather like today? [pb])
+   (also: Abrígate bien. = Wrap up warm. (informal [pb])
+YOU:     ¿Qué tiempo hace hoy? [pb]
+   = What's the weather like today?
+PARTNER: Hoy hace sol, pero está un poco fresco.
+   = Today it's sunny, but a little cool.
+   tip: Excellent! You used 'hoy' correctly to specify 'today'.
+   (also: Que tenga un buen día. = Have a good day.)
+

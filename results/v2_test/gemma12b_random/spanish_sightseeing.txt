@@ -1,0 +1,58 @@
+### spanish / sightseeing / random  (49s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: ¿Dónde hay muchos sitios para visitar? = Where are there a lot of sights to see? [pb])
+   (also: ¿Dónde está el centro de información? = Where is the information centre? [pb])
+YOU:     ¿Dónde está el centro de información? [pb]
+   = Where is the information centre?
+PARTNER: Está a la vuelta de la esquina, en la primera calle a la derecha. Es muy fácil de encontrar.
+   = It's just around the corner, on the first street on the right. It’s very easy to find.
+   tip: Excellent! You used a very polite way to ask for directions.
+   (also: ¿Dónde hay muchos sitios para visitar? = Where are there a lot of sights to see? [pb])
+YOU:     ¿Puede enseñarme en el mapa? [pb]
+   = Can you show me on the map?
+PARTNER: Por supuesto. Aquí tiene el mapa. El centro de información está aquí.
+   = Of course. Here's the map. The information centre is here.
+   tip: Excellent! You used the phrase perfectly.
+   (also: ¿Dónde hay muchos restaurantes? = Where are there a lot of restaurants? [pb])
+YOU:     ¿Puede enseñarme otros sitios?
+   = Can you show me other places?
+PARTNER: Claro. ¿Qué tipo de sitios le interesan?
+   = Of course. What kind of places are you interested in?
+   tip: Excellent! You used 'Me gustan' correctly to express your preference.
+   (also: Me gustan los museos de arte. = I like art museums.)
+   (also: Quiero ver vistas bonitas. = I want to see beautiful views.)
+YOU:     Me gustan los sitios históricos.
+   = I like historical places.
+PARTNER: Entonces, le recomiendo Toledo. Es una ciudad muy histórica y bonita.
+   = Then I recommend Toledo. It's a very historical and beautiful city.
+   tip: Excellent! You used 'Me gustan' correctly to express your preference.
+   (also: ¿Cómo puedo llegar a Toledo? = How do I get to Toledo?)
+   (also: ¿Hay alguna especialidad de la zona? = Is there a local specialty? [pb])
+YOU:     ¿Hay alguna especialidad de la zona? [pb]
+   = Is there a local specialty?
+PARTNER: Sí, en Toledo hacen mazapán. Es un dulce de almendras muy típico.
+   = Yes, in Toledo they make mazapán. It’s a very typical almond sweet.
+   tip: Excellent! You used 'especialidad' perfectly.
+   (also: ¿Merece la pena ir a Toledo? = Is it worth going to Toledo? [pb])
+   (also: ¿Te gusta Toledo? = Do you like Toledo? [pb])
+YOU:     ¿Te gusta Toledo? [pb]
+   = Do you like Toledo?
+PARTNER: Sí, me gusta mucho. Merece la pena visitarla.
+   = Yes, I like it a lot. It's worth visiting.
+   tip: Excellent! You used a direct translation of 'Do you like...?'
+   (also: Muchas gracias por su ayuda. = Thank you for your help.)
+YOU:     Muchas gracias por su ayuda.
+   = Thank you for your help.
+PARTNER: De nada. ¡Que tenga un buen día!
+   = You're welcome. Have a good day!
+   tip: Excellent! You used 'muchas gracias' perfectly.
+   (also: Adiós. = Goodbye. [pb])
+   (also: Que tenga un buen viaje. = Have a good trip.)
+YOU:     Muchas gracias. [pb]
+   = Thank you very much.
+PARTNER: De nada. Si necesita algo más, no dude en preguntar.
+   = You're welcome. If you need anything else, don't hesitate to ask.
+   tip: Excellent! You used 'Muchas gracias' perfectly.
+   (also: Que tenga un buen día. = Have a good day.)
+

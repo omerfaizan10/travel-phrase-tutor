@@ -1,0 +1,62 @@
+### spanish / hotel / random  (53s, fallbacks=0)
+PARTNER: Buenos días. ¿En qué puedo ayudarle?
+   = Good morning. How can I help you?
+   (also: ¿Cuánto cuesta una habitación para una persona? = How much is a room for one person? [pb])
+   (also: Quisiera registrarme, por favor. = I'd like to check in.)
+YOU:     ¿Hay habitaciones libres? [pb]
+   = Do you have any rooms available?
+PARTNER: Sí, tenemos habitaciones libres. ¿Cuánto tiempo piensa quedarse?
+   = Yes, we have rooms available. How long are you planning to stay?
+   tip: Excellent! You used the correct phrase to ask if there were any rooms available.
+   (also: Sólo por esta noche. = Just for tonight. [pb])
+   (also: No estoy seguro todavía. = I'm not sure yet.)
+YOU:     Me quedaré tres noches. [pb]
+   = I will stay three nights.
+PARTNER: Perfecto. Son 85 euros por noche. Es una habitación doble.
+   = Perfect. That's 85 euros per night. It's a double room.
+   tip: Excellent! You used the phrase 'Me quedaré tres noches' perfectly.
+   (also: ¿Puedo ver la habitación primero? = May I see the room first? [pb])
+   (also: ¿Qué número de habitación es? = What's the room number? [pb])
+YOU:     ¿Qué número de habitación es? [pb]
+   = What's the room number?
+PARTNER: Es en el segundo piso, habitación 234.
+   = It's on the second floor, room 234.
+   tip: Excellent! You used the correct phrase to ask for the room number.
+   (also: ¿Cuánto cuesta una habitación para una persona? = How much is a room for one person? [pb])
+   (also: ¿El desayuno va incluido? = Is breakfast included? [pb])
+YOU:     ¿Cuánto cuesta una habitación para una persona? [pb]
+   = How much is a room for one person?
+PARTNER: Una habitación individual son 65 euros por noche.
+   = A single room is 65 euros per night.
+   tip: Excellent question! You used the correct structure to ask about the price.
+   (also: ¿Tiene algo más tranquilo? = Do you have anything quieter? [pb])
+   (also: Muy bien, la tomaré. = OK, I'll take it. [pb])
+YOU:     Muy bien, la tomaré. [pb]
+   = OK, I'll take it.
+PARTNER: Excelente. ¿Puedo ver su pasaporte, por favor?
+   = Excellent. May I see your passport, please?
+   tip: Perfect! You used 'la tomaré' correctly to accept the room.
+   (also: ¿Necesita algo más? = Do you need anything else?)
+   (also: ¿El desayuno va incluido? = Is breakfast included? [pb])
+YOU:     ¿El desayuno va incluido? [pb]
+   = Is breakfast included?
+PARTNER: Sí, el desayuno va incluido. Es de 07:30 a 10:30 en el comedor.
+   = Yes, breakfast is included. It's from 7:30 to 10:30 in the dining room.
+   tip: Very good question! You used the correct phrase to ask if something is included.
+   (also: Muchas gracias. ¿Dónde está el comedor? = Thank them and ask for directions to the dining room.)
+YOU:     ¿A qué hora es el check-out?
+   = Ask what time check-out is.
+PARTNER: El check-out es a las diez y media.
+   = Check-out is at half past ten.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: El check-out es a las doce y cuarto.  <- time 12.15 (written in words) is not in the timetable notes;
+   tip: You are doing well! Remember to only ask about times that are in the notes.
+   (also: ¿Tiene algo más barato? = Do you have anything cheaper? [pb])
+YOU:     ¿Tiene algo más barato? [pb]
+   = Do you have anything cheaper?
+PARTNER: Tenemos habitaciones individuales más económicas, pero son más pequeñas. Son 65 euros por noche.
+   = We have more economical single rooms, but they are smaller. They are 65 euros per night.
+   tip: Excellent! You used the correct phrase to ask about alternatives.
+   (also: La tomaré, la habitación individual. = I'll take the single room.)
+   (also: Gracias por su ayuda. = Thank you for your help.)
+

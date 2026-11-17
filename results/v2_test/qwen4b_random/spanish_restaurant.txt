@@ -1,0 +1,63 @@
+### spanish / restaurant / random  (24s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: Do you have any bar snacks? = ¿Tiene algo para picar?)
+YOU:     Una mesa para dos personas, por favor. [pb]
+   = A table for two, please.
+PARTNER: ¿Sí, señor? ¿Tiene una reserva?
+   = Yes, sir? Do you have a reservation?
+   tip: Good choice. You're asking for a table for two, which is correct for two people.
+   (also: Necesitamos más tiempo para decidir. = We need more time to decide. [pb])
+   (also: Somos cinco. = There are five of us. [pb])
+YOU:     Sí, estamos listos. [pb]
+   = Yes, we're ready.
+PARTNER: Perfecto, aquí tiene una mesa para dos personas.
+   = Perfect, here is a table for two people.
+   tip: Great! You said 'estamos listos' which means 'we're ready'.
+   (also: ¿Puedo mirar la carta, por favor? = Can I look at the menu, please? [pb])
+   (also: ¿Cuál es el plato del día? = What is the special of the day? [pb])
+YOU:     Ahora queremos pedir comida y bebida.
+   = We need to order food and drinks now.
+PARTNER: ¿Qué desea comer y beber?
+   = What would you like to eat and drink?
+   tip: Good choice! You're using the correct words for ordering food.
+   (also: Merluza frita para la señora y para mí un filete a la plancha con alcachofas. = Fried hake for the lady, and for me grilled steak with artichokes. [pb])
+   (also: Quisiera la sopa del día. = I would like the soup of the day. [pb])
+YOU:     Quisiera la sopa del día. [pb]
+   = I would like the soup of the day.
+PARTNER: ¿Y para beber?
+   = And for a drink?
+   tip: Good choice! Water is a common drink in Spain.
+   (also: Un chato. = A small glass of wine. [pb])
+   (also: Tráigame una cerveza, por favor. = Bring me a beer, please. [pb])
+YOU:     Para beber, me gustaría agua, por favor. [pb]
+   = To drink, I'd like water, please.
+PARTNER: Perfecto, la sopa del día y agua para beber.
+   = Perfect, the soup of the day and water to drink.
+   tip: Good choice — water is a great drink in Spain.
+   (also: ¿Qué nos recomienda? = What do you recommend? [pb])
+   (also: Quisiera el plato del día. = I'd like the dish of the day. [pb])
+YOU:     Do you have any bar snacks?
+   = ¿Tiene algo para picar?
+PARTNER: ¿Tiene alguna tapa?
+   = Do you have any tapas?
+   [attempts=3 problems=[] fallback=False]
+   x rejected: ¿Tiene algo para picar?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Tiene algo para picar?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Great question! You're learning how to ask about snacks.
+   (also: ¿Qué nos recomienda? = What do you recommend? [pb])
+   (also: He acabado. = I'm finished. [pb])
+YOU:     He acabado. [pb]
+   = I'm finished.
+PARTNER: ¿Qué desea comer y beber?
+   = What would you like to eat and drink?
+   [attempts=2 problems=[] fallback=False]
+   x rejected:   <- empty reply
+   tip: Good choice! Sopa del día is a great start.
+   (also: Bring me a grilled steak, medium, please. = Tráigame un filete a la plancha, medio asado, por favor.)
+YOU:     Quisiera un plato que lleve pollo. [pb]
+   = I want a dish containing chicken.
+PARTNER: ¿Y para beber?
+   = And for a drink?
+   tip: Good choice! Pollo is a popular dish in Spain.
+

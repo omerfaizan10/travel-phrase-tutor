@@ -1,0 +1,25 @@
+### spanish / transport / first  (12s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: Un billete a Sevilla, por favor. = One ticket to Seville, please. [pb])
+   (also: ¿A qué hora sale el autobús para Toledo? = What time does the bus to Toledo leave? [pb])
+YOU:     Un billete de ida para Toledo. [pb]
+   = A one-way ticket to Toledo.
+PARTNER: El autobús a Toledo sale a las 10.15 y 13.45.
+   = The bus to Toledo leaves at 10.15 and 13.45.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: ¿A qué hora sale el autobús para Toledo?  <- asks when a train/bus leaves or arrives; that is the travele; says a line the TRAVELER would say; answer as the staff/loca
+   tip: You asked for a one-way ticket to Toledo, which is correct.
+YOU:     ¿Dónde está el tren hacia Toledo? [pb]
+   = Where is the train to Toledo?
+PARTNER: No, el autobús va a Toledo, no el tren.
+   = No, the bus goes to Toledo, not the train.
+   tip: Good, you corrected the mistake about the train.
+   (also: ¿Se para este tren en Córdoba? = Does this train stop in Córdoba? [pb])
+   (also: ¿Adónde va este tren? = Where does this train go? [pb])
+YOU:     ¿A qué hora sale el autobús para Toledo? [pb]
+   = What time does the bus to Toledo leave?
+PARTNER: El autobús a Toledo sale a las 10.15 y 13.45.
+   = The bus to Toledo leaves at 10.15 and 13.45.
+   tip: Great question! You asked exactly what you needed.
+   (scene done)

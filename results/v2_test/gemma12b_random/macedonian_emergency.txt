@@ -1,0 +1,59 @@
+### macedonian / emergency / random  (56s, fallbacks=0)
+PARTNER: Добар ден. Што се случува?
+   = Good afternoon. What's happening?
+   (also: Ми треба вашата помош. = I need your help. [pb])
+   (also: Се загубив. = I am lost. [pb])
+YOU:     Ја изгубив торбата. [pb]
+   = I lost my bag.
+PARTNER: О, жал ми е. Кажете ми повеќе. Што изгубивте?
+   = Oh, I'm sorry. Tell me more. What did you lose?
+   tip: Excellent! You used the correct phrase to express that you lost your bag.
+YOU:     Го изгубив мојот паричник. [pb]
+   = I lost my wallet.
+PARTNER: Жал ми е што го изгубивте вашиот паричник. Каде го изгубивте?
+   = I'm sorry you lost your wallet. Where did you lose it?
+   tip: Excellent! You're using the correct phrasing to describe losing something.
+   (also: Близу пазарот. = Near the market.)
+   (also: Не сум сигурен. = I'm not sure.)
+YOU:     Близу пазарот.
+   = Near the market.
+PARTNER: Близу пазарот, кажувате? Кога го изгубивте?
+   = Near the market, you say? When did you lose it?
+   tip: Excellent! You used the correct tense.
+   (also: Ова утро. = This morning.)
+   (also: Пред еден час. = An hour ago.)
+YOU:     Пред еден час.
+   = An hour ago.
+PARTNER: Одлично. Значи, пред еден час го изгубивте паричникот. Што имаше во него?
+   = Good. So, you lost your wallet an hour ago. What was in it?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Пред еден час. И што имаше во паричникот?  <- starts by repeating the traveler's sentence word for word; a
+   tip: Excellent! You used the correct vocabulary.
+   (also: Мојата лична карта и пари. = My ID and some money.)
+   (also: Многу пари. = A lot of money.)
+YOU:     Многу пари.
+   = A lot of money.
+PARTNER: Многу пари, кажувате. Дали имавте документи во паричникот?
+   = You say a lot of money. Did you have any documents in your wallet?
+   tip: Excellent!
+   (also: Не, немав. = No, I didn't.)
+   (also: Само пари. = Just money.)
+YOU:     Да, имав.
+   = Yes, I did.
+PARTNER: Разбирам. Имавте документи. Треба да пријавите кражба.
+   = I understand. You had documents. You need to report the theft.
+   tip: Excellent! You're responding well to the questions.
+   (also: Што треба да направам? = What do I need to do?)
+   (also: Можете ли да ми помогнете со тоа? = Can you help me with that?)
+YOU:     Ок, да го направиме тоа.
+   = Okay, let's do that.
+PARTNER: Добро. Молам, дојдете со мене. Ќе напиеме извештај.
+   = Good. Please, come with me. I will write a report.
+   tip: The traveler is using the correct phrase to show agreement.
+   (also: Благодарам за помошта. = Thank you for your help.)
+YOU:     Разбирам.
+   = I understand.
+PARTNER: Молам, седнајте. Името и презимето, ве молам?
+   = Please, sit down. Your first and last name, please?
+   tip: Excellent! You're doing a great job with the pronunciation.
+

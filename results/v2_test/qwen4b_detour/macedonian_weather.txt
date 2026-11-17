@@ -1,0 +1,27 @@
+### macedonian / weather / detour  (10s, fallbacks=0)
+PARTNER: Добар ден! Облачно и студено со повремени врнежи од снег.
+   = Good day! Cloudy and cold with occasional snow.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добар ден! Какво е времето денеска?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: Кое годишно време најмногу го сакате? = Which season do you like best? [pb])
+   (also: Ќе врне ли? = Will it rain? [pb])
+YOU:     Кое годишно време најмногу го сакате? [pb]
+   = Which season do you like best?
+PARTNER: Јули и август сакам. Времето е топло и сончево.
+   = July and August. It's warm and sunny.
+   tip: Great! You said it correctly in Macedonian.
+   (also: Сончево е. = It's sunny. [pb])
+   (also: Топло е. = It's warm. [pb])
+YOU:     Топло е. [pb]
+   = It's warm.
+PARTNER: Топло е. Сончево е додека врше снег.
+   = It's warm. It's sunny while snow is falling.
+   tip: Good choice! It's warm and sunny today.
+   (also: Кога ќе биде најстудено? = When will it be coldest? [pb])
+   (also: Какво ќе биде времето утре? = What will the weather be like tomorrow? [pb])
+YOU:     Каде е автобуската станица?  <- DETOUR (from transport)
+   = Where is the bus station / bus stop?
+PARTNER: Не знам. Погледнете на втора страница на лево.
+   = I don't know. Check the second street on the left.
+   tip: Good job! You used the right phrase for asking where something is.
+   (scene done)

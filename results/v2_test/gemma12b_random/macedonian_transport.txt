@@ -1,0 +1,52 @@
+### macedonian / transport / random  (47s, fallbacks=0)
+PARTNER: Добар ден! Што сакате?
+   = Good afternoon! What would you like?
+   (also: Каде можам да купам билет? = Where can I buy a ticket? [pb])
+   (also: Какви билети имате? = What kind of tickets do you have?)
+YOU:     Какви билети имате?
+   = What kind of tickets do you have?
+PARTNER: Имаме билети за многу места. Каде сакате да патувате?
+   = We have tickets for many places. Where would you like to travel?
+   tip: Excellent attempt at using a full sentence!
+   (also: Мu треба билет за Скопје. = I need a ticket to Skopje.)
+   (also: Имате ли билети за Охрид? = Do you have tickets for Ohrid?)
+YOU:     Имате ли билети за Охрид?
+   = Do you have tickets for Ohrid?
+PARTNER: Да, имаме билети за Охрид. Во еден правец или повратен?
+   = Yes, we have tickets for Ohrid. One way or return?
+   tip: Your Macedonian is good! You used the correct phrase for 'Do you have tickets?'
+   (also: Повратен, ве молам. = Return, please.)
+   (also: Кога тргнува автобусот? = What time does the bus leave?)
+YOU:     Во еден правец, ве молам.
+   = One way, please.
+PARTNER: Еден билет за Охрид, во еден правец. Сега, кога сакате да патувате?
+   = One ticket to Ohrid, one way. Now, when would you like to travel?
+   tip: Excellent! You used the correct phrase to confirm your request.
+   (also: Сакам да патувам утре. = I want to travel tomorrow.)
+   (also: Кога е следниот автобус? = What time is the next bus?)
+YOU:     Сакам да патувам утре.
+   = I want to travel tomorrow.
+PARTNER: Добро. Автобусот за Охрид утре тргнува во десет и триесет, од перон пет.
+   = Good. The bus to Ohrid tomorrow leaves at ten thirty, from platform five.
+   tip: Excellent! You used the correct phrase to indicate you wanted to travel tomorrow.
+   (also: Од кој колосек тргнува? = Which platform does it leave from? [pb])
+   (also: Колку чини? = How much is it? [pb])
+YOU:     Кога тргнува?
+   = What time does it leave?
+PARTNER: Тргнува во десет и триесет, од перон пет.
+   = It leaves at ten thirty, from platform five.
+   tip: Excellent repetition of the question! You remembered it exactly.
+   (also: Дали е еден автобус? = Is that the only bus?)
+   (also: Колку чини? = How much is it? [pb])
+YOU:     Дали е еден автобус?
+   = Is that the only bus?
+PARTNER: Да, еден автобус е. Сега, дали сакате да го купите билетот?
+   = Yes, it's one bus. Now, would you like to buy the ticket?
+   tip: The traveler is using the correct tense and structure for their questions.
+   (also: Благодарам, довидување. = Thank you, goodbye.)
+YOU:     Благодарам, довидување.
+   = Thank you, goodbye.
+PARTNER: Довидување! Убаво патување!
+   = Goodbye! Have a good trip!
+   tip: The traveler ended the conversation politely.
+   (scene done)

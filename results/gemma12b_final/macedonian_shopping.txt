@@ -1,0 +1,29 @@
+### macedonian / shopping  (47s, fallbacks=0)
+PARTNER: Добро утро! Повелете, како можам да ви помогнам?
+   = Good morning! Welcome, how can I help you?
+YOU:     Го имате ова во мој број?
+   = Do you have this in my size?
+PARTNER: Да, проверете го бројот на етикетата. Имаме и други бои.
+   = Yes, please check the size on the label. We also have other colors.
+   tip: Exactly right: "Го имате ова во мој број?" is straight from the phrasebook (Do you have this in my size?).
+YOU:     Колку чини ова?
+   = How much is this?
+PARTNER: Дваесет и пет денари.
+   = Twenty-five denars.
+   tip: Exactly right: "Колку чини ова?" is straight from the phrasebook (How much is this?).
+YOU:     Добро, ќе го земам.
+   = OK, I'll take it.
+PARTNER: Одлично! Да ви го упакувам?
+   = Great! Shall I wrap it for you?
+   tip: Exactly right: "Добро, ќе го земам." is straight from the phrasebook (OK, I'll take it.).
+YOU:     Сметката, ве молам.
+   = The bill / receipt, please.
+PARTNER: Сега ќе ви ја донесам сметката. Дали сакате кесичка?
+   = I'll bring you the bill now. Would you like a bag?
+   tip: Exactly right: "Сметката, ве молам." is straight from the phrasebook (The bill, please (when checking out).).
+YOU:     Благодарам.
+   = Thank you.
+PARTNER: Нема зошто. Убав ден!
+   = You're welcome. Have a nice day!
+   tip: Exactly right: "Благодарам." is straight from the phrasebook (Thank you.).
+   (scene done)

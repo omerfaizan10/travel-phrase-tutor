@@ -1,0 +1,58 @@
+### spanish / transport / detour  (47s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: Un billete de ida y vuelta para Zaragoza. = A return ticket to Zaragoza. [pb])
+   (also: ¿Dónde está el autobús para Granada? = Can you tell me where the bus to Granada is?)
+YOU:     ¿Dónde está el autobús para Granada?
+   = Can you tell me where the bus to Granada is?
+PARTNER: Está en el andén 7. Sale a las 11.20.
+   = It's on platform 7. It leaves at 11.20.
+   tip: Excellent! You used a complete sentence to ask a question.
+   (also: ¿A qué hora llega? = What time does it arrive?)
+   (also: ¿Es un billete de ida y vuelta? = Is that a return ticket?)
+YOU:     ¿A qué hora llega?
+   = What time does it arrive?
+PARTNER: No sé la hora de llegada. Puede mirar en la pantalla de información.
+   = I don't know the arrival time. You can check on the information screen.
+   tip: Your Spanish is very good! You used the correct verb tense.
+   (also: ¿Hay un horario? = Is there a timetable?)
+   (also: Muchas gracias. = Thank you very much. [pb])
+YOU:     Perdone, agente, ¿hay una gasolinera cerca de aquí?  <- DETOUR (from directions)
+   = Excuse me, officer, is there a petrol station near here? (Address a police officer in Spain as agente.)
+PARTNER: No, no hay una gasolinera muy cerca. La más cercana está en la segunda calle a la izquierda.
+   = No, there isn't a gas station very close. The nearest one is on the second street on the left.
+   tip: Excellent attempt at using a more complex sentence! Just a minor correction: 'agente' is for police, use 'por favor' for politeness.
+   (also: ¿Puede repetirlo? = Could you repeat that?)
+   (also: ¿Está lejos? = Is it far?)
+YOU:     Muchas gracias. [pb]
+   = Thank you very much.
+PARTNER: De nada.
+   = You're welcome.
+   tip: Perfect! You used 'Muchas gracias' appropriately.
+   (also: Un billete a Sevilla, por favor. = One ticket to Seville, please. [pb])
+   (also: A la estación de Chamartín, por favor. = To Chamartín station, please. [pb])
+YOU:     ¿Dónde está el autobús para Granada?  <- REPEAT of first line
+   = Can you tell me where the bus to Granada is?
+PARTNER: Está en el andén 7. Sale a las 11.20.
+   = It's on platform 7. It leaves at 11.20.
+   tip: Perfect! You used the correct question to ask about the bus.
+   (also: Un billete, por favor. = Can I have a ticket, please?)
+YOU:     Un billete, por favor.
+   = Can I have a ticket, please?
+PARTNER: Para Granada, ¿de ida o de vuelta?
+   = To Granada, one-way or return?
+   tip: Excellent! You used 'por favor' correctly.
+   (also: Un billete de ida para Granada, por favor. = One-way to Granada, please.)
+YOU:     Un billete de ida para Granada, por favor.
+   = One-way to Granada, please.
+PARTNER: Un billete de ida para Granada. Son 25 euros.
+   = One-way ticket to Granada. That's 25 euros.
+   tip: Excellent! You used the correct phrase 'Un billete de ida'.
+   (also: ¿Acepta tarjeta? = Do you accept card?)
+YOU:     Pagaré ahora.
+   = I'll pay now.
+PARTNER: Perfecto. ¿Cómo va a pagar?
+   = Perfect. How will you pay?
+   tip: Excellent! You used the correct phrasing to indicate you will pay now.
+   (also: Pagaré con tarjeta. = I'll pay with card.)
+

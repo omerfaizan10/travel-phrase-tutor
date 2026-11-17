@@ -1,0 +1,63 @@
+### spanish / restaurant / detour  (63s, fallbacks=1)
+PARTNER: Buenas tardes. ¿En qué puedo ayudarle?
+   = Good afternoon. How can I help you?
+   (also: ¿Puedo mirar la carta, por favor? = Can I look at the menu, please? [pb])
+   (also: Me gustaría reservar una mesa para esta noche. = I'd like to reserve a table for tonight. [pb])
+YOU:     Me gustaría reservar una mesa para esta noche. [pb]
+   = I'd like to reserve a table for tonight.
+PARTNER: Por supuesto. ¿Para cuántas personas?
+   = Of course. For how many people?
+   tip: Excellent! You used the correct phrase to request a reservation.
+   (also: Para cuatro personas. = For four people.)
+   (also: Para cinco personas. = For five people.)
+YOU:     Para dos personas.
+   = For two people.
+PARTNER: Perfecto. ¿A qué hora le gustaría?
+   = Perfect. What time would you like?
+   tip: Excellent! You used the correct phrase to ask about the time.
+   (also: A las nueve. = At 9:00)
+   (also: A las diez. = At 10:00)
+YOU:     Nos encanta, especialmente Madrid.  <- DETOUR (from sightseeing)
+   = We love it, especially Madrid.
+PARTNER: Me alegro de que le guste Madrid. ¿A qué hora le gustaría la mesa?
+   = I'm glad you like Madrid. What time would you like the table?
+   tip: You added a nice, unexpected sentence! Remember to stick to the task at hand, though.
+   (also: A las ocho, por favor. = Eight o'clock, please.)
+   (also: A las siete y media estaría bien. = Seven thirty would be good.)
+YOU:     ¿A qué hora hay mesas disponibles?
+   = What time is available?
+PARTNER: Tenemos mesas disponibles a las ocho y media, o a las nueve.
+   = We have tables available at eight thirty, or at nine.
+   tip: Your Spanish is improving! Remember to ask questions with intonation that indicates you're seeking information.
+   (also: Tomaremos la mesa a las nueve. = We'll take the table at nine.)
+   (also: ¿Tiene alguna mesa afuera? = Do you have any tables outside?)
+YOU:     Me gustaría reservar una mesa para esta noche. [pb]  <- REPEAT of first line
+   = I'd like to reserve a table for tonight.
+PARTNER: Disculpe, ya hemos hablado de eso. ¿Le gustaría la mesa a las ocho y media o a las nueve?
+   = Excuse me, we've already talked about that. Would you like the table at eight thirty or nine?
+   tip: You repeated yourself! It's good you're trying to confirm, but it's polite to acknowledge that you already discussed it.
+   (also: A las nueve, por favor. = Nine o'clock, please.)
+   (also: Necesito más tiempo para decidir. = Let me think about it.)
+YOU:     A las ocho y media, por favor.
+   = Eight thirty, please.
+PARTNER: Muy bien. ¿A su nombre, por favor?
+   = Very well. May I have your name, please?
+   tip: Excellent! You've successfully confirmed the reservation details.
+   (also: ¿Puedo deletrearlo? = Can I spell that?)
+YOU:     Soy [nombre].
+   = It's [name].
+PARTNER: Desde luego.
+   = Of course. / Sure.
+   [attempts=3 problems=['contains a note or stage direction in brackets; write only what you say'] fallback=True]
+   x rejected: Perfecto, Sr./Sra. [nombre]. A las ocho y media. Sígame, por favor.  <- contains a note or stage direction in brackets; write only w
+   x rejected: Perfecto, Sr./Sra. [nombre]. A las ocho y media. Sígame, por favor.  <- contains a note or stage direction in brackets; write only w
+   x rejected: Perfecto, Sr./Sra. [nombre]. A las ocho y media. Sígame, por favor.  <- contains a note or stage direction in brackets; write only w
+   tip: Excellent! You used your name correctly.
+   (also: Tráigame una cerveza, por favor. = Bring me a beer, please. [pb])
+   (also: Un café bien cargado, por favor. = A strong coffee, please. [pb])
+YOU:     Un café bien cargado, por favor. [pb]
+   = A strong coffee, please.
+PARTNER: Enseguida. ¿Desea algo más?
+   = Right away. Would you like anything else?
+   tip: Excellent! You used 'bien cargado' perfectly to specify a strong coffee.
+

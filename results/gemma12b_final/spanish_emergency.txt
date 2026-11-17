@@ -1,0 +1,26 @@
+### spanish / emergency  (49s, fallbacks=0)
+PARTNER: ¿Qué desea?
+   = What do you need?
+YOU:     Necesito ayuda.
+   = I need help.
+PARTNER: Por supuesto. ¿Qué ha pasado?
+   = Of course. What has happened?
+   tip: Exactly right: "Necesito ayuda." is straight from the phrasebook (I need help.).
+YOU:     Perdí la cartera.
+   = I lost my wallet.
+PARTNER: Entiendo. ¿Dónde y cuándo la perdió?
+   = I understand. Where and when did you lose it?
+   tip: Exactly right: "Perdí la cartera." is straight from the phrasebook (I lost my wallet.).
+YOU:     ¡Llame a una ambulancia!
+   = Call an ambulance!
+PARTNER: No, no necesita una ambulancia. Vamos a hacer una denuncia.
+   = No, you don't need an ambulance. We are going to file a police report.
+   tip: Exactly right: "¡Llame a una ambulancia!" is straight from the phrasebook (Call an ambulance!).
+YOU:     Hasta luego.
+   = See you later. / Goodbye.
+PARTNER: Que tenga un buen viaje.
+   = Have a good trip.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: No se preocupe. Ya está todo en orden.  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Exactly right: "Hasta luego." is straight from the phrasebook (See you later. / Goodbye.).
+   (scene done)

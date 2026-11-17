@@ -1,0 +1,28 @@
+### spanish / weather / detour  (11s, fallbacks=0)
+PARTNER: Buenas tardes.
+   = Good afternoon.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=False]
+   x rejected: Buenas tardes. ¿Qué tiempo hace hoy?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Buenas tardes. ¿Qué tiempo hace hoy?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Buenas tardes. ¿Qué tiempo hace hoy?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: Hay nubes. = It's cloudy. [pb])
+   (also: Va a llover. = It's going to rain. [pb])
+YOU:     Va a llover. [pb]
+   = It's going to rain.
+PARTNER: ¡Vaya! ¿Qué hace hoy?
+   = Wow! What's the weather like today?
+   tip: Great! You used the correct phrase for rain today.
+   (also: Necesito una chaqueta. = I need to take a coat.)
+YOU:     Tengo un paraguas.
+   = I have an umbrella.
+PARTNER: ¡Genial! ¿Y qué va a hacer mañana?
+   = Great! What will the weather be like tomorrow?
+   tip: Good choice! You're using the correct Spanish for 'it's going to rain'.
+   (also: Hace sol. = It's sunny. [pb])
+   (also: Está nublado. = It's cloudy. [pb])
+YOU:     ¿Hay un hotel cerca de aquí?  <- DETOUR (from directions)
+   = Is there a hotel near here?
+PARTNER: No, no hay un hotel cerca. Está más allá de la plaza.
+   = No, there's no hotel nearby. It's beyond the square.
+   tip: Great question — you're asking about a place nearby.
+   (scene done)

@@ -1,0 +1,59 @@
+### spanish / weather / first  (67s, fallbacks=0)
+PARTNER: ¡Hola! Buenos días. ¿En qué puedo ayudarle?
+   = Hello! Good morning. How can I help you?
+   (also: ¿Qué tiempo hace hoy? = What's the weather like today? [pb])
+   (also: Buenos días a usted también. = Good morning to you too.)
+YOU:     ¿Me puede decir qué tiempo hace?
+   = I'd like to ask about the weather.
+PARTNER: Hoy hace sol y fresco. La temperatura está a 22 grados.
+   = Today it's sunny and cool. The temperature is 22 degrees.
+   tip: Excellent! You used the correct phrase to ask about the weather.
+   (also: Hace frío. = It's cold. [pb])
+YOU:     Gracias. [pb]
+   = Thank you.
+PARTNER: De nada. ¿Necesita algo más?
+   = You're welcome. Do you need anything else?
+   tip: Excellent! You used a very polite and common phrase.
+   (also: ¿Qué ropa es buena para hoy? = Ask what to wear.)
+   (also: Muchas gracias. = Thank you very much. [pb])
+YOU:     ¿Qué tiempo va a hacer mañana? [pb]
+   = What will the weather be like tomorrow?
+PARTNER: Mañana va a hacer un poco más calor. La temperatura máxima será de 28 grados.
+   = Tomorrow it will be a little warmer. The maximum temperature will be 28 degrees.
+   tip: Excellent! You used 'va a hacer' correctly to talk about the future weather.
+   (also: ¿Habrá sol? = Will it be sunny?)
+   (also: Necesitaré una camisa más ligera. = I'll need a lighter shirt.)
+YOU:     Eso es bueno.
+   = That's good to know.
+PARTNER: Sí, es verdad. Es perfecto para pasear.
+   = Yes, that's true. It's perfect for a walk.
+   tip: Excellent! You confirmed what I said with 'Creo que sí'.
+   (also: Eso es bueno de oír. = That's good to hear.)
+   (also: Me alegro de oír eso. = I'm glad to hear that.)
+YOU:     Creo que sí.
+   = I think so too.
+PARTNER: Bien. ¿Necesita saber algo más?
+   = Good. Do you need to know anything else?
+   tip: Excellent! You confirmed what I said.
+   (also: Adiós. = Goodbye. [pb])
+   (also: Muchas gracias. = Thank you very much. [pb])
+YOU:     ¿Qué ropa debo llevar?
+   = Ask about what to wear.
+PARTNER: Como hace fresco hoy, quizás una chaqueta ligera. Mañana, con el calor, una camisa de manga corta es suficiente.
+   = Since it's cool today, maybe a light jacket. Tomorrow, with the heat, a short-sleeved shirt is enough.
+   tip: Excellent question! You used 'debo llevar' which is perfect for 'should I wear?'.
+   (also: Adiós. = Goodbye. [pb])
+   (also: Eso es muy útil. = That's very helpful.)
+YOU:     Gracias por su ayuda.
+   = Thank you for your help.
+PARTNER: Ha sido un placer. ¡Que tenga un buen día!
+   = It's been a pleasure. Have a good day!
+   tip: Excellent! You used 'por su ayuda' which is a very polite way to express gratitude.
+   (also: Gracias, adiós. = Thank you, goodbye.)
+   (also: Gracias, que tenga un buen día. = Thank you, have a nice day.)
+YOU:     Muchas gracias y adiós.
+   = Thank you very much and goodbye.
+PARTNER: Adiós. ¡Que vaya bien!
+   = Goodbye. Have a good trip!
+   tip: Excellent! You used 'muchas gracias' which is very polite.
+   (scene done)

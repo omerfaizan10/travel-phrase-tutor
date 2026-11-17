@@ -1,0 +1,52 @@
+### macedonian / directions / random  (49s, fallbacks=0)
+PARTNER: Добар ден! Што сакате?
+   = Good afternoon! What do you want?
+   (also: Ми треба помош. = I need help. [pb])
+   (also: Може ли да ми помогнете? = Can you help me? [pb])
+YOU:     Ми треба помош. [pb]
+   = I need help.
+PARTNER: Се разбира. Како можам да ви помогнам?
+   = Of course. How can I help you?
+   tip: Excellent! You used a very common phrase to ask for help.
+   (also: Како да стигнам до центарот? = How do I get to the city center? [pb])
+YOU:     Како да стигнам до центарот? [pb]
+   = How do I get to the city center?
+PARTNER: Одете право напред, потоа зајдете на лево. Центарот е таму.
+   = Go straight ahead, then turn left. The city center is there.
+   tip: Excellent! Your Macedonian is very clear.
+   (also: Дали е далеку? = Is it far? [pb])
+   (also: Може ли да ми покажете на мапата? = Can you show me on the map? [pb])
+YOU:     Може ли да го повторите тоа?
+   = Can you repeat that?
+PARTNER: Да, се разбира. Одете право напред, па потоа зајдете на лево. Центарот е таму.
+   = Yes, of course. Go straight ahead, then turn left. The city center is there.
+   tip: Excellent attempt at using a full sentence!
+   (also: Можете ли да зборувате побавно? = Could you speak more slowly? [pb])
+   (also: Не разбирам. = I don't understand. [pb])
+YOU:     Можете ли да зборувате побавно? [pb]
+   = Could you speak more slowly?
+PARTNER: Извинете, забрзав. Одете право, па зајдете на лево. Центарот е таму.
+   = Excuse me, I was in a hurry. Go straight, then turn left. The city center is there.
+   tip: Your Macedonian is improving! Remember to use 'побавно' to ask someone to speak slower.
+   (also: Дали е далеку? = Is it far? [pb])
+   (also: Одете право. = Go straight ahead. [pb])
+YOU:     Може ли да ми покажете на мапата? [pb]
+   = Can you show me on the map?
+PARTNER: Жал ми е, немам мапа со мене.
+   = I'm sorry, I don't have a map with me.
+   tip: Excellent attempt to ask for clarification!
+   (also: Дали е далеку? = Is it far? [pb])
+   (also: Можете ли да го напишете? = Can you write it down?)
+YOU:     Можете ли да го напишете?
+   = Can you write it down?
+PARTNER: Немам парче хартија со мене, но одете право, па зајдете на лево. Лесно е.
+   = I don't have a piece of paper with me, but go straight, then turn left. It's easy.
+   tip: Excellent!
+   (also: Беше многу корисно. = That was very helpful.)
+   (also: довидување = goodbye [pb])
+YOU:     Благодарам многу! [pb]
+   = Thank you very much!
+PARTNER: Убав ден!
+   = Have a nice day!
+   tip: Excellent! You used 'Благодарам' perfectly.
+   (scene done)

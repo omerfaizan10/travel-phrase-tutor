@@ -1,0 +1,41 @@
+### macedonian / transport / random  (20s, fallbacks=0)
+PARTNER: Добар ден. Повелете?
+   = Good day. May I help you?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добар ден. Каде можам да купам билет?  <- uses 'where' (каде) wrongly; to offer help say Повелете or К; says a line the TRAVELER would say; answer as the staff/loca
+   (also: Кога тргнува возот за Битола? = When does the train to Bitola leave? [pb])
+   (also: Добар ден. До центарот на Скопје, ве молам. = Hello. To the center of Skopje, please. [pb])
+YOU:     Добар ден. До центарот на Скопје, ве молам. [pb]
+   = Hello. To the center of Skopje, please.
+PARTNER: Добар ден. Каде треба да купам билет?
+   = Good day. Where should I buy a ticket?
+   tip: Good choice. You said where you want to go clearly.
+   (also: Колку чини билетот? = How much is the ticket? [pb])
+   (also: Каде е автобуската станица? = Where's the bus station? [pb])
+YOU:     Каде е автобуската станица? [pb]
+   = Where's the bus station?
+PARTNER: Автобуската станица е во основната автобусна станица, до поседиот.
+   = The bus station is in the main bus station, next to the train station.
+   tip: Good choice! You're asking for the right place.
+   (also: Можете ли да ми покажете на картава? = Can you show me on the map? [pb])
+YOU:     Ми треба билет до центарот на Скопје.
+   = I need a ticket to the center of Skopje.
+PARTNER: Во еден правец или повратен?
+   = One way or return?
+   tip: Good choice — you're asking for the right kind of ticket.
+   (also: Повратен, ве молам. = The traveler wants a return ticket to the center of Skopje.)
+   (also: Колку чини билетот? = How much is the ticket? [pb])
+YOU:     Повратен, ве молам.
+   = The traveler wants a return ticket to the center of Skopje.
+PARTNER: Во десет и триесет, од перон пет.
+   = At ten thirty, from platform five.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Кога тргнува следниот автобус?  <- asks when a train/bus leaves or arrives; that is the travele
+   tip: Correct. You mentioned a return ticket, and the next bus leaves at 10:30 from platform 5.
+   (also: Дали автобусот застанува некаде? = Does the bus stop anywhere? [pb])
+YOU:     Колку трае патувањето? [pb]
+   = How long is the trip?
+PARTNER: Околу три часа.
+   = About three hours.
+   tip: Great! You asked the right question to know how long the trip takes.
+   (scene done)

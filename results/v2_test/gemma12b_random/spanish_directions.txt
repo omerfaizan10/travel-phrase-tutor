@@ -1,0 +1,25 @@
+### spanish / directions / random  (20s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: Puede decirme dónde está el centro? = Could you tell me where the city centre is?)
+   (also: Necesito encontrar un restaurante. = I need to find a restaurant.)
+YOU:     Busco la estación de autobuses.
+   = I'm looking for the bus station.
+PARTNER: Siga derecho por esta calle. Después, tuerza a la derecha.
+   = Continue straight ahead down this street. Then, turn right.
+   tip: Excellent! You used 'bus station' correctly.
+   (also: ¿Queda lejos? = Is it far? [pb])
+   (also: ¿Puede enseñarme en el mapa? = Can you show me on the map? [pb])
+YOU:     ¿Puede enseñarme en el mapa? [pb]
+   = Can you show me on the map?
+PARTNER: Sí, claro. Aquí está. La estación está a dos manzanas de aquí.
+   = Yes, of course. Here it is. The bus station is two blocks from here.
+   tip: Excellent! You used 'en el mapa' correctly to ask for something to be shown on a map.
+   (also: ¿Queda lejos? = Is it far? [pb])
+   (also: ¿Puede repetirlo? = Can you repeat that?)
+YOU:     Muchas gracias. [pb]
+   = Thank you very much.
+PARTNER: De nada. ¡Que tenga un buen día!
+   = You're welcome. Have a good day!
+   tip: Excellent! You used 'Muchas gracias' perfectly.
+   (scene done)

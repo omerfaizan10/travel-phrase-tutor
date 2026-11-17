@@ -1,0 +1,42 @@
+### spanish / hotel / detour  (15s, fallbacks=2)
+PARTNER: Aquí tiene.
+   = Here you are.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: ¿Hay habitaciones libres?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Hay habitaciones libres?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Hay habitaciones libres?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: ¿Hay habitaciones libres? = Do you have any rooms available? [pb])
+   (also: ¿Puede despertarme a las siete? = Can you wake me at seven? [pb])
+YOU:     ¿Hace mucho que usted está aquí? [pb]
+   = Have you been here long?
+PARTNER: No, solo he estado aquí unos minutos.
+   = No, I've only been here a few minutes.
+   tip: Good! You asked about how long I've been here.
+   (also: ¿Puede despertarme a las siete? = Can you wake me at seven? [pb])
+   (also: Son las dos y siete de la tarde. = It's 2:07 in the afternoon. [pb])
+YOU:     ¿Puede decirme qué hora es? [pb]
+   = Can you tell me what time it is?
+PARTNER: Son las dos y veinte.
+   = It's two twenty.
+   tip: Great question! You asked for the time correctly in Spanish.
+   (also: Son las dos. = It's two o'clock. [pb])
+   (also: Son las doce y cuarto. = It's a quarter past twelve. [pb])
+YOU:     Está despejado.  <- DETOUR (from weather)
+   = It's clear.
+PARTNER: Desde luego.
+   = Of course. / Sure.
+   [attempts=3 problems=['repeats your previous line'] fallback=True]
+   x rejected:   <- empty reply
+   x rejected: Son las dos y veinte.  <- repeats your previous line
+   x rejected: Son las dos y veinte.  <- repeats your previous line
+   tip: Good! You used the correct question.
+   (also: ¿Puede despertarme a las siete? = Can you wake me at seven? [pb])
+   (also: ¿Hay habitaciones libres? = Do you have any rooms available? [pb])
+YOU:     ¿Puede despertarme a las siete? [pb]
+   = Can you wake me at seven?
+PARTNER: Son las siete y veinte.
+   = It's seven twenty.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Claro, le despertaré a las siete.  <- time 7.00 (written in words) is not in the timetable notes; 
+   tip: Great! You used the correct phrase 'despertarme'.
+   (scene done)

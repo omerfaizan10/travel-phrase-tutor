@@ -1,0 +1,19 @@
+### macedonian / weather  (41s, fallbacks=0)
+PARTNER: Добро утро! Повелете, како можам да ви помогнам?
+   = Good morning! Welcome, how can I help you?
+YOU:     Какво ќе биде времето утре?
+   = What will the weather be like tomorrow?
+PARTNER: Утре ќе биде сончево. Сепак, денес е малку облачно.
+   = Tomorrow will be sunny. However, it's a bit cloudy today.
+   tip: Exactly right: "Какво ќе биде времето утре?" is straight from the phrasebook (What will the weather be like tomorrow?).
+YOU:     Дали носите чадор кога врне?
+   = Do you take an umbrella when it rains?
+PARTNER: Не, не носам чадор често. Времето е добро сега.
+   = No, I don't often carry an umbrella. The weather is good now.
+   tip: Exactly right: "Дали носите чадор кога врне?" is straight from the phrasebook (Do you take an umbrella when it rains?).
+YOU:     Фала.
+   = Thanks.
+PARTNER: Нема зошто! Убав ден ви посакувам.
+   = You're welcome! I wish you a nice day.
+   tip: Exactly right: "Фала." is straight from the phrasebook (Thanks.).
+   (scene done)

@@ -1,0 +1,37 @@
+### spanish / sightseeing / random  (11s, fallbacks=0)
+PARTNER: ¡Buenas! ¿En qué puedo ayudarle?
+   = Good day! How can I help you?
+   (also: ¿Puedes mostrarme dónde está el centro? = Can you show me where the centre is?)
+   (also: ¿Hay alguna especialidad de la zona? = Is there a local specialty? [pb])
+YOU:     ¿Hay alguna especialidad de la zona? [pb]
+   = Is there a local specialty?
+PARTNER: Sí, hay una especialidad muy buena: el jamón ibérico.
+   = Yes, there's a very good local specialty: Iberian ham.
+   tip: Great question! You're asking about local food, which is important in Spain.
+   (also: ¿Puede mostrarme dónde lo encuentro? = Can you show me where to find it?)
+   (also: ¿Es caro? = Is it expensive?)
+YOU:     ¿Es caro?
+   = Is it expensive?
+PARTNER: No, no es caro. Está bien para el precio.
+   = No, it's not expensive. It's good for the price.
+   tip: Great question — you asked about price and got a clear, simple answer.
+   (also: ¿Estás libre este fin de semana? = Are you free this weekend? [pb])
+   (also: ¿Merece la pena ir a Toledo? = Is it worth going to Toledo? [pb])
+YOU:     Merece la pena. [pb]
+   = It's worth it.
+PARTNER: Sí, hay una especialidad muy buena: el jamón ibérico.
+   = Yes, there's a very good local specialty: Iberian ham.
+   [attempts=3 problems=[] fallback=False]
+   x rejected: ¡Sí! Merece la pena ir a Toledo.  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¡Sí! Merece la pena ir a Toledo.  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good! You answered with a local specialty and natural phrase.
+   (also: ¿Dónde está el centro de información? = Where is the information centre? [pb])
+   (also: ¿Cómo puedo llegar al centro? = How do I get to the centre? [pb])
+YOU:     ¿Merece la pena ir a Toledo? [pb]
+   = Is it worth going to Toledo?
+PARTNER: Sí, Toledo merece la pena por su historia y sus monumentos.
+   = Yes, Toledo is worth it because of its history and monuments.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Sí, merece la pena ir a Toledo.  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Great question! You're right, Toledo is worth visiting.
+   (scene done)

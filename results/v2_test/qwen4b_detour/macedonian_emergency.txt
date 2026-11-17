@@ -1,0 +1,27 @@
+### macedonian / emergency / detour  (12s, fallbacks=0)
+PARTNER: Добар ден. Што можам да ви помогнам?
+   = Good day. What can I help you with?
+   (also: Ми треба лекар. = I need a doctor. [pb])
+   (also: Може ли да го користам вашиот телефон? = Can I use your phone? [pb])
+YOU:     Ја изгубив мојата торба. [pb]
+   = I lost my bag.
+PARTNER: Повелете. Каде ќе биде изгубена?
+   = I'll help you. Where was it lost?
+   tip: Good! You said 'I lost my bag' clearly and correctly in Macedonian.
+   (also: Кога ја изгубив? = Tell me when you lost your bag.)
+   (also: Што би било мојата торба? = Tell me what your bag looked like.)
+YOU:     Што би било мојата торба?
+   = Tell me what your bag looked like.
+PARTNER: Повелете. Што е видов на торбата?
+   = I'll help you. What kind of bag is it?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Мојата торба е багарот. Што е ова?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Добро!
+   (also: Торбата е мал багарот со син пози. = The traveler describes the bag: it's a small backpack with a blue zipper.)
+   (also: Има црвена пози и мало чека. = The traveler describes the bag: it has a red zipper and a small pocket.)
+YOU:     Колку е долга патеката до езерата?  <- DETOUR (from sightseeing)
+   = How long is the trail to the lakes?
+PARTNER: Не знам. Проверете во мапата.
+   = I don't know. Check the map.
+   tip: Good question — but the lost bag is the main issue now.
+   (scene done)

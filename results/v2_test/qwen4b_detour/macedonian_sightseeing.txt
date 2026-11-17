@@ -1,0 +1,26 @@
+### macedonian / sightseeing / detour  (9s, fallbacks=0)
+PARTNER: Добар ден! Што препорачувам да видам во Скопје?
+   = Good day! What do I recommend seeing in Skopje?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добар ден! Што да видам во Скопје?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: Може ли да пробам Вранец? = Can I try Vranec? [pb])
+   (also: Што препорачувате да видам? = What do you recommend I see? [pb])
+YOU:     Сакам да посетам винарија. [pb]
+   = I want to visit a winery.
+PARTNER: Повелете! Може да стигнаме до винаријата со автобус.
+   = I'll help! We can get to the winery by bus.
+   tip: Good choice! Vranec is a popular local wine in Macedonia.
+   (also: Кое вино ни го препорачувате? = What wine would you recommend to us? [pb])
+YOU:     Може ли да пробам Вранец? [pb]
+   = Can I try Vranec?
+PARTNER: Да, може да пробаме Вранец.
+   = Yes, we can try Vranec.
+   tip: Good choice! Vranec is a popular local wine.
+   (also: Кое вино ни го препорачувате? = What wine would you recommend to us? [pb])
+   (also: Сакам да одам на Пелистер. = I want to go to Pelister. [pb])
+YOU:     Колку време ќе останете?  <- DETOUR (from emergency)
+   = How long will you stay?
+PARTNER: Останаме во винаријата за 2 часа.
+   = We stay at the winery for 2 hours.
+   tip: Good question! The traveler asked about time, and you answered clearly with a number.
+   (scene done)

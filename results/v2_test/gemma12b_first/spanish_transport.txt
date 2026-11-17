@@ -1,0 +1,55 @@
+### spanish / transport / first  (151s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: Un billete de ida y vuelta para Zaragoza. = A return ticket to Zaragoza. [pb])
+   (also: ¿A qué hora sale el autobús para Toledo? = What time does the bus to Toledo leave? [pb])
+YOU:     Un billete a Sevilla, por favor. [pb]
+   = One ticket to Seville, please.
+PARTNER: Un billete a Sevilla. Tenemos autobuses a las nueve y a las tres y media. ¿Quiere uno de ida o de vuelta?
+   = A ticket to Seville. We have buses at nine and three thirty. Do you want a one-way or a return ticket?
+   tip: Excellent! You used the correct phrase to ask for a ticket.
+   (also: ¿Cuánto cuesta? = How much is it? [pb])
+YOU:     Un billete de vuelta, por favor.
+   = A return ticket, please.
+PARTNER: De vuelta a Sevilla. Son cuarenta euros el billete de ida y vuelta. ¿Quiere asiento preferente?
+   = A return ticket to Seville. That's forty euros for a return ticket. Would you like a preferential seat?
+   tip: Excellent! You used the phrase perfectly.
+YOU:     ¿A qué hora sale? [pb]
+   = What time does it leave?
+PARTNER: Sale a las nueve. Es el andén tres.
+   = It leaves at nine. It's platform three.
+   tip: Perfect! You used the correct phrase to ask about the departure time.
+   (also: ¿Es un autobús directo? = Is that a direct bus?)
+YOU:     ¿Puedo ver el horario?
+   = Can I see the timetable?
+PARTNER: El horario está en la pared, a la derecha. O puedo decirle que sale a las nueve y a las tres y media.
+   = The timetable is on the wall, to the right. Or I can tell you it leaves at nine and three thirty.
+   tip: Excellent! You used a very natural phrase to ask for more information.
+   (also: ¿De qué andén sale? = What platform does it leave from?)
+   (also: ¿Hay otra hora? = Is there another time?)
+YOU:     ¿Puede repetirlo?
+   = Can you repeat that?
+PARTNER: Sí, claro. Sale a las nueve y a las tres y media. Andén tres.
+   = Yes, of course. It leaves at nine and three thirty. Platform three.
+   tip: Excellent, you used the correct phrase to ask for repetition!
+YOU:     ¿Hay otro autobús?
+   = Is there another bus?
+PARTNER: Sí, hay otro autobús a las tres y media. También sale desde el andén tres.
+   = Yes, there’s another bus at three thirty. It also leaves from platform three.
+   tip: Excellent! You used the correct verb tense to ask about another bus.
+   (also: Gracias, eso es todo. = Thank you, that's all.)
+YOU:     Tomaré el de las tres y media.
+   = I'll take the one at three thirty.
+PARTNER: Muy bien. Cuarenta euros, por favor.
+   = Very well. Forty euros, please.
+   tip: Excellent! You've successfully used 'tomaré' to express your choice.
+   (also: Aquí tiene cuarenta euros. = Here's forty euros.)
+   (also: Muchas gracias. = Thank you very much. [pb])
+YOU:     Pagaré con tarjeta.
+   = I'll pay with a card.
+PARTNER: Perfecto. Por aquí, por favor.
+   = Perfect. This way, please.
+   tip: Excellent! You used 'pagaré con tarjeta' perfectly.
+   (also: Muchas gracias. = Thank you very much. [pb])
+   (also: Adiós. = Goodbye. [pb])
+

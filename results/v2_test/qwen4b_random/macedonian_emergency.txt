@@ -1,0 +1,29 @@
+### macedonian / emergency / random  (15s, fallbacks=1)
+PARTNER: Добар ден. Што можам да ви помогнам?
+   = Good day. What can I help you with?
+   (also: Ми треба лекар. = I need a doctor. [pb])
+   (also: Може ли да го користам вашиот телефон? = Can I use your phone? [pb])
+YOU:     Ја изгубив мојата торба. [pb]
+   = I lost my bag.
+PARTNER: Каде ќе биде изгубена таа торба?
+   = Where was your bag lost?
+   tip: Good. Now tell me where you saw it last.
+   (also: Био сум во магазинот на втората улица. = Tell me where you were when you lost it.)
+   (also: Го изгубив во 14.30. = Tell me when you lost it.)
+YOU:     Го изгубив во 14.30.
+   = Tell me when you lost it.
+PARTNER: Секако.
+   = Of course.
+   [attempts=3 problems=['time 14.30 is not in the timetable notes'] fallback=True]
+   x rejected: Каде во 14.30?  <- time 14.30 is not in the timetable notes
+   x rejected: Каде во 14.30?  <- time 14.30 is not in the timetable notes
+   x rejected: Каде во 14.30?  <- time 14.30 is not in the timetable notes
+   tip: Good! You gave a clear place without mentioning an unverified time.
+   (also: Се гледаме наскоро! = See you soon! [pb])
+   (also: На здравје! = Cheers! [pb])
+YOU:     Со среќа! [pb]
+   = Good luck!
+PARTNER: Среќен ден!
+   = Have a nice day!
+   tip: Good: that's a phrasebook sentence.
+   (scene done)

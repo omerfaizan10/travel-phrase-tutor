@@ -1,0 +1,24 @@
+### macedonian / transport  (41s, fallbacks=0)
+PARTNER: Добар ден! Како можам да ви помогнам?
+   = Good afternoon! How can I help you?
+YOU:     Кога тргнува возот за Битола?
+   = When does the train to Bitola leave?
+PARTNER: Има во 14:30, од трет колосек.
+   = There's one at 14:30, from platform three.
+   tip: Exactly right: "Кога тргнува возот за Битола?" is straight from the phrasebook (When does the train to Bitola leave?).
+YOU:     Колку чини картата?
+   = How much is the ticket?
+PARTNER: За Битола? Околу 700 денари.
+   = To Bitola? Around 700 denars.
+   tip: Exactly right: "Колку чини картата?" is straight from the phrasebook (How much is the ticket?).
+YOU:     Сакам да слезам!
+   = I want to get off!
+PARTNER: Добро. Дали патувате до Битола сега?
+   = Good. Are you travelling to Bitola now?
+   tip: Exactly right: "Сакам да слезам!" is straight from the phrasebook (I want to get off!).
+YOU:     Пријатно!
+   = Goodbye!
+PARTNER: Довидување! Убаво патување.
+   = Goodbye! Have a good trip.
+   tip: Exactly right: "Пријатно!" is straight from the phrasebook (Goodbye!).
+   (scene done)

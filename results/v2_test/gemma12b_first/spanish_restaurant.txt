@@ -1,0 +1,64 @@
+### spanish / restaurant / first  (56s, fallbacks=0)
+PARTNER: Buenas tardes. ¿En qué puedo ayudarle?
+   = Good afternoon. How can I help you?
+   (also: ¿Puedo mirar la carta, por favor? = Can I look at the menu, please? [pb])
+   (also: Me gustaría reservar una mesa para esta noche. = I'd like to reserve a table for tonight. [pb])
+YOU:     Una mesa para dos personas, por favor. [pb]
+   = A table for two, please.
+PARTNER: Perfecto.
+   = Perfect.
+   [attempts=3 problems=["repeats the traveler's request with 'please'; confirm it in your own words (e.g. 'Muy bien, un billete ...' / 'Одлично, ...') and move on"] fallback=False]
+   x rejected: Por supuesto. Sígame, por favor. Aquí tiene.  <- repeats the traveler's request with 'please'; confirm it in 
+   x rejected: Muy bien, una mesa para dos. Por aquí, por favor.  <- repeats the traveler's request with 'please'; confirm it in 
+   x rejected: Perfecto. Sígame, por favor.  <- repeats the traveler's request with 'please'; confirm it in 
+   tip: Excellent! You used the correct phrase to request a table.
+   (also: ¿Hay una mesa en la terraza? = Is there a table outside?)
+   (also: Gracias. = Thank you. [pb])
+YOU:     ¿Puedo mirar la carta, por favor? [pb]
+   = Can I look at the menu, please?
+PARTNER: Por supuesto. Aquí tiene la carta.
+   = Of course. Here's the menu.
+   tip: Excellent! You used the correct phrase for asking for the menu.
+   (also: ¿Puedo preguntar por el plato del día? = Can I ask about the daily special?)
+   (also: ¿Cuál es la especialidad? = What is the specialty?)
+YOU:     Gracias. [pb]
+   = Thank you.
+PARTNER: De nada. Estaré por aquí si necesita algo más.
+   = You're welcome. I'll be around if you need anything else.
+   tip: Excellent! You used the phrase perfectly.
+   (also: ¿Cuál es el plato del día? = What is the special of the day? [pb])
+   (also: Necesitamos más tiempo para decidir. = We need more time to decide. [pb])
+YOU:     Estoy listo para pedir.
+   = I'm ready to order.
+PARTNER: Muy bien. ¿Qué desea?
+   = Very well. What would you like?
+   tip: Excellent! You've confirmed you're ready to order.
+   (also: ¿Cuál es el plato del día? = What is the special of the day? [pb])
+   (also: Para mí, paella. = For me, paella. [pb])
+YOU:     Quisiera la sopa del día. [pb]
+   = I would like the soup of the day.
+PARTNER: Excelente elección. ¿Y para beber, qué desea?
+   = Excellent choice. And to drink, what would you like?
+   tip: Perfect! You used 'Quisiera' which is a very polite way to order.
+   (also: Tráigame una cerveza, por favor. = Bring me a beer, please. [pb])
+   (also: Tráigame un chato, por favor. = I'd like a glass of wine, please.)
+YOU:     Para beber, me gustaría agua, por favor. [pb]
+   = To drink, I'd like water, please.
+PARTNER: Muy bien, agua. ¿Algo más para usted?
+   = Very well, water. Anything else for you?
+   tip: Perfect! You used the phrase 'Para beber, me gustaría...' very well.
+   (also: ¿Qué nos recomienda? = What do you recommend? [pb])
+YOU:     No, gracias. Por ahora.
+   = No, that's all for now.
+PARTNER: De acuerdo. Estaré atento.
+   = Alright. I'll keep an eye on things.
+   tip: Your Spanish is improving! Using 'por ahora' is a nice way to indicate you might want something later.
+   (also: ¿Puedo mirar la carta otra vez? = Can I see the menu again?)
+YOU:     ¿Cuál es la sopa del día? [pb]
+   = What is the soup of the day?
+PARTNER: Hoy la sopa es de tomate con arroz. Es muy sabrosa.
+   = Today's soup is tomato with rice. It's very tasty.
+   tip: Excellent question! You used the correct phrase '¿Cuál es...?'.
+   (also: ¿Cuál es el plato del día? = What is the special of the day? [pb])
+   (also: Solo agua, por favor. = I'll just have water, thank you.)
+

@@ -1,0 +1,63 @@
+### macedonian / emergency / detour  (63s, fallbacks=0)
+PARTNER: Добар ден. Што се случува?
+   = Good afternoon. What's happening?
+   (also: Ми треба вашата помош. = I need your help. [pb])
+   (also: Се загубив. = I am lost. [pb])
+YOU:     Ја изгубив торбата. [pb]
+   = I lost my bag.
+PARTNER: Аха, ја изгубивте торбата. Можете ли да ми кажете повеќе?
+   = Okay, you lost your bag. Can you tell me more?
+   tip: Excellent! You used the correct phrase to express you lost your bag.
+   (also: Ми треба помош. = I need help. [pb])
+   (also: Беше црна. = It was black.)
+YOU:     Беше црна.
+   = It was black.
+PARTNER: Црна торба. И што имаше во неа?
+   = A black bag. And what was in it?
+   tip: Excellent! You used the correct vocabulary.
+   (also: Книга и облека. = A book and clothes.)
+   (also: Телефон и пари. = Phone and money.)
+YOU:     Колку е долга патеката до езерата?  <- DETOUR (from sightseeing)
+   = How long is the trail to the lakes?
+PARTNER: Извинете, не знам. Можете да проверите на информација.
+   = Excuse me, I don't know. You can check at the information desk.
+   tip: Good: that's a phrasebook sentence.
+   (also: Може ли да ми помогнете? = Can you help me? [pb])
+YOU:     Може ли да ми помогнете? [pb]
+   = Can you help me?
+PARTNER: Да, секако. Ве слушам. Вие изгубивте црна торба. Кажете ми повеќе за торбата и каде ја изгубивте?
+   = Yes, of course. I'm listening. You lost a black bag. Tell me more about the bag and where you lost it?
+   tip: Excellent! You're clearly trying to stay on track.
+   (also: Имаше мој пасош во неа. = It had my passport in it.)
+   (also: Беше мала торба. = It was a small bag.)
+YOU:     Ја изгубив торбата. [pb]  <- REPEAT of first line
+   = I lost my bag.
+PARTNER: Да, веќе рековте. Кажете ми каде ја изгубивте торбата?
+   = Yes, you already said that. Tell me where you lost the bag?
+   tip: Good! You are repeating what I said, which shows you are listening.
+   (also: Во близина на пазарот. = Near the market.)
+   (also: Знам стварно. = I think so.)
+YOU:     Знам стварно.
+   = I think so.
+PARTNER: Разбирам. Кажете ми, каде точно ја видовте последен пат торбата?
+   = I understand. Tell me, where exactly did you last see the bag?
+   tip: Good, you're trying to provide more details about where you lost the bag.
+   (also: Не се сеќавам. = I don't remember.)
+   (also: Знам, мислам дека ја изгубив близу пазарот. = I think I lost it near the market.)
+YOU:     Видов ја на автобусот.
+   = I saw it on the bus.
+PARTNER: На автобусот, аха. Кој автобус беше тоа?
+   = On the bus, okay. Which bus was it?
+   tip: Good! You are using the correct verb tense to describe what happened.
+   (also: Автобусот до пазарот. = The bus to the market.)
+   (also: Не се сеќавам бројот. = I don't remember the number.)
+YOU:     Автобус број 22.
+   = The number 22.
+PARTNER: Разбирам, автобус број 22. Можете ли да ми кажете околу колку часот беше тоа?
+   = I understand, bus number 22. Can you tell me approximately what time it was?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Автобус број 22. И кога беше тоа?  <- starts by repeating the traveler's sentence word for word; a
+   tip: Excellent! You're providing specific details, which is very helpful for the investigation.
+   (also: Приближно пред еден час. = About an hour ago.)
+   (also: Веднаш по плакнење. = Just after lunch.)
+

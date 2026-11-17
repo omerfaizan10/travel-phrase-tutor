@@ -1,0 +1,29 @@
+### spanish / hotel / random  (9s, fallbacks=1)
+PARTNER: Aquí tiene.
+   = Here you are.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: ¿Hay habitaciones libres?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Hay habitaciones libres?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Sí, hay habitaciones libres.  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: ¿Hay habitaciones libres? = Do you have any rooms available? [pb])
+   (also: ¿Puede despertarme a las siete? = Can you wake me at seven? [pb])
+YOU:     ¿Hace mucho que usted está aquí? [pb]
+   = Have you been here long?
+PARTNER: No, solo estoy aquí desde hace una hora.
+   = No, I've only been here for one hour.
+   tip: Good! You used the correct present tense for a short time period.
+   (also: Es la una de la tarde. = It's one in the afternoon. [pb])
+   (also: Son las dos y siete de la tarde. = It's 2:07 in the afternoon. [pb])
+YOU:     Es la una. [pb]
+   = It's one o'clock.
+PARTNER: Gracias, es correcto.
+   = Thank you, that's correct.
+   tip: Good job! You said the time correctly.
+   (also: Son las dos y siete de la tarde. = It's 2:07 in the afternoon. [pb])
+   (also: Muy bien, la tomaré. = OK, I'll take it. [pb])
+YOU:     Muy bien, la tomaré. [pb]
+   = OK, I'll take it.
+PARTNER: Perfecto, su habitación es la 234.
+   = Perfect, your room is 234.
+   tip: Great! You used the correct phrase 'muy bien, la tomaré'.
+   (scene done)

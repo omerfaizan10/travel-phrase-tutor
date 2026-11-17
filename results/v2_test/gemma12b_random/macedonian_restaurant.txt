@@ -1,0 +1,58 @@
+### macedonian / restaurant / random  (63s, fallbacks=0)
+PARTNER: Добар ден! Повелете. Колку лица?
+   = Good day! Welcome. How many people?
+   (also: Маса за еден/двајца, ве молам. = A table for one/two , please. [pb])
+   (also: Добра вечер. Имате ли слободна маса за двајца? = Good evening. Do you have a free table for two? [pb])
+YOU:     Добра вечер. Имате ли слободна маса за двајца? [pb]
+   = Good evening. Do you have a free table for two?
+PARTNER: Добра вечер. Да, имаме слободна маса на терасата. Повелете.
+   = Good evening. Yes, we have a free table on the terrace. Please, come in.
+   tip: Excellent! You used the correct greeting and phrasing.
+   (also: Би сакал маса на тераса, ве молам. = I'd like a table on the terrace, please.)
+YOU:     Би сакал маса внатре.
+   = I would like a table inside.
+PARTNER: Извинете, моментално сите маси внатре се резервирани. Само на терасата има слободно.
+   = Excuse me, all the tables inside are currently reserved. We only have tables free on the terrace.
+   tip: Perfect! You used the correct phrase to express your preference.
+   (also: Имате ли слободна маса наскоро? = Do you have any tables soon?)
+   (also: Добро, нека седнеме на терасата. = Okay, let's sit on the terrace.)
+YOU:     Добро, нека седнеме на терасата.
+   = Okay, let's sit on the terrace.
+PARTNER: Одлично. Еве вашиот мени. Повелете.
+   = Excellent. Here's your menu. Please, make yourselves comfortable.
+   tip: Good! You responded to my offer and accepted the terrace.
+   (also: Што препорачувате? = What do you recommend? [pb])
+   (also: Дали имате мени? = Do you have a menu? / Can I look at the menu? [pb])
+YOU:     Што препорачувате? [pb]
+   = What do you recommend?
+PARTNER: Препорачуваме тавче гравче или шопска салата. Типчни се за Македонија.
+   = We recommend tavche gravche or shopska salad. They are typical of Macedonia.
+   tip: Excellent question! It shows you're interested in local cuisine.
+   (also: Зборувајте ми повеќе за шопска салата. = Tell me more about shopska salad.)
+   (also: Што е специјалитет на куќата? = What is the house specialty? [pb])
+YOU:     Што е тавче гравче?
+   = What is tavche gravche?
+PARTNER: Тавче гравче е гравче со месо, печено во глинена сач. Многу е вкусно.
+   = Tavche gravche is baked beans with meat, cooked in a clay pot. It's very tasty.
+   tip: Excellent question! It shows you're interested in trying local cuisine.
+   (also: Дали е луто? = Is it spicy? [pb])
+YOU:     Дали е луто? [pb]
+   = Is it spicy?
+PARTNER: Не, не е луто. Може да додадете лут црвен пипер ако сакате.
+   = No, it's not spicy. You can add spicy red pepper if you like.
+   tip: Good question! It's important to clarify spice levels.
+YOU:     Не сакам луто. [pb]
+   = I don't want it spicy.
+PARTNER: Добро. Што сакате да порачате?
+   = Okay. What would you like to order?
+   tip: Excellent! They clearly understood the explanation of tavche gravche.
+   (also: Јас сакам шопска салата. = I'll have the shopska salad.)
+   (also: Јас сакам тавче гравче. = I'll have the tavche gravche.)
+YOU:     Јас сакам тавче гравче.
+   = I'll have the tavche gravche.
+PARTNER: Одлично. Нешто друго?
+   = Excellent. Anything else?
+   tip: Excellent! You are using the correct vocabulary and sentence structure.
+   (also: Го завршив нарачката. = I'm ready to order.)
+   (also: Може ли да го видам менито, молам? = Can I look at the menu, please? [pb])
+

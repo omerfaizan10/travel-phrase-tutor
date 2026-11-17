@@ -1,0 +1,18 @@
+### spanish / directions / first  (16s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: ¿Puede decirme dónde está la Plaza Mayor? = Can you tell me where the Plaza Mayor is? [pb])
+   (also: ¿Cómo puedo llegar a la estación de tren? = How do I get to the train station? [pb])
+YOU:     Perdón, ¿puede usted decirme dónde está la estación de Chamartín? [pb]
+   = Excuse me, can you tell me where Chamartín station is?
+PARTNER: Siga derecho por esta calle. Después, tuerza a la derecha. La estación está allí.
+   = Continue straight ahead down this street. Then, turn right. The station is there.
+   tip: Excellent pronunciation! Your Spanish is very clear.
+   (also: ¿Puede enseñarme en el mapa? = Can you show me on the map? [pb])
+   (also: ¿Queda lejos? = Is it far? [pb])
+YOU:     Muchas gracias. [pb]
+   = Thank you very much.
+PARTNER: De nada. Que tenga un buen día.
+   = You're welcome. Have a good day.
+   tip: Excellent pronunciation! Your 'perdón' was very natural.
+   (scene done)

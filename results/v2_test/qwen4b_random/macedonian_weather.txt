@@ -1,0 +1,27 @@
+### macedonian / weather / random  (12s, fallbacks=0)
+PARTNER: Добар ден! Облачно и студено со повремени врнежи од снег.
+   = Good day! Cloudy and cold with occasional snow.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добар ден! Какво е времето денеска?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: Кое годишно време најмногу го сакате? = Which season do you like best? [pb])
+   (also: Топло е. = It's warm. [pb])
+YOU:     Кое годишно време најмногу го сакате? [pb]
+   = Which season do you like best?
+PARTNER: Јули и август се најдобри за лето.
+   = July and August are best for summer.
+   tip: Good choice! Summer is warm and sunny, perfect for outdoor activities in Macedonia. You can visit lakes and festivals then. Enjoy your trip to the mountains or lakes in summer, where it's sunny and warm, and there are many boat trips only in summer. Some churches ask you to cover your shoulders inside. Prices in museums are small, in denars. You can visit lakes and festivals in summer, and there are many boat trips only in summer. Some churches ask you to cover your shoulders inside. Prices in museums are small, in denars. You can visit lakes and festivals in summer, and there are many boat trips only in summer. Some churches ask you to cover your shoulders inside. Prices in museums are small, in denars.
+   (also: Сакам пролет бидејќи е умерено и пријатно. = I prefer spring because it's mild and nice.)
+   (also: Сакам зима бидејќи е снег и забавно. = I like winter because it's snowy and fun.)
+YOU:     Сакам зима бидејќи е снег и забавно.
+   = I like winter because it's snowy and fun.
+PARTNER: Фала! Зима е добра за снег и забава.
+   = Thank you! Winter is good for snow and fun.
+   tip: Great! You used the correct word 'зима' and said it naturally.
+   (also: Студено е. = It's cold. [pb])
+   (also: Кога ќе биде најстудено? = When will it be coldest? [pb])
+YOU:     Врне снег. [pb]
+   = It's snowing.
+PARTNER: Да, врне снег во врзините.
+   = Yes, it snows in the mountains.
+   tip: Good job using 'врне снег' correctly!
+   (scene done)

@@ -1,0 +1,56 @@
+### macedonian / sightseeing / detour  (54s, fallbacks=0)
+PARTNER: Добар ден! Што сакате?
+   = Good afternoon! What do you want?
+   (also: Сакам да посетам винарија. = I want to visit a winery. [pb])
+   (also: Како да стигнам до Старата чаршија? = How do I get to the Old Bazaar? [pb])
+YOU:     Што препорачувате да видам? [pb]
+   = What do you recommend I see?
+PARTNER: Препорачувам да посетите Охрид. Таму има многу историја и убава природа.
+   = I recommend you visit Ohrid. There is a lot of history and beautiful nature there.
+   tip: Excellent use of the phrase!
+   (also: Каде има посета и на други места? = Where are there visits to other places too? [pb])
+YOU:     Кое патување најмногу ви се допаѓа? Зошто? [pb]
+   = Which trip do you like most? Why?
+PARTNER: Охрид ми се допаѓа најмногу, бидејќи е многу убаво место.
+   = I like Ohrid the most, because it is a very beautiful place.
+   tip: Excellent use of the phrase 'Кое патување најмногу ви се допаѓа?'.
+   (also: Како да стигнам до Охрид? = How do I get to Ohrid?)
+   (also: Дали вреди да се оди во Охрид? = Is it worth visiting Ohrid?)
+YOU:     Колку време ќе останете?  <- DETOUR (from emergency)
+   = How long will you stay?
+PARTNER: Не знам. Можеби три дена.
+   = I don't know. Maybe three days.
+   tip: The traveler used the correct Macedonian for 'How long will you stay?'
+   (also: Дали има автобус до Охрид? = Is there a bus to Ohrid?)
+   (also: Што да видам во Охрид? = What should I see in Ohrid?)
+YOU:     Дали има автобус до Охрид?
+   = Is there a bus to Ohrid?
+PARTNER: Да, има автобус до Охрид. Оди секој ден.
+   = Yes, there is a bus to Ohrid. It goes every day.
+   tip: Good job using a complete sentence!
+   (also: Колку чини билетот за автобус? = How much does the bus ticket cost?)
+   (also: Каде можам да купам билет за автобус? = Where can I buy a bus ticket?)
+YOU:     Што препорачувате да видам? [pb]  <- REPEAT of first line
+   = What do you recommend I see?
+PARTNER: Препорачувам да посетите црквата Св. Јован Канео.
+   = I recommend you visit the Church of St. John at Kaneo.
+   tip: Excellent question! Your Macedonian is improving.
+YOU:     Дали вреди да се посети?
+   = Is it worth visiting?
+PARTNER: Да, вреди да се оди таму. Има прекрасен поглед.
+   = Yes, it's worth going there. It has a wonderful view.
+   tip: The traveler is using the correct phrase 'Дали вреди да се оди таму?'
+   (also: Благодарам многу! = Thank you very much! [pb])
+   (also: Што друго има да се види во Охрид? = What else is there to see in Ohrid?)
+YOU:     Благодарам многу! [pb]
+   = Thank you very much!
+PARTNER: Убаво е што можете да дојдете! Се надевам дека ќе уживате.
+   = It's good that you can come! I hope you enjoy it.
+   tip: The traveler is using good vocabulary to express their gratitude.
+   (also: Пријатно патување! = Have a good trip!)
+YOU:     довидување [pb]
+   = goodbye
+PARTNER: Довидување! Убав ден!
+   = Goodbye! Have a nice day!
+   tip: The traveler used 'Довидување!' perfectly.
+   (scene done)

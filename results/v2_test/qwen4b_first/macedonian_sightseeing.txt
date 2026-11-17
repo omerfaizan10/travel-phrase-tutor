@@ -1,0 +1,30 @@
+### macedonian / sightseeing / first  (23s, fallbacks=1)
+PARTNER: Добар ден! Што препорачувам?
+   = Good day! What do I recommend?
+   [attempts=3 problems=[] fallback=False]
+   x rejected: Добар ден! Што да видам во Скопје?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Добар ден! Што да видам во Скопје?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: Сакам да посетам винарија. = I want to visit a winery. [pb])
+   (also: Сакам да одам на Пелистер. = I want to go to Pelister. [pb])
+YOU:     Сакам да видам Старата чаршија.
+   = I want to see the old bazaar.
+PARTNER: Секако.
+   = Of course.
+   [attempts=3 problems=['repeats your previous line'] fallback=True]
+   x rejected: Одлично! Шетавме по чаршијата.  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Одлично! Шетавме по чаршијата.  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Добар ден! Што препорачувам?  <- repeats your previous line
+   tip: Good start! The Old Bazaar is one of the best places to see in Skopje.
+   (also: Може ли пешки до таму? = Can I walk there? [pb])
+   (also: Што да видам во Скопје? = What should I see in Skopje? [pb])
+YOU:     Како да стигнам до Старата чаршија? [pb]
+   = How do I get to the Old Bazaar?
+PARTNER: Повелете, ако имате вака, може да стигнете пешки.
+   = Let me know, if you have time, you can walk there.
+   tip: Good, you asked for a clear, simple way to get there.
+YOU:     Повелете, ако имате вака, може да стигнете пешки.
+   = Just say if you have time, you can walk there.
+PARTNER: Да, имаме вака.
+   = Yes, we have time.
+   tip: Great! You're using the correct Macedonian.
+   (scene done)

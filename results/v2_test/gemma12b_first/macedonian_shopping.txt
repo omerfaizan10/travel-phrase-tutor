@@ -1,0 +1,56 @@
+### macedonian / shopping / first  (43s, fallbacks=0)
+PARTNER: Добар ден! Повелете. Што сакате?
+   = Good afternoon! Welcome. What would you like?
+   (also: Колку чини ова? = How much is this? [pb])
+   (also: Го имате ова во мој број? = Do you have this in my size? [pb])
+YOU:     Само гледам, благодарам. [pb]
+   = I'm just looking, thank you.
+PARTNER: Добро. Нешто друго?
+   = Okay. Anything else?
+   tip: Excellent! You used the phrase perfectly.
+   (also: Имате ли прстени? = Do you have rings?)
+   (also: Што е ново? = What's new?)
+YOU:     Барам сувенир.
+   = I'm looking for a souvenir.
+PARTNER: Имаме многу сувенири. Еве, погледнете ги овие.
+   = We have many souvenirs. Here, take a look at these.
+   tip: Excellent! You used the phrase perfectly.
+   (also: Колку чини тоа? = How much is that one?)
+   (also: Имате ли нешто поефтино? = Do you have anything cheaper?)
+YOU:     Што се ова?
+   = What are these?
+PARTNER: Ова е малден. Симбол е на Македонија.
+   = This is a marten. It's a symbol of Macedonia.
+   tip: Excellent! You used the correct phrase to ask 'What is this?'.
+   (also: Имате ли други сувенири? = Do you have other souvenirs?)
+   (also: Може ли да видам уште еден? = Can I see another one?)
+YOU:     Колку чини? [pb]
+   = How much is it?
+PARTNER: Петдесет денари.
+   = Fifty denars.
+   tip: Excellent! You used the correct question structure.
+   (also: Тоа е скапо. = That's expensive. [pb])
+   (also: Може ли малку поефтино? = Can it be a bit cheaper? [pb])
+YOU:     Тоа е ефтино. [pb]
+   = That's cheap.
+PARTNER: Добро. Нешто друго сакате?
+   = Good. Do you want anything else?
+   tip: Excellent! You used 'ефтино' correctly.
+   (also: Имате ли нешто поефтино? = Do you have anything cheaper?)
+YOU:     Да, сакам да видам уште.
+   = Yes, I want to see more.
+PARTNER: Еве, погледнете овие џебеви.
+   = Here, look at these pockets.
+   tip: Excellent use of 'сакам да видам'.
+YOU:     Ќе го земам. [pb]
+   = I'll take it.
+PARTNER: Одлично! Нешто друго?
+   = Excellent! Anything else?
+   tip: Excellent! You used 'Ќе го земам' perfectly to express your decision.
+   (also: Може ли со картичка? = Can I pay by card? [pb])
+YOU:     Сакам да разменам пари. [pb]
+   = I want to exchange some money.
+PARTNER: Се разбира. Има менувачница на втората улица на лево.
+   = Of course. There's an exchange office on the second street on the left.
+   tip: The traveler is progressing nicely and is ready to move on to the next part of their shopping experience.
+

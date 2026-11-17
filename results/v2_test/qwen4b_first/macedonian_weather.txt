@@ -1,0 +1,28 @@
+### macedonian / weather / first  (12s, fallbacks=0)
+PARTNER: Добар ден! Облачно и студено со повремени врнежи од снег.
+   = Good day! Cloudy and cold with occasional snow.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добар ден! Какво е времето денеска?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: Кое годишно време најмногу го сакате? = Which season do you like best? [pb])
+YOU:     Дали носите чадор кога врне? [pb]
+   = Do you take an umbrella when it rains?
+PARTNER: Да, секој ден носим чадор кога врне.
+   = Yes, we take an umbrella every day when it rains.
+   tip: Great! You used the exact phrase from the list.
+   (also: Ќе врне ли? = Will it rain? [pb])
+   (also: Какво е времето? = What's the weather like? [pb])
+YOU:     Секој ден врне попладне. [pb]
+   = It rains every afternoon.
+PARTNER: Да, во попладне врне, затоа носам чадор.
+   = Yes, it rains in the afternoon, so I take an umbrella.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Пријатно! Секој ден врне попладне.  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good! You added a natural follow-up about the morning and winter.
+   (also: Дали треба чадор и во зима? = Do you need an umbrella in winter too?)
+   (also: Едно на планините студено ли е? = Is it cold in the mountains?)
+YOU:     Што се случува во утро? Врне ли?
+   = What about in the morning? Does it rain too?
+PARTNER: Врне снег во утро. Има магла.
+   = It snows in the morning. There is fog.
+   tip: Great! You used the correct weather phrase.
+   (scene done)

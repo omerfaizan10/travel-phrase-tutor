@@ -1,0 +1,33 @@
+### spanish / emergency / detour  (16s, fallbacks=2)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: Necesito llamar a la embajada. = I need to call the embassy. [pb])
+   (also: Me siento mal. Necesito un médico. = I feel sick and need a doctor.)
+YOU:     Necesito llamar a la embajada. [pb]
+   = I need to call the embassy.
+PARTNER: Desde luego.
+   = Of course. / Sure.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: ¿Puede usted ayudarme, por favor?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Puede usted ayudarme, por favor?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Puede usted ayudarme, por favor?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good. You used the correct phrase for calling the embassy in Spain. Keep going! (You said 'embajada estadounidense' correctly.)
+   (also: Por supuesto. = Of course. [pb])
+   (also: A ver si nos vemos pronto. = Hope to see you soon. [pb])
+YOU:     Desde luego. [pb]
+   = Of course. / Sure.
+PARTNER: Desde luego.
+   = Of course. / Sure.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: ¿Puede usted ayudarme, por favor?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Puede usted ayudarme, por favor?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Puede usted ayudarme, por favor?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Great! You said it clearly and correctly in Spanish.
+   (also: ¡Llame a una ambulancia! = Call an ambulance! [pb])
+   (also: Hasta luego. = See you later. / Goodbye. [pb])
+YOU:     ¿Qué tiempo hace?  <- DETOUR (from weather)
+   = What's the weather like?
+PARTNER: No puedo decirle el tiempo ahora.
+   = I can't tell you the time now.
+   tip: Good question, but you need to ask about help, not weather.
+   (scene done)

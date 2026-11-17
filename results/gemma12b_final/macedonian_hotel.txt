@@ -1,0 +1,29 @@
+### macedonian / hotel  (60s, fallbacks=0)
+PARTNER: Добар ден! Како можам да ви помогнам?
+   = Good afternoon! How can I help you?
+YOU:     Дали имате слободни соби?
+   = Do you have any rooms available?
+PARTNER: Да, имаме. Имаме стандардни соби и соби со поглед кон градот.
+   = Yes, we do. We have standard rooms and rooms with a city view.
+   tip: Exactly right: "Дали имате слободни соби?" is straight from the phrasebook (Do you have any rooms available?).
+YOU:     Колку е соба за еден/двајца?
+   = How much is a room for one person/two people?
+PARTNER: Стандардната соба е 2500 денари, собата со поглед е 3500 денари.
+   = A standard room is 2500 denars, a room with a view is 3500 denars.
+   tip: Exactly right: "Колку е соба за еден/двајца?" is straight from the phrasebook (How much is a room for one person/two people?).
+YOU:     Ок, ќе ја земам.
+   = OK, I'll take it.
+PARTNER: Одлично! Ве молам, дајте ми вашиот пасош.
+   = Excellent! Please give me your passport.
+   tip: Exactly right: "Ок, ќе ја земам." is straight from the phrasebook (OK, I'll take it.).
+YOU:     Сметката, ве молам.
+   = The bill, please (when checking out).
+PARTNER: Сега ќе ви ја донесам сметката. 3500 денари.
+   = I'll bring you the bill now. 3500 denars.
+   tip: Exactly right: "Сметката, ве молам." is straight from the phrasebook (The bill, please (when checking out).).
+YOU:     Благодарам.
+   = Thank you.
+PARTNER: Нема зошто. Убав престој во Скопје и Охрид!
+   = You're welcome. Have a pleasant stay in Skopje and Ohrid!
+   tip: Exactly right: "Благодарам." is straight from the phrasebook (Thank you.).
+   (scene done)

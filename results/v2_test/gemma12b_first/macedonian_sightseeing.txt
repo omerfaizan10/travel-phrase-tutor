@@ -1,0 +1,59 @@
+### macedonian / sightseeing / first  (54s, fallbacks=0)
+PARTNER: Добар ден! Што сакате?
+   = Good afternoon! What would you like?
+   (also: Што да видам во Скопје? = What should I see in Skopje? [pb])
+   (also: Дали има брод до Св. Наум? = Is there a boat to St. Naum? [pb])
+YOU:     Што препорачувате да видам? [pb]
+   = What do you recommend I see?
+PARTNER: Препорачувам да посетите Охрид. Таму има многу убава природа и историја.
+   = I recommend you visit Ohrid. There’s very beautiful nature and history there.
+   tip: Excellent use of the phrase! Very natural.
+   (also: Каде има посета и на други места? = Where are there visits to other places too? [pb])
+YOU:     Кое патување најмногу ви се допаѓа? Зошто? [pb]
+   = Which trip do you like most? Why?
+PARTNER: Охрид е најубаво. Има многу цркви и чаршија.
+   = Ohrid is the most beautiful. There are many churches and a bazaar.
+   tip: Excellent! Your Macedonian is improving.
+   (also: За колку дена е патувањето до Охрид? = How long is the trip to Ohrid?)
+   (also: Колку чини патувањето до Охрид? = What does the trip to Ohrid cost?)
+YOU:     Како да стигнам до Охрид?
+   = What is the best way to get to Ohrid?
+PARTNER: Можете со автобус. Автобусот е на платформа 3.
+   = You can go by bus. The bus is on platform 3.
+   tip: Excellent use of the phrase 'Кое патување најмногу ви се допаѓа?'
+   (also: Дали има брод до Охрид? = Is there a boat to Ohrid?)
+   (also: Колку чини билетот? = How much is the ticket? [pb])
+YOU:     Колку трае патувањето? [pb]
+   = How long is the trip?
+PARTNER: Патувањето трае околу два часа.
+   = The trip takes about two hours.
+   tip: Excellent question! Your Macedonian is improving.
+   (also: Колку чини билетот за автобус? = How much does the bus ticket cost?)
+   (also: Каде можам да купам билет за автобус? = Where can I buy a bus ticket?)
+YOU:     Дали има брод до Охрид?
+   = Is there a boat to Ohrid?
+PARTNER: Не, нема брод до Охрид.
+   = No, there isn’t a boat to Ohrid.
+   tip: That's a good question, and your Macedonian is improving!
+   (also: Колку чини жичницата за Водно? = How much is the cable car to Vodno? [pb])
+   (also: Што да видам во Скопје? = What should I see in Skopje? [pb])
+YOU:     Дали има автобус до Маврово? [pb]
+   = Is there a bus to Mavrovo?
+PARTNER: Да, има автобус до Маврово. Но, проверете го распоредот на автобусите.
+   = Yes, there is a bus to Mavrovo. But check the bus schedule.
+   tip: The traveler is trying to change the topic slightly, perhaps wanting to explore more options.
+   (also: Што препорачувате да видам во Маврово? = What do you recommend I see in Mavrovo?)
+   (also: Благодарам многу! = Thank you very much! [pb])
+YOU:     Каде можам да проверам распоредот на автобусите?
+   = Where can I check the bus schedule?
+PARTNER: Можете да проверите во автобуската станица.
+   = You can check at the bus station.
+   tip: The traveler is using longer sentences now, showing good progress with Macedonian!
+   (also: довидување = goodbye [pb])
+   (also: Сакам да посетам винарија. = I want to visit a winery. [pb])
+YOU:     Благодарам многу! [pb]
+   = Thank you very much!
+PARTNER: Ве молам! Убав ден!
+   = You're welcome! Have a nice day!
+   tip: The traveler's thank you was perfect!
+   (scene done)

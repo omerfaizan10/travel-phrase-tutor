@@ -1,0 +1,62 @@
+### macedonian / weather / random  (49s, fallbacks=0)
+PARTNER: Добар ден! Како сте?
+   = Good afternoon! How are you?
+   (also: Добро ми е, фала. = I'm well, thank you.)
+   (also: Много добро сум, фала. = Very well, thank you.)
+YOU:     Добро ми е, фала.
+   = I'm well, thank you.
+PARTNER: Добро. Времето е малку облачно денеска.
+   = Good. The weather is a little cloudy today.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добро. Какво е времето?  <- says a line the TRAVELER would say; answer as the staff/loca
+   tip: Very good! You used a common phrase.
+   (also: Студено е. = It's cold. [pb])
+   (also: Времето е многу подобро. = The weather is much better. [pb])
+YOU:     Времето е многу подобро. [pb]
+   = The weather is much better.
+PARTNER: Да, точно е. Облачно и студено со повремени врнежи од снег.
+   = Yes, you're right. Cloudy and cold with occasional snow.
+   tip: Excellent! You agreed with my assessment of the weather.
+   (also: Дали е потопло или постудено денес? = Is it warmer or colder today? [pb])
+   (also: Што ќе носите денес? = What will you wear today?)
+YOU:     Какво е времето денеска? [pb]
+   = What's the weather like today?
+PARTNER: Облачно е и малку студено. Можеби ќе врне снег подоцна.
+   = It's cloudy and a little cold. It might snow later.
+   tip: Excellent! You used the correct question structure.
+   (also: Потопло ли е утре? = Is it warmer tomorrow?)
+   (also: Ви се допаѓа ова време? = Do you like this weather?)
+YOU:     Ви се допаѓа ова време?
+   = Do you like this weather?
+PARTNER: Не, не ми се допаѓа кога е студено. Потоа треба да носам повеќе облеки.
+   = No, I don't like it when it's cold. Then I have to wear more clothes.
+   tip: Your Macedonian is improving! You used the correct question structure.
+   (also: Пролетта ми се допаѓа. = I like spring.)
+   (also: Есента ми се допаѓа. = I like autumn.)
+YOU:     Летото ми се допаѓа.
+   = I like summer.
+PARTNER: И јас! Летото е многу убаво.
+   = Me too! Summer is very beautiful.
+   tip: Excellent! You used a complete sentence and agreed with what I said.
+   (also: Ти се допаѓа зима? = Do you like winter?)
+   (also: Кое годишно време најмногу го сакате? = Which season do you like best? [pb])
+YOU:     Кое годишно време најмногу го сакате? [pb]
+   = Which season do you like best?
+PARTNER: Јас најмногу го сакам летото. Сончево е и топло.
+   = I like summer the most. It's sunny and warm.
+   tip: Excellent! You used the phrase perfectly.
+   (also: Дали е потопло или постудено денес? = Is it warmer or colder today? [pb])
+   (also: довидување = goodbye [pb])
+YOU:     Дали е потопло или постудено денес? [pb]
+   = Is it warmer or colder today?
+PARTNER: Денес е постудено.
+   = It's colder today.
+   tip: Excellent use of the comparative 'потопло/постудено'!
+   (also: довидување = goodbye [pb])
+   (also: Благодарам! = Thank you! [pb])
+YOU:     довидување [pb]
+   = goodbye
+PARTNER: Довидување! Убав ден!
+   = Goodbye! Have a nice day!
+   tip: Excellent!
+   (scene done)

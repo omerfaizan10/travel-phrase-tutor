@@ -1,0 +1,56 @@
+### spanish / sightseeing / first  (50s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: ¿Dónde hay muchos sitios para visitar? = Where are there a lot of sights to see? [pb])
+   (also: ¿Dónde está el centro de información? = Where is the information centre? [pb])
+YOU:     ¿Me puede recomendar algo para ver?
+   = I’d like a recommendation for something to see.
+PARTNER: Claro. Puede visitar el Museo del Prado. Es muy famoso. También puede ir al Parque del Retiro.
+   = Of course. You can visit the Prado Museum. It’s very famous. You can also go to Retiro Park.
+   tip: Excellent question! Your Spanish is very clear.
+   (also: ¿Cómo puedo llegar al Parque del Retiro? = How do I get to Retiro Park?)
+   (also: ¿Recomienda algo más? = Is there anything else you recommend?)
+YOU:     ¿Qué es el Museo del Prado?
+   = What is the Prado Museum?
+PARTNER: El Museo del Prado es un museo de arte. Tiene pinturas de Velázquez y Goya.
+   = The Prado Museum is an art museum. It has paintings by Velázquez and Goya.
+   tip: Excellent question! You used the correct structure to ask 'What is...?'.
+   (also: ¿Está lejos de aquí? = Is it far from here?)
+   (also: ¿Puede enseñarme en el mapa? = Can you show me on the map? [pb])
+YOU:     ¿Qué tipo de arte hay?
+   = What kind of art is there?
+PARTNER: Principalmente, arte español. También hay arte italiano y flamenco.
+   = Mainly Spanish art. There’s also Italian and Flemish art.
+   tip: Excellent question! You're showing good initiative.
+   (also: ¿Puede enseñarme en el mapa? = Can you show me on the map? [pb])
+   (also: ¿Dónde está el centro de información? = Where is the information centre? [pb])
+YOU:     ¿Merece la pena ir?
+   = Is it worth visiting?
+PARTNER: Sí, merece la pena. Es uno de los mejores museos del mundo.
+   = Yes, it's worth it. It’s one of the best museums in the world.
+   tip: Excellent question! You used 'merece la pena' perfectly.
+   (also: ¿Cómo puedo llegar al centro? = How do I get to the centre? [pb])
+YOU:     ¿Puede enseñarme en el mapa? [pb]
+   = Can you show me on the map?
+PARTNER: Por supuesto. Está cerca de la Puerta del Sol. ¿Quiere que le señale el camino?
+   = Of course. It’s near the Puerta del Sol. Would you like me to show you the way?
+   tip: Excellent! Using 'por favor' is a great way to be polite.
+   (also: ¿Dónde está la Puerta del Sol? = Where is the Puerta del Sol?)
+YOU:     Sí, por favor.
+   = Yes, please.
+PARTNER: Está a unos diez minutos caminando. Siga recto por la calle Mayor y luego gire a la derecha.
+   = It’s about a ten-minute walk. Go straight along Calle Mayor and then turn right.
+   tip: Excellent! You used 'por favor' correctly.
+   (also: ¿Cómo puedo llegar al centro? = How do I get to the centre? [pb])
+YOU:     Gracias por su ayuda.
+   = Thank you for your help.
+PARTNER: De nada. ¡Que disfrute del museo!
+   = You’re welcome. Enjoy the museum!
+   tip: Excellent! You used 'gracias' perfectly.
+   (also: Que tenga un buen día. = Have a good day.)
+YOU:     Adiós. [pb]
+   = Goodbye.
+PARTNER: Adiós. ¡Hasta luego!
+   = Goodbye. See you later!
+   tip: Excellent! You used 'Gracias por sus recomendaciones' perfectly.
+   (scene done)

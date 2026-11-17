@@ -1,0 +1,34 @@
+### macedonian / directions / first  (20s, fallbacks=1)
+PARTNER: Повелете, ако ми кажете каде е автобуската станица, ќе ви помогнам.
+   = Please, if you tell me where the bus station is, I'll help you.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Извинете, каде е автобуската станица?  <- asks where a place is; that is the TRAVELER's question. As t; says a line the TRAVELER would say; answer as the staff/loca
+   (also: Кажи ми како да стигн-ам таму. = Can you show me the way?)
+   (also: Каде е автобуската станица? = Where's the bus station? [pb])
+YOU:     Кажи ми како да стигнам таму. [pb]
+   = Tell me how to get there.
+PARTNER: Секако.
+   = Of course.
+   [attempts=3 problems=["asks where a place is; that is the TRAVELER's question. As the local/staff, answer or ask how you can help instead"] fallback=True]
+   x rejected: Оди право по таа улица до ќошето. Таму на лево е продавницата.  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Повелете, ако ми кажете каде е автобуската станица, ќе ви помогнам.  <- repeats your previous line
+   x rejected: Извинете, каде е автобускا станица?  <- asks where a place is; that is the TRAVELER's question. As t
+   tip: Good! You asked for the bus station location directly.
+   (also: Одете право. = Go straight ahead. [pb])
+   (also: Дали е далеку? = Is it far? [pb])
+YOU:     Одете право напред. [pb]
+   = Go straight ahead.
+PARTNER: Да, одеде право напред и ќе видите пошта на десната страна.
+   = Yes, go straight ahead and you'll see a post office on the right side.
+   [attempts=3 problems=[] fallback=False]
+   x rejected: Секако.  <- repeats your previous line
+   x rejected: Да, одете право напред.  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Great — you're now guiding them with clear, simple directions.
+   (also: Помини ги семафорите и одете на лево. = Go through the traffic lights and turn left.)
+   (also: Каде е тоалетот? = Where is the toilet? [pb])
+YOU:     Оди право и после тоа помини ги семафорите.
+   = Go straight and then pass the traffic lights.
+PARTNER: Да, одеде право и помини ги семафорите.
+   = Yes, go straight and pass the traffic lights.
+   tip: Good job — you used the correct Macedonian form.
+   (scene done)

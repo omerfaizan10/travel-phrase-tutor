@@ -1,0 +1,29 @@
+### macedonian / shopping / detour  (14s, fallbacks=0)
+PARTNER: Добар ден! Имате ли кеса?
+   = Good day! Do you have a bag?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Добар ден! Што сакате за пиење?  <- talks about food or drinks, which is not part of this scene;
+   (also: Не, немам. = No, I don't have it.)
+   (also: Може ли малку поефтино? = Can it be a bit cheaper? [pb])
+YOU:     Да, имам.
+   = Yes, I have it.
+PARTNER: Може ли со кредитна картичка?
+   = Can I pay by credit card?
+   [attempts=3 problems=[] fallback=False]
+   x rejected: Сакам да разменам пари. Колку денари за еден долар?  <- speaks as the customer ('I want / I'd like'); you are the st; says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Сакам да разменам пари. Колку денари за еден долар?  <- speaks as the customer ('I want / I'd like'); you are the st; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good! You asked a natural question about payment.
+   (also: Може ли со пари? = Can I pay with cash?)
+YOU:     Може ли со пари?
+   = Can I pay with cash?
+PARTNER: Ок, ќе го платим со пари.
+   = OK, I'll pay with cash.
+   tip: Good choice! Cash is common here.
+   (also: Извинете, немам пари. = Sorry, I can't afford it. [pb])
+   (also: Сметката, ве молам. = The bill / receipt, please. [pb])
+YOU:     Јас сум тука на одмор.  <- DETOUR (from emergency)
+   = I'm here on vacation.
+PARTNER: Повелете, свежи домати!
+   = Here you go, fresh tomatoes!
+   tip: Great! You used the right phrase for asking for something.
+   (scene done)

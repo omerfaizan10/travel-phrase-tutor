@@ -1,0 +1,63 @@
+### spanish / shopping / detour  (27s, fallbacks=0)
+PARTNER: ¿En qué puedo ayudarle?
+   = How can I help you?
+   (also: ¿Tiene algo para regalar? = Do you have anything to give?)
+YOU:     ¿Tiene algo para regalar?
+   = Do you have anything to give?
+PARTNER: Sí, tenemos algunos artículos para regalar.
+   = Yes, we have some items for gifts.
+   tip: Great! You used the exact phrase from the list. Well done!”,
+   (also: Quisiera un pequeño recuerdo. = I'd like a small souvenir.)
+   (also: ¿Me puede mostrar algunos artículos bonitos? = Can I see some nice items?)
+YOU:     Quisiera un pequeño recuerdo.
+   = I'd like a small souvenir.
+PARTNER: Ese recuerdo cuesta 5 euros.
+   = That souvenir costs 5 euros.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: ¿Cuánto cuesta ese recuerdo?  <- asks the price; that is the customer's question. As the staf
+   tip: Good! You used the correct phrase for a souvenir.
+   (also: ¿Tiene algo barato para regalar? = Do you have a cheap one?)
+YOU:     No tenemos niños.  <- DETOUR (from emergency)
+   = We don't have children.
+PARTNER: Entiendo. ¿Qué otro recuerdo le gustaría?
+   = I understand. What other souvenir would you like?
+   tip: Good choice! Souvenirs are great for gifts.
+   (also: Quisiera probarme unos sombreros. = I want to try on a hat.)
+   (also: Quisiera una camisa de verano. = I would like a summer shirt. [pb])
+YOU:     Quisiera ver más recuerdos.
+   = I want to see more souvenirs.
+PARTNER: Ese recuerdo cuesta 5 euros.
+   = That souvenir costs 5 euros.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: ¿Cuánto cuesta ese recuerdo?  <- asks the price; that is the customer's question. As the staf
+   tip: Good choice! Souvenirs are great for gifts.
+YOU:     ¿Tiene algo para regalar?  <- REPEAT of first line
+   = Do you have anything to give?
+PARTNER: Sí, tenemos algunos artículos para regalar.
+   = Yes, we have some items for gifts.
+   tip: Good choice! You're asking for more options.
+   (also: ¿Tiene algo más barato? = Do you have anything cheaper? [pb])
+YOU:     ¿Tiene algo más barato? [pb]
+   = Do you have anything cheaper?
+PARTNER: Entiendo. ¿Tiene algo más barato para un regalo?
+   = I understand. Do you have something cheaper for a gift?
+   [attempts=2 problems=[] fallback=False]
+   x rejected: ¿Tiene algo más barato?  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good! You're asking for a cheaper option, which is smart when shopping.
+   (also: Quisiera ver un sombrero más económico. = I'd like to see a cheaper hat.)
+   (also: ¿Me lo puede mostrar por cinco euros? = Can you show it me for five euros?)
+YOU:     ¿Me lo puede mostrar por cinco euros?
+   = Can you show it me for five euros?
+PARTNER: Sí, le muestro este recuerdo por cinco euros.
+   = Yes, I'll show you this souvenir for five euros.
+   tip: Good choice! You're asking for a cheaper gift, which is natural.
+   (also: ¿Tiene algo más barato para un regalo? = Is there anything cheaper for a gift?)
+   (also: ¿Me lo envuelve para regalo? = Could you gift-wrap it for me? [pb])
+YOU:     Sí, le muestro este recuerdo por cinco euros.
+   = Yes, I'll show you this souvenir for five euros.
+PARTNER: Aquí tiene. ¿Necesita más algo?
+   = Here you are. Do you need anything else?
+   tip: Good choice — you asked clearly and politely.
+   (also: Gracias por su tiempo. = Thank you for your time.)
+   (also: De acuerdo, me lo llevaré. = OK, I'll take it. [pb])
+

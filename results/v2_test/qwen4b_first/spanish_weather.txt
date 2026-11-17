@@ -1,0 +1,27 @@
+### spanish / weather / first  (10s, fallbacks=1)
+PARTNER: Aquí tiene.
+   = Here you are.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: ¿Qué tiempo hace hoy?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Qué tiempo hace hoy?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Qué tiempo hace hoy?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: ¿Qué tiempo hace? = What's the weather like? [pb])
+   (also: ¿Qué tiempo hizo ayer? = What was the weather like yesterday? [pb])
+YOU:     ¿Qué tiempo hace hoy? [pb]
+   = What's the weather like today?
+PARTNER: Hace sol hoy.
+   = It's sunny today.
+   tip: Great! You said it perfectly, just like that. Well done!”,
+YOU:     Hay sol. [pb]
+   = It's sunny.
+PARTNER: ¡Qué bueno!
+   = What a good weather!
+   tip: Great! You used the correct Spanish for 'it's sunny'.
+   (also: Necesito una chaqueta ligera. = I need a light jacket.)
+   (also: Voy a tomar una camisa. = I’ll take a shirt.)
+YOU:     Voy a poner un sombrero.
+   = I'm going to wear a hat.
+PARTNER: ¡Buena idea!
+   = Good idea!
+   tip: Great choice! A hat is perfect for sunny days.
+   (scene done)

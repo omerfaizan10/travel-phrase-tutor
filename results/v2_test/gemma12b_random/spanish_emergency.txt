@@ -1,0 +1,61 @@
+### spanish / emergency / random  (50s, fallbacks=0)
+PARTNER: Buenos días, señor/señora. ¿En qué puedo ayudarle?
+   = Good morning, sir/madam. How can I help you?
+   (also: Necesito ayuda. = I need help. [pb])
+   (also: Quiero denunciar algo. = I want to report something.)
+YOU:     Necesito ayuda. [pb]
+   = I need help.
+PARTNER: Por supuesto. ¿Qué ha pasado?
+   = Of course. What has happened?
+   tip: Excellent! You used a very important phrase to begin with.
+   (also: Necesito denunciar algo. = I need to report something.)
+   (also: Me siento mal. = I feel ill. [pb])
+YOU:     Perdí mi bolso. [pb]
+   = I lost my handbag.
+PARTNER: Lo siento mucho. ¿Puede describir su bolso, por favor?
+   = I'm very sorry. Can you describe your bag, please?
+   tip: Excellent! You clearly stated what you needed.
+   (also: Era negro. = It was black.)
+   (also: Era un bolso pequeño. = It was a small bag.)
+YOU:     Era un bolso pequeño.
+   = It was a small bag.
+PARTNER: De acuerdo. ¿De qué color era el bolso?
+   = Okay. What color was the bag?
+   tip: Perfect! You used a complete sentence and gave a clear description.
+   (also: Era marrón. = It was brown.)
+   (also: Era azul. = It was blue.)
+YOU:     Era negro.
+   = It was black.
+PARTNER: Entiendo. ¿Dónde perdió el bolso?
+   = I understand. Where did you lose the bag?
+   tip: Excellent! You used 'era' correctly to describe the bag's color and size.
+   (also: Lo perdí en la calle. = I lost it on the street.)
+   (also: No estoy seguro dónde lo perdí. = I'm not sure where I lost it.)
+YOU:     No estoy seguro dónde lo perdí.
+   = I'm not sure where I lost it.
+PARTNER: Comprendo. ¿Recuerda por dónde caminaba antes de darse cuenta de que lo había perdido?
+   = I understand. Do you remember where you were walking before you realized you had lost it?
+   tip: Excellent! You used 'Estaba' correctly to describe a past action.
+   (also: Caminaba por la calle principal. = I was walking on the main street.)
+   (also: No lo recuerdo. = I don't remember.)
+YOU:     No lo recuerdo.
+   = I don't remember.
+PARTNER: Está bien. ¿Llevaba algo importante en el bolso?
+   = That's alright. Did you have anything important in the bag?
+   tip: Excellent! You used 'tenía' correctly to describe something you had in the past.
+   (also: Tenía dinero en él. = I had money in it.)
+   (also: Tenía mi móvil. = It had my phone.)
+YOU:     Tenía mi móvil.
+   = It had my phone.
+PARTNER: Oh, no. Es muy importante recuperar su móvil. Vamos a hacer una denuncia, por favor.
+   = Oh no. It's very important to recover your mobile phone. We're going to file a police report, please.
+   tip: Excellent! You used 'móvil' correctly for mobile phone.
+   (also: ¿Qué tengo que hacer? = What do I need to do?)
+   (also: ¿Dónde lo hacemos? = Where do we do that?)
+YOU:     De acuerdo, vamos a hacerlo.
+   = Okay, let's do that.
+PARTNER: Muy bien. Por favor, sígame a la comisaría. Allí haremos la denuncia.
+   = Very well. Please follow me to the police station. We will file the report there.
+   tip: Excellent! You're using 'vamos' correctly to indicate movement.
+   (also: Gracias por su ayuda. = Thank you for your help.)
+

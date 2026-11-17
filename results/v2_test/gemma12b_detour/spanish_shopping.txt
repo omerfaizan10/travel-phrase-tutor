@@ -1,0 +1,58 @@
+### spanish / shopping / detour  (59s, fallbacks=0)
+PARTNER: Buenos días. ¿En qué puedo ayudarle?
+   = Good morning. How can I help you?
+YOU:     ¿Buenos días. Qué busca?
+   = Good morning. What are you looking for?
+PARTNER: Buenos días. ¿Qué desea?
+   = Good morning. What would you like?
+   [attempts=3 problems=[] fallback=False]
+   x rejected: Busco un regalo para mi madre.  <- speaks as the customer ('I want / I'd like'); you are the st; says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: Buenos días. ¿En qué puedo ayudarle?  <- repeats your previous line
+   tip: Good! You used 'desea' which is a more formal and polite way to ask what someone wants.
+   (also: Busco una bufanda. = I'm looking for a scarf.)
+YOU:     Busco una bufanda.
+   = I'm looking for a scarf.
+PARTNER: Tenemos bufandas de muchos colores. ¿Qué color le gusta?
+   = We have scarves of many colors. What color do you like?
+   tip: Excellent! You used 'gustar' correctly to express your preference.
+   (also: ¿Tiene las rojas? = Do you have red ones?)
+YOU:     No tenemos niños.  <- DETOUR (from emergency)
+   = We don't have children.
+PARTNER: Perdón, no entiendo. ¿Quiere una bufanda de un color en particular?
+   = Sorry, I don't understand. Do you want a scarf of a particular color?
+   tip: You said 'we don't have children'. It seems you meant to say something else. Try to specify a color!
+   (also: Me gusta el rojo. = I like red.)
+   (also: No me importa el color. = I don't care about the color.)
+YOU:     ¿Sí, me gusta el azul.
+   = Yes, I like blue.
+PARTNER: Tenemos bufandas azules de seda y de lana. ¿Prefiere seda o lana?
+   = We have blue scarves of silk and wool. Do you prefer silk or wool?
+   tip: Excellent! You used 'prefiero' correctly to express your preference.
+   (also: Prefiero la lana. = I prefer wool.)
+   (also: ¿Tiene otros colores? = Do you have any other colors?)
+YOU:     ¿Buenos días. Qué busca?  <- REPEAT of first line
+   = Good morning. What are you looking for?
+PARTNER: Buenos días. ¿Qué desea?
+   = Good morning. What would you like?
+   tip: Excellent! You repeated the question back to me, which is a good way to confirm understanding.
+YOU:     ¿Tiene algo azul?
+   = Do you have anything blue?
+PARTNER: Sí, tenemos varias cosas azules. ¿Busca algo en particular, como una bufanda o una camisa?
+   = Yes, we have several blue items. Are you looking for something in particular, like a scarf or a shirt?
+   tip: Excellent! You repeated the question back to me, which is a great way to confirm understanding.
+   (also: ¿Tiene sombreros azules? = Do you have blue hats?)
+YOU:     Busco una camisa.
+   = I'm looking for a shirt.
+PARTNER: Tenemos camisas azules de verano y de invierno. ¿Qué tipo de camisa busca?
+   = We have blue summer and winter shirts. What kind of shirt are you looking for?
+   tip: Excellent! You used 'Busco' correctly to express what you're looking for.
+   (also: ¿Tiene esto de mi talla? = Do you have this in my size? [pb])
+   (also: Me gusta ésa azul. ¿Puedo probármela? = I like that blue one. May I try it on? [pb])
+YOU:     Me gusta ésa azul. ¿Puedo probármela? [pb]
+   = I like that blue one. May I try it on?
+PARTNER: Por supuesto. Aquí tiene el probador. ¿Qué talla usa?
+   = Of course. Here's the fitting room. What size do you wear?
+   tip: Excellent use of the phrase 'Puedo probármela!' - very natural.
+   (also: Uso una talla grande. = I wear a large.)
+   (also: ¿Qué tallas tiene? = What sizes do you have?)
+

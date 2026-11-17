@@ -1,0 +1,27 @@
+### macedonian / hotel / random  (11s, fallbacks=0)
+PARTNER: Добар ден! Може ли пасошот, ве молам?
+   = Good day! May I have your passport, please?
+   (also: Дали имате слободни соби? = Do you have any rooms available? [pb])
+   (also: Дали имате друга соба? = Do you have a different room? [pb])
+YOU:     Дали имате друга соба? [pb]
+   = Do you have a different room?
+PARTNER: Секако. Вашиот хотел е 204, на вториот кат. Ова е клучот.
+   = Of course. Your room is 204, on the second floor. Here is the key.
+   tip: Good job! You used the correct phrase for asking about breakfast in the price.
+   (also: Дали појадокот е вклучен во цената? = Is breakfast included in the price? [pb])
+   (also: Може ли да ми повикате такси? = Can you call me a taxi? [pb])
+YOU:     Дали појадокот е вклучен во цената? [pb]
+   = Is breakfast included in the price?
+PARTNER: Секако. Појадокот е вклучен во цената. Од седум до десет часот, во ресторанот.
+   = Of course. Breakfast is included in the price. From seven to ten, in the restaurant.
+   [attempts=2 problems=[] fallback=False]
+   x rejected: Дали појадокот е вклучен во цената?  <- repeats the traveler's words. Acknowledge what they said in ; says a line the TRAVELER would say; answer as the staff/loca
+   tip: Good question! You're learning how to ask about meals.
+   (also: Од колку часот е доручекот? = What time is breakfast? [pb])
+   (also: Дали имате сеф? = Do you have a seat?)
+YOU:     Од колку часот е доручекот? [pb]
+   = What time is breakfast?
+PARTNER: Од седум до десет часот, во ресторанот.
+   = From seven to ten, in the restaurant.
+   tip: Great question! You asked about the exact time.
+   (scene done)

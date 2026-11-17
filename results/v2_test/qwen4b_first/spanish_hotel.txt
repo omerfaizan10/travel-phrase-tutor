@@ -1,0 +1,33 @@
+### spanish / hotel / first  (12s, fallbacks=2)
+PARTNER: Aquí tiene.
+   = Here you are.
+   [attempts=3 problems=['says a line the TRAVELER would say; answer as the staff/local instead'] fallback=True]
+   x rejected: ¿Hay habitaciones libres?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Hay habitaciones libres?  <- says a line the TRAVELER would say; answer as the staff/loca
+   x rejected: ¿Hay habitaciones libres?  <- says a line the TRAVELER would say; answer as the staff/loca
+   (also: ¿Hay habitaciones libres? = Do you have any rooms available? [pb])
+   (also: ¿Puede despertarme a las siete? = Can you wake me at seven? [pb])
+YOU:     ¿Hace mucho que usted está aquí? [pb]
+   = Have you been here long?
+PARTNER: No, solo estoy aquí desde hace unos minutos.
+   = No, I've only been here for a few minutes.
+   tip: Great question! You asked about how long I've been here.
+   (also: ¿Hay habitaciones libres? = Do you have any rooms available? [pb])
+   (also: Me alojo en un hotel del centro. = I'm staying at a hotel in the centre. [pb])
+YOU:     ¿Puede despertarme a las siete? [pb]
+   = Can you wake me at seven?
+PARTNER: Lo siento, no estoy seguro.
+   = Sorry, I'm not sure.
+   [attempts=3 problems=['time 7.20 (written in words) is not in the timetable notes; use only times from the notes, written as digits'] fallback=True]
+   x rejected: Sí, le despertaré a las siete.  <- time 7.00 (written in words) is not in the timetable notes; 
+   x rejected: Sí, le despertaré a las siete y veinte.  <- time 7.20 (written in words) is not in the timetable notes; 
+   x rejected: Sí, le despertaré a las siete y veinte.  <- time 7.20 (written in words) is not in the timetable notes; 
+   tip: Perfect! You used the correct time from the notes.
+   (also: Son las dos y siete de la tarde. = It's 2:07 in the afternoon. [pb])
+   (also: ¿Puede decirme qué hora es? = Can you tell me what time it is? [pb])
+YOU:     Son las seis menos diez de la noche. [pb]
+   = It's 5:50 in the evening.
+PARTNER: Gracias, es correcto.
+   = Thank you, that's correct.
+   tip: Great! You used the correct time expression.
+   (scene done)
