@@ -97,7 +97,12 @@ class Retriever:
     def _encode(self, texts):
         if self._model is None:
             from sentence_transformers import SentenceTransformer
-            self._model = SentenceTransformer(self.model_name)
+            try:
+                self._model = SentenceTransformer(self.model_name)
+            except RuntimeError:
+                # Intel Macs with an AMD GPU report MPS but can't use it ("only supported
+                # on devices with unified memory"); the small embedding model runs fine on CPU.
+                self._model = SentenceTransformer(self.model_name, device="cpu")
         return self._model.encode(
             texts, normalize_embeddings=True, convert_to_numpy=True
         )
@@ -217,7 +222,8 @@ def parse_phrases(chunk: dict) -> list[dict]:
         - Phrase [pron] = meaning
         - Phrase = meaning
         - A = meaning;  B = meaning        (several pairs on one line)
-    Returns dicts: {"text", "pron", "meaning", "source", "section", "language"}.
+    A second bracket, "Phrase [pron] [say] = meaning", is a stress guide (capitals = stressed syllable).
+    Returns dicts: {"text", "pron", "say", "meaning", "source", "section", "language"}.
     """
     lines = chunk["text"].splitlines()
     section = next((l[3:].strip() for l in lines if l.startswith("## ")), "")
@@ -231,8 +237,10 @@ def parse_phrases(chunk: dict) -> list[dict]:
             if " = " not in pair:
                 continue
             left, meaning = pair.split(" = ", 1)
-            pron_m = _PRON.search(left)
-            pron = pron_m.group("pron").strip() if pron_m else ""
+            # "[transliteration]" or "[transliteration] [SYL-la-ble stress guide]"
+            brackets = [m.group("pron").strip() for m in _PRON.finditer(left)]
+            pron = brackets[0] if brackets else ""
+            say = brackets[1] if len(brackets) > 1 else ""
             text = _PRON.sub(" ", left).strip()
             speaker = ""
             label = re.match(r"^\((waiter|clerk|local|receptionist|seller|driver|staff)\)\s*", text, re.I)
@@ -250,7 +258,7 @@ def parse_phrases(chunk: dict) -> list[dict]:
             if chunk["language"] == "macedonian" and not _CYRILLIC.search(text):
                 continue
             out.append({
-                "text": text, "pron": pron, "meaning": meaning.strip(), "speaker": speaker,
+                "text": text, "pron": pron, "say": say, "meaning": meaning.strip(), "speaker": speaker,
                 "source": chunk["source"], "section": section,
                 "language": chunk["language"],
             })
