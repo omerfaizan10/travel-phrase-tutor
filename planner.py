@@ -11,6 +11,8 @@ always built from the curated notes. The learner can correct anything that
 was detected wrongly in the app before the plan is built.
 """
 
+from __future__ import annotations
+
 import re
 
 from retriever import DEFAULT_VARIETY, LATIN_AMERICA, VARIETIES, accepted_labels, parse_phrases

@@ -15,6 +15,8 @@ Usage:
     r.search("how do I ask for the bill", language="spanish", k=3)
 """
 
+from __future__ import annotations
+
 import re
 from pathlib import Path
 
