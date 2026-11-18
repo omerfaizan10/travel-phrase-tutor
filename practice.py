@@ -113,3 +113,21 @@ def spanish_typing_activity(retriever, topic, variety, offset=0):
                   'accepted': list(dict.fromkeys(p['text'] for p in group))}
                  for group in groups[:5]]
     return {'phrases': selected, 'questions': questions}
+
+
+def topic_sentences(retriever, language, topic, variety, limit=40):
+    """Checked whole sentences from the topic notes (3+ words, traveler or staff lines),
+    given to Stage 2 as correct patterns to reuse, so a small model does not invent forms."""
+    allowed = accepted_labels(language, variety)
+    sources = {f"{language}/{name}" for name in topic_files(topic)}
+    out, seen = [], set()
+    for chunk in retriever.chunks:
+        if chunk['source'] not in sources or chunk.get('country') not in allowed:
+            continue
+        for p in parse_phrases(chunk):
+            key = normalize(p['text'])
+            if key in seen or not 3 <= len(p['text'].split()) <= 12 or re.search(r'\.\.\.|…|__|/', p['text']):
+                continue
+            seen.add(key)
+            out.append({language: p['text'], 'english': re.sub(r'\s*\([^)]*\)', '', p['meaning']).strip()})
+    return out[:limit]

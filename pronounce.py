@@ -123,3 +123,29 @@ def say(phrase: str) -> str:
         for i, parts in per_word.items():
             out[i] = "-".join(parts)
     return re.sub(r"\s+", " ", "".join(out.get(i, t) for i, t in enumerate(tokens))).strip()
+
+
+# Latin -> Cyrillic, so learners without a Macedonian keyboard can type "Sakam kafe"
+# (same sh / ch / zh / kj / gj style as the notes). Longest spellings are tried first.
+_FROM_LATIN = sorted(
+    [("dzh", "џ"), ("dž", "џ"), ("sh", "ш"), ("ch", "ч"), ("zh", "ж"), ("kj", "ќ"), ("gj", "ѓ"),
+     ("lj", "љ"), ("nj", "њ"), ("dz", "ѕ"), ("š", "ш"), ("č", "ч"), ("ž", "ж"), ("ќ", "ќ"),
+     ("ć", "ќ"), ("ǵ", "ѓ"), ("ḱ", "ќ"), ("y", "ј"), ("w", "в"), ("x", "кс"), ("q", "к")]
+    + [(lat, cyr) for cyr, lat in TRANSLIT.items() if len(lat) == 1 and cyr not in "ѐѝè"],
+    key=lambda pair: -len(pair[0]))
+
+
+def to_cyrillic(text: str) -> str:
+    """'Sakam edno kafe, ve molam.' -> 'Сакам едно кафе, ве молам.' Cyrillic is left as is."""
+    out, i = [], 0
+    while i < len(text):
+        for lat, cyr in _FROM_LATIN:
+            chunk = text[i:i + len(lat)]
+            if chunk.lower() == lat:
+                out.append(cyr.capitalize() if chunk[0].isupper() else cyr)
+                i += len(lat)
+                break
+        else:
+            out.append(text[i])
+            i += 1
+    return "".join(out)
