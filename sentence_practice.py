@@ -71,6 +71,12 @@ def _json_reply(messages, schema, max_tokens, temperature=0.2):
     raise LLMError('The model did not return a usable response. Please try again.')
 
 
+def _sentence_count(text):
+    """Sentences of 3+ words; a short 'Извинете.' / 'Gracias.' in front does not split a request."""
+    parts = [x for x in re.split(r'(?<=[.!?])\s+', text.strip()) if x.strip()]
+    return max(1, sum(len(x.split()) >= 3 for x in parts))
+
+
 def _validate_round(data, vocabulary, language='spanish'):
     if (not isinstance(data.get('examples'), list) or not isinstance(data.get('tasks'), list)
         or len(data['examples']) != 3 or len(data['tasks']) != 5):
@@ -81,6 +87,9 @@ def _validate_round(data, vocabulary, language='spanish'):
             raise ValueError('Missing sentence text.')
         if not 3 <= len(pair[language].split()) <= 22:
             raise ValueError('A whole short sentence is required.')
+        if _sentence_count(pair[language]) > _sentence_count(pair['english']):
+            raise ValueError(f"'{pair['english']}' is one sentence in English, so its translation must be "
+                             "one sentence too: join the items with 'and' instead of splitting them.")
         ids = pair.get('vocabulary_ids')
         if not isinstance(ids, list) or not ids or any(type(i) is not int or not 1 <= i <= len(vocabulary) for i in ids):
             raise ValueError('Invalid studied-vocabulary references.')
@@ -115,7 +124,10 @@ def build_sentence_round(vocabulary, variety_name, topic, language='spanish', re
          'Use content vocabulary only from the supplied studied bank. You may introduce simple '
          'function words and grammatical structures in the visible examples; reuse those '
          'structures in the tasks. Do not assume additional vocabulary. '
-         'Keep sentences short, practical and unambiguous. Tasks must not repeat visible '
+         'Keep sentences short, practical and unambiguous. Translate each English sentence as ONE '
+         'sentence with the same number of sentences: \'I would like a beer and a glass of water.\' '
+         'is one sentence (join the items with and / y / и), not two requests. '
+         'Tasks must not repeat visible '
          'examples verbatim. Include valid vocabulary_ids for the studied expressions used. '
          'No real-world facts, dates, prices or schedules. Return the requested JSON.'},
         {'role': 'user', 'content': json.dumps({'variety': variety_name, 'topic': topic,
@@ -133,6 +145,30 @@ def build_sentence_round(vocabulary, variety_name, topic, language='spanish', re
                              + (' The 5 tasks must be different sentences from the 3 examples.'
                                 if 'differ' in str(error) else '')})
     raise LLMError('The generated sentences were not usable. Please generate the practice again.')
+
+
+def _cyr_words(text):
+    return {w.casefold() for w in re.findall(r'[Ѐ-ӿ]+', text or '')}
+
+
+def _feedback_problems(result, allowed):
+    """Macedonian feedback must be English and may only quote Macedonian words that the
+    learner, the example answer or the studied bank used (the model invents forms like
+    'кај ми' or 'сладка страва')."""
+    problems = []
+    for key in ('meaning_feedback', 'grammar_feedback', 'hint'):
+        text = result.get(key)
+        if not isinstance(text, str) or not text.strip():
+            continue
+        letters = re.findall(r'[A-Za-zЀ-ӿ]', text)
+        if len(re.findall(r'[Ѐ-ӿ]', text)) > 0.4 * len(letters):
+            problems.append(f'{key} must be written in English')
+        invented = sorted(_cyr_words(text) - allowed)
+        if invented:
+            problems.append(f"{key} uses Macedonian words that are not in the learner's answer, the "
+                            f"example answer or the studied bank ({', '.join(invented[:3])}); do not "
+                            "suggest other wordings")
+    return problems
 
 
 def sentence_feedback(task, answer, examples, vocabulary, variety, language='spanish'):
@@ -155,14 +191,41 @@ def sentence_feedback(task, answer, examples, vocabulary, variety, language='spa
          'structure/grammar error needs revision. Keep feedback in simple English. '
          'If a revision is needed, give ONE focused hint without supplying a corrected sentence '
          'or translating the entire prompt. Do not quote the reference answer. '
-         'If acceptable, explain briefly what worked, with no unnecessary correction. Return JSON.'},
+         'If acceptable, explain briefly what worked, with no unnecessary correction. Return JSON.'
+         + (' Write all feedback and the hint in ENGLISH. Do not suggest alternative, informal or '
+            'more natural wordings. Do not write any Macedonian word that is not in the learner '
+            'answer, the example answer or the studied bank.' if language == 'macedonian' else '')},
         {'role': 'user', 'content': json.dumps({
             'english_prompt': task['english'], 'one_example_answer': task[language],
             'learner_answer': answer, f'{language}_variety': variety, 'visible_examples': examples,
             'studied_bank': [{language: p['text'], 'english': p['meaning']} for p in vocabulary]},
             ensure_ascii=False)},
     ]
-    result = _json_reply(messages, FEEDBACK_SCHEMA, 650)
+    allowed = _cyr_words(' '.join([answer, task[language]] + [e.get(language, '') for e in examples]
+                                   + [p['text'] for p in vocabulary]))
+    for attempt in range(2 if language == 'macedonian' else 1):
+        result = _json_reply(messages, FEEDBACK_SCHEMA, 650)
+        problems = _feedback_problems(result, allowed) if language == 'macedonian' else []
+        if not problems:
+            break
+        messages = messages + [{'role': 'assistant', 'content': json.dumps(result, ensure_ascii=False)},
+                               {'role': 'user', 'content': 'Fix the feedback: ' + '; '.join(problems)}]
+    else:
+        # Still not usable: keep the yes/no judgements, drop the text that would mislead.
+        for key in ('meaning_feedback', 'grammar_feedback', 'hint'):
+            if isinstance(result.get(key), str) and _feedback_problems({key: result[key]}, allowed):
+                result[key] = {'meaning_feedback': 'Compare your sentence with the English prompt.',
+                               'grammar_feedback': 'Check the word forms against the studied bank.',
+                               'hint': 'You can choose Show an example answer if you need help.'}[key]
+    # The model sometimes fills a field with just the label ("Meaning_ok"): use a plain sentence.
+    for key, flag, ok_text, fix_text in (
+            ('meaning_feedback', 'meaning_ok', 'Your sentence communicates the intended message.',
+             'Your sentence does not yet communicate the whole English prompt.'),
+            ('grammar_feedback', 'grammar_ok', 'No structure or grammar problems need revision.',
+             'Check the structure and word forms.')):
+        if isinstance(result.get(key), str) and re.fullmatch(r'\s*(?:meaning|grammar)?_?(?:ok|true|false)?\s*',
+                                                              result[key], re.I):
+            result[key] = ok_text if result.get(flag) is True else fix_text
     if (any(type(result.get(k)) is not bool for k in ('meaning_ok', 'grammar_ok')) or
         any(not isinstance(result.get(k), str) for k in ('meaning_feedback', 'grammar_feedback', 'hint'))):
         raise LLMError('The feedback was incomplete. Your answer is still here; please try checking it again.')

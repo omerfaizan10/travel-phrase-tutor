@@ -7,7 +7,22 @@ from planner import topic_files
 from retriever import accepted_labels, normalize, parse_phrases
 
 
-def vocabulary_activity(retriever, language, topic, variety, minutes, offset=0):
+# The top-ranked topic gets this many cards and questions per Stage 1 activity; lower-ranked
+# topics get the same proportion as their share of the plan (see bank_size).
+TOP_WORDS, TOP_QUESTIONS = 10, 5
+MIN_WORDS, MIN_QUESTIONS = 3, 2
+
+
+def bank_size(share=1.0):
+    """(cards, questions) for a topic whose plan weight is `share` of the top topic's.
+    Ranks 66.7% / 33.3% -> (10, 5) and (5, 3); 50/33/17% -> (10, 5), (7, 3), (3, 2)."""
+    share = min(max(share, 0.0), 1.0)
+    words = max(MIN_WORDS, int(TOP_WORDS * share + 0.5))
+    questions = max(MIN_QUESTIONS, int(TOP_QUESTIONS * share + 0.5))
+    return words, min(questions, words)
+
+
+def vocabulary_activity(retriever, language, topic, variety, minutes, offset=0, share=1.0):
     """Select short phrases, preferring exact regional notes over shared ones.
 
     Offset rotates the bank across sessions. Answers are checked against the
@@ -33,7 +48,8 @@ def vocabulary_activity(retriever, language, topic, variety, minutes, offset=0):
     pool.sort(key=lambda p: (allowed.index(p['variety']), len(p['text'].split())))
     if not pool:
         return {'phrases': [], 'questions': []}
-    count = min(len(pool), max(1, min(8, minutes // 2 or 1)))
+    count, question_count = bank_size(share)
+    count = min(len(pool), count)
     start = offset % len(pool)
     selected = (pool[start:] + pool[:start])[:count]
     questions = []
@@ -47,14 +63,15 @@ def vocabulary_activity(retriever, language, topic, variety, minutes, offset=0):
             continue
         rng.shuffle(options)
         questions.append({'phrase': phrase['text'], 'answer': phrase['meaning'], 'options': options})
-    return {'phrases': selected, 'questions': questions}
+    return {'phrases': selected, 'questions': questions[:question_count]}
 
 
 def spanish_answer(text):
-    """Ignore case, spacing and sentence punctuation, but preserve spelling."""
+    """Ignore case, spacing and all punctuation (¿ ? ¡ ! . , ; : quotes, dashes, …),
+    but preserve spelling and accents. Used for Spanish and Macedonian answers."""
     import unicodedata
     text = unicodedata.normalize('NFC', text).casefold().strip()
-    text = re.sub(r'[¿?¡!.,:;]', '', text)
+    text = ''.join(' ' if unicodedata.category(c).startswith('P') else c for c in text)
     return ' '.join(text.split())
 
 
@@ -72,17 +89,33 @@ def spanish_feedback(answer, expected):
     return 'wrong'
 
 
-def spanish_typing_activity(retriever, topic, variety, offset=0):
-    """Ten reference items and five stable recall questions from that bank.
+def typing_questions(phrases, count, seed):
+    """Up to `count` recall questions from `phrases`, one per English meaning. Studied
+    equivalents with the same gloss are all accepted, and all count as learned when
+    the question is answered."""
+    rng = random.Random(seed)
+    by_meaning = {}
+    for p in phrases:
+        by_meaning.setdefault(p['meaning'].casefold(), []).append(p)
+    groups = list(by_meaning.values())
+    rng.shuffle(groups)
+    return [{'meaning': group[0]['meaning'], 'answer': group[0]['text'],
+             'accepted': list(dict.fromkeys(p['text'] for p in group))}
+            for group in groups[:count]]
+
+
+def spanish_typing_activity(retriever, topic, variety, offset=0, share=1.0, language='spanish'):
+    """Reference items and stable recall questions from that bank; how many depends on
+    the topic's share of the plan (bank_size: 10 items and 5 questions for the top topic).
 
     Prefer single words, then short expressions. Do not invent items when
     the chosen regional/topic notes have a small bank.
     """
-    allowed = accepted_labels('spanish', variety)
-    sources = {f'spanish/{name}' for name in topic_files(topic)}
+    allowed = accepted_labels(language, variety)
+    sources = {f'{language}/{name}' for name in topic_files(topic)}
     pool, seen = [], set()
     chunks = [c for c in retriever.chunks if c['source'] in sources
-              and c['language'] == 'spanish' and c.get('country') in allowed]
+              and c['language'] == language and c.get('country') in allowed]
     for chunk in chunks:
         for p in parse_phrases(chunk):
             key = spanish_answer(p['text'])
@@ -99,20 +132,14 @@ def spanish_typing_activity(retriever, topic, variety, offset=0):
                              allowed.index(p['variety']), len(p['text'].split())))
     if not pool:
         return {'phrases': [], 'questions': []}
+    words, question_count = bank_size(share)
     start = offset % len(pool)
-    selected = (pool[start:] + pool[:start])[:10]
-    rng = random.Random(f'{topic}:{variety}:{offset}')
+    selected = (pool[start:] + pool[:start])[:words]
     # Avoid asking the same English prompt twice. Accept studied equivalents
     # for the same English gloss, rather than rejecting an identical meaning.
-    by_meaning = {}
-    for p in selected:
-        by_meaning.setdefault(p['meaning'].casefold(), []).append(p)
-    groups = list(by_meaning.values())
-    rng.shuffle(groups)
-    questions = [{'meaning': group[0]['meaning'], 'answer': group[0]['text'],
-                  'accepted': list(dict.fromkeys(p['text'] for p in group))}
-                 for group in groups[:5]]
-    return {'phrases': selected, 'questions': questions}
+    seed = f'{topic}:{variety}:{offset}'
+    questions = typing_questions(selected, question_count, seed)
+    return {'phrases': selected, 'questions': questions, 'question_count': question_count, 'seed': seed}
 
 
 def topic_sentences(retriever, language, topic, variety, limit=40):

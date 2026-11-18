@@ -553,11 +553,14 @@ def _overlap(a, b, content_only=False):
 SCENE_STAGES = {
     "restaurant": [
         ("arrive", ["table", "menu", "reserve", "how many", "for two", "for one", "people"]),
-        ("order food", ["i'd like", "i would like", "i want", "order", "dish", "recommend", "special",
-                        "for me", "eat", "salad", "soup", "paella", "meat", "fish", "chicken",
-                        "starter", "main course"]),
+        # Drinks are ordered first, then food (as in Macedonian and Spanish restaurants).
+        # The general "I'd like / order" words sit in the earlier stage, so a food word still
+        # moves the scene on to food ("I'd like the soup") and "I'd like a beer" stays drinks.
         ("order drinks", ["drink", "water", "beer", "wine", "coffee", "tea", "juice", "glass", "round",
-                          "rakija", "brandy", "lemonade", "soda"]),
+                          "rakija", "brandy", "lemonade", "soda", "macchiato", "espresso",
+                          "i'd like", "i would like", "i want", "order", "for me"]),
+        ("order food", ["dish", "recommend", "special", "eat", "salad", "soup", "paella", "meat",
+                        "fish", "chicken", "starter", "main course", "food", "beans", "stew"]),
         ("during the meal", ["delicious", "tasty", "another", "spoon", "fork", "spicy", "salt", "dessert"]),
         ("bill", ["bill", "check", "how much", "cost", "price", "pay", "card", "cash", "denar", "euro"]),
         ("leave", ["keep the change", "thank", "goodbye", "see you", "here you are"]),
@@ -610,13 +613,13 @@ SCENE_STAGES = {
 
 # What the partner should do at each stage (fed to the model every turn).
 STAFF_MOVES = {
-    "restaurant": ["greet them, offer a table and give them the menu",
-                   "if they asked for a recommendation, recommend one dish from the notes; if they "
-                   "ordered, repeat their order back as the waiter and ask what they would like to "
-                   "drink, like 'Great, one <their dish>. And to drink?' (do not ask what they "
-                   "want to eat again, and do not order anything yourself)",
-                   "repeat their order back and say it will come soon (do not ask about food or "
-                   "drinks again)",
+    "restaurant": ["greet them, offer a table and ask what they would like to drink",
+                   "if they ordered drinks, repeat their drink order back as the waiter and ask "
+                   "what they would like to eat, like 'Great, one <their drink>. And to eat?' (do "
+                   "not ask about drinks again, and do not order anything yourself); if they asked "
+                   "for a recommendation, recommend one item from the notes",
+                   "repeat their food order back and say it will come soon (do not ask about food "
+                   "or drinks again)",
                    "check that everything is fine and offer dessert or coffee",
                    "tell them the total of the bill (a made-up price is fine)",
                    "thank them and say goodbye"],

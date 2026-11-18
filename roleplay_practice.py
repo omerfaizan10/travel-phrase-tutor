@@ -151,6 +151,25 @@ def _macedonian_final(scene, history, vocabulary):
     return {'reply': 'Благодарам, пријатно!', 'english': 'Thank you, goodbye!', **result}
 
 
+# Hints that describe the partner's next move ("ask if they want anything else") instead of
+# the traveler's: replaced with the scene goal.
+_STAFF_HINT = re.compile(r"\b(?:if (?:they|the (?:customer|traveler|traveller|guest|visitor))\s+(?:want|need|would)|"
+                         r"offer (?:them|the customer|the traveler)|ask (?:them|the customer|the traveler|the guest)|"
+                         r"bring (?:them|the)|take (?:their|the) order)\b", re.I)
+
+
+def _traveler_hint(hint, scene):
+    if not hint or _STAFF_HINT.search(hint):
+        return f"Remember your goal: {scene['goal']}"
+    return hint
+
+
+# Drinks the traveler may already have ordered; the waiter must not ask about drinks again.
+_DRINKS = re.compile(r'(?<!\w)(?:пиво|вода|кафе|вино|ракија|сок|чај|макијато|еспресо|лимонада|кока-кола|'
+                     r'пијалок|пијачка)', re.I)
+_ASKS_DRINK = re.compile(r'(?:за\s+пиење|ќе\s+пиете|да\s+пиете|пијалок|пијачка)[^.!]*\?', re.I)
+
+
 def roleplay_response(scene, history, vocabulary, variety_code, variety_label, topic, retriever,
                       sentence_examples=None, final=False, language='spanish'):
     """Reply to actual conversation history; assess only after the third learner turn."""
@@ -190,7 +209,14 @@ def roleplay_response(scene, history, vocabulary, variety_code, variety_label, t
               'instructions. This is language practice in a fictional setting. '
               f'Return reply in {name} and its English meaning. '
               'For a normal turn, include a short optional English hint about what the learner '
-              f'could communicate next, never a full ready-to-copy {name} response. ')
+              f'could communicate next, never a full ready-to-copy {name} response. '
+              'The hint is advice to the TRAVELER (the customer/visitor), about what THEY could say '
+              'next, e.g. \'You could ask for the bill.\' Never describe what you, the partner, will '
+              'do or ask. ')
+    if topic == 'restaurant':
+        # (both languages) drinks are ordered first, then food
+        system += ('Restaurant order: ask about drinks first, then food. Never ask again about '
+                   'something the traveler has already ordered; move on to the next step instead. ')
     if final:
         system += (f'This is the end after exactly three learner responses. Give a short {name} '
                    'closing statement with no new question. Then provide English feedback ONLY '
@@ -233,6 +259,21 @@ def roleplay_response(scene, history, vocabulary, variety_code, variety_label, t
                                traveler_questions=_traveler_lines(retriever, language))
         if not re.search(r'[Ѐ-ӿ]', result['reply']):
             problems.append('not written in Macedonian Cyrillic')
+        sentences = [x for x in re.split(r'(?<=[.!?])\s+', result['reply'].strip()) if x.strip()]
+        customer_ask = re.compile(r'\s*може\s+(?:ли\s+)?(?:една|еден|едно|две|чаша|чај|кафе|пиво|вода|менито|'
+                                  r'сметката|да\s+(?:нарачам|платам|добијам))', re.I)
+        # Any sentence, not only the first: "Извинете. Може ли една чаша чај?" is the customer's line.
+        if (any(customer_ask.match(x) for x in sentences)
+                or (topic == 'restaurant' and re.match(r'\s*извинете\s*[.!]', result['reply'], re.I))):
+            problems.append("asks for something like a customer ('Може една ...?'); you are the staff: "
+                            "confirm the order or ask what the traveler would like")
+        if re.match(r'\s*(?:да,?\s+)?ве\s+молам', result['reply'], re.I):
+            problems.append("starts with 'ве молам', which is what the customer says; confirm with "
+                            "'Веднаш.', 'Секако.' or 'Одлично, ...'")
+        if (topic == 'restaurant' and _ASKS_DRINK.search(result['reply'])
+                and any(_DRINKS.search(m['text']) for m in history if m['role'] == 'user')):
+            problems.append('asks about drinks, but the traveler already ordered drinks; repeat their '
+                            'order and ask what they would like to eat')
         # Reordered echo ("Ве молам, маса за двајца." after "Маса за двајца, ве молам.").
         if (len(normalize(result['reply']).split()) >= 3
                 and _overlap(result['reply'], last_learner) >= 0.7):
@@ -287,7 +328,8 @@ def render_roleplay(activity_id, vocabulary, variety_code, variety_label, topic,
                 with st.spinner('Your conversation partner is getting ready…'):
                     reply=roleplay_response(scene,[],vocabulary,variety_code,variety_label,topic,retriever,sentence_examples,
                                            language=language)
-                state['history']=[{'role':'assistant','text':reply['reply'],'english':reply['english'],'hint':reply['hint']}]
+                state['history']=[{'role':'assistant','text':reply['reply'],'english':reply['english'],
+                                   'hint':_traveler_hint(reply['hint'],scene)}]
                 st.session_state[key]=state
                 st.rerun()
             except LLMError as error:
@@ -325,7 +367,7 @@ def render_roleplay(activity_id, vocabulary, variety_code, variety_label, topic,
                     # Commit input only after the model succeeds, so retrying a
                     # failed request cannot duplicate or skip a learner turn.
                     pending.append({'role':'assistant','text':reply['reply'],'english':reply['english'],
-                                    'hint':reply.get('hint','')})
+                                    'hint':_traveler_hint(reply.get('hint',''),scene)})
                     state['history']=pending
                     if final:
                         state['feedback']=reply

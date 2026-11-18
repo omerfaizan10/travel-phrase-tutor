@@ -17,7 +17,7 @@ The sidebar "Mode" is for the evaluation: "Full system" is the grounded,
 checked pipeline; "Prompt only" and "Baseline" are the comparison conditions.
 """
 
-from practice import vocabulary_activity, spanish_typing_activity, topic_sentences
+from practice import spanish_typing_activity, topic_sentences
 from spanish_practice import render_spanish_practice
 from sentence_practice import render_sentence_practice
 from roleplay_practice import render_roleplay
@@ -547,11 +547,12 @@ if "active_practice" in st.session_state:
     previous_minutes = sum(
         b['minutes'] for earlier in schedule['sessions'][:active['session']]
         for b in earlier['blocks'] if b['stage'] == 1 and b['topic'] == block['topic'])
-    activity = (spanish_typing_activity(get_retriever(), block['topic'], variety,
-                                        offset=previous_minutes // 2)
-                if prefs['language'] == 'spanish' else
-                vocabulary_activity(get_retriever(), prefs['language'], block['topic'],
-                                    variety, block['minutes'], offset=previous_minutes // 2))
+    # Cards and questions per activity follow the topic's share of the plan
+    # (the top-ranked topic gets 10 items and 5 questions; see practice.bank_size).
+    weights = schedule.get('topic_weights') or {}
+    share = (weights.get(block['topic'], 0) / max(weights.values())) if weights else 1.0
+    activity = spanish_typing_activity(get_retriever(), block['topic'], variety,
+                                       offset=previous_minutes // 2, share=share, language=language)
     st.divider()
     st.markdown(f"## Stage 1: {CALENDAR_TOPICS[block['topic']]}")
     st.write("Goal: learn useful words and expressions for this topic.")
@@ -559,82 +560,23 @@ if "active_practice" in st.session_state:
     if st.button("Close activity and return to calendar"):
         reset("active_practice")
         st.rerun()
-    if prefs['language'] == 'spanish':
-        study = st.session_state.get(f'es_study_{activity_id}', {})
-        if activity['phrases'] and study.get('index', 0) >= len(activity['phrases']):
-            banks = dict(st.session_state.get('studied_banks', {}))
-            banks[activity_id] = {'topic': block['topic'], 'variety': variety,
-                                  'phrases': [dict(p) for p in activity['phrases']]}
-            st.session_state.studied_banks = banks
-        result = render_spanish_practice(activity, activity_id)
-        if result is not None:
-            if st.button("Finish this practice", key=f"finish_spanish_{activity_id}"):
-                progress = dict(st.session_state.get("practice_progress", {}))
-                progress[activity_id] = {
-                    "stage": 1, "topic": block['topic'], "variety": variety,
-                    "date": session['date'], "result": result,
-                }
-                st.session_state.practice_progress = progress
-                reset("active_practice")
-                st.rerun()
-        st.caption("Progress is kept during this browser session, not across app restarts.")
-        st.stop()
-    # Existing Macedonian practice remains unchanged.
-    st.caption("Study the cards, then close them and try the meaning questions.")
-    if not activity['phrases']:
-        st.warning("There are no suitable short phrases for this topic and variety yet. "
-                   "Choose another available variety in your plan preferences.")
-        st.stop()
-    with st.expander("Study the vocabulary and expressions", expanded=True):
-        for i, phrase in enumerate(activity['phrases'], 1):
-            phrase_card(i, phrase)
-        st.caption("From: " + ", ".join(sorted({p['source'] for p in activity['phrases']})))
-    st.markdown("### Check your recall")
-    questions = activity['questions']
-    if questions:
-        with st.form(f"recall_{activity_id}"):
-            answers = []
-            for i, question in enumerate(questions):
-                answers.append(st.radio(f"What does ‘{question['phrase']}’ mean?",
-                                        question['options'], index=None,
-                                        key=f"answer_{activity_id}_{i}"))
-            submitted = st.form_submit_button("Check my answers")
-        if submitted:
-            if any(answer is None for answer in answers):
-                st.warning("Choose an answer for every question, then check again.")
-            else:
-                correct = sum(answer == q['answer'] for answer, q in zip(answers, questions))
-                results = dict(st.session_state.get("practice_results", {}))
-                results[activity_id] = {"correct": correct, "total": len(questions), "answers": answers}
-                st.session_state.practice_results = results
-        result = st.session_state.get("practice_results", {}).get(activity_id)
-        if result:
-            st.write(f"You matched {result['correct']} of {result['total']} meanings correctly.")
-            for answer, q in zip(result['answers'], questions):
-                if answer == q['answer']:
-                    st.success(f"{q['phrase']} — {q['answer']}")
-                else:
-                    st.info(f"Review: {q['phrase']} means {q['answer']}. You chose: {answer}")
-            st.caption("You can change your answers and try again. This check does not measure overall proficiency.")
-    else:
-        st.info("This bank does not have enough distinct meanings for a multiple-choice check. "
-                "Cover the meanings and recall them, then reopen the cards to check yourself.")
-    can_finish = not questions or activity_id in st.session_state.get("practice_results", {})
-    if can_finish and activity['phrases']:
-        # Like the Spanish study bank: once the cards are studied and checked, Stages 2
-        # and 3 for this topic build on exactly these phrases.
+    # Same typing practice for both languages (Macedonian accepts Cyrillic or Latin input).
+    study = st.session_state.get(f'es_study_{activity_id}', {})
+    if activity['phrases'] and study.get('studied_once'):
+        # Stages 2 and 3 for this topic build on exactly the items typed here.
         banks = dict(st.session_state.get('studied_banks', {}))
         banks[activity_id] = {'topic': block['topic'], 'variety': variety,
                               'phrases': [dict(p) for p in activity['phrases']]}
         st.session_state.studied_banks = banks
-    if st.button("Finish this practice", disabled=not can_finish):
-        progress = dict(st.session_state.get("practice_progress", {}))
-        progress[activity_id] = {
-            "stage": 1, "topic": block['topic'], "variety": variety,
-            "date": session['date'],
-            "result": st.session_state.get("practice_results", {}).get(activity_id),
-        }
-        st.session_state.practice_progress = progress
-        reset("active_practice")
-        st.rerun()
-    st.caption("Progress is kept during this browser session. It is not yet saved across app restarts.")
+    result = render_spanish_practice(activity, activity_id, language)
+    if result is not None:
+        if st.button("Finish this practice", key=f"finish_spanish_{activity_id}"):
+            progress = dict(st.session_state.get("practice_progress", {}))
+            progress[activity_id] = {
+                "stage": 1, "topic": block['topic'], "variety": variety,
+                "date": session['date'], "result": result,
+            }
+            st.session_state.practice_progress = progress
+            reset("active_practice")
+            st.rerun()
+    st.caption("Progress is kept during this browser session, not across app restarts.")
