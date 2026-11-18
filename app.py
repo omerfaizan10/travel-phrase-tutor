@@ -17,7 +17,7 @@ The sidebar "Mode" is for the evaluation: "Full system" is the grounded,
 checked pipeline; "Prompt only" and "Baseline" are the comparison conditions.
 """
 
-from practice import vocabulary_activity, spanish_typing_activity
+from practice import spanish_typing_activity, topic_sentences
 from spanish_practice import render_spanish_practice
 from sentence_practice import render_sentence_practice
 from roleplay_practice import render_roleplay
@@ -28,6 +28,7 @@ import streamlit as st
 
 from llm import LLMError
 from planner import GOAL_HINTS, MAX_DAYS, build_schedule, parse_timeline, plan_varieties, STAGE_NAMES
+from pronounce import say, transliterate
 from prompts import LANGUAGES, ROLEPLAY_PARTNER, SCENARIOS, TutorSettings
 from retriever import DEFAULT_VARIETY, LATIN_AMERICA, VARIETIES, Retriever
 from tutor import make_lesson, roleplay_turn, start_session, tutor_reply, wrong_language
@@ -107,6 +108,8 @@ h1, h2, h3 { font-family: var(--serif) !important; font-weight: 600 !important;
 .who-label { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin-bottom: .15rem; }
 .partner .line { font-family: var(--serif); font-size: 1.15rem; }
 .partner .tr { font-size: .85rem; color: var(--muted); margin-top: .2rem; }
+.bubble .pron { font-family: var(--mono); font-size: .78rem; color: var(--muted); margin-top: .1rem; }
+.chip .pron { font-family: var(--mono); font-size: .74rem; color: var(--muted); }
 .vocab { margin-top: .5rem; font-size: .82rem; }
 .vocab b { font-family: var(--serif); font-weight: 600; }
 .chip { display: inline-block; background: var(--accent-soft); border-radius: 3px; padding: 1px 7px;
@@ -209,6 +212,15 @@ def phrase_card(i, p):
          f'{pron}<div class="m">{escape(p["meaning"])}</div>{who}</div>')
 
 
+def pron_lines(text):
+    """Transliteration + "say:" guide under a Macedonian line ("" for other languages)."""
+    guide = say(text)
+    if not guide:
+        return ""
+    return (f'<div class="pron">{escape(transliterate(text))}</div>'
+            f'<div class="pron" title="Capitals mark the stressed syllable">say: {escape(guide)}</div>')
+
+
 def partner_bubble(t, partner):
     # The translation is model-written (not from the notes), so it is marked as approximate.
     tr = (f'<div class="tr" title="Approximate translation by the model; the vocabulary '
@@ -217,15 +229,18 @@ def partner_bubble(t, partner):
     vocab = ""
     if t.get("vocab"):
         vocab = '<div class="vocab"><span class="quiet">In this line: </span>' + "".join(
-            f'<span class="chip"><b>{escape(v["text"])}</b> &nbsp;{escape(v["meaning"])}</span>'
+            f'<span class="chip"><b>{escape(v["text"])}</b>'
+            + (f' <span class="pron">{escape(v.get("say") or say(v["text"]))}</span>'
+               if v.get("say") or say(v["text"]) else "")
+            + f' &nbsp;{escape(v["meaning"])}</span>'
             for v in t["vocab"]) + "</div>"
     tip = f'<div class="tipline">{escape(t["tip"])}</div>' if t.get("tip") else ""
     html(f'<div class="bubble partner"><div class="who-label">{escape(partner)}</div>'
-         f'<div class="line">{escape(t["reply"])}</div>{tr}{vocab}{tip}</div>')
+         f'<div class="line">{escape(t["reply"])}</div>{pron_lines(t["reply"])}{tr}{vocab}{tip}</div>')
 
 
 def my_bubble(text):
-    html(f'<div class="bubble me"><div class="who-label">You</div>{escape(text)}</div>')
+    html(f'<div class="bubble me"><div class="who-label">You</div>{escape(text)}{pron_lines(text)}</div>')
 
 
 # --- Masthead + sidebar ----------------------------------------------------------
@@ -412,7 +427,8 @@ if "active_practice" not in st.session_state:
     st.write(f"{lang_label} · {prefs['minutes']} minutes per session · "
              f"Departure: {schedule['departure_date']}")
     st.caption("Open a Stage 1 activity to study and check your recall. "
-               "Spanish sentence building and roleplay are available in Stages 2 and 3. Stage switching is coming next.")
+               "Sentence building (Stage 2) and roleplay (Stage 3) use the vocabulary you studied "
+               "in Stage 1 for the same topic. Stage switching is coming next.")
     for index, session in enumerate(schedule['sessions'], 1):
         day = date.fromisoformat(session['date'])
         heading = f"Session {index} · {day.strftime('%A, %b %d, %Y')} · {session['minutes']} minutes"
@@ -423,7 +439,7 @@ if "active_practice" not in st.session_state:
                 st.write(f"Stage {block['stage']}: {block['stage_name']} · "
                          f"{CALENDAR_TOPICS[block['topic']]}{' · ' + where.strip() if where else ''}"
                          f" · {block['minutes']} min")
-                if block['stage'] == 1 or (block['stage'] in (2, 3) and prefs['language'] == 'spanish'):
+                if block['stage'] in (1, 2, 3):
                     activity_id = f"{session['date']}_{block['stage']}_{block['topic']}_{used}"
                     done = activity_id in st.session_state.get("practice_progress", {})
                     start_label = {1: "Start vocabulary practice", 2: "Start sentence practice", 3: "Start roleplay"}[block["stage"]]
@@ -449,9 +465,14 @@ if "active_practice" in st.session_state:
     block = calendar_blocks(session, schedule)[active['block']]
     activity_id = active['id']
     variety = block['variety'] or DEFAULT_VARIETY[prefs['language']]
-    if block['stage'] == 3 and prefs['language'] == 'spanish':
+    language = prefs['language']
+    # Stages 2 and 3 share one structure for both languages; only Spanish has varieties.
+    variety_caption = (f"Spanish variety: {variety_name(variety)}. Practice minutes are flexible."
+                       if language == 'spanish' else "Practice minutes are flexible.")
+    bank_label = "this topic and Spanish variety" if language == 'spanish' else "this topic"
+    if block['stage'] == 3:
         st.markdown(f"## Stage 3: {CALENDAR_TOPICS[block['topic']]}")
-        st.caption(f"Spanish variety: {variety_name(variety)}. Practice minutes are flexible.")
+        st.caption(variety_caption)
         if st.button("Close activity and return to calendar"):
             reset("active_practice")
             st.rerun()
@@ -463,17 +484,17 @@ if "active_practice" in st.session_state:
                         vocabulary.append(phrase)
                         seen.add(phrase['text'])
         if not vocabulary:
-            st.info("Complete the Stage 1 study typing for this topic and Spanish variety first. "
+            st.info(f"Complete a Stage 1 activity for {bank_label} first. "
                     "The roleplay will use your studied vocabulary.")
             st.stop()
         examples = []
         for completed in st.session_state.get("practice_progress", {}).values():
             if (completed['stage'] == 2 and completed['topic'] == block['topic']
                 and completed['variety'] == variety):
-                examples.extend({'english': row['english'], 'spanish': row['reference']}
+                examples.extend({'english': row['english'], language: row['reference']}
                                 for row in completed.get('result', {}).get('records', []))
         result = render_roleplay(activity_id, vocabulary, variety, variety_name(variety),
-                                 block['topic'], get_retriever(), examples[-10:])
+                                 block['topic'], get_retriever(), examples[-10:], language=language)
         if result is not None:
             # Save every finished scenario, even when the learner continues.
             progress = dict(st.session_state.get("practice_progress", {}))
@@ -485,9 +506,9 @@ if "active_practice" in st.session_state:
                 st.rerun()
         st.caption("Progress is kept during this browser session, not across app restarts.")
         st.stop()
-    if block['stage'] == 2 and prefs['language'] == 'spanish':
+    if block['stage'] == 2:
         st.markdown(f"## Stage 2: {CALENDAR_TOPICS[block['topic']]}")
-        st.caption(f"Spanish variety: {variety_name(variety)}. Practice minutes are flexible.")
+        st.caption(variety_caption)
         if st.button("Close activity and return to calendar"):
             reset("active_practice")
             st.rerun()
@@ -503,10 +524,14 @@ if "active_practice" in st.session_state:
                     vocabulary.append(phrase)
                     seen.add(phrase['text'])
         if not vocabulary:
-            st.info("Complete the study typing for a Stage 1 activity in this topic and Spanish "
-                    "variety first. Stage 2 will use that vocabulary.")
+            st.info(f"Complete a Stage 1 activity for {bank_label} first. "
+                    "Stage 2 will use that vocabulary.")
             st.stop()
-        result = render_sentence_practice(activity_id, vocabulary, variety_name(variety), block['topic'])
+        # Macedonian: give the model checked sentences from the topic notes to build from.
+        reference = (topic_sentences(get_retriever(), language, block['topic'], variety)
+                     if language == 'macedonian' else None)
+        result = render_sentence_practice(activity_id, vocabulary, variety_name(variety), block['topic'],
+                                          language, reference)
         if result is not None:
             if st.button("Finish this sentence practice", key=f"finish_sentences_{activity_id}"):
                 progress = dict(st.session_state.get("practice_progress", {}))
@@ -522,11 +547,12 @@ if "active_practice" in st.session_state:
     previous_minutes = sum(
         b['minutes'] for earlier in schedule['sessions'][:active['session']]
         for b in earlier['blocks'] if b['stage'] == 1 and b['topic'] == block['topic'])
-    activity = (spanish_typing_activity(get_retriever(), block['topic'], variety,
-                                        offset=previous_minutes // 2)
-                if prefs['language'] == 'spanish' else
-                vocabulary_activity(get_retriever(), prefs['language'], block['topic'],
-                                    variety, block['minutes'], offset=previous_minutes // 2))
+    # Cards and questions per activity follow the topic's share of the plan
+    # (the top-ranked topic gets 10 items and 5 questions; see practice.bank_size).
+    weights = schedule.get('topic_weights') or {}
+    share = (weights.get(block['topic'], 0) / max(weights.values())) if weights else 1.0
+    activity = spanish_typing_activity(get_retriever(), block['topic'], variety,
+                                       offset=previous_minutes // 2, share=share, language=language)
     st.divider()
     st.markdown(f"## Stage 1: {CALENDAR_TOPICS[block['topic']]}")
     st.write("Goal: learn useful words and expressions for this topic.")
@@ -534,75 +560,23 @@ if "active_practice" in st.session_state:
     if st.button("Close activity and return to calendar"):
         reset("active_practice")
         st.rerun()
-    if prefs['language'] == 'spanish':
-        study = st.session_state.get(f'es_study_{activity_id}', {})
-        if activity['phrases'] and study.get('index', 0) >= len(activity['phrases']):
-            banks = dict(st.session_state.get('studied_banks', {}))
-            banks[activity_id] = {'topic': block['topic'], 'variety': variety,
-                                  'phrases': [dict(p) for p in activity['phrases']]}
-            st.session_state.studied_banks = banks
-        result = render_spanish_practice(activity, activity_id)
-        if result is not None:
-            if st.button("Finish this practice", key=f"finish_spanish_{activity_id}"):
-                progress = dict(st.session_state.get("practice_progress", {}))
-                progress[activity_id] = {
-                    "stage": 1, "topic": block['topic'], "variety": variety,
-                    "date": session['date'], "result": result,
-                }
-                st.session_state.practice_progress = progress
-                reset("active_practice")
-                st.rerun()
-        st.caption("Progress is kept during this browser session, not across app restarts.")
-        st.stop()
-    # Existing Macedonian practice remains unchanged.
-    st.caption("Study the cards, then close them and try the meaning questions.")
-    if not activity['phrases']:
-        st.warning("There are no suitable short phrases for this topic and variety yet. "
-                   "Choose another available variety in your plan preferences.")
-        st.stop()
-    with st.expander("Study the vocabulary and expressions", expanded=True):
-        for i, phrase in enumerate(activity['phrases'], 1):
-            phrase_card(i, phrase)
-        st.caption("From: " + ", ".join(sorted({p['source'] for p in activity['phrases']})))
-    st.markdown("### Check your recall")
-    questions = activity['questions']
-    if questions:
-        with st.form(f"recall_{activity_id}"):
-            answers = []
-            for i, question in enumerate(questions):
-                answers.append(st.radio(f"What does ‘{question['phrase']}’ mean?",
-                                        question['options'], index=None,
-                                        key=f"answer_{activity_id}_{i}"))
-            submitted = st.form_submit_button("Check my answers")
-        if submitted:
-            if any(answer is None for answer in answers):
-                st.warning("Choose an answer for every question, then check again.")
-            else:
-                correct = sum(answer == q['answer'] for answer, q in zip(answers, questions))
-                results = dict(st.session_state.get("practice_results", {}))
-                results[activity_id] = {"correct": correct, "total": len(questions), "answers": answers}
-                st.session_state.practice_results = results
-        result = st.session_state.get("practice_results", {}).get(activity_id)
-        if result:
-            st.write(f"You matched {result['correct']} of {result['total']} meanings correctly.")
-            for answer, q in zip(result['answers'], questions):
-                if answer == q['answer']:
-                    st.success(f"{q['phrase']} — {q['answer']}")
-                else:
-                    st.info(f"Review: {q['phrase']} means {q['answer']}. You chose: {answer}")
-            st.caption("You can change your answers and try again. This check does not measure overall proficiency.")
-    else:
-        st.info("This bank does not have enough distinct meanings for a multiple-choice check. "
-                "Cover the meanings and recall them, then reopen the cards to check yourself.")
-    can_finish = not questions or activity_id in st.session_state.get("practice_results", {})
-    if st.button("Finish this practice", disabled=not can_finish):
-        progress = dict(st.session_state.get("practice_progress", {}))
-        progress[activity_id] = {
-            "stage": 1, "topic": block['topic'], "variety": variety,
-            "date": session['date'],
-            "result": st.session_state.get("practice_results", {}).get(activity_id),
-        }
-        st.session_state.practice_progress = progress
-        reset("active_practice")
-        st.rerun()
-    st.caption("Progress is kept during this browser session. It is not yet saved across app restarts.")
+    # Same typing practice for both languages (Macedonian accepts Cyrillic or Latin input).
+    study = st.session_state.get(f'es_study_{activity_id}', {})
+    if activity['phrases'] and study.get('studied_once'):
+        # Stages 2 and 3 for this topic build on exactly the items typed here.
+        banks = dict(st.session_state.get('studied_banks', {}))
+        banks[activity_id] = {'topic': block['topic'], 'variety': variety,
+                              'phrases': [dict(p) for p in activity['phrases']]}
+        st.session_state.studied_banks = banks
+    result = render_spanish_practice(activity, activity_id, language)
+    if result is not None:
+        if st.button("Finish this practice", key=f"finish_spanish_{activity_id}"):
+            progress = dict(st.session_state.get("practice_progress", {}))
+            progress[activity_id] = {
+                "stage": 1, "topic": block['topic'], "variety": variety,
+                "date": session['date'], "result": result,
+            }
+            st.session_state.practice_progress = progress
+            reset("active_practice")
+            st.rerun()
+    st.caption("Progress is kept during this browser session, not across app restarts.")

@@ -210,7 +210,7 @@ Use the polite form (Вие, "ve molam") with waiters and staff. "Пријатн
 
 ## Kafana: Dialogue 1: Getting a table and asking for a recommendation
 - Добра вечер. Имате ли слободна маса за двајца? [Dobra vecher. Imate li slobodna masa za dvajca?] [DO-bra VE-cher. ee-MA-te lee SLO-bod-na MA-sa za DVAY-tsa?] = Good evening. Do you have a free table for two?
-- Келнерот: Да, повелете. Сакате внатре или на тераса? [Da, povelete. Sakate vnatre ili na terasa?] [da, po-VE-le-te. SA-ka-te VNA-tre EE-lee na TE-ra-sa?] = Waiter: Yes, please. Would you like inside or on the terrace?
+- Келнерот: Да, повелете. Сакате внатре или на тераса? [Da, povelete. Sakate vnatre ili na terasa?] [DA, po-VE-le-te. SA-ka-te VNA-tre EE-lee na TE-ra-sa?] = Waiter: Yes, please. Would you like inside or on the terrace?
 - На тераса, ве молам. [Na terasa, ve molam.] [na TE-ra-sa, VE mo-lam.] = On the terrace, please.
 - Што е специјалитет на куќата? [Shto e specijalitet na kukjata?] [SHTO e spe-tsee-YA-lee-tet na KOO-kya-ta?] = What is the house specialty?
 - Келнерот: Селско месо во тава. Многу е вкусно. [Selsko meso vo tava. Mnogu e vkusno.] [SEL-sko ME-so vo TA-va. MNO-goo e VKOOS-no.] = Waiter: Village meat in a clay pot. It's very tasty.
@@ -229,7 +229,7 @@ Use the polite form (Вие, "ve molam") with waiters and staff. "Пријатн
 - Извинете, може ли сметката? [Izvinete, mozhe li smetkata?] [eez-VEE-ne-te, MO-zhe lee SMET-ka-ta?] = Excuse me, can we have the bill?
 - Келнерот: Веднаш. Заедно или одделно? [Vednash. Zaedno ili oddelno?] [VED-nash. ZA-ed-no EE-lee OD-del-no?] = Waiter: Right away. Together or separately?
 - Заедно. Може ли со картичка? [Zaedno. Mozhe li so kartichka?] [ZA-ed-no. MO-zhe lee so KAR-teech-ka?] = Together. Can I pay by card?
-- Келнерот: Да, може. [Da, mozhe.] [da, MO-zhe.] = Waiter: Yes, you can.
+- Келнерот: Да, може. [Da, mozhe.] [DA, MO-zhe.] = Waiter: Yes, you can.
 - Сè беше многу вкусно. Благодарам! [Se beshe mnogu vkusno. Blagodaram!] [Sè BE-she MNO-goo VKOOS-no. bla-GO-da-ram!] = Everything was very tasty. Thank you!
 - Келнерот: Благодарам и вам. Повелете пак! [Blagodaram i vam. Povelete pak!] [bla-GO-da-ram ee VAM. po-VE-le-te PAK!] = Waiter: Thank you too. Come again!
 

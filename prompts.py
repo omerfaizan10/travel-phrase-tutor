@@ -107,6 +107,10 @@ LANGUAGE_RULES = {
         "- каде means WHERE and is only for places. To ask what someone wants use Што: "
         "'Што сакате за јадење?', 'Што сакате за пиење?', 'Што ќе порачате?'. To offer help say "
         "'Повелете' or 'Како можам да ви помогнам?' (never 'Каде ви помагам?').\n"
+        "- More Macedonian forms: слатко / слатка (not сладко / сладка), храна (not страва), "
+        "англиски (not английски), кажи ми / кажете ми (never 'кај ми').\n"
+        "- 'Ве молам' is what the customer says. Staff confirm with 'Веднаш.', 'Секако.' or "
+        "'Одлично, ...', never 'Да, ве молам'.\n"
     ),
 }
 

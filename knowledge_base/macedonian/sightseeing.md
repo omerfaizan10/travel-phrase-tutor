@@ -136,7 +136,7 @@ The country is small: most places are two to three hours by car or bus from Skop
 - Извинете, што да видам во Битола за еден ден? [Izvinete, shto da vidam vo Bitola za eden den?] [eez-VEE-ne-te, SHTO da VEE-dam vo BEE-to-la za E-den DEN?] = Excuse me, what should I see in Bitola in one day?
 - Битолчанката: Прошетајте по Широк сокак и испијте кафе. Потоа одете во Хераклеја, близу е. [Proshetajte po Shirok sokak i ispijte kafe. Potoa odete vo Herakleja, blizu e.] [pro-SHE-tay-te po SHEE-rok SO-kak ee EES-peey-te KA-fe. PO-to-a O-de-te vo he-RA-kle-ya, BLEE-zoo e.] = Local woman: Walk along Shirok Sokak and have a coffee. Then go to Heraclea, it's close.
 - Може ли пешки до таму? [Mozhe li peshki do tamu?] [MO-zhe lee PESH-kee do TA-moo?] = Can I walk there?
-- Битолчанката: Да, околу дваесет минути пешки. [Da, okolu dvaeset minuti peshki.] [da, O-ko-loo DVA-e-set MEE-noo-tee PESH-kee.] = Local woman: Yes, about twenty minutes on foot.
+- Битолчанката: Да, околу дваесет минути пешки. [Da, okolu dvaeset minuti peshki.] [DA, O-ko-loo DVA-e-set MEE-noo-tee PESH-kee.] = Local woman: Yes, about twenty minutes on foot.
 - А Пелистер? [A Pelister?] [a PE-lees-ter?] = And Pelister?
 - Битолчанката: За Пелистер ви треба цел ден. Одете рано наутро. [Za Pelister vi treba cel den. Odete rano nautro.] [za PE-lees-ter VEE tre-ba TSEL DEN. O-de-te RA-no NA-oo-tro.] = Local woman: For Pelister you need a whole day. Go early in the morning.
 - Благодарам многу! [Blagodaram mnogu!] [bla-GO-da-ram MNO-goo!] = Thank you very much!
@@ -180,7 +180,7 @@ People in Bitola are proud of their town's history and its "korzo" culture: in t
 - Од која година е ова вино? [Od koja godina e ova vino?] [od KO-ya GO-dee-na e O-va VEE-no?] = What year is this wine from?
 - Водичот: Од 2020 година. Пробајте. [Od 2020 godina. Probajte.] [od 2020 GO-dee-na. PRO-bay-te.] = Guide: From 2020. Try it.
 - Многу е добро! Дали имате и бело вино? [Mnogu e dobro! Dali imate i belo vino?] [MNO-goo e DO-bro! DA-lee EE-ma-te ee BE-lo VEE-no?] = It's very good! Do you also have white wine?
-- Водичот: Да, Темјаника. Таа е лесна и мирисна. [Da, Temjanika. Taa e lesna i mirisna.] [da, tem-YA-nee-ka. TA-a e LES-na ee MEE-rees-na.] = Guide: Yes, Temjanika. It's light and aromatic.
+- Водичот: Да, Темјаника. Таа е лесна и мирисна. [Da, Temjanika. Taa e lesna i mirisna.] [DA, tem-YA-nee-ka. TA-a e LES-na ee MEE-rees-na.] = Guide: Yes, Temjanika. It's light and aromatic.
 - Би сакал да купам две шишиња Вранец. [Bi sakal da kupam dve shishinja Vranec.] [BEE sa-kal da KOO-pam DVE SHEE-shee-nya VRA-nets.] = I would like to buy two bottles of Vranec.
 - Водичот: Повелете. На здравје! [Povelete. Na zdravje!] [po-VE-le-te. na ZDRAV-ye!] = Guide: Here you go. Cheers!
 
@@ -218,7 +218,7 @@ Wine making in Tikvesh is a family tradition, and many families still make homem
 
 ## Things to do: Sample dialogue
 - Добар ден. Дали има брод до Св. Наум денес? [Dobar den. Dali ima brod do Sv. Naum denes?] [DO-bar DEN. DA-lee EE-ma BROD do SV. NA-oom DE-nes?] = Hello. Is there a boat to St. Naum today?
-- Продавачот: Да, бродот тргнува во десет часот. [Da, brodot trgnuva vo deset chasot.] [da, BRO-dot TRG-noo-va vo DE-set CHA-sot.] = Seller: Yes, the boat leaves at ten o'clock.
+- Продавачот: Да, бродот тргнува во десет часот. [Da, brodot trgnuva vo deset chasot.] [DA, BRO-dot TRG-noo-va vo DE-set CHA-sot.] = Seller: Yes, the boat leaves at ten o'clock.
 - Колку чини билетот? [Kolku chini biletot?] [KOL-koo CHEE-nee BEE-le-tot?] = How much is the ticket?
 - Продавачот: Петстотини денари, во двата правци. [Petstotini denari, vo dvata pravci.] [pet-STO-tee-nee DE-na-ree, vo DVA-ta PRAV-tsee.] = Seller: Five hundred denars, return.
 - Колку трае патувањето? [Kolku trae patuvanjeto?] [KOL-koo TRA-e pa-too-VA-nye-to?] = How long is the trip?
