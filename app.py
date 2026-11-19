@@ -117,6 +117,26 @@ h1, h2, h3 { font-family: var(--serif) !important; font-weight: 600 !important;
         margin: 2px 4px 2px 0; }
 .tipline { font-size: .82rem; color: var(--muted); margin-top: .45rem; font-style: italic; }
 
+/* Calendar progress (update 4) */
+.next-label { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent);
+              font-weight: 600; }
+.next-title { font-family: var(--serif); font-size: 1.1rem; }
+[class*="st-key-next_lesson"] { border: 2px solid var(--accent) !important; background: var(--card); }
+.progress-line { display: flex; justify-content: space-between; font-size: .85rem; margin-top: .8rem; }
+/* The practice bar stays one row on narrow screens (Streamlit stacks columns below 640px). */
+[class*="st-key-practice_nav"] [data-testid="stHorizontalBlock"] { flex-wrap: nowrap !important; gap: .5rem; }
+[class*="st-key-practice_nav"] [data-testid="stColumn"] { min-width: max-content !important;
+                                                          width: auto !important; flex: 0 0 auto !important; }
+[class*="st-key-practice_nav"] [data-testid="stColumn"]:nth-child(2) { min-width: 0 !important;
+                                                                        flex: 1 1 0 !important; }
+[class*="st-key-practice_nav"] .stButton > button { padding: .3rem .6rem; white-space: nowrap;
+                                                    width: max-content; }
+.nav-chips { display: flex; gap: 6px; flex-wrap: wrap; margin: .4rem 0 1rem; }
+.nav-chips span { font-size: .72rem; padding: 2px 9px; border-radius: 10px; border: 1px solid var(--line);
+                  color: var(--muted); }
+.nav-chips .dn { background: #E4EDDA; border-color: #E4EDDA; color: #27500A; }
+.nav-chips .cu { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
 /* Preferences chat */
 .chk { display: grid; grid-template-columns: 10.5rem 1fr; gap: .1rem .8rem; font-size: .88rem; margin-top: .35rem; }
 .chk .k { color: var(--muted); }
@@ -462,6 +482,83 @@ def chat_preferences_screen():
                    "You can change or restart your preferences at any time.")
 
 
+# --- Calendar progress and navigation (update 4) -----------------------------------
+START_LABELS = {1: "Start vocabulary practice", 2: "Start sentence practice", 3: "Start roleplay"}
+
+
+def plan_activities(schedule):
+    """Every activity of the plan in calendar order (one per merged calendar block)."""
+    activities = []
+    for s_index, session in enumerate(schedule["sessions"]):
+        for b_index, block in enumerate(calendar_blocks(session, schedule)):
+            activities.append({
+                "id": f"{session['date']}_{block['stage']}_{block['topic']}_{block['variety']}",
+                "session": s_index, "block": b_index, "date": session["date"],
+                "stage": block["stage"], "topic": block["topic"], "variety": block["variety"],
+                "minutes": block["minutes"]})
+    return activities
+
+
+def done_ids():
+    return set(st.session_state.get("practice_progress", {}))
+
+
+def next_activity(activities, done):
+    """The first activity in calendar order that is not complete (None when all are)."""
+    return next((a for a in activities if a["id"] not in done), None)
+
+
+def activity_label(a, language):
+    where = f" · {variety_name(a['variety'])}" if language == "spanish" and a["variety"] else ""
+    return f"{LESSON_TYPES[a['stage']][0]} · {CALENDAR_TOPICS[a['topic']]}{where} · {a['minutes']} min"
+
+
+def open_activity(a):
+    st.session_state.active_practice = {"id": a["id"], "session": a["session"], "block": a["block"]}
+    st.rerun()
+
+
+def record_progress(activity_id, block, variety, date_text, result):
+    """Mark an activity complete as soon as it has a result, so leaving it with Next,
+    Previous or Calendar (instead of a Finish button) still counts."""
+    progress = dict(st.session_state.get("practice_progress", {}))
+    progress[activity_id] = {"stage": block["stage"], "topic": block["topic"], "variety": variety,
+                             "date": date_text, "result": result}
+    st.session_state.practice_progress = progress
+
+
+def practice_nav(activities, activity_id, language):
+    """The bar at the top of every practice: back to the calendar, where you are,
+    and the previous / next activity in the plan (across sessions)."""
+    done = done_ids()
+    i = next(n for n, a in enumerate(activities) if a["id"] == activity_id)
+    here = activities[i]
+    in_session = [a for a in activities if a["session"] == here["session"]]
+    with st.container(border=True, key="practice_nav"):
+        back, where, prev_col, next_col = st.columns([1.3, 2.4, 1.2, 1.1], vertical_alignment="center")
+        if back.button("← Calendar", key="nav_calendar", help="Back to your calendar"):
+            reset("active_practice")
+            st.rerun()
+        where.markdown(f"**Session {here['session'] + 1}** · activity {in_session.index(here) + 1} "
+                       f"of {len(in_session)}")
+        before = activities[i - 1] if i > 0 else None
+        after = activities[i + 1] if i + 1 < len(activities) else None
+        if prev_col.button("‹ Previous", key="nav_prev", disabled=before is None,
+                           help=activity_label(before, language) if before else None):
+            open_activity(before)
+        if next_col.button("Next ›", key="nav_next", disabled=after is None,
+                           help=activity_label(after, language) if after else None):
+            open_activity(after)
+    chips = "".join(
+        f'<span class="{"cu" if a["id"] == activity_id else "dn" if a["id"] in done else ""}">'
+        f'{"✓ " if a["id"] in done and a["id"] != activity_id else ""}'
+        f'{escape(LESSON_TYPES[a["stage"]][0])} · {escape(CALENDAR_TOPICS[a["topic"]])}</span>'
+        for a in in_session)
+    if here["session"] + 1 < len({a["session"] for a in activities}):
+        chips += f'<span>Session {here["session"] + 2} ›</span>'
+    html(f'<div class="nav-chips">{chips}</div>')
+
+
 # --- Masthead + sidebar ----------------------------------------------------------
 html('<div class="masthead"><div class="wordmark">Travel Phrase <span>Tutor</span></div>'
      '<div class="tagline">Español · Македонски · runs on your laptop</div></div>')
@@ -674,28 +771,58 @@ if "active_practice" not in st.session_state:
                    "same topic. Stage switching is coming next.")
     else:
         st.caption("Open a vocabulary activity to study and check your recall.")
+    # Progress, the next lesson, and each session's state. Only the session that holds
+    # the next lesson is open; complete sessions show a check.
+    activities = plan_activities(schedule)
+    done = done_ids()
+    upcoming = next_activity(activities, done)
+    n_sessions = len(schedule['sessions'])
+    complete = [all(a["id"] in done for a in activities if a["session"] == i) for i in range(n_sessions)]
+    html(f'<div class="progress-line"><span>{sum(complete)} of {n_sessions} sessions complete</span>'
+         f'<span class="quiet">{round(100 * sum(complete) / n_sessions)}%</span></div>')
+    st.progress(sum(complete) / n_sessions)
+    if upcoming:
+        day = date.fromisoformat(upcoming["date"])
+        with st.container(border=True, key="next_lesson"):
+            text_col, button_col = st.columns([4, 1.3], vertical_alignment="center")
+            text_col.markdown(
+                f'<div class="next-label">Next lesson</div>'
+                f'<div class="next-title">Session {upcoming["session"] + 1} · '
+                f'{escape(LESSON_TYPES[upcoming["stage"]][0])} · {escape(CALENDAR_TOPICS[upcoming["topic"]])}</div>'
+                f'<div class="quiet">{day.strftime("%A, %b %d")} · {upcoming["minutes"]} min</div>',
+                unsafe_allow_html=True)
+            if button_col.button("Continue", type="primary", key="continue_next",
+                                 use_container_width=True):
+                open_activity(upcoming)
+    else:
+        st.success("You completed every session in this plan. You can practice any activity again.")
     for index, session in enumerate(schedule['sessions'], 1):
         day = date.fromisoformat(session['date'])
-        heading = f"Session {index} · {day.strftime('%A, %b %d, %Y')} · {session['minutes']} minutes"
-        with st.expander(heading, expanded=index == 1):
-            for block_index, block in enumerate(calendar_blocks(session, schedule)):
-                used = block["variety"]
-                where = f"{variety_name(used)} " if prefs['language'] == "spanish" and used else ""
-                st.write(f"Stage {block['stage']}: {block['stage_name']} · "
-                         f"{CALENDAR_TOPICS[block['topic']]}{' · ' + where.strip() if where else ''}"
-                         f" · {block['minutes']} min")
-                if block['stage'] in (1, 2, 3):
-                    activity_id = f"{session['date']}_{block['stage']}_{block['topic']}_{used}"
-                    done = activity_id in st.session_state.get("practice_progress", {})
-                    start_label = {1: "Start vocabulary practice", 2: "Start sentence practice", 3: "Start roleplay"}[block["stage"]]
-                    if st.button("Practice again" if done else start_label,
-                                 key=f"practice_{activity_id}"):
-                        st.session_state.active_practice = {
-                            "id": activity_id, "session": index - 1, "block": block_index,
-                        }
-                        st.rerun()
-                    if done:
-                        st.caption("Practice completed — you can revisit it at any time.")
+        mine = [a for a in activities if a["session"] == index - 1]
+        finished = sum(a["id"] in done for a in mine)
+        if complete[index - 1]:
+            state, icon = "Complete", ":material/check_circle:"
+        elif upcoming and upcoming["session"] == index - 1:
+            state, icon = f"In progress · {finished} of {len(mine)}", ":material/play_circle:"
+        elif finished:
+            state, icon = f"{finished} of {len(mine)} done", ":material/timelapse:"
+        else:
+            state, icon = "Upcoming", ":material/radio_button_unchecked:"
+        heading = f"Session {index} · {day.strftime('%a, %b %d')} · {session['minutes']} min · {state}"
+        with st.expander(heading, icon=icon,
+                         expanded=bool(upcoming) and upcoming["session"] == index - 1):
+            for a in mine:
+                is_done, is_next = a["id"] in done, upcoming is not None and a["id"] == upcoming["id"]
+                mark = (":green[:material/check_circle:]" if is_done else
+                        ":orange[:material/play_circle:]" if is_next else
+                        ":gray[:material/radio_button_unchecked:]")
+                text_col, button_col = st.columns([5, 2.2], vertical_alignment="center")
+                text_col.markdown(f"{mark} {'**' if is_next else ''}{activity_label(a, prefs['language'])}"
+                                  f"{'**' if is_next else ''}")
+                if button_col.button("Practice again" if is_done else START_LABELS[a["stage"]],
+                                     key=f"practice_{a['id']}", type="primary" if is_next else "secondary",
+                                     use_container_width=True):
+                    open_activity(a)
             st.caption("Minutes are pacing suggestions; they do not measure mastery.")
     if st.button("Start a new plan",
                  help="This plan is approved and locked. Start a new plan from new preferences."):
@@ -721,12 +848,10 @@ if "active_practice" in st.session_state:
     topic_weights = schedule.get('topic_weights') or {}
     topic_share = (topic_weights.get(block['topic'], 0) / max(topic_weights.values())
                    if topic_weights else 1.0)
+    practice_nav(plan_activities(schedule), activity_id, language)
     if block['stage'] == 3:
         st.markdown(f"## Stage 3: {CALENDAR_TOPICS[block['topic']]}")
         st.caption(variety_caption)
-        if st.button("Close activity and return to calendar"):
-            reset("active_practice")
-            st.rerun()
         vocabulary = topic_vocabulary(block['topic'], variety)
         if not vocabulary and 1 not in plan_stages:
             word_list_first(block['topic'], variety, language, topic_share)
@@ -744,10 +869,7 @@ if "active_practice" in st.session_state:
                                  block['topic'], get_retriever(), examples[-10:], language=language)
         if result is not None:
             # Save every finished scenario, even when the learner continues.
-            progress = dict(st.session_state.get("practice_progress", {}))
-            progress[activity_id] = {"stage": 3, "topic": block['topic'], "variety": variety,
-                                     "date": session['date'], "result": result}
-            st.session_state.practice_progress = progress
+            record_progress(activity_id, block, variety, session['date'], result)
             if st.button("Finish roleplay and return to calendar", key=f"finish_roleplay_{activity_id}"):
                 reset("active_practice")
                 st.rerun()
@@ -756,9 +878,6 @@ if "active_practice" in st.session_state:
     if block['stage'] == 2:
         st.markdown(f"## Stage 2: {CALENDAR_TOPICS[block['topic']]}")
         st.caption(variety_caption)
-        if st.button("Close activity and return to calendar"):
-            reset("active_practice")
-            st.rerun()
         # Use snapshots of the vocabulary the learner actually typed three times (or, in a
         # plan without vocabulary lessons, the word list they read), not a presumed list.
         vocabulary = topic_vocabulary(block['topic'], variety)
@@ -774,13 +893,8 @@ if "active_practice" in st.session_state:
         result = render_sentence_practice(activity_id, vocabulary, variety_name(variety), block['topic'],
                                           language, reference)
         if result is not None:
+            record_progress(activity_id, block, variety, session['date'], result)
             if st.button("Finish this sentence practice", key=f"finish_sentences_{activity_id}"):
-                progress = dict(st.session_state.get("practice_progress", {}))
-                progress[activity_id] = {
-                    "stage": 2, "topic": block['topic'], "variety": variety,
-                    "date": session['date'], "result": result,
-                }
-                st.session_state.practice_progress = progress
                 reset("active_practice")
                 st.rerun()
         st.caption("Progress is kept during this browser session, not across app restarts.")
@@ -794,13 +908,9 @@ if "active_practice" in st.session_state:
     share = (weights.get(block['topic'], 0) / max(weights.values())) if weights else 1.0
     activity = spanish_typing_activity(get_retriever(), block['topic'], variety,
                                        offset=previous_minutes // 2, share=share, language=language)
-    st.divider()
     st.markdown(f"## Stage 1: {CALENDAR_TOPICS[block['topic']]}")
     st.write("Goal: learn useful words and expressions for this topic.")
     st.caption("The suggested minutes are flexible; there is no timer.")
-    if st.button("Close activity and return to calendar"):
-        reset("active_practice")
-        st.rerun()
     # Same typing practice for both languages (Macedonian accepts Cyrillic or Latin input).
     study = st.session_state.get(f'es_study_{activity_id}', {})
     if activity['phrases'] and study.get('studied_once'):
@@ -811,13 +921,8 @@ if "active_practice" in st.session_state:
         st.session_state.studied_banks = banks
     result = render_spanish_practice(activity, activity_id, language)
     if result is not None:
+        record_progress(activity_id, block, variety, session['date'], result)
         if st.button("Finish this practice", key=f"finish_spanish_{activity_id}"):
-            progress = dict(st.session_state.get("practice_progress", {}))
-            progress[activity_id] = {
-                "stage": 1, "topic": block['topic'], "variety": variety,
-                "date": session['date'], "result": result,
-            }
-            st.session_state.practice_progress = progress
             reset("active_practice")
             st.rerun()
     st.caption("Progress is kept during this browser session, not across app restarts.")
