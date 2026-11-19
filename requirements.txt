@@ -3,3 +3,4 @@ sentence-transformers>=6.3
 streamlit>=1.67
 numpy>=2
 pytest>=8
+pyyaml>=6
