@@ -302,6 +302,9 @@ from math import floor
 WEEKDAYS = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 STAGE_NAMES = {1: "Essential words and expressions", 2: "Supported sentence building",
                3: "Scenario practice and feedback"}
+# Share of practice time per stage (lesson type): 30% / 30% / 40%. When the learner
+# picks only some lesson types, the time is divided among those in the same proportion.
+STAGE_WEIGHTS = {1: 3, 2: 3, 3: 4}
 
 
 def _allocate_minutes(total, weights, minimum=0):
@@ -325,7 +328,7 @@ def _allocate_minutes(total, weights, minimum=0):
 
 
 def build_schedule(language, goals, days, weekdays, minutes, start_date,
-                   variety=None, topic_variety=None):
+                   variety=None, topic_variety=None, stages=(1, 2, 3)):
     """Create dated sessions before departure, split into stage/topic blocks.
 
     Include today if selected. Departure day is excluded. Stage percentages
@@ -336,6 +339,9 @@ def build_schedule(language, goals, days, weekdays, minutes, start_date,
     variety: the learner's chosen variety (default: the language's default).
     topic_variety: {topic: resolve_variety() result}, from plan_varieties();
     stored in the schedule so each topic's practice uses its notes.
+    stages: the lesson types to include (1 vocabulary, 2 sentences, 3 role play;
+    default all three). stage_minutes keeps one entry per stage, 0 for a stage
+    that is not included.
     """
     if language not in LANGUAGE_HINTS:
         raise ValueError("Choose Spanish or Macedonian.")
@@ -348,20 +354,24 @@ def build_schedule(language, goals, days, weekdays, minutes, start_date,
         raise ValueError("Select topics and give each one a unique priority.")
     if not weekdays or any(d not in WEEKDAYS for d in weekdays):
         raise ValueError("Select at least one practice weekday.")
-    if not isinstance(days, int) or not 1 <= days <= MAX_DAYS:
-        raise ValueError(f"Choose a study window between 1 and {MAX_DAYS} days.")
+    if not isinstance(days, int) or days < 1:
+        raise ValueError("Choose a study window of at least 1 day.")
     if not isinstance(minutes, int) or minutes < 1:
         raise ValueError("Choose at least one minute per session.")
     if not isinstance(start_date, date):
         raise ValueError("Choose a valid start date.")
+    stages = sorted(set(stages or ()))
+    if not stages or any(s not in STAGE_NAMES for s in stages):
+        raise ValueError("Choose at least one lesson type.")
     dates = [start_date + timedelta(days=i) for i in range(days)
              if WEEKDAYS[(start_date + timedelta(days=i)).weekday()] in weekdays]
     if not dates:
         raise ValueError("None of your practice weekdays fall before departure. Change your days or study window.")
     total = len(dates) * minutes
-    stage_minutes = _allocate_minutes(total, [3, 3, 4])
-    if min(stage_minutes) < len(goals):
-        raise ValueError("This schedule is too short to include every topic in all three stages. "
+    chosen = _allocate_minutes(total, [STAGE_WEIGHTS[s] for s in stages])
+    stage_minutes = [chosen[stages.index(s)] if s in stages else 0 for s in STAGE_NAMES]
+    if min(chosen) < len(goals):
+        raise ValueError("This schedule is too short to include every topic in every lesson type. "
                          "Choose fewer topics, more practice days, or longer sessions.")
     weights = list(range(len(goals), 0, -1))
     remaining_capacity = minutes
@@ -369,6 +379,8 @@ def build_schedule(language, goals, days, weekdays, minutes, start_date,
                  "minutes": minutes, "blocks": []} for d in dates]
     session_index = 0
     for stage, budget in enumerate(stage_minutes, 1):
+        if not budget:
+            continue
         shares = _allocate_minutes(budget, weights, minimum=1)
         # Short repeated topic blocks spread priorities throughout a stage.
         # Block length is up to five minutes, not an estimate of mastery.
@@ -390,7 +402,7 @@ def build_schedule(language, goals, days, weekdays, minutes, start_date,
                         remaining_capacity = minutes
     return {"language": language, "start_date": start_date.isoformat(),
             "departure_date": (start_date + timedelta(days=days)).isoformat(),
-            "total_minutes": total, "stage_minutes": stage_minutes,
+            "total_minutes": total, "stage_minutes": stage_minutes, "stages": stages,
             "topic_weights": {g: weights[i] / sum(weights) for i, g in enumerate(goals)},
             "variety": variety,
             "topic_variety": {g: dict(topic_variety[g]) for g in goals},

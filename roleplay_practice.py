@@ -3,7 +3,7 @@ import json
 import re
 import streamlit as st
 from llm import LLMError
-from sentence_practice import _json_reply, show_target, target_input
+from sentence_practice import _json_reply, looks_like_code, show_target, target_input
 from prompts import LANGUAGE_RULES, LANGUAGES
 from pronounce import say
 from planner import topic_files
@@ -97,6 +97,21 @@ FEEDBACK_ONLY_SCHEMA = {'type':'object','properties':{
     'required':['meaning_feedback','grammar_feedback','goal_met','corrections'],'additionalProperties':False}
 
 
+def _plain_end_feedback(result):
+    """End feedback (both languages) must never look like code ("goal_met", "Meaning_ok"):
+    replace such text with a plain sentence that matches the verdict."""
+    if looks_like_code(result.get('meaning_feedback')):
+        result['meaning_feedback'] = ('You reached the goal of this conversation.' if result.get('goal_met') is True
+                                      else 'The conversation did not yet reach its goal.')
+    if looks_like_code(result.get('grammar_feedback')):
+        result['grammar_feedback'] = ('See the suggested revisions below.' if result.get('corrections')
+                                      else 'No structure or grammar problems needed revision.')
+    for c in result.get('corrections') or []:
+        if isinstance(c, dict) and looks_like_code(c.get('explanation')):
+            c['explanation'] = 'Compare your line with the suggested revision.'
+    return result
+
+
 def _macedonian_final(scene, history, vocabulary):
     """End of a Macedonian scenario: a fixed closing line, then the feedback from a separate
     tutor call that reads the transcript as data (like Stage 2's feedback). Asked inside the
@@ -114,7 +129,8 @@ def _macedonian_final(scene, history, vocabulary):
          'three substantive corrections, each quoting one learner response exactly, one possible '
          'Macedonian revision in Cyrillic, and a one-sentence English explanation. Only list a '
          'response that has a real error; do not invent mistakes. Corrections may be empty. '
-         'goal_met records whether the scene goal was achieved, not mastery.'},
+         'goal_met records whether the scene goal was achieved, not mastery. '
+         'Never write field names or any word with an underscore in the feedback or explanations.'},
         {'role':'user','content':json.dumps({
             'scene_goal': scene['goal'], 'partner': scene['partner'],
             'transcript': [{'speaker': 'partner' if m['role'] == 'assistant' else 'learner', 'text': m['text']}
@@ -148,7 +164,7 @@ def _macedonian_final(scene, history, vocabulary):
                              and normalize(c['example_revision']) != normalize(c['learner_text'])
                              and not (re.search(r'\bcorrect\b', c['explanation'], re.I)
                                       and not re.search(r'incorrect|not correct', c['explanation'], re.I))][:3]
-    return {'reply': 'Благодарам, пријатно!', 'english': 'Thank you, goodbye!', **result}
+    return _plain_end_feedback({'reply': 'Благодарам, пријатно!', 'english': 'Thank you, goodbye!', **result})
 
 
 # Hints that describe the partner's next move ("ask if they want anything else") instead of
@@ -227,7 +243,8 @@ def roleplay_response(scene, history, vocabulary, variety_code, variety_label, t
                    'one actual learner response exactly, one possible revision, and a short English '
                    'explanation. Do not invent learner mistakes or penalize valid alternatives. '
                    'Corrections may be empty if none are needed. Goal_met records whether the '
-                   'communication goal was achieved, not mastery. Do not include hints.')
+                   'communication goal was achieved, not mastery. Do not include hints. '
+                   'Never write field names or any word with an underscore in the feedback or explanations.')
     messages = [{'role':'system','content':system},
                 {'role':'user','content':json.dumps(data,ensure_ascii=False)}]
     messages += [{'role':m['role'],'content':m['text']} for m in history]
@@ -304,6 +321,7 @@ def roleplay_response(scene, history, vocabulary, variety_code, variety_label, t
                                  if isinstance(c,dict) and c.get('learner_text') in learner_lines
                                  and all(isinstance(c.get(k),str) and c[k].strip()
                                          for k in ('learner_text','example_revision','explanation'))][:3]
+        result = _plain_end_feedback(result)
     return result
 
 

@@ -147,6 +147,19 @@ def build_sentence_round(vocabulary, variety_name, topic, language='spanish', re
     raise LLMError('The generated sentences were not usable. Please generate the practice again.')
 
 
+# Learner-facing text must never look like code. The model sometimes writes field names or
+# labels ("meaning_not_ok", "Meaning_no", "Grammar_ok", "goal_met") instead of a sentence,
+# inside a sentence, or as the whole text.
+_CODE_WORD = re.compile(r'[A-Za-z]+_[A-Za-z]')
+_LABEL_ONLY = re.compile(r'[\s.,;:!]*(?:(?:meaning|grammar|goal)\s*)?(?:not\s*)?(?:ok|met|no|yes|true|false)?[\s.,;:!]*',
+                         re.I)
+
+
+def looks_like_code(text):
+    """True for empty text, a bare label, or text with a code-like word (a word with an underscore)."""
+    return not isinstance(text, str) or bool(_LABEL_ONLY.fullmatch(text) or _CODE_WORD.search(text))
+
+
 def _cyr_words(text):
     return {w.casefold() for w in re.findall(r'[Ѐ-ӿ]+', text or '')}
 
@@ -187,8 +200,9 @@ def sentence_feedback(task, answer, examples, vocabulary, variety, language='spa
          'the reference is only ONE possible answer. Ignore case, punctuation and extra spaces. '
          'Do not assess naturalness, style, politeness preferences or native-like phrasing. '
          'Do not penalize missing commas or question/exclamation marks. '
-         'Meaning_ok means the intended message was communicated. Grammar_ok means no substantive '
-         'structure/grammar error needs revision. Keep feedback in simple English. '
+         'Set meaning_ok to true when the intended message was communicated, and grammar_ok to true '
+         'when no substantive structure/grammar error needs revision. Keep feedback in simple English. '
+         'Never write field names or any word with an underscore in the feedback or the hint. '
          'If a revision is needed, give ONE focused hint without supplying a corrected sentence '
          'or translating the entire prompt. Do not quote the reference answer. '
          'If acceptable, explain briefly what worked, with no unnecessary correction. Return JSON.'
@@ -217,15 +231,18 @@ def sentence_feedback(task, answer, examples, vocabulary, variety, language='spa
                 result[key] = {'meaning_feedback': 'Compare your sentence with the English prompt.',
                                'grammar_feedback': 'Check the word forms against the studied bank.',
                                'hint': 'You can choose Show an example answer if you need help.'}[key]
-    # The model sometimes fills a field with just the label ("Meaning_ok"): use a plain sentence.
+    # Text that looks like code (a bare label such as "Meaning_no", or a field name inside a
+    # sentence) is replaced with a plain sentence that matches the yes/no verdict.
     for key, flag, ok_text, fix_text in (
             ('meaning_feedback', 'meaning_ok', 'Your sentence communicates the intended message.',
              'Your sentence does not yet communicate the whole English prompt.'),
             ('grammar_feedback', 'grammar_ok', 'No structure or grammar problems need revision.',
              'Check the structure and word forms.')):
-        if isinstance(result.get(key), str) and re.fullmatch(r'\s*(?:meaning|grammar)?_?(?:ok|true|false)?\s*',
-                                                              result[key], re.I):
+        if isinstance(result.get(key), str) and looks_like_code(result[key]):
             result[key] = ok_text if result.get(flag) is True else fix_text
+    if isinstance(result.get('hint'), str) and result['hint'].strip() and looks_like_code(result['hint']):
+        result['hint'] = ('' if result.get('meaning_ok') is True and result.get('grammar_ok') is True else
+                          'Compare your sentence with the English prompt, then try again.')
     if (any(type(result.get(k)) is not bool for k in ('meaning_ok', 'grammar_ok')) or
         any(not isinstance(result.get(k), str) for k in ('meaning_feedback', 'grammar_feedback', 'hint'))):
         raise LLMError('The feedback was incomplete. Your answer is still here; please try checking it again.')
