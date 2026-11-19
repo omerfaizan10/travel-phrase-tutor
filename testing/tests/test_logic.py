@@ -74,9 +74,9 @@ def test_allocate_minutes_rejects_too_little_time():
 
 @pytest.mark.parametrize("language", ["spanish", "macedonian"])
 def test_schedule_covers_every_topic_in_every_stage(language):
-    """What: Every selected topic is in all three stages, and no session is too long (Spanish and Macedonian).
-    Why: The learning method needs vocabulary, then sentences, then role-play for each topic.
-    If it fails: The learner cannot practice a topic in a stage, or a session is longer than they said."""
+    """What: Every selected topic is in every chosen lesson type (here all three: Vocabulary, Sentences, Role play), and no session is too long (Spanish and Macedonian).
+    Why: The learning method needs vocabulary, then sentences, then role play for each topic.
+    If it fails: The learner cannot practice a topic in a lesson type, or a session is longer than they said."""
     goals = ["restaurant", "directions", "transport"]
     sched = build_schedule(language, goals, 14, ["Monday", "Wednesday", "Friday"], 20,
                            date(2026, 11, 16))
@@ -156,7 +156,7 @@ def test_normalize_ignores_case_and_punctuation():
     ("agua", "café", "wrong"),
 ])
 def test_spanish_feedback(answer, expected, verdict):
-    """What: Stage 1 marks a typed Spanish answer as correct, accent missing, or wrong.
+    """What: Vocabulary (Stage 1) marks a typed Spanish answer as correct, accent missing, or wrong.
     Why: The learner must get a fair result and a useful message about accents.
     If it fails: Correct answers are rejected, or a missing accent is called a wrong word."""
     assert spanish_feedback(answer, expected) == verdict
@@ -181,7 +181,7 @@ def test_bank_size_follows_topic_priority(share, expected):
 @pytest.mark.parametrize("variety", ["ES", "MX", "AR"])
 def test_spanish_typing_activity(retriever, topic, variety):
     """What: Each Spanish topic and variety gives 1–10 cards, and every question has an answer on a card.
-    Why: Stage 1 asks only about items that the learner studied.
+    Why: Vocabulary (Stage 1) asks only about items that the learner studied.
     If it fails: The learner gets a question that no card prepared them for, or an empty activity."""
     activity = spanish_typing_activity(retriever, topic, variety)
     assert 1 <= len(activity["phrases"]) <= 10
@@ -217,7 +217,7 @@ def test_activity_is_stable_between_reruns(retriever):
 def test_valid_round_passes():
     """What: A correct Spanish sentence round passes the round check.
     Why: The check must not reject good SLM output.
-    If it fails: Stage 2 can show "not usable" errors for good rounds."""
+    If it fails: Sentences (Stage 2) can show "not usable" errors for good rounds."""
     assert _validate_round(make_round(10), list(range(10)))
 
 
@@ -237,7 +237,7 @@ def test_valid_round_passes():
 def test_bad_round_is_rejected(break_it, reason):
     """What: The round check rejects bad SLM output (missing tasks, one-word answers, repeated tasks, wrong word numbers).
     Why: The SLM sometimes returns broken rounds. The app must ask again, not show them.
-    If it fails: The learner can get duplicate, empty or impossible tasks in Stage 2."""
+    If it fails: The learner can get duplicate, empty or impossible tasks in Sentences (Stage 2)."""
     data = make_round(10)
     break_it(data)
     with pytest.raises((ValueError, TypeError, KeyError)):

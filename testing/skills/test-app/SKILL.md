@@ -69,8 +69,11 @@ re-run any missing ones. Then rebuild the report:
 ## 3. Exploratory UI pass (ui and full modes)
 
 Start the app with `preview_start` (name `streamlit`, from `.claude/launch.json`). In the browser pane:
-- Build a Spanish plan and a Macedonian plan.
-- Open one activity of each stage, in both languages.
+- Build a Spanish plan with "Choose with buttons" and a Macedonian plan with "Describe it in a chat".
+- Build one plan without Vocabulary: the word list must show before the first Sentences activity.
+- On the calendar, use Next lesson / Continue, then ‹ Previous / Next › inside a practice.
+- Shelf this plan, open it again from Your plans, and check that the progress is kept.
+- Open one activity of each lesson type (Vocabulary, Sentences, Role play), in both languages.
 - Try edge inputs: empty answers, accents (é ñ ¿), Macedonian typed in Latin letters, very long
   text, English instead of the target language, and pressing buttons twice.
 - In Stage 3, have a short real conversation with the SLM.

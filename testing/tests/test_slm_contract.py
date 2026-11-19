@@ -75,8 +75,8 @@ def test_ollama_errors_reach_the_app_as_llmerror(fake_llm):
 # --- Stage 2: build_sentence_round ------------------------------------------------
 
 def test_round_uses_the_studied_bank(fake_llm, spanish_bank, valid_round):
-    """What: The Spanish Stage 2 request contains the variety, the topic and exactly the words that the learner studied.
-    Why: Stage 2 must practice what the learner learned in Stage 1.
+    """What: The Spanish Sentences (Stage 2) request contains the variety, the topic and exactly the words that the learner studied.
+    Why: Stage 2 must practice what the learner learned in Vocabulary (Stage 1).
     If it fails: The SLM writes sentences with words that the learner never saw."""
     fake_llm.queue(valid_round)
     assert build_sentence_round(spanish_bank, "Spain", "restaurant") == valid_round
@@ -156,7 +156,7 @@ CODE_LIKE = [
 
 @pytest.mark.parametrize("field, text", CODE_LIKE)
 def test_feedback_never_looks_like_code(fake_llm, spanish_bank, field, text):
-    """What: Stage 2 feedback and hints never show code-like words ("meaning_not_ok", "Meaning_no", "grammar_ok"), alone or inside a sentence (Spanish).
+    """What: Sentences (Stage 2) feedback and hints never show code-like words ("meaning_not_ok", "Meaning_no", "grammar_ok"), alone or inside a sentence (Spanish).
     Why: Learners saw these labels in the app. They look like a bug and explain nothing.
     If it fails: The learner sees words with underscores or code labels instead of feedback."""
     fake_llm.queue({**GOOD_FEEDBACK, field: text})
@@ -180,8 +180,8 @@ def test_normal_feedback_is_not_changed(fake_llm, spanish_bank):
     ("grammar_feedback", "The grammar_ok flag is true."), ("explanation", "grammar_not_ok here."),
 ])
 def test_end_feedback_never_looks_like_code(fake_llm, spanish_bank, retriever, field, text):
-    """What: Stage 3 end feedback and correction notes never show code-like words such as "goal_met" (Spanish).
-    Why: The end feedback has the same field names as Stage 2, so the same problem can happen.
+    """What: Role play (Stage 3) end feedback and correction notes never show code-like words such as "goal_met" (Spanish).
+    Why: The end feedback has the same field names as Sentences (Stage 2), so the same problem can happen.
     If it fails: The learner sees code words in the conversation feedback."""
     fix = {"learner_text": "La cuenta por favor.", "example_revision": "La cuenta, por favor, señor.",
            "explanation": "Add a polite word."}

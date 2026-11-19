@@ -38,7 +38,7 @@ def partner_lines(retriever, topic="restaurant"):
 # --- Stage 2: build_sentence_round (Macedonian) -------------------------------------
 
 def test_mk_round_gets_checked_reference_sentences(fake_llm, macedonian_bank):
-    """What: The Macedonian Stage 2 request contains checked sentences from the notes and the Macedonian rules.
+    """What: The Macedonian Sentences (Stage 2) request contains checked sentences from the notes and the Macedonian rules.
     Why: The small model invents wrong Macedonian forms when it has no correct patterns.
     If it fails: Stage 2 rounds contain more invented or Serbian-like Macedonian."""
     refs = [{"macedonian": "Дали имате мени?", "english": "Do you have a menu?"}]
@@ -61,7 +61,7 @@ def test_mk_round_in_latin_letters_is_sent_back(fake_llm, macedonian_bank):
 
 
 def test_mk_round_gets_three_tries(fake_llm, macedonian_bank):
-    """What: Macedonian Stage 2 tries 3 times (Spanish: 2), then shows a friendly error.
+    """What: Macedonian Sentences (Stage 2) tries 3 times (Spanish: 2), then shows a friendly error.
     Why: The Macedonian checks are stricter, so the SLM needs one more chance.
     If it fails: The learner sees more errors than needed, or the app retries without end."""
     bad = make_round(len(macedonian_bank), language="macedonian")
@@ -121,7 +121,7 @@ def test_mk_label_only_feedback_becomes_a_sentence(fake_llm, macedonian_bank, la
 
 def test_mk_end_feedback_never_looks_like_code(fake_llm, macedonian_bank, retriever):
     """What: Macedonian end feedback never shows code-like words such as "goal_met" or "grammar_ok".
-    Why: The end feedback has the same field names as Stage 2, so the same problem can happen.
+    Why: The end feedback has the same field names as Sentences (Stage 2), so the same problem can happen.
     If it fails: The learner sees code words in the conversation feedback."""
     fake_llm.queue({**FINAL, "meaning_feedback": "goal_met", "grammar_feedback": "Grammar_ok"})
     out = final(fake_llm, macedonian_bank, retriever)

@@ -66,7 +66,7 @@ def test_to_cyrillic(latin, cyrillic):
 
 
 def test_card_latin_spelling_is_accepted_in_stage1(mk_phrases):
-    """What: Each Stage 1 card item, typed exactly as its Latin line on the card, is marked correct.
+    """What: Each Vocabulary (Stage 1) card item, typed exactly as its Latin line on the card, is marked correct.
     Why: The card tells the learner that they can type the Latin spelling.
     If it fails: The learner types what the card shows and the app says "Not quite". This is unfair and confusing."""
     items = [p for p in mk_phrases if p.get("pron") and not STAGE1_EXCLUDE.search(p["text"])
@@ -81,7 +81,7 @@ def test_card_latin_spelling_is_accepted_in_stage1(mk_phrases):
 @pytest.mark.parametrize("topic", ["restaurant", "directions", "transport", "hotel", "shopping"])
 def test_macedonian_typing_activity(retriever, topic):
     """What: Each Macedonian topic gives 1–10 Cyrillic cards, and every question has an answer on a card.
-    Why: Macedonian Stage 1 now uses the same typing screen as Spanish.
+    Why: Macedonian Vocabulary (Stage 1) now uses the same typing screen as Spanish.
     If it fails: The learner gets an empty activity or a question that no card prepared them for."""
     activity = spanish_typing_activity(retriever, topic, "MK", language="macedonian")
     assert 1 <= len(activity["phrases"]) <= 10
@@ -93,7 +93,7 @@ def test_macedonian_typing_activity(retriever, topic):
 
 @pytest.mark.parametrize("topic", ["restaurant", "directions", "transport", "hotel"])
 def test_topic_sentences_for_stage2(retriever, topic):
-    """What: Stage 2 gets 3–12 word checked Macedonian sentences from the notes, with no gaps (...) and no repeats.
+    """What: Sentences (Stage 2) gets 3–12 word checked Macedonian sentences from the notes, with no gaps (...) and no repeats.
     Why: The SLM builds Macedonian rounds from these sentences so it does not invent wrong forms.
     If it fails: The SLM gets bad patterns or none, and Stage 2 rounds have more Macedonian errors."""
     sentences = topic_sentences(retriever, "macedonian", topic, "MK")
@@ -107,7 +107,7 @@ def test_topic_sentences_for_stage2(retriever, topic):
 def test_valid_macedonian_round_passes():
     """What: A correct Macedonian sentence round passes the round check.
     Why: The check must not reject good SLM output.
-    If it fails: Macedonian Stage 2 can show "not usable" errors for good rounds."""
+    If it fails: Macedonian Sentences (Stage 2) can show "not usable" errors for good rounds."""
     assert _validate_round(make_round(10, language="macedonian"), list(range(10)), "macedonian")
 
 

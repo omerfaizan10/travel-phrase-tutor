@@ -17,8 +17,8 @@ code_checks:
     why: The learner practices only this language.
     fails: The learner sees English or wrong-alphabet text as the "correct" answer.
   uses_studied_words:
-    what: At least 6 of the 8 sentences use a word from the learner's studied bank.
-    why: Stage 2 must build on the words from Stage 1.
+    what: At least 6 of the 8 sentences use a word that the learner studied (in Vocabulary lessons, or in the word list when the plan has no Vocabulary).
+    why: Sentences (Stage 2) must build on the words that the learner studied.
     fails: The learner must translate sentences with words that they never studied.
   verdict_meaning_ok:
     what: The SLM's "meaning correct?" verdict is the same as the verdict a teacher expects for this answer.

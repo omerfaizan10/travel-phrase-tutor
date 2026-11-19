@@ -117,8 +117,8 @@ const RUN = D.meta.run;
 const STORE = "tutor-review:" + RUN;
 const RL = D.rubric_label;
 const LANG = { spanish: "Spanish", macedonian: "Macedonian", both: "Both languages" };
-const KIND = { sentence_round: "Stage 2 · sentence round", sentence_feedback: "Stage 2 · feedback on an answer",
-               roleplay_turn: "Stage 3 · role-play turn", roleplay_final: "Stage 3 · end of role-play feedback" };
+const KIND = { sentence_round: "Sentences (Stage 2) · sentence round", sentence_feedback: "Sentences (Stage 2) · feedback on an answer",
+               roleplay_turn: "Role play (Stage 3) · partner turn", roleplay_final: "Role play (Stage 3) · end feedback" };
 const PRI = { high: "Must check", medium: "Should check", low: "Spot check" };
 const settings = (D.slm && D.slm.settings) || {};
 const SHARE = settings.scenario_pass_share ?? 0.9;

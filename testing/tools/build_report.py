@@ -35,7 +35,7 @@ RUBRIC_LABEL = {"makes_sense": "Makes sense", "language": "Language", "grounded"
                 "feedback": "Feedback", "level_tone": "Level & tone", "roleplay": "Role-play",
                 "robustness": "Odd input"}
 SET_INFO = {
-    "unit": ("Logic tests", "Checks the app's own rules with no SLM: plans, calendars, Stage 1 answers, "
+    "unit": ("Logic tests", "Checks the app's own rules with no SLM: plans, calendars, Vocabulary (Stage 1) answers, "
              "pronunciation, and the checks that guard SLM output. Fast and exact."),
     "slm_contract": ("SLM safety-net tests", "Gives the app fake SLM replies (good, broken, wrong language, "
                      "wrong role) and checks that the app catches each problem. It does not measure the real SLM."),
