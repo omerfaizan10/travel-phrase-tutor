@@ -102,7 +102,7 @@ def test_half_chosen_window_asks_for_the_last_day():
 
 
 def test_long_window_builds_a_plan():
-    """What: A study window longer than 60 days (the old limit) builds a plan.
+    """What: A study window longer than 60 days (the old limit) builds a plan, and the summary and calendar show the window.
     Why: The study window has no upper limit.
     If it fails: A long trip preparation gets an error instead of a plan."""
     at = AppTest.from_file(APP, default_timeout=90)
@@ -114,6 +114,9 @@ def test_long_window_builds_a_plan():
     no_crash(at)
     assert "Your suggested learning plan" in texts(at)
     assert end.strftime("%b %d, %Y") in texts(at)
+    find(at.button, "Yes, this sounds good — show my calendar").click().run()
+    no_crash(at)
+    assert f"Study window: {start:%b %d, %Y} to {end:%b %d, %Y}" in texts(at)
 
 
 def test_duplicate_ranks_are_refused():
@@ -137,9 +140,9 @@ def test_plan_and_calendar(language):
 
 @pytest.mark.parametrize("language", ["spanish", "macedonian"])
 def test_every_stage_has_a_start_button(language):
-    """What: The calendar has start buttons for Stage 1, 2 and 3 (Spanish and Macedonian).
-    Why: Macedonian Stage 2 and 3 were turned on in the last update.
-    If it fails: The learner sees a stage in the calendar but cannot open it."""
+    """What: With all three lesson types (the default), the calendar has start buttons for Vocabulary, Sentences and Role play (Stages 1, 2 and 3), in Spanish and Macedonian.
+    Why: Each chosen lesson type must open from the calendar, in both languages.
+    If it fails: The learner sees a lesson in the calendar but cannot open it."""
     at = open_calendar(language)
     labels = {b.label for b in at.button}
     assert {"Start vocabulary practice", "Start sentence practice", "Start roleplay"} <= labels
@@ -155,9 +158,9 @@ def card_text(at):
 @pytest.mark.parametrize("language, typed_as", [
     ("spanish", "same"), ("macedonian", "same"), ("macedonian", "latin")])
 def test_stage1_typing_counts_correct_entries(language, typed_as):
-    """What: In Stage 1, typing the card item gives "Correct! Typed 1 out of 3" (Spanish, Macedonian Cyrillic, Macedonian Latin).
+    """What: In Vocabulary (Stage 1), typing the card item gives "Correct! Typed 1 out of 3" (Spanish, Macedonian Cyrillic, Macedonian Latin).
     Why: Stage 1 is a typing screen for both languages, and Macedonian accepts Latin letters.
-    If it fails: The learner cannot pass Stage 1, so Stages 2 and 3 never open."""
+    If it fails: The learner cannot pass Stage 1, so Sentences and Role play (Stages 2 and 3) never open."""
     at = open_calendar(language)
     start(at, "Start vocabulary practice")
     item = card_text(at)
@@ -169,7 +172,7 @@ def test_stage1_typing_counts_correct_entries(language, typed_as):
 
 
 def test_stage1_wrong_answer_says_try_again():
-    """What: A wrong Stage 1 answer gives "Not quite" and the counter does not move (Macedonian).
+    """What: A wrong Vocabulary (Stage 1) answer gives "Not quite" and the counter does not move (Macedonian).
     Why: The learner must type the item correctly 3 times.
     If it fails: Wrong answers count as practice, or the learner gets no message."""
     at = open_calendar("macedonian")
@@ -180,7 +183,7 @@ def test_stage1_wrong_answer_says_try_again():
 
 
 def test_macedonian_card_shows_pronunciation():
-    """What: The Macedonian Stage 1 card shows the Latin spelling and a "say:" pronunciation guide.
+    """What: The Macedonian Vocabulary (Stage 1) card shows the Latin spelling and a "say:" pronunciation guide.
     Why: Beginners cannot read Cyrillic yet.
     If it fails: The learner cannot read or pronounce the item."""
     at = open_calendar("macedonian")
@@ -192,9 +195,9 @@ def test_macedonian_card_shows_pronunciation():
 
 @pytest.mark.parametrize("language", ["spanish", "macedonian"])
 def test_stage2_needs_stage1_first(language):
-    """What: Stage 2 asks the learner to finish Stage 1 first when there is no studied bank (Spanish and Macedonian).
-    Why: Stage 2 sentences use only words studied in Stage 1.
-    If it fails: Stage 2 starts with no vocabulary, or the screen crashes."""
+    """What: When the plan includes Vocabulary but the learner has not studied a topic yet, Sentences (Stage 2) asks them to finish a Vocabulary activity first (Spanish and Macedonian). A plan without Vocabulary shows a word list instead (see test_lesson_types).
+    Why: Sentences use only the words that the learner studied.
+    If it fails: Sentences start with no vocabulary, or the screen crashes."""
     at = open_calendar(language)
     start(at, "Start sentence practice")
     assert "Complete a Stage 1 activity" in texts(at)
@@ -203,7 +206,7 @@ def test_stage2_needs_stage1_first(language):
 @pytest.mark.parametrize("language", ["spanish", "macedonian"])
 def test_stage2_round_and_feedback(fake_llm, retriever, language):
     """What: A learner prepares a sentence round, answers, and sees the feedback (Spanish and Macedonian, fake SLM).
-    Why: This is the full Stage 2 path that a learner uses.
+    Why: This is the full Sentences (Stage 2) path that a learner uses.
     If it fails: Learners cannot practice sentences in this language."""
     at = open_calendar(language)
     bank = give_studied_bank(at, retriever, language)
@@ -225,7 +228,7 @@ def test_stage2_round_and_feedback(fake_llm, retriever, language):
 
 
 def test_stage2_shows_slm_errors_without_crashing(fake_llm, retriever):
-    """What: When Ollama is down, Stage 2 shows the error message and does not crash.
+    """What: When Ollama is down, Sentences (Stage 2) shows the error message and does not crash.
     Why: The local SLM can stop or be missing.
     If it fails: The learner sees a crash screen instead of a clear message."""
     at = open_calendar("spanish")
@@ -258,7 +261,7 @@ def roleplay_fake(language):
 @pytest.mark.parametrize("language", ["spanish", "macedonian"])
 def test_stage3_full_conversation(fake_llm, retriever, language):
     """What: A learner starts a role-play, sends 3 lines, and sees the end feedback (Spanish and Macedonian, fake SLM).
-    Why: This is the full Stage 3 path that a learner uses.
+    Why: This is the full Role play (Stage 3) path that a learner uses.
     If it fails: Learners cannot finish a role-play or never see their feedback."""
     at = open_calendar(language)
     give_studied_bank(at, retriever, language)

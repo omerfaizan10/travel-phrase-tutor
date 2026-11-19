@@ -26,10 +26,12 @@ def click(at, label):
     ok(at)
 
 
-def calendar():
-    """A Spanish plan (restaurants, directions; default 14 days, Mon/Wed/Fri, 15 min)."""
+def calendar(language="spanish"):
+    """A plan (restaurants, directions; default 14 days, Mon/Wed/Fri, 15 min)."""
     at = AppTest.from_file(str(ROOT / "app.py"), default_timeout=90)
     at.run()
+    if language != "spanish":
+        at.selectbox(key="q_language").set_value(language).run()
     click(at, "Build my plan")
     click(at, "Yes, this sounds good — show my calendar")
     return at
@@ -63,11 +65,12 @@ def expanders(at):
     return [(e.proto.label, e.proto.expanded) for e in at.expander]
 
 
-def test_new_calendar_shows_progress_and_the_next_lesson():
-    """What: A new calendar says "0 of N sessions complete", shows the first activity as the next lesson, and opens only Session 1.
+@pytest.mark.parametrize("language", ["spanish", "macedonian"])
+def test_new_calendar_shows_progress_and_the_next_lesson(language):
+    """What: A new calendar says "0 of N sessions complete", shows the first activity as the next lesson, and opens only Session 1 (Spanish and Macedonian).
     Why: The learner must see at once where they are and what comes next.
     If it fails: The learner does not know where to start."""
-    at = calendar()
+    at = calendar(language)
     n = len(sessions_of(at))
     assert f"0 of {n} sessions complete" in text(at)
     assert "Next lesson" in text(at) and "Session 1 · Vocabulary · Restaurants" in text(at)
@@ -102,11 +105,12 @@ def test_all_done_says_so():
     assert not any(b.label == "Continue" for b in at.button)
 
 
-def test_continue_opens_the_next_lesson_and_the_bar_moves_between_activities():
-    """What: Continue opens the next lesson; Next and Previous move to the neighbor activities (across sessions); Calendar goes back.
+@pytest.mark.parametrize("language", ["spanish", "macedonian"])
+def test_continue_opens_the_next_lesson_and_the_bar_moves_between_activities(language):
+    """What: Continue opens the next lesson; Next and Previous move to the neighbor activities (across sessions); Calendar goes back (Spanish and Macedonian).
     Why: Moving between practices and sessions must be easy once you are in one (reviewer feedback).
     If it fails: The learner must go back to the calendar to reach the next practice."""
-    at = calendar()
+    at = calendar(language)
     order = activities(at)
     click(at, "Continue")
     assert at.session_state["active_practice"]["id"] == order[0]

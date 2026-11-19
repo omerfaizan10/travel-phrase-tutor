@@ -135,8 +135,10 @@ def click(at, label):
     ok(at)
 
 
-def plan_with(at, off):
-    """Turn off the given lesson types, build the plan, and open the calendar."""
+def plan_with(at, off, language="spanish"):
+    """Turn off the given lesson types, build the plan, and open the summary."""
+    if language != "spanish":
+        at.selectbox(key="q_language").set_value(language).run()
     for stage in off:
         at.checkbox(key=f"q_type_{stage}").uncheck().run()
     click(at, "Build my plan")
@@ -284,3 +286,20 @@ def test_approving_the_plan_locks_it_and_clears_the_preferences(model_down):
     assert "pref_kept" not in at.session_state and "pref_chat" not in at.session_state
     click(at, "Start a new plan")
     assert at.number_input(key="q_minutes").value == 15
+
+
+@pytest.mark.ui
+@pytest.mark.parametrize("language", ["spanish", "macedonian"])
+def test_word_list_before_sentences_in_both_languages(language):
+    """What: In a plan without vocabulary, the first sentence practice shows the word list (Macedonian cards with the "say:" guide); after "I've read the words" the sentence practice starts.
+    Why: The word list replaces vocabulary lessons in both languages, and Macedonian learners need the pronunciation guide.
+    If it fails: The activity asks for a vocabulary lesson the plan does not have, or Macedonian cards lose their guide."""
+    at = plan_with(run_app(), off=[1], language=language)
+    click(at, "Yes, this sounds good — show my calendar")
+    click(at, "Start sentence practice")
+    assert "Words for this topic" in page(at)
+    if language == "macedonian":
+        assert "say:" in page(at)
+    click(at, "I've read the words — start")
+    assert any(k.startswith("wordlist_") for k in at.session_state["studied_banks"])
+    assert any(b.label == "Prepare my five sentences" for b in at.button)
