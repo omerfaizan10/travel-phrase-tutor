@@ -348,8 +348,8 @@ def build_schedule(language, goals, days, weekdays, minutes, start_date,
         raise ValueError("Select topics and give each one a unique priority.")
     if not weekdays or any(d not in WEEKDAYS for d in weekdays):
         raise ValueError("Select at least one practice weekday.")
-    if not isinstance(days, int) or not 1 <= days <= MAX_DAYS:
-        raise ValueError(f"Choose a study window between 1 and {MAX_DAYS} days.")
+    if not isinstance(days, int) or days < 1:
+        raise ValueError("Choose a study window of at least 1 day.")
     if not isinstance(minutes, int) or minutes < 1:
         raise ValueError("Choose at least one minute per session.")
     if not isinstance(start_date, date):
