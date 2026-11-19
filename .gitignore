@@ -13,3 +13,6 @@ lora/adapters_v3/
 lora/fused_v3/
 # local Streamlit secrets (team passcode)
 .streamlit/secrets.toml
+
+# test reports (tools/run_tests.py)
+testing/reports/

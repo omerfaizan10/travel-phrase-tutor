@@ -1,0 +1,263 @@
+{
+  "_about": "Hand-judged example replies. The judge reads these before scoring so its scores stay consistent from run to run. Add real cases here (especially ones a native speaker corrected). Macedonian examples with confirmed_by_native_speaker=false are drafts: the native speaker must confirm or correct them.",
+  "examples": [
+    {
+      "kind": "roleplay_turn",
+      "variety": "Spain",
+      "context": "Café. Partner: a waiter. Learner said: \"Hola, un café con leche, por favor.\"",
+      "reply": {
+        "reply": "¡Muy bien! Un café con leche. ¿Algo más?",
+        "english": "Very good! A coffee with milk. Anything else?",
+        "hint": "You could order something to eat or say no."
+      },
+      "scores": {
+        "makes_sense": 5,
+        "language": 5,
+        "grounded": 5,
+        "feedback": null,
+        "level_tone": 5,
+        "roleplay": 5,
+        "robustness": null
+      },
+      "tags": [],
+      "why": "Acknowledges the order in its own words, one short question, natural Spain Spanish.",
+      "language": "spanish"
+    },
+    {
+      "kind": "roleplay_turn",
+      "variety": "Spain",
+      "context": "Café. Partner: a waiter. Learner said: \"Hola, un café con leche, por favor.\"",
+      "reply": {
+        "reply": "Hola, un café con leche, por favor.",
+        "english": "Hello, a coffee with milk, please.",
+        "hint": "Order a coffee."
+      },
+      "scores": {
+        "makes_sense": 1,
+        "language": 4,
+        "grounded": 4,
+        "feedback": null,
+        "level_tone": 3,
+        "roleplay": 1,
+        "robustness": null
+      },
+      "tags": [
+        "echoes-learner",
+        "breaks-role",
+        "ignores-learner"
+      ],
+      "why": "The waiter copies the traveler's line, so the scene makes no sense.",
+      "language": "spanish"
+    },
+    {
+      "kind": "roleplay_turn",
+      "variety": "Mexico",
+      "context": "Taxi. Partner: a taxi driver. Learner said: \"How long does it take?\"",
+      "reply": {
+        "reply": "Unos veinte minutos, más o menos. ¿Tiene prisa?",
+        "english": "About twenty minutes, more or less. Are you in a hurry?",
+        "hint": "Try asking in Spanish: ¿Cuánto tiempo...?"
+      },
+      "scores": {
+        "makes_sense": 5,
+        "language": 5,
+        "grounded": 4,
+        "feedback": null,
+        "level_tone": 5,
+        "roleplay": 5,
+        "robustness": 4
+      },
+      "tags": [],
+      "why": "Understands the English question, answers in simple Spanish and stays in role. The hint nudges back to Spanish.",
+      "language": "spanish"
+    },
+    {
+      "kind": "sentence_feedback",
+      "variety": "Argentina",
+      "context": "Task: \"Can you bring me water?\" Example answer: \"¿Me trae agua, por favor?\" Learner: \"Me podés traer agua\"",
+      "reply": {
+        "meaning_ok": true,
+        "grammar_ok": false,
+        "meaning_feedback": "Your meaning is clear.",
+        "grammar_feedback": "'podés' is not correct; use 'puede'.",
+        "hint": "Use the usted form."
+      },
+      "scores": {
+        "makes_sense": 3,
+        "language": 2,
+        "grounded": null,
+        "feedback": 1,
+        "level_tone": 4,
+        "roleplay": null,
+        "robustness": null
+      },
+      "tags": [
+        "rejects-valid-answer",
+        "wrong-variety",
+        "wrong-verdict"
+      ],
+      "why": "'Podés' is the correct Argentine vos form. Marking it wrong teaches the learner something false.",
+      "language": "spanish"
+    },
+    {
+      "kind": "sentence_feedback",
+      "variety": "Spain",
+      "context": "Task: \"The bill, please.\" Example answer: \"La cuenta, por favor.\" Learner: \"La carta, por favor\"",
+      "reply": {
+        "meaning_ok": false,
+        "grammar_ok": true,
+        "meaning_feedback": "Your sentence asks for the menu, not the bill.",
+        "grammar_feedback": "The structure is correct.",
+        "hint": "Which word did you study for 'bill'?"
+      },
+      "scores": {
+        "makes_sense": 5,
+        "language": 5,
+        "grounded": null,
+        "feedback": 5,
+        "level_tone": 5,
+        "roleplay": null,
+        "robustness": null
+      },
+      "tags": [],
+      "why": "Correct verdict, clear reason, and a hint that does not give the answer away.",
+      "language": "spanish"
+    },
+    {
+      "kind": "sentence_round",
+      "variety": "Spain",
+      "context": "Studied bank: la cuenta, el agua, un café, la carta, por favor",
+      "reply": {
+        "examples": [
+          {
+            "english": "A coffee, please.",
+            "spanish": "Un café, por favor."
+          }
+        ],
+        "tasks": [
+          {
+            "english": "I'd like to book a table near the window for tomorrow.",
+            "spanish": "Me gustaría reservar una mesa junto a la ventana para mañana."
+          }
+        ]
+      },
+      "scores": {
+        "makes_sense": 4,
+        "language": 5,
+        "grounded": 2,
+        "feedback": null,
+        "level_tone": 2,
+        "roleplay": null,
+        "robustness": null
+      },
+      "tags": [
+        "off-bank-vocabulary",
+        "too-hard"
+      ],
+      "why": "Correct Spanish, but the task needs many words the learner never studied.",
+      "language": "spanish"
+    },
+    {
+      "language": "macedonian",
+      "confirmed_by_native_speaker": false,
+      "kind": "roleplay_turn",
+      "variety": "Macedonian (MK)",
+      "context": "Restaurant. Partner: a waiter. Learner said: \"Би сакал тавче гравче.\"",
+      "reply": {
+        "reply": "Одлично, едно тавче гравче. Што би сакале за пиење?",
+        "english": "Excellent, one tavče gravče. What would you like to drink?",
+        "hint": "You could order a drink."
+      },
+      "scores": {
+        "makes_sense": 5,
+        "language": 5,
+        "grounded": 5,
+        "feedback": null,
+        "level_tone": 5,
+        "roleplay": 5,
+        "robustness": null
+      },
+      "tags": [],
+      "why": "Confirms the order in its own words and moves on to drinks. This line is from the team's checked test (commit f7e3b5b)."
+    },
+    {
+      "language": "macedonian",
+      "confirmed_by_native_speaker": false,
+      "kind": "roleplay_turn",
+      "variety": "Macedonian (MK)",
+      "context": "Café. Partner: a waiter. Learner said: \"Добар ден.\"",
+      "reply": {
+        "reply": "Може ли една чаша чај?",
+        "english": "May I have a cup of tea?",
+        "hint": "Order a drink."
+      },
+      "scores": {
+        "makes_sense": 1,
+        "language": 4,
+        "grounded": 4,
+        "feedback": null,
+        "level_tone": 3,
+        "roleplay": 1,
+        "robustness": null
+      },
+      "tags": [
+        "customer-voice",
+        "breaks-role"
+      ],
+      "why": "The waiter asks for tea like a customer. The scene makes no sense."
+    },
+    {
+      "language": "macedonian",
+      "confirmed_by_native_speaker": false,
+      "kind": "roleplay_turn",
+      "variety": "Macedonian (MK)",
+      "context": "Café. Partner: a waiter. Learner said: \"Сметката, ве молам.\"",
+      "reply": {
+        "reply": "Хвала, тоа е 300 денари.",
+        "english": "Thanks, that is 300 denars.",
+        "hint": "Say thank you."
+      },
+      "scores": {
+        "makes_sense": 5,
+        "language": 2,
+        "grounded": 4,
+        "feedback": null,
+        "level_tone": 4,
+        "roleplay": 5,
+        "robustness": null
+      },
+      "tags": [
+        "wrong-language"
+      ],
+      "why": "Right move, but хвала is Serbian. Macedonian is благодарам or фала."
+    },
+    {
+      "language": "macedonian",
+      "confirmed_by_native_speaker": false,
+      "kind": "sentence_feedback",
+      "variety": "Macedonian (MK)",
+      "context": "Task: \"Do you have a menu?\" Example answer: \"Дали имате мени?\" Learner: \"Дали имаш мени?\"",
+      "reply": {
+        "meaning_ok": true,
+        "grammar_ok": false,
+        "meaning_feedback": "Your meaning is clear.",
+        "grammar_feedback": "Use 'имате', not 'имаш'.",
+        "hint": "Use the polite form."
+      },
+      "scores": {
+        "makes_sense": 3,
+        "language": 4,
+        "grounded": null,
+        "feedback": 1,
+        "level_tone": 4,
+        "roleplay": null,
+        "robustness": null
+      },
+      "tags": [
+        "rejects-valid-answer",
+        "wrong-verdict"
+      ],
+      "why": "Informal 'имаш' is correct Macedonian. The app must accept formal and informal you."
+    }
+  ]
+}

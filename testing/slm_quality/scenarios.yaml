@@ -1,0 +1,265 @@
+# SLM quality scenarios ("golden set").
+#
+# Each scenario is one learner situation, played through the same functions the
+# app calls when a learner uses the SLM (Spanish Stage 2 and Stage 3).
+# testing/tools/collect_transcripts.py runs every scenario `repeats` times against the
+# real Ollama model. A judge agent then scores every SLM reply with rubric.md.
+#
+# You can add scenarios here without writing code. Kinds:
+#   sentence_round     Stage 2: the SLM writes 3 examples + 5 tasks from the studied bank
+#   sentence_feedback  Stage 2: the SLM judges learner answers to one task
+#                      `expect` = the verdict a good teacher would give (checked in code)
+#   roleplay           Stage 3: opening + 3 scripted learner lines + final feedback
+# Each scenario has a `language` (spanish or macedonian; default spanish).
+# Macedonian learner lines may be in Latin letters: the app reads them as Cyrillic.
+#                      `scene` = index into roleplay_practice.SCENES[topic]
+#                      `expect.goal_met` = whether the learner reached the scene goal
+
+settings:
+  repeats: 3                 # runs per scenario (the SLM gives a different answer each time)
+  acceptable_min_score: 3    # a reply is "acceptable" when no judge score is below this
+                             # and all its code checks pass (a human decision replaces this)
+  scenario_pass_share: 0.9   # a scenario passes when at least 90% of its replies are acceptable
+  spot_checks_per_language: 4  # random "acceptable" replies sent to human review, to measure the judge
+
+scenarios:
+# ============================== SPANISH ==============================
+  # --- Stage 2: sentence rounds -------------------------------------------------
+  - language: spanish
+    id: round-restaurant-es
+    kind: sentence_round
+    topic: restaurant
+    variety: ES
+    about: Beginner, Spain Spanish, builds sentences from the restaurant words they studied.
+
+  - language: spanish
+    id: round-transport-mx
+    kind: sentence_round
+    topic: transport
+    variety: MX
+    about: Beginner, Mexican Spanish, transport words (must use Mexican words, e.g. boleto, camión).
+
+  - language: spanish
+    id: round-directions-ar
+    kind: sentence_round
+    topic: directions
+    variety: AR
+    about: Beginner, Argentine Spanish, directions.
+
+  # --- Stage 2: feedback on learner answers --------------------------------------
+  - language: spanish
+    id: feedback-bill-es
+    kind: sentence_feedback
+    topic: restaurant
+    variety: ES
+    about: Learner answers "The bill, please." in different right and wrong ways.
+    task: {english: "The bill, please.", spanish: "La cuenta, por favor."}
+    answers:
+      - {text: "Quisiera la cuenta", expect: {meaning_ok: true, grammar_ok: true}, note: valid alternative}
+      - {text: "la cuenta porfavor", expect: {meaning_ok: true}, note: spelling slip only}
+      - {text: "La carta, por favor", expect: {meaning_ok: false}, note: asks for the menu instead}
+      - {text: "Las cuenta por favor", expect: {meaning_ok: true, grammar_ok: false}, note: article agreement error}
+      - {text: "The bill please", expect: {meaning_ok: false}, note: answered in English}
+      - {text: "asdf qwerty", expect: {meaning_ok: false, grammar_ok: false}, note: nonsense}
+
+  - language: spanish
+    id: feedback-ticket-mx
+    kind: sentence_feedback
+    topic: transport
+    variety: MX
+    about: Learner answers "I want a ticket to the centre." in Mexican Spanish.
+    task: {english: "I want a ticket to the centre.", spanish: "Quiero un boleto al centro."}
+    answers:
+      - {text: "Quiero un boleto para el centro", expect: {meaning_ok: true, grammar_ok: true}, note: valid alternative}
+      - {text: "Quisiera un billete al centro", expect: {meaning_ok: true}, note: Spain word, still understood}
+      - {text: "Quiero un boleto a la centro", expect: {meaning_ok: true, grammar_ok: false}, note: gender error}
+      - {text: "Quiero dos boletos al aeropuerto", expect: {meaning_ok: false}, note: wrong meaning}
+
+  - language: spanish
+    id: feedback-water-ar
+    kind: sentence_feedback
+    topic: restaurant
+    variety: AR
+    about: Learner answers "Can you bring me water?" with vos and usted forms.
+    task: {english: "Can you bring me water?", spanish: "¿Me trae agua, por favor?"}
+    answers:
+      - {text: "Me podés traer agua", expect: {meaning_ok: true, grammar_ok: true}, note: valid Argentine vos form}
+      - {text: "Me puede traer agua por favor", expect: {meaning_ok: true, grammar_ok: true}, note: valid usted form}
+      - {text: "Me trae vino", expect: {meaning_ok: false}, note: wine, not water}
+
+  # --- Stage 3: role-play conversations -------------------------------------------
+  - language: spanish
+    id: roleplay-cafe-es-good
+    kind: roleplay
+    topic: restaurant
+    variety: ES
+    scene: 0
+    about: A learner who does everything right at a café in Spain.
+    learner: ["Hola, un café con leche, por favor.", "No, gracias. Solo el café.", "La cuenta, por favor."]
+    expect: {goal_met: true}
+
+  - language: spanish
+    id: roleplay-cafe-es-mistakes
+    kind: roleplay
+    topic: restaurant
+    variety: ES
+    scene: 0
+    about: A beginner with grammar and spelling mistakes; feedback must correct real mistakes only.
+    learner: ["Hola, yo quiero uno cafe", "Si, un agua tambien por favor", "La cuenta por favor, gracias"]
+    expect: {goal_met: true}
+
+  - language: spanish
+    id: roleplay-taxi-mx-english
+    kind: roleplay
+    topic: transport
+    variety: MX
+    scene: 1
+    about: A learner who slips into English halfway; the partner must stay in Spanish and stay kind.
+    learner: ["Buenas tardes, al aeropuerto, por favor.", "How long does it take?", "Gracias, adiós."]
+    expect: {goal_met: true}
+
+  - language: spanish
+    id: roleplay-directions-ar-offtopic
+    kind: roleplay
+    topic: directions
+    variety: AR
+    scene: 0
+    about: A learner who asks something off topic and writes nonsense; the partner must handle it politely.
+    learner: ["Perdón, ¿dónde está el museo?", "¿Te gusta el fútbol?", "jkjkjk"]
+    expect: {goal_met: false}
+
+  - language: spanish
+    id: roleplay-hotel-es-good
+    kind: roleplay
+    topic: hotel
+    variety: ES
+    scene: 1
+    about: Checking in at a hotel in Spain.
+    learner: ["Buenas noches, tengo una reserva.", "Me llamo Ana García.", "¿A qué hora es el desayuno?"]
+    expect: {goal_met: true}
+
+# ============================== MACEDONIAN ==============================
+# Owner: the Macedonian native-speaker reviewer. Expected verdicts below are a
+# first draft: please confirm or correct them.
+
+  - language: macedonian
+    id: mk-round-restaurant
+    kind: sentence_round
+    topic: restaurant
+    variety: MK
+    about: Beginner builds Macedonian sentences from the restaurant words they studied.
+
+  - language: macedonian
+    id: mk-round-transport
+    kind: sentence_round
+    topic: transport
+    variety: MK
+    about: Beginner builds Macedonian sentences about tickets, buses and taxis.
+
+  - language: macedonian
+    id: mk-round-directions
+    kind: sentence_round
+    topic: directions
+    variety: MK
+    about: Beginner builds Macedonian sentences about directions.
+
+  - language: macedonian
+    id: mk-feedback-bill
+    kind: sentence_feedback
+    topic: restaurant
+    variety: MK
+    about: Learner answers "The bill, please." in right and wrong ways, in Cyrillic and Latin letters.
+    task: {english: "The bill, please.", macedonian: "Сметката, ве молам."}
+    answers:
+      - {text: "Може ли сметката?", expect: {meaning_ok: true, grammar_ok: true}, note: valid alternative}
+      - {text: "Smetkata, ve molam", expect: {meaning_ok: true, grammar_ok: true}, note: typed in Latin letters}
+      - {text: "Менито, ве молам", expect: {meaning_ok: false}, note: asks for the menu instead}
+      - {text: "Рачунот, молим", expect: {grammar_ok: false}, note: Serbian, not Macedonian}
+      - {text: "The bill please", expect: {meaning_ok: false}, note: answered in English}
+      - {text: "asdf qwerty", expect: {meaning_ok: false, grammar_ok: false}, note: nonsense}
+
+  - language: macedonian
+    id: mk-feedback-ticket
+    kind: sentence_feedback
+    topic: transport
+    variety: MK
+    about: Learner answers "One ticket to Ohrid, please." with small and big mistakes.
+    task: {english: "One ticket to Ohrid, please.", macedonian: "Еден билет за Охрид, ве молам."}
+    answers:
+      - {text: "Еден билет за Охрид", expect: {meaning_ok: true}, note: polite word left out}
+      - {text: "Eden bilet za Ohrid, ve molam", expect: {meaning_ok: true, grammar_ok: true}, note: typed in Latin letters}
+      - {text: "Една билет за Охрид, ве молам", expect: {meaning_ok: true, grammar_ok: false}, note: gender error}
+      - {text: "Два билети за Охрид, ве молам", expect: {meaning_ok: false}, note: two tickets, not one}
+      - {text: "Еден билет за Скопје, ве молам", expect: {meaning_ok: false}, note: wrong city}
+
+  - language: macedonian
+    id: mk-feedback-menu
+    kind: sentence_feedback
+    topic: restaurant
+    variety: MK
+    about: Learner answers "Do you have a menu?" with formal and informal "you".
+    task: {english: "Do you have a menu?", macedonian: "Дали имате мени?"}
+    answers:
+      - {text: "Имате ли мени?", expect: {meaning_ok: true, grammar_ok: true}, note: valid word order}
+      - {text: "Дали имаш мени?", expect: {meaning_ok: true, grammar_ok: true}, note: informal you is accepted}
+      - {text: "Дали имате вода?", expect: {meaning_ok: false}, note: water, not a menu}
+
+  - language: macedonian
+    id: mk-roleplay-cafe-good
+    kind: roleplay
+    topic: restaurant
+    variety: MK
+    scene: 0
+    about: A learner who does everything right at a café in Skopje.
+    learner: ["Добар ден. Може едно кафе, ве молам.", "Не, благодарам.", "Сметката, ве молам."]
+    expect: {goal_met: true}
+
+  - language: macedonian
+    id: mk-roleplay-free-order
+    kind: roleplay
+    topic: restaurant
+    variety: MK
+    scene: 1
+    about: A learner types their own order (not from the notes); the waiter must move the scene forward, not ask again.
+    learner: ["Добар ден. Маса за двајца, ве молам.", "Би сакал шопска салата и ракија како за почеток.", "Многу беше вкусно. Сметката, ве молам."]
+    expect: {goal_met: true}
+
+  - language: macedonian
+    id: mk-roleplay-latin-mistakes
+    kind: roleplay
+    topic: restaurant
+    variety: MK
+    scene: 0
+    about: A beginner types in Latin letters with mistakes; feedback must correct real mistakes only, in English.
+    learner: ["Dobar den, sakam edna kafe", "Da, i voda, ve molam", "Smetka molam"]
+    expect: {goal_met: true}
+
+  - language: macedonian
+    id: mk-roleplay-ticket-english
+    kind: roleplay
+    topic: transport
+    variety: MK
+    scene: 0
+    about: A learner slips into English at the ticket desk; the seller must stay in Macedonian and stay kind.
+    learner: ["Добар ден. Еден билет за Охрид, ве молам.", "How much is it?", "Благодарам, пријатно."]
+    expect: {goal_met: true}
+
+  - language: macedonian
+    id: mk-roleplay-directions-offtopic
+    kind: roleplay
+    topic: directions
+    variety: MK
+    scene: 0
+    about: A learner asks something off topic and writes nonsense; the local must handle it politely.
+    learner: ["Извинете, каде е автобуската станица?", "Дали сакате фудбал?", "ффф ггг"]
+    expect: {goal_met: false}
+
+  - language: macedonian
+    id: mk-roleplay-hotel
+    kind: roleplay
+    topic: hotel
+    variety: MK
+    scene: 1
+    about: Checking in at a hotel in Ohrid.
+    learner: ["Добра вечер. Имам резервација.", "Моето име е Ана Петрова.", "Во колку часот е појадокот?"]
+    expect: {goal_met: true}

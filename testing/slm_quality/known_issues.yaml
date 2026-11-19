@@ -1,0 +1,84 @@
+# Known problems, from the team's commit messages and earlier test runs.
+# The report shows, for each one, whether this run saw it again and where.
+# evidence: tests = test functions that check it; checks = SLM code checks;
+#           tags = judge problem tags. Add a new problem here when someone reports one.
+
+- id: mk-feedback-in-macedonian
+  problem: Feedback is sometimes written in broken Macedonian instead of English.
+  source: commit 546c7ed (known issues)
+  languages: [macedonian]
+  tests: [test_mk_feedback_in_macedonian_is_sent_back, test_mk_end_feedback_in_macedonian_is_retried]
+  checks: [feedback_in_english]
+  tags: [wrong-language]
+
+- id: mk-invented-words
+  problem: Feedback uses invented Macedonian words (for example "сладка страва").
+  source: commit 546c7ed (known issues)
+  languages: [macedonian]
+  tests: [test_mk_invented_words_never_reach_the_learner, test_feedback_problems_finds_macedonian_and_invented_words]
+  checks: []
+  tags: [invented-word]
+
+- id: staff-view-hints
+  problem: Hints tell the learner what the waiter will do, not what the learner can say.
+  source: commit 546c7ed (known issues)
+  languages: [spanish, macedonian]
+  tests: [test_hint_is_advice_for_the_traveler]
+  checks: []
+  tags: [staff-hint, unclear-hint]
+
+- id: customer-voice
+  problem: The waiter speaks like a customer ("Да, ве молам", "Може ли една чаша чај?", "¿Podría traerme la cuenta?").
+  source: commits 546c7ed and 361bd4e, and the first test run (Spanish)
+  languages: [spanish, macedonian]
+  tests: [test_mk_bad_staff_lines_are_caught]
+  checks: []
+  tags: [customer-voice, breaks-role]
+
+- id: drinks-food-order
+  problem: In the restaurant, the waiter asks about drinks again or orders the steps wrongly.
+  source: commits 546c7ed and 361bd4e
+  languages: [spanish, macedonian]
+  tests: [test_restaurant_prompt_orders_drinks_first, test_mk_bad_staff_lines_are_caught]
+  checks: []
+  tags: [asks-again, repetitive]
+
+- id: wrong-translation
+  problem: The English meaning of a partner line is wrong (it shows the traveler's line or a remark from the notes).
+  source: commit 361bd4e (known issues), and this test run's contract tests
+  languages: [spanish, macedonian]
+  tests: [test_mk_fallback_english_is_a_translation]
+  checks: [english_is_a_translation]
+  tags: [wrong-translation]
+
+- id: generous-feedback
+  problem: Feedback is too generous on incomplete or wrong answers (for example English answers marked correct).
+  source: commit 361bd4e (known issues), and the first test run
+  languages: [spanish, macedonian]
+  tests: []
+  checks: [verdict_meaning_ok, verdict_grammar_ok]
+  tags: [accepts-wrong-answer, wrong-verdict]
+
+- id: label-only-feedback
+  problem: Feedback shows code-like words ("Meaning_ok", "meaning_not_ok", "Meaning_no", "goal_met") instead of a sentence.
+  source: the first test run and a learner report; partly fixed in commit 361bd4e, guard for all forms added after run 2026-11-18_192939
+  languages: [spanish, macedonian]
+  tests: [test_feedback_never_looks_like_code, test_end_feedback_never_looks_like_code, test_mk_label_only_feedback_becomes_a_sentence, test_mk_end_feedback_never_looks_like_code]
+  checks: [no_code_words]
+  tags: [label-only-feedback]
+
+- id: latin-card-spelling
+  problem: Stage 1 rejects some Macedonian answers typed exactly as the card's Latin line ("lj" in илјада, "è" in сè).
+  source: this test run's unit tests
+  languages: [macedonian]
+  tests: [test_card_latin_spelling_is_accepted_in_stage1]
+  checks: []
+  tags: []
+
+- id: wrong-verdict-valid-alternative
+  problem: A valid alternative answer (regional form, informal "you", other word order) is marked wrong.
+  source: the first test run (Spanish)
+  languages: [spanish, macedonian]
+  tests: []
+  checks: [verdict_grammar_ok, verdict_meaning_ok]
+  tags: [rejects-valid-answer]

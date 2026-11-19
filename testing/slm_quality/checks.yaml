@@ -1,0 +1,100 @@
+# Explanations for the SLM quality report (Simplified Technical English).
+# code_checks: automatic checks that testing/tools/collect_transcripts.py runs on every real SLM reply.
+# rubric: the items that the judge agents (and the human reviewer) score from 1 to 5.
+# Each entry: what it tests, why, and what a failure means for the learner.
+
+code_checks:
+  no_error:
+    what: The SLM gave a usable reply and the app did not show an error.
+    why: An error stops the activity until the learner tries again.
+    fails: The learner sees "Please try again" instead of practice.
+  schema_valid:
+    what: The sentence round has 3 examples and 5 tasks in the correct format.
+    why: The Stage 2 screen needs exactly this format.
+    fails: Stage 2 cannot start.
+  target_language:
+    what: Every sentence in the round is in the target language (Macedonian in Cyrillic, with no Russian or Serbian letters).
+    why: The learner practices only this language.
+    fails: The learner sees English or wrong-alphabet text as the "correct" answer.
+  uses_studied_words:
+    what: At least 6 of the 8 sentences use a word from the learner's studied bank.
+    why: Stage 2 must build on the words from Stage 1.
+    fails: The learner must translate sentences with words that they never studied.
+  verdict_meaning_ok:
+    what: The SLM's "meaning correct?" verdict is the same as the verdict a teacher expects for this answer.
+    why: A wrong verdict teaches the learner something false.
+    fails: A correct answer is marked wrong, or a wrong answer (for example English) is marked correct.
+  verdict_grammar_ok:
+    what: The SLM's "grammar correct?" verdict is the same as the verdict a teacher expects.
+    why: A wrong grammar verdict teaches a wrong form or rejects a correct one.
+    fails: The learner is told to fix correct grammar, or keeps a grammar error.
+  verdict_goal_met:
+    what: The end feedback says "goal met" only when the learner reached the scene goal.
+    why: The learner uses this to know if the conversation worked.
+    fails: The learner gets praise for a failed conversation, or blame for a good one.
+  feedback_in_english:
+    what: Feedback text is in English (Macedonian words only where it quotes them).
+    why: A beginner cannot read feedback in the language that they are learning.
+    fails: The learner cannot understand the feedback.
+  no_code_words:
+    what: Feedback, hints and correction notes contain no code-like words (a bare label such as "Meaning_no", or any word with an underscore such as "meaning_ok" or "goal_met").
+    why: Code words look like a bug and give the learner no information.
+    fails: The learner sees code words instead of an explanation.
+  reply_in_target_language:
+    what: The partner's line is in the target language (Macedonian in Cyrillic only, with no Russian or Serbian letters).
+    why: The role-play practices the target language.
+    fails: The partner speaks English or the wrong language.
+  short_reply:
+    what: The partner's line has at most 3 sentences and 220 characters.
+    why: Beginners can read and answer only short lines.
+    fails: The learner gets a long line that is too hard to understand.
+  no_echo:
+    what: The partner does not copy the learner's line.
+    why: A real waiter or local answers. They do not repeat you.
+    fails: The conversation does not make sense.
+  english_meaning_given:
+    what: The partner's line has an English meaning.
+    why: The learner can open "Show English meaning" when they do not understand.
+    fails: The learner has no help to understand the line.
+  english_is_a_translation:
+    what: The English meaning translates the partner's line. It is not a remark copied from the notes.
+    why: The notes contain teaching remarks next to some phrases.
+    fails: The learner reads a remark such as "said when inviting you to sit down" as the meaning.
+  no_fallback_needed:
+    what: Macedonian only. The SLM's own line passed the checks within 3 tries, so the app did not use a fixed line from the notes.
+    why: A fallback line is always correct, but it means that the SLM failed 3 times and the scene can lose its flow.
+    fails: The SLM often writes bad Macedonian lines. The learner waits longer and the partner can sound generic.
+  closing_has_no_question:
+    what: The last partner line closes the scene without a new question.
+    why: The learner has no more turns after the third reply.
+    fails: The learner gets a question that they cannot answer.
+
+rubric:
+  makes_sense:
+    what: The reply answers what the learner said and fits the conversation.
+    why: A reply that does not follow the conversation confuses the learner.
+    fails: The learner cannot continue, or learns that a wrong reply is normal.
+  language:
+    what: The target language is correct and natural in the chosen variety (for Macedonian, standard Macedonian, not Serbian, Bulgarian or Russian).
+    why: The learner copies what the app shows.
+    fails: The learner learns wrong words or wrong grammar.
+  grounded:
+    what: The reply uses the studied words and the checked notes, and invents no real-world facts.
+    why: The app teaches only checked material.
+    fails: The learner learns unchecked words or false facts (times, prices).
+  feedback:
+    what: Verdicts and corrections are right, valid alternatives are accepted, and hints do not give the answer away.
+    why: Feedback is how the learner improves.
+    fails: The learner is told that correct Spanish or Macedonian is wrong, or the reverse.
+  level_tone:
+    what: The reply is short, simple, friendly and right for a beginner traveler.
+    why: Long or hard replies discourage beginners.
+    fails: The learner feels lost or gives up.
+  roleplay:
+    what: The partner stays in role, never speaks as the traveler, and moves the scene forward.
+    why: The role-play prepares the learner for a real conversation.
+    fails: The scene breaks (for example the waiter asks for the bill).
+  robustness:
+    what: The reply handles English, nonsense or off-topic input politely and helps the learner back on track.
+    why: Real learners make these mistakes.
+    fails: The learner gets a confusing or rude reply after a mistake.

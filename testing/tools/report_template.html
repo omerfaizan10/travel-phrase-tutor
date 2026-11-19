@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tutor Test Report</title>
+<style>
+:root {
+  --bg: #f7f5f1; --card: #ffffff; --ink: #1f1d1a; --muted: #6b655c; --line: #e4dfd6; --soft: #f1ede6;
+  --accent: #2f5fb3; --accent-ink: #ffffff;
+  --high: #b3261e; --high-bg: #fdecea; --med: #8a5a00; --med-bg: #fdf3dc; --low: #46607a; --low-bg: #e9eff5;
+  --ok: #1f7a4d; --ok-bg: #e4f3ea; --bad: #b3261e; --bad-bg: #fdecea; --wait: #8a5a00; --wait-bg: #fdf3dc;
+  --radius: 10px; --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #181715; --card: #22201d; --ink: #ece8e1; --muted: #a39c90; --line: #37332e; --soft: #2a2724;
+    --accent: #7ea6ef; --accent-ink: #10151f;
+    --high: #f28b82; --high-bg: #3b2220; --med: #f2c46d; --med-bg: #3a3020; --low: #9db8d3; --low-bg: #23303c;
+    --ok: #74d39c; --ok-bg: #1d3327; --bad: #f28b82; --bad-bg: #3b2220; --wait: #f2c46d; --wait-bg: #3a3020;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #181715; --card: #22201d; --ink: #ece8e1; --muted: #a39c90; --line: #37332e; --soft: #2a2724;
+  --accent: #7ea6ef; --accent-ink: #10151f;
+  --high: #f28b82; --high-bg: #3b2220; --med: #f2c46d; --med-bg: #3a3020; --low: #9db8d3; --low-bg: #23303c;
+  --ok: #74d39c; --ok-bg: #1d3327; --bad: #f28b82; --bad-bg: #3b2220; --wait: #f2c46d; --wait-bg: #3a3020;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 var(--sans); }
+main { max-width: 1040px; margin: 0 auto; padding: 20px 16px 80px; }
+h1 { font-size: 24px; margin: 0; } h2 { font-size: 19px; margin: 28px 0 8px; } h3 { font-size: 16px; margin: 18px 0 6px; }
+p { margin: 6px 0; } .muted { color: var(--muted); } .small { font-size: 13px; }
+code { font-size: 12.5px; background: var(--soft); padding: 1px 5px; border-radius: 4px; word-break: break-word; }
+button, select, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; border: 1px solid var(--line); background: var(--card); border-radius: 8px; padding: 7px 12px; }
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+button.choice.on { outline: 2px solid var(--accent); outline-offset: 1px; font-weight: 600; }
+input[type=text], input[type=search], select, textarea { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; }
+textarea { width: 100%; min-height: 54px; resize: vertical; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; margin: 12px 0; }
+.pill { display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.high { color: var(--high); background: var(--high-bg); } .medium { color: var(--med); background: var(--med-bg); }
+.low { color: var(--low); background: var(--low-bg); } .ok { color: var(--ok); background: var(--ok-bg); }
+.bad { color: var(--bad); background: var(--bad-bg); } .wait { color: var(--wait); background: var(--wait-bg); }
+.neutral { color: var(--muted); background: var(--soft); }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.spacer { flex: 1; }
+.banner { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; margin: 16px 0 10px; }
+.banner .big { font-size: 19px; font-weight: 650; }
+.progress { height: 10px; background: var(--soft); border-radius: 99px; overflow: hidden; margin: 10px 0 4px; }
+.progress > div { height: 100%; background: var(--accent); width: 0; transition: width .3s; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 12px; }
+.tile { background: var(--soft); border-radius: 8px; padding: 10px 12px; }
+.tile b { display: block; font-size: 13px; color: var(--muted); font-weight: 600; }
+.tile .num { font-size: 22px; font-weight: 650; }
+nav.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-top: 18px; overflow-x: auto; }
+nav.tabs button { border: none; border-bottom: 3px solid transparent; border-radius: 0; background: none; padding: 9px 12px; white-space: nowrap; color: var(--muted); }
+nav.tabs button.on { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
+.why { border-left: 4px solid var(--high); background: var(--high-bg); border-radius: 6px; padding: 9px 12px; margin: 10px 0; }
+.why.medium { border-left-color: var(--med); background: var(--med-bg); } .why.low { border-left-color: var(--low); background: var(--low-bg); }
+.why .t { font-weight: 650; } .why p { margin: 2px 0 0; color: var(--ink); }
+.what { background: var(--soft); border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+.line { margin: 3px 0; } .who { font-size: 12px; font-weight: 650; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; margin-right: 6px; }
+.en { color: var(--muted); font-style: italic; }
+.decided { opacity: .72; }
+.scores { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { border-bottom: 1px solid var(--line); padding: 7px 8px; text-align: left; vertical-align: top; }
+th { font-size: 12px; color: var(--muted); font-weight: 600; }
+.bar { height: 8px; background: var(--soft); border-radius: 99px; overflow: hidden; min-width: 80px; }
+.bar > div { height: 100%; }
+details summary { cursor: pointer; color: var(--muted); }
+.cat-row { border-top: 1px solid var(--line); padding: 10px 0; }
+.cat-row .k { font-size: 12px; font-weight: 650; color: var(--muted); display: inline-block; min-width: 92px; }
+.hidden { display: none !important; }
+.decide { border-top: 1px dashed var(--line); margin-top: 10px; padding-top: 10px; }
+@media (max-width: 560px) { .cat-row .k { display: block; } .banner .big { font-size: 17px; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="row"><h1>Travel Phrase Tutor — test report</h1></div>
+  <div class="muted small" id="meta"></div>
+
+  <section class="banner" aria-live="polite">
+    <div class="big" id="headline"></div>
+    <div class="progress"><div id="progress"></div></div>
+    <div class="small muted" id="progress-text"></div>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <div class="card row small" id="reviewer-bar">
+    <label>Your name <input type="text" id="reviewer" placeholder="e.g. Camila" size="12"></label>
+    <label>Language <select id="lang-filter"><option value="">All</option><option value="spanish">Spanish</option><option value="macedonian">Macedonian</option></select></label>
+    <span class="spacer"></span>
+    <button id="export">Download my decisions</button>
+    <label class="small"><input type="file" id="import" accept="application/json" class="hidden"><button type="button" id="import-btn">Load decisions</button></label>
+  </div>
+
+  <nav class="tabs" id="tabs"></nav>
+
+  <section data-tab="review"><div id="review"></div></section>
+  <section data-tab="results" class="hidden"><div id="results"></div></section>
+  <section data-tab="known" class="hidden"><div id="known"></div></section>
+  <section data-tab="catalog" class="hidden"><div id="catalog"></div></section>
+  <section data-tab="details" class="hidden"><div id="details"></div></section>
+</main>
+
+<script id="report-data" type="application/json">__REPORT_DATA__</script>
+<script>
+"use strict";
+const D = JSON.parse(document.getElementById("report-data").textContent);
+const RUN = D.meta.run;
+const STORE = "tutor-review:" + RUN;
+const RL = D.rubric_label;
+const LANG = { spanish: "Spanish", macedonian: "Macedonian", both: "Both languages" };
+const KIND = { sentence_round: "Stage 2 · sentence round", sentence_feedback: "Stage 2 · feedback on an answer",
+               roleplay_turn: "Stage 3 · role-play turn", roleplay_final: "Stage 3 · end of role-play feedback" };
+const PRI = { high: "Must check", medium: "Should check", low: "Spot check" };
+const settings = (D.slm && D.slm.settings) || {};
+const SHARE = settings.scenario_pass_share ?? 0.9;
+const MINS = settings.acceptable_min_score ?? 3;
+
+const h = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const pct = x => x == null ? "–" : Math.round(x * 100) + "%";
+const human = name => name.replace(/^test_/, "").replace(/^mk_/, "Macedonian: ").replace(/_/g, " ").replace(/^./, c => c.toUpperCase());
+
+// ---- decisions (file decisions + this browser) ----
+function loadLocal() { try { return JSON.parse(localStorage.getItem(STORE) || "{}"); } catch (e) { return {}; } }
+function saveLocal() { try { localStorage.setItem(STORE, JSON.stringify(decisions)); } catch (e) {} }
+const decisions = Object.assign({}, D.human || {});
+const VERDICTS = ["ok", "fail", "bug", "outdated", "unsure"];
+const isDone = k => !!(decisions[k] && VERDICTS.includes(decisions[k].verdict));
+for (const [k, v] of Object.entries(loadLocal())) if (!decisions[k] || (v.at || "") > (decisions[k].at || "")) decisions[k] = v;
+let reviewerName = ""; try { reviewerName = localStorage.getItem("tutor-reviewer") || ""; } catch (e) {}
+
+function decide(key, verdict, extra) {
+  if (verdict === null) { if (decisions[key]) { delete decisions[key].verdict; if (!decisions[key].note && !decisions[key].tag) delete decisions[key]; } }
+  else decisions[key] = Object.assign({}, decisions[key] || {}, extra || {}, { verdict, reviewer: reviewerName, at: new Date().toISOString() });
+  saveLocal(); renderAll();
+}
+// A decision on an example also covers the similar replies in its group (unless decided separately).
+const groupOf = {};
+function effective(k) {
+  const d = decisions[k];
+  if (d && (d.verdict === "ok" || d.verdict === "fail")) return d.verdict;
+  const rep = groupOf[k]; const rd = rep && decisions[rep];
+  return rd && (rd.verdict === "ok" || rd.verdict === "fail") ? rd.verdict : null;
+}
+
+// ---- items needing review ----
+const slmItems = (D.slm && D.slm.items) || [];
+const queue = slmItems.filter(i => i.review.length).map(i => Object.assign({ type: "slm" }, i))
+  .concat((D.test_reviews || []).map(t => Object.assign({ type: "test" }, t)));
+const porder = { high: 0, medium: 1, low: 2 };
+queue.sort((a, b) => porder[a.priority] - porder[b.priority] || (a.language > b.language ? 1 : -1) || (a.key > b.key ? 1 : -1));
+
+// ---- live numbers: the same rules as build_report.final_numbers ----
+for (const i of slmItems) for (const k of (i.group || [])) groupOf[k] = i.key;
+function itemOk(i) { const v = effective(i.key); return v ? v === "ok" : i.machine === "ok"; }
+function computeFinal() {
+  const langs = {};
+  for (const lang of [...new Set(slmItems.map(i => i.language))]) {
+    const its = slmItems.filter(i => i.language === lang);
+    const rev = its.filter(i => effective(i.key));
+    const agree = rev.filter(i => (effective(i.key) === "ok") === (i.machine === "ok"));
+    langs[lang] = { replies: its.length, machine: its.filter(i => i.machine === "ok").length / its.length,
+      final: its.filter(itemOk).length / its.length, reviewed: rev.length,
+      agreement: rev.length ? agree.length / rev.length : null,
+      open: its.filter(i => i.review.length && !isDone(i.key)).length };
+  }
+  const scen = ((D.slm && D.slm.scenarios) || []).map(s => {
+    const its = slmItems.filter(i => i.scenario === s.id);
+    const ok = its.length ? its.filter(itemOk).length / its.length : 0;
+    return Object.assign({}, s, { ok, okN: its.filter(itemOk).length, n: its.length, status: ok >= SHARE ? "pass" : "fail",
+      open: its.filter(i => i.review.length && !isDone(i.key)).length, its });
+  });
+  const tests = {};
+  for (const [name, s] of Object.entries(D.sets)) {
+    const failed = (s.tests || []).filter(t => t.status === "failed");
+    const v = t => (decisions["test:" + t.id] || {}).verdict;
+    tests[name] = { failed: failed.length, bug: failed.filter(t => v(t) === "bug").length,
+      outdated: failed.filter(t => v(t) === "outdated").length, open: failed.filter(t => !v(t) || v(t) === "unsure").length };
+  }
+  return { langs, scen, tests };
+}
+
+// ---- header and banner ----
+function renderHeader(F) {
+  const m = D.meta;
+  document.getElementById("meta").innerHTML = `Run ${h(m.run)}` + (m.model ? ` · model <code>${h(m.model)}</code>` : "") +
+    (m.commit ? ` · commit <code>${h(m.commit)}</code>` : "") + ` · built ${h(m.built.replace("T", " "))}`;
+  const open = queue.filter(q => !isDone(q.key));
+  const openHigh = open.filter(q => q.priority === "high").length;
+  const scenFail = F.scen.filter(s => s.status === "fail").length;
+  const bugs = Object.values(F.tests).reduce((a, t) => a + t.bug, 0);
+  const testOpen = Object.values(F.tests).reduce((a, t) => a + t.open, 0);
+  let head;
+  if (open.length) head = `${open.length} item${open.length > 1 ? "s" : ""} wait for a person` + (openHigh ? ` — ${openHigh} must be checked first` : "") + ".";
+  else head = "All review items are decided.";
+  const parts = [];
+  if (bugs) parts.push(`${bugs} real bug${bugs > 1 ? "s" : ""} confirmed`);
+  if (testOpen) parts.push(`${testOpen} failed code test${testOpen > 1 ? "s" : ""} not yet triaged`);
+  if (F.scen.length) parts.push(`${scenFail} of ${F.scen.length} SLM scenarios fail` + (open.length ? " (this changes as you review)" : ""));
+  document.getElementById("headline").innerHTML = h(head) + (parts.length ? `<div class="small muted" style="font-weight:400;margin-top:4px">${h(parts.join(" · "))}</div>` : "");
+  const done = queue.length - open.length;
+  document.getElementById("progress").style.width = (queue.length ? 100 * done / queue.length : 100) + "%";
+  document.getElementById("progress-text").textContent = `Reviewed ${done} of ${queue.length}. Your decisions are saved in this browser. Use “Download my decisions” to share them.`;
+  const tiles = [];
+  for (const [name, s] of Object.entries(D.sets)) {
+    const t = F.tests[name];
+    tiles.push(`<div class="tile"><b>${h(D.set_info[name][0])}</b><span class="num">${s.passed}/${s.passed + s.failed}</span> passed` +
+      (s.failed ? `<div class="small"><span class="pill bad">${s.failed} failed</span> ${t.bug ? `${t.bug} bug · ` : ""}${t.outdated ? `${t.outdated} out of date · ` : ""}${t.open} open</div>` : `<div class="small"><span class="pill ok">all pass</span></div>`) + "</div>");
+  }
+  for (const [lang, v] of Object.entries(F.langs)) {
+    tiles.push(`<div class="tile"><b>SLM replies · ${LANG[lang]}</b><span class="num">${pct(v.final)}</span> acceptable` +
+      `<div class="small muted">machine estimate ${pct(v.machine)} · ${v.reviewed} reviewed${v.agreement != null ? ` · judge agreed ${pct(v.agreement)}` : ""}</div></div>`);
+  }
+  document.getElementById("tiles").innerHTML = tiles.join("");
+}
+
+// ---- tabs ----
+const TABS = [["review", "Review"], ["results", "Results"], ["known", "Known problems"], ["catalog", "Test catalog"], ["details", "Run details"]];
+let current = (location.hash || "#review").slice(1);
+function renderTabs() {
+  const open = queue.filter(q => !isDone(q.key)).length;
+  document.getElementById("tabs").innerHTML = TABS.map(([id, label]) =>
+    `<button data-go="${id}" class="${id === current ? "on" : ""}">${label}${id === "review" ? ` (${open})` : ""}</button>`).join("");
+  document.querySelectorAll("section[data-tab]").forEach(s => s.classList.toggle("hidden", s.dataset.tab !== current));
+}
+document.getElementById("tabs").addEventListener("click", e => {
+  const b = e.target.closest("[data-go]"); if (!b) return;
+  current = b.dataset.go; history.replaceState(null, "", "#" + current); renderTabs();
+});
+
+// ---- review cards ----
+let showDecided = false, priFilter = "", typeFilter = "";
+function scoreChips(i) {
+  return Object.entries(i.scores || {}).filter(([, v]) => typeof v === "number").map(([k, v]) =>
+    `<span class="pill ${v <= 2 ? "bad" : v < 4 ? "wait" : "ok"}" title="${h(i.reasons_by_item[k] || "")}">${h(RL[k] || k)} ${v}/5</span>`).join("");
+}
+function checksFailed(i) {
+  const doc = (D.checks_doc && D.checks_doc.code_checks) || {};
+  return Object.entries(i.checks || {}).filter(([, ok]) => !ok).map(([k]) =>
+    `<div class="line small"><span class="pill bad">check failed</span> <b>${h(k.replace(/_/g, " "))}</b> — ${h((doc[k] || {}).what || "")}</div>`).join("");
+}
+function yesno(v) { return v === true ? "✓ yes" : v === false ? "✗ no" : "–"; }
+function whatHappened(i) {
+  const o = i.output, L = i.language;
+  if (!o) return `<div class="line"><span class="who">Error</span>${h(i.error)}</div>`;
+  if (i.kind === "sentence_round") {
+    const rows = (arr, label) => arr.map(p => `<tr><td class="muted small">${label}</td><td>${h(p.english)}</td><td><b>${h(p[L])}</b></td></tr>`).join("");
+    return `<div class="small muted">The SLM wrote 3 examples (shown to the learner) and 5 tasks (the learner translates; the right column is the hidden answer).</div>
+      <div class="scroll"><table><tr><th></th><th>English</th><th>${LANG[L]}</th></tr>${rows(o.examples, "example")}${rows(o.tasks, "task")}</table></div>`;
+  }
+  if (i.kind === "sentence_feedback") {
+    const t = i.task || {}, exp = i.expect || {};
+    return `<div class="line"><span class="who">Task</span>Translate: “${h(t.english)}” <span class="muted small">(one right answer: ${h(t[L])})</span></div>
+      <div class="line"><span class="who">Learner</span><b>${h(i.typed)}</b>${i.learner && i.learner !== i.typed ? ` <span class="muted small">(read as ${h(i.learner)})</span>` : ""}${i.note ? ` <span class="pill neutral">${h(i.note)}</span>` : ""}</div>
+      <div class="line"><span class="who">SLM verdict</span>meaning ${yesno(o.meaning_ok)} · grammar ${yesno(o.grammar_ok)}
+        ${Object.keys(exp).length ? `<span class="muted small"> — a teacher expects ${Object.entries(exp).map(([k, v]) => `${k.replace("_ok", "")} ${yesno(v)}`).join(", ")}</span>` : ""}</div>
+      <div class="line"><span class="who">SLM feedback</span>${h(o.meaning_feedback)} ${h(o.grammar_feedback)}</div>
+      ${o.hint ? `<div class="line"><span class="who">Hint</span>${h(o.hint)}</div>` : ""}`;
+  }
+  const hist = (i.history || []).map(m => `<div class="line small"><span class="who">${m.role === "user" ? "Learner" : "Partner"}</span>${h(m.text)}${m.english ? ` <span class="en">${h(m.english)}</span>` : ""}</div>`).join("");
+  let out = hist ? `<details><summary>Conversation so far (${i.history.length} lines)</summary>${hist}</details>` : `<div class="small muted">Opening turn: the learner has not spoken yet.</div>`;
+  if (i.learner) out += `<div class="line"><span class="who">Learner</span><b>${h(i.typed && i.typed !== i.learner ? i.typed : i.learner)}</b>${i.typed && i.typed !== i.learner ? ` <span class="muted small">(read as ${h(i.learner)})</span>` : ""}</div>`;
+  out += `<div class="line"><span class="who">Partner</span><b>${h(o.reply)}</b> <span class="en">${h(o.english)}</span>${i.fallback ? ` <span class="pill wait" title="The SLM failed the app's checks 3 times, so the app used a checked line from the notes.">fixed line from notes</span>` : ""}</div>`;
+  if (o.hint) out += `<div class="line small"><span class="who">Hint</span>${h(o.hint)}</div>`;
+  if (i.kind === "roleplay_final") {
+    out += `<div class="line"><span class="who">Goal met</span>${yesno(o.goal_met)}</div>
+      <div class="line"><span class="who">Feedback</span>${h(o.meaning_feedback)} ${h(o.grammar_feedback)}</div>` +
+      (o.corrections || []).map(c => `<div class="line small"><span class="who">Correction</span>“${h(c.learner_text)}” → “${h(c.example_revision)}” <span class="muted">${h(c.explanation)}</span></div>`).join("");
+  }
+  return out;
+}
+function decisionBox(q) {
+  const d = decisions[q.key];
+  const opts = q.type === "test"
+    ? [["bug", "Real bug (the app is wrong)"], ["outdated", "Test is out of date (intended change)"], ["unsure", "Not sure"]]
+    : [["ok", "Acceptable for a learner"], ["fail", "Not acceptable"], ["unsure", "Not sure / skip"]];
+  const tags = ["wrong-language", "wrong-variety", "grammar-error", "invented-word", "breaks-role", "customer-voice", "ignores-learner",
+    "wrong-verdict", "rejects-valid-answer", "accepts-wrong-answer", "wrong-translation", "too-long", "too-hard", "other"];
+  return `<div class="decide"><div class="row">${opts.map(([v, l]) => `<button class="choice ${d && d.verdict === v ? "on" : ""}" data-key="${h(q.key)}" data-v="${v}">${h(l)}</button>`).join("")}
+      ${d && d.verdict ? `<span class="small muted">Decided by ${h(d.reviewer || "someone")} · <a href="#" data-undo="${h(q.key)}">undo</a></span>` : ""}</div>
+    ${q.type === "slm" ? `<div class="row small" style="margin-top:8px"><label>Main problem <select data-tag="${h(q.key)}"><option value="">(none)</option>${tags.map(t => `<option ${d && d.tag === t ? "selected" : ""}>${t}</option>`).join("")}</select></label></div>` : ""}
+    <textarea data-note="${h(q.key)}" placeholder="Optional note: what is wrong, or the correct ${q.type === "test" ? "behaviour" : "wording"}">${h(d && d.note)}</textarea></div>`;
+}
+function reviewCard(q) {
+  const d = decisions[q.key];
+  const reasons = q.review.map(r => `<div class="why ${r.priority}"><div class="t">${h(r.title)}</div><p>${h(r.why)}</p></div>`).join("");
+  const kind = q.type === "test" ? `Code test · ${h(D.set_info[q.set][0])}` : h(KIND[q.kind] || q.kind);
+  let body;
+  if (q.type === "test") {
+    const doc = q.doc || {};
+    body = `<div class="what"><div class="line"><span class="who">Test</span><b>${h(human(q.func.split("::")[1]))}</b> <span class="muted small">${h(q.case)}</span></div>
+      <div class="line small"><span class="who">Why it exists</span>${h(doc.why || "")}</div>
+      <details><summary>Error message</summary><pre class="small" style="white-space:pre-wrap">${h(q.message)}</pre></details></div>`;
+  } else {
+    body = `<div class="what">${whatHappened(q)}</div>
+      ${q.judged ? `<div class="small"><span class="who">Judge</span>${h(q.summary)}</div><div class="scores">${scoreChips(q)}</div>` : `<div class="small muted">Not judged yet.</div>`}
+      ${checksFailed(q)}`;
+  }
+  return `<article class="card ${isDone(q.key) ? "decided" : ""}" data-card="${h(q.key)}">
+    <div class="row"><span class="pill ${q.priority}">${PRI[q.priority]}</span><span class="pill neutral">${h(LANG[q.language] || q.language)}</span>
+      <span class="small">${kind}</span><span class="spacer"></span><span class="small muted">${h(q.type === "test" ? q.set : q.scenario)}</span></div>
+    ${q.about ? `<div class="small muted" style="margin-top:4px">Situation: ${h(q.about)}</div>` : ""}
+    ${q.group && q.group.length ? `<div class="small" style="margin-top:4px"><span class="pill neutral">covers ${q.group.length + 1} similar replies</span></div>` : ""}
+    ${reasons + body}
+    ${decisionBox(q)}
+  </article>`;
+}
+function renderReview() {
+  const lang = document.getElementById("lang-filter").value;
+  const list = queue.filter(q => (!lang || q.language === lang || q.language === "both") && (!priFilter || q.priority === priFilter)
+    && (!typeFilter || q.type === typeFilter) && (showDecided || !isDone(q.key)));
+  const counts = p => queue.filter(q => q.priority === p && !isDone(q.key)).length;
+  document.getElementById("review").innerHTML = `
+    <p>Each card is one item that a person must decide. <b>The coloured box says why</b> this item needs you. Read what happened, then choose. The results and the banner change immediately.</p>
+    <div class="row small" style="margin:8px 0">
+      <label>Show <select id="pri"><option value="">all priorities</option><option value="high">Must check (${counts("high")})</option><option value="medium">Should check (${counts("medium")})</option><option value="low">Spot checks (${counts("low")})</option></select></label>
+      <label><select id="typ"><option value="">SLM replies and code tests</option><option value="slm">SLM replies only</option><option value="test">Code tests only (for developers)</option></select></label>
+      <label><input type="checkbox" id="showdec" ${showDecided ? "checked" : ""}> show decided items</label>
+    </div>
+    ${list.length ? list.map(reviewCard).join("") : `<div class="card">Nothing to review with these filters. 🎉</div>`}`;
+  document.getElementById("pri").value = priFilter; document.getElementById("typ").value = typeFilter;
+}
+document.getElementById("review").addEventListener("click", e => {
+  const b = e.target.closest("button[data-v]");
+  if (b) { const k = b.dataset.key; const d = decisions[k]; decide(k, d && d.verdict === b.dataset.v ? null : b.dataset.v); return; }
+  const u = e.target.closest("[data-undo]"); if (u) { e.preventDefault(); decide(u.dataset.undo, null); }
+});
+document.getElementById("review").addEventListener("change", e => {
+  if (e.target.id === "pri") { priFilter = e.target.value; renderReview(); }
+  if (e.target.id === "typ") { typeFilter = e.target.value; renderReview(); }
+  if (e.target.id === "showdec") { showDecided = e.target.checked; renderReview(); }
+  if (e.target.dataset.tag) { const k = e.target.dataset.tag; decisions[k] = Object.assign(decisions[k] || { reviewer: reviewerName }, { tag: e.target.value, at: new Date().toISOString() }); saveLocal(); renderAll(); }
+});
+document.getElementById("review").addEventListener("focusout", e => {
+  const k = e.target.dataset && e.target.dataset.note; if (!k) return;
+  const v = e.target.value.trim(); if ((decisions[k] || {}).note === v) return;
+  if (!decisions[k] && !v) return;
+  decisions[k] = Object.assign(decisions[k] || { reviewer: reviewerName }, { note: v, at: new Date().toISOString() }); saveLocal(); renderAll();
+});
+
+// ---- results ----
+function bar(x, cls) { return `<div class="bar"><div style="width:${Math.round(100 * x)}%;background:var(${cls === "ok" ? "--ok" : "--bad"})"></div></div>`; }
+function renderResults(F) {
+  const lang = document.getElementById("lang-filter").value;
+  let out = `<h2>How pass and fail are decided</h2><div class="card small">
+    <p><b>A reply is acceptable</b> when every code check passes and the judge gives no score below ${MINS} out of 5. A person's decision always replaces the machine's.</p>
+    <p><b>A scenario passes</b> when at least ${Math.round(SHARE * 100)}% of its replies are acceptable. The SLM gives a different reply each time, so each scenario runs several times.</p>
+    <p><b>A code test</b> passes or fails exactly. A failed test is a real bug, or a test that is out of date after an intended change. A person decides which.</p></div>`;
+  out += `<h2>SLM quality by language</h2><div class="tiles">` + Object.entries(F.langs).filter(([l]) => !lang || l === lang).map(([l, v]) =>
+    `<div class="tile"><b>${LANG[l]}</b><span class="num">${pct(v.final)}</span> of ${v.replies} replies acceptable
+     <div class="small">Machine only: ${pct(v.machine)} · after review: ${pct(v.final)}</div>
+     <div class="small">${v.reviewed} reviewed by a person · ${v.open} still open</div>
+     <div class="small">${v.agreement == null ? "Judge agreement: not measured yet" : `Judge agreed with people in ${pct(v.agreement)} of reviewed replies` + (v.agreement < 0.8 ? ` <span class="pill bad">below 80%: trust people, not the judge</span>` : "")}</div></div>`).join("") + `</div>`;
+  const scen = F.scen.filter(s => !lang || s.language === lang);
+  if (scen.length) {
+    out += `<h2>SLM scenarios</h2><div class="scroll"><table><tr><th>Scenario</th><th>Result</th><th>Acceptable replies</th><th>Open reviews</th><th>Judge's average</th></tr>` +
+      scen.map(s => {
+        const avg = {}; for (const i of s.its) for (const [k, v] of Object.entries(i.scores || {})) if (typeof v === "number") (avg[k] = avg[k] || []).push(v);
+        const worst = Object.entries(avg).map(([k, a]) => [k, a.reduce((x, y) => x + y, 0) / a.length]).sort((a, b) => a[1] - b[1]).slice(0, 2);
+        return `<tr><td><b>${h(s.id)}</b><div class="small muted">${h(s.about)}</div></td>
+          <td><span class="pill ${s.status === "pass" ? "ok" : "bad"}">${s.status}</span></td>
+          <td>${s.okN}/${s.n} ${bar(s.ok, s.status === "pass" ? "ok" : "bad")}</td>
+          <td>${s.open ? `<span class="pill wait">${s.open}</span>` : "–"}</td>
+          <td class="small">${worst.map(([k, a]) => `${h(RL[k])} ${a.toFixed(1)}`).join("<br>") || "–"}</td></tr>`;
+      }).join("") + `</table></div>`;
+  }
+  out += `<h2>Code tests</h2>`;
+  for (const [name, s] of Object.entries(D.sets)) {
+    const t = F.tests[name];
+    out += `<div class="card"><div class="row"><b>${h(D.set_info[name][0])}</b><span class="pill ${s.failed ? "bad" : "ok"}">${s.passed} passed · ${s.failed} failed</span>
+      ${s.failed ? `<span class="small">${t.bug} real bug · ${t.outdated} out of date · ${t.open} not decided</span>` : ""}</div>
+      <p class="small muted">${h(D.set_info[name][1])}</p>
+      ${(s.tests || []).filter(x => x.status === "failed").map(x => `<div class="line small"><span class="pill bad">failed</span> ${h(human(x.func.split("::")[1]))} <span class="muted">${h(x.case)}</span></div>`).join("")}</div>`;
+  }
+  document.getElementById("results").innerHTML = out;
+}
+
+// ---- known problems ----
+function renderKnown() {
+  const lang = document.getElementById("lang-filter").value;
+  const rows = (D.known || []).filter(k => !lang || (k.languages || []).includes(lang)).map(k => {
+    const confirmed = k.item_keys.filter(x => effective(x) === "fail").length;
+    const cleared = k.item_keys.filter(x => effective(x) === "ok").length;
+    const seen = k.tests_failed.length || (k.item_keys.length - cleared) > 0;
+    const status = !k.tested ? `<span class="pill neutral">not tested in this run</span>` : seen ? `<span class="pill bad">seen again</span>` : `<span class="pill ok">not seen</span>`;
+    const ev = [];
+    if (k.tests_failed.length) ev.push(`${k.tests_failed.length} test${k.tests_failed.length > 1 ? "s" : ""} failed: ${k.tests_failed.map(t => `<code>${h(t)}</code>`).join(" ")}`);
+    if (k.item_keys.length) ev.push(`${k.item_keys.length} SLM repl${k.item_keys.length > 1 ? "ies" : "y"} show it` + (confirmed ? ` (${confirmed} confirmed by a person)` : "") + (cleared ? ` (${cleared} cleared by a person)` : ""));
+    if (!ev.length && k.tests_ran.length) ev.push(`checked by ${k.tests_ran.length} passing test${k.tests_ran.length > 1 ? "s" : ""}`);
+    return `<tr><td>${h(k.problem)}<div class="small muted">${h(k.source)}</div></td><td class="small">${(k.languages || []).map(l => LANG[l]).join(", ")}</td><td>${status}</td><td class="small">${ev.join("<br>") || "–"}</td></tr>`;
+  }).join("");
+  document.getElementById("known").innerHTML = `<p>Problems that the team already reported. For each one: did this run see it again, and where? Add new problems to <code>testing/slm_quality/known_issues.yaml</code>.</p>
+    <div class="scroll"><table><tr><th>Problem</th><th>Language</th><th>This run</th><th>Evidence</th></tr>${rows}</table></div>`;
+}
+
+// ---- catalog ----
+let catQuery = "";
+function renderCatalog() {
+  const lang = document.getElementById("lang-filter").value;
+  const results = {};
+  for (const s of Object.values(D.sets)) for (const t of s.tests || []) { const r = results[t.func] = results[t.func] || { p: 0, f: 0, s: 0 }; r[t.status[0]]++; }
+  const entries = Object.entries(D.catalog || {}).map(([key, c]) => Object.assign({ key }, c))
+    .filter(c => !lang || c.language === lang || c.language === "both")
+    .filter(c => !catQuery || (c.name + c.what + c.why + c.fails).toLowerCase().includes(catQuery));
+  let out = `<p>Every type of test in the project, in plain language: <b>what</b> it tests, <b>why</b>, and what it means for learners <b>if it fails</b>.</p>
+    <input type="search" id="catq" placeholder="Search tests…" value="${h(catQuery)}" style="width:100%;max-width:420px">`;
+  for (const set of ["unit", "slm_contract", "ui"]) {
+    const list = entries.filter(c => c.set === set);
+    if (!list.length) continue;
+    out += `<h2>${h(D.set_info[set][0])} <span class="muted small">(${list.length} types)</span></h2><p class="small muted">${h(D.set_info[set][1])}</p>`;
+    out += list.map(c => {
+      const r = results[c.key];
+      const res = !r ? `<span class="pill neutral">not run</span>` : r.f ? `<span class="pill bad">${r.f} of ${r.p + r.f} cases failed</span>` : `<span class="pill ok">${r.p} case${r.p > 1 ? "s" : ""} passed</span>`;
+      const missing = !c.what ? ` <span class="pill wait">no description</span>` : "";
+      return `<div class="cat-row"><div class="row"><b>${h(human(c.name))}</b><span class="pill neutral">${h(LANG[c.language] || c.language)}</span>${res}${missing}<span class="spacer"></span><code class="small">${h(c.file)}</code></div>
+        <div class="small"><span class="k">What</span>${h(c.what)}</div><div class="small"><span class="k">Why</span>${h(c.why)}</div><div class="small"><span class="k">If it fails</span>${h(c.fails)}</div></div>`;
+    }).join("");
+  }
+  const cd = D.checks_doc || {};
+  const block = (title, intro, obj) => `<h2>${title}</h2><p class="small muted">${intro}</p>` + Object.entries(obj || {}).filter(([k, v]) => !catQuery || (k + v.what + v.why + v.fails).toLowerCase().includes(catQuery)).map(([k, v]) =>
+    `<div class="cat-row"><b>${h(RL[k] || k.replace(/_/g, " "))}</b><div class="small"><span class="k">What</span>${h(v.what)}</div><div class="small"><span class="k">Why</span>${h(v.why)}</div><div class="small"><span class="k">If it fails</span>${h(v.fails)}</div></div>`).join("");
+  out += block("SLM quality: code checks", "Automatic checks on every real SLM reply. They are exact, but they see only simple things.", cd.code_checks);
+  out += block("SLM quality: judge and reviewer scores (1–5)", "Judge agents score each reply on these items. A person confirms the doubtful ones.", cd.rubric);
+  document.getElementById("catalog").innerHTML = out;
+  const q = document.getElementById("catq");
+  q.addEventListener("input", () => { catQuery = q.value.toLowerCase(); renderCatalog(); const n = document.getElementById("catq"); n.focus(); n.setSelectionRange(n.value.length, n.value.length); });
+}
+
+// ---- details ----
+function renderDetails() {
+  const c = D.comparison;
+  let out = `<h2>Compared with the last run</h2>`;
+  if (!c) out += `<p class="muted">There is no earlier run to compare with.</p>`;
+  else {
+    const newFail = [], fixed = [];
+    for (const s of Object.values(D.sets)) for (const t of s.tests || []) {
+      const b = (c.prev_tests || {})[t.id];
+      if (t.status === "failed" && b === "passed") newFail.push(t.id);
+      if (t.status === "passed" && b === "failed") fixed.push(t.id);
+    }
+    out += `<div class="card small"><p class="muted">Previous run: ${h(c.previous)}</p>` +
+      (newFail.map(x => `<div>❌ New failure: <code>${h(x)}</code></div>`).join("") || "<div>No new code-test failures.</div>") +
+      fixed.map(x => `<div>✅ Fixed: <code>${h(x)}</code></div>`).join("") + c.lines.map(l => `<div>${h(l)}</div>`).join("") + `</div>`;
+  }
+  out += `<h2>About this run</h2><div class="card small"><p>Test sets that ran: ${D.meta.sets_ran.map(s => h(D.set_info[s] ? D.set_info[s][0] : s)).join(", ")}.</p>
+    ${D.slm && D.slm.meta ? `<p>SLM: <code>${h(D.slm.meta.model)}</code>, ${h(D.slm.meta.repeats)} runs per scenario, ${slmItems.length} replies, judged: ${D.slm.judged ? "yes" : "no"}.</p>` : ""}
+    <p>To add decisions from another reviewer: “Load decisions”, or put their <code>human_review_*.json</code> file in this run's folder and rebuild with <code>.venv/bin/python testing/tools/build_report.py testing/reports/${h(RUN)}</code>. The rebuild writes the final numbers to <code>results.json</code>.</p></div>`;
+  if (D.exploration) out += `<h2>Exploratory UI pass</h2><div class="card"><pre style="white-space:pre-wrap;margin:0;font:inherit">${h(D.exploration)}</pre></div>`;
+  document.getElementById("details").innerHTML = out;
+}
+
+// ---- export / import ----
+document.getElementById("export").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify({ run: RUN, reviewer: reviewerName, exported: new Date().toISOString(), decisions }, null, 2)], { type: "application/json" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `human_review_${RUN}_${(reviewerName || "reviewer").replace(/\W+/g, "_")}.json`; a.click();
+});
+document.getElementById("import-btn").addEventListener("click", () => document.getElementById("import").click());
+document.getElementById("import").addEventListener("change", async e => {
+  const f = e.target.files[0]; if (!f) return;
+  try {
+    const raw = JSON.parse(await f.text()); let n = 0;
+    for (const [k, v] of Object.entries(raw.decisions || {})) {
+      const d = Object.assign({ reviewer: raw.reviewer }, v);
+      if (!decisions[k] || (d.at || "") > (decisions[k].at || "")) { decisions[k] = d; n++; }
+    }
+    saveLocal(); renderAll(); alert(`Loaded ${n} decision${n === 1 ? "" : "s"} from ${raw.reviewer || "the file"}.`);
+  } catch (err) { alert("This file is not a decisions file from this report."); }
+  e.target.value = "";
+});
+const rv = document.getElementById("reviewer"); rv.value = reviewerName;
+rv.addEventListener("input", () => { reviewerName = rv.value.trim(); try { localStorage.setItem("tutor-reviewer", reviewerName); } catch (e) {} });
+document.getElementById("lang-filter").addEventListener("change", () => { renderAll(); renderCatalog(); });
+
+function renderAll() {
+  const F = computeFinal();
+  renderHeader(F); renderTabs(); renderReview(); renderResults(F); renderKnown(); renderDetails();
+  if (!document.getElementById("catq")) renderCatalog();
+}
+renderAll(); renderCatalog();
+</script>
+</body>
+</html>
