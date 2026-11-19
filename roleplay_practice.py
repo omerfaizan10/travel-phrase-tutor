@@ -76,6 +76,26 @@ _SAFE_MEANINGS = ("may i help", "here you are", "welcome", "of course", "ok, agr
                   "yes, you can", "no problem", "let me see")
 
 
+_REMARK = re.compile(r'^(?:said|used|you will hear|you\'ll hear|literally|lit\.|a polite|polite|'
+                     r'common|typical|often|said to|also)\b', re.I)
+
+
+def _translation(meaning):
+    """The notes meaning as a short English translation for "Show English meaning", or None
+    when the notes give a remark instead ("said when inviting you to sit down... You will
+    hear it constantly")."""
+    text = re.sub(r'^(?:\([A-Za-z]+\)|[A-Za-z][\w ()-]{0,20}:)\s+', '', meaning or '')
+    text = re.sub(r'\s*\([^)]*\)', '', text).split(' — ')[0].strip()
+    if not text or _REMARK.match(text) or len(text) > 60:
+        return None
+    return text
+
+
+# Last resort when no notes line with a real translation fits (both are staff lines in the notes).
+_SAFE_OPENING = ('Добар ден, повелете.', 'Hello, what can I get you?')
+_SAFE_REPLY = ('Секако.', 'Of course.')
+
+
 def _safe_line(retriever, topic, history, last_learner, variety_code):
     """Staff line from this topic's notes with a neutral meaning, not yet used in the
     conversation; else the original roleplay's fallback."""
@@ -87,9 +107,12 @@ def _safe_line(retriever, topic, history, last_learner, variety_code):
     if not last_learner.strip().endswith('?'):
         for w in wanted:
             for p in lines:
-                if w in p['meaning'].lower():
-                    return p['text'], p['meaning']
-    return _fallback_line('macedonian', retriever, not last_learner, last_learner, variety_code)
+                if w in p['meaning'].lower() and _translation(p['meaning']):
+                    return p['text'], _translation(p['meaning'])
+    text, meaning = _fallback_line('macedonian', retriever, not last_learner, last_learner, variety_code)
+    if _translation(meaning) and normalize(text) not in said:
+        return text, _translation(meaning)
+    return _SAFE_REPLY if last_learner else _SAFE_OPENING
 
 
 FEEDBACK_ONLY_SCHEMA = {'type':'object','properties':{
@@ -305,14 +328,13 @@ def roleplay_response(scene, history, vocabulary, variety_code, variety_label, t
         # the partner already said in this conversation.
         reply, english = _safe_line(retriever, topic, history, last_learner, variety_code)
         result['reply'] = reply
-        # drop "(waiter)" / "Taxi driver:" and notes-only remarks in parentheses
-        result['english'] = re.sub(r'\s*\([^)]*\)', '', re.sub(r'^(?:\([A-Za-z]+\)|[A-Za-z][\w ()-]{0,20}:)\s+', '', english))
+        result['english'] = english      # already a clean translation (see _translation)
         result['hint'] = result.get('hint') or 'Say what you would like.'
     if language == 'macedonian':
         # A reply copied from the notes gets the notes' own English (the model's is often wrong).
         known = _meaning_map(language, retriever).get(normalize(result['reply']))
-        if known:
-            result['english'] = re.sub(r'\s*\([^)]*\)', '', re.sub(r'^(?:\([A-Za-z]+\)|[A-Za-z][\w ()-]{0,20}:)\s+', '', known))
+        if known and _translation(known):
+            result['english'] = _translation(known)
     if final:
         if type(result.get('goal_met')) is not bool or not isinstance(result.get('corrections'),list):
             raise LLMError('The feedback was incomplete. Please try again.')

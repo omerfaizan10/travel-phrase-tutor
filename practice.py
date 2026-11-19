@@ -71,6 +71,14 @@ def spanish_answer(text):
     but preserve spelling and accents. Used for Spanish and Macedonian answers."""
     import unicodedata
     text = unicodedata.normalize('NFC', text).casefold().strip()
+    if re.search(r'[Ѐ-ӿ]', text):
+        # Macedonian: "сè" is written with a grave accent that the Latin card line ("se")
+        # does not show, and the Latin "lj" / "nj" stands for both љ / њ and лј / нј
+        # ("iljada" = илјада). Treat each pair as the same spelling.
+        text = unicodedata.normalize('NFC', ''.join(
+            c for c in unicodedata.normalize('NFD', text) if c != '\u0300'))
+        text = (text.replace('e', 'е').replace('ѐ', 'е').replace('ѝ', 'и')
+                    .replace('лј', 'љ').replace('нј', 'њ'))
     text = ''.join(' ' if unicodedata.category(c).startswith('P') else c for c in text)
     return ' '.join(text.split())
 
