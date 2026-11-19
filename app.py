@@ -22,12 +22,12 @@ from spanish_practice import render_spanish_practice
 from sentence_practice import render_sentence_practice
 from roleplay_practice import render_roleplay
 from html import escape
-from datetime import date
+from datetime import date, timedelta
 
 import streamlit as st
 
 from llm import LLMError
-from planner import GOAL_HINTS, MAX_DAYS, build_schedule, parse_timeline, plan_varieties, STAGE_NAMES
+from planner import GOAL_HINTS, build_schedule, plan_varieties, STAGE_NAMES
 from pronounce import say, transliterate
 from prompts import LANGUAGES, ROLEPLAY_PARTNER, SCENARIOS, TutorSettings
 from retriever import DEFAULT_VARIETY, LATIN_AMERICA, VARIETIES, Retriever
@@ -181,6 +181,18 @@ def variety_name(code):
     return VARIETIES.get(code, code)
 
 
+def nice_date(d):
+    return d.strftime("%b %d, %Y")
+
+
+def study_window(prefs, schedule):
+    """'Dec 01, 2026 to Jan 15, 2027': the first and last study day, both included."""
+    start = date.fromisoformat(prefs.get("start_date", schedule["start_date"]))
+    end = (date.fromisoformat(prefs["end_date"]) if "end_date" in prefs else
+           date.fromisoformat(schedule["departure_date"]) - timedelta(days=1))
+    return f"{nice_date(start)} to {nice_date(end)}"
+
+
 def html(s):
     st.markdown(s, unsafe_allow_html=True)
 
@@ -287,8 +299,6 @@ if "schedule_draft" not in st.session_state:
     # --- 1. Guided questionnaire ---------------------------------------------------
     st.markdown("## Your learning preferences")
     st.caption("Choose your topics and practice availability.")
-    start_date = date.today()
-    st.caption("Your calendar starts today, using your selected practice weekdays, and ends the day before departure.")
     language = st.selectbox("Which language would you like to learn?", list(LANGUAGES),
                             format_func=lambda value: LANGUAGES[value], key="q_language")
     variety = DEFAULT_VARIETY[language]
@@ -303,19 +313,21 @@ if "schedule_draft" not in st.session_state:
             variety_name(c) + ("" if c in have else " (no country notes yet, uses Spain)"),
             help="Pick the country you are traveling to. Topics without notes for that country "
                  "use Spain Spanish; you can change each topic on the next screen.")
-    timeline = st.text_input("How long until your trip?", value="two weeks", key="q_timeline",
-                             help="For example: 10 days, two weeks, next month, or simply 14.")
-    detected_days = parse_timeline(timeline)
-    if detected_days is None:
-        st.info("Please give a duration such as 'two weeks' or '10 days'.")
-        days = None
+    # One date-range calendar sets the study window (first and last study day,
+    # both included). There is no upper limit on its length.
+    today = date.today()
+    window = st.date_input("Choose the first and last day of your study window",
+                           value=(today, today + timedelta(days=13)), min_value=today,
+                           key="q_window", format="MM/DD/YYYY",
+                           help="Click the first day, then the last day. Your sessions fall on "
+                                "your practice weekdays inside this window.")
+    if len(window) == 2:
+        start_date, end_date = window
+        days = (end_date - start_date).days + 1
+        st.caption(f"{days} days: {nice_date(start_date)} to {nice_date(end_date)}.")
     else:
-        if detected_days > MAX_DAYS:
-            st.warning(f"This initial version supports up to {MAX_DAYS} preparation days. "
-                       "Choose a shorter study window below if appropriate.")
-        days = st.number_input("Confirm days until departure / study window", min_value=1,
-                               max_value=MAX_DAYS, value=min(detected_days, MAX_DAYS),
-                               key=f"q_days_{detected_days}")
+        start_date = end_date = days = None
+        st.info("Choose the last day of your study window.")
     weekdays = st.multiselect("What days of the week can you practice?",
                              ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
                              default=["Monday", "Wednesday", "Friday"], key="q_weekdays")
@@ -345,7 +357,7 @@ if "schedule_draft" not in st.session_state:
     
     if st.button("Build my plan", type="primary"):
         if days is None or not weekdays or not goals or not valid_ranks:
-            st.warning("Enter a valid timeline, select practice days and topics, and use unique ranks.")
+            st.warning("Choose a study window, select practice days and topics, and use unique ranks.")
         else:
             try:
                 topic_variety = plan_varieties(get_retriever(), language, variety, goals)
@@ -356,7 +368,8 @@ if "schedule_draft" not in st.session_state:
             else:
                 st.session_state.schedule_draft = schedule
                 st.session_state.preferences = {
-                    "language": language, "variety": variety, "days": int(days), "timeline": timeline,
+                    "language": language, "variety": variety, "days": int(days),
+                    "start_date": start_date.isoformat(), "end_date": end_date.isoformat(),
                     "weekdays": weekdays, "minutes": int(minutes), "goals": goals,
                     "starting_stage": 1,
                 }
@@ -371,8 +384,8 @@ schedule = st.session_state.schedule_draft
 prefs = st.session_state.preferences
 if not st.session_state.get("schedule_confirmed"):
     st.markdown("## Your suggested learning plan")
-    st.write(f"You will practice {LANGUAGES[prefs['language']]} before your trip on "
-             f"{schedule['departure_date']}.")
+    st.write(f"You will practice {LANGUAGES[prefs['language']]} from "
+             f"{study_window(prefs, schedule)}.")
     st.write(f"Practice days: {', '.join(prefs['weekdays'])}. "
              f"Each session: {prefs['minutes']} minutes.")
     st.write(f"Your schedule has {len(schedule['sessions'])} sessions, "
@@ -425,7 +438,7 @@ if "active_practice" not in st.session_state:
     if prefs['language'] == "spanish":
         lang_label += f" ({variety_name(prefs.get('variety', 'ES'))})"
     st.write(f"{lang_label} · {prefs['minutes']} minutes per session · "
-             f"Departure: {schedule['departure_date']}")
+             f"Study window: {study_window(prefs, schedule)}")
     st.caption("Open a Stage 1 activity to study and check your recall. "
                "Sentence building (Stage 2) and roleplay (Stage 3) use the vocabulary you studied "
                "in Stage 1 for the same topic. Stage switching is coming next.")
