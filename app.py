@@ -22,13 +22,15 @@ from spanish_practice import render_spanish_practice
 from sentence_practice import render_sentence_practice
 from roleplay_practice import render_roleplay
 from html import escape
-from datetime import date, timedelta
+import json
+from datetime import date, datetime, timedelta
 
 import streamlit as st
 
 from llm import LLMError
 from chat_preferences import READING, detect_language, new_chat, plan_inputs, read_message, reply_parts
 from planner import GOAL_HINTS, STAGE_WEIGHTS, build_schedule, plan_varieties, STAGE_NAMES
+import plan_store as store
 from pronounce import say, transliterate
 from prompts import LANGUAGES, ROLEPLAY_PARTNER, SCENARIOS, TutorSettings
 from retriever import DEFAULT_VARIETY, LATIN_AMERICA, VARIETIES, Retriever
@@ -137,6 +139,12 @@ h1, h2, h3 { font-family: var(--serif) !important; font-weight: 600 !important;
 .nav-chips .dn { background: #E4EDDA; border-color: #E4EDDA; color: #27500A; }
 .nav-chips .cu { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 
+/* Your plans (update 5) */
+.plan-name { font-weight: 600; font-size: 1rem; }
+.plan-tag { font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; border-radius: 3px;
+            padding: 1px 6px; margin-left: 6px; background: var(--line); color: var(--muted); font-weight: 500; }
+.plan-tag.done { background: var(--accent-soft); color: #7A3219; }
+
 /* Preferences chat */
 .chk { display: grid; grid-template-columns: 10.5rem 1fr; gap: .1rem .8rem; font-size: .88rem; margin-top: .35rem; }
 .chk .k { color: var(--muted); }
@@ -236,8 +244,9 @@ def label(text):
     html(f'<div class="section-label">{escape(text)}</div>')
 
 
-def step_bar(current):
-    parts = []
+def step_bar(current, with_plans=False):
+    """current: 0-2 for Preferences / Summary / Calendar, -1 for the Your plans page."""
+    parts = [f'<span class="{"on" if current == -1 else ""}">Your plans</span>'] if with_plans else []
     for i, name in enumerate(STEPS):
         cls = "on" if i == current else ("done" if i < current else "")
         parts.append(f'<span class="{cls}">{i + 1} &nbsp;{name}</span>')
@@ -525,6 +534,108 @@ def record_progress(activity_id, block, variety, date_text, result):
     progress[activity_id] = {"stage": block["stage"], "topic": block["topic"], "variety": variety,
                              "date": date_text, "result": result}
     st.session_state.practice_progress = progress
+    autosave_plan()
+
+
+# --- Saved plans (update 5) ------------------------------------------------------------
+def plan_name(prefs):
+    name = LANGUAGES[prefs["language"]]
+    if prefs["language"] == "spanish":
+        name += f" ({variety_name(prefs.get('variety', 'ES'))})"
+    return name
+
+
+def plan_progress(schedule, progress):
+    """{"done": complete sessions, "total": sessions} for the Your plans page."""
+    done = set(progress or {})
+    sessions = {}
+    for a in plan_activities(schedule):
+        sessions.setdefault(a["session"], []).append(a["id"] in done)
+    return {"done": sum(all(v) for v in sessions.values()), "total": len(schedule["sessions"])}
+
+
+def autosave_plan():
+    """Save the open (approved) plan to the plans file when anything in it changed."""
+    if not st.session_state.get("schedule_confirmed") or "plan_id" not in st.session_state:
+        return
+    state = store.snapshot(st.session_state)
+    fingerprint = json.dumps(state, sort_keys=True)
+    if st.session_state.get("_saved_fingerprint") == fingerprint:
+        return
+    store.save(st.session_state.plan_id, plan_name(state["preferences"]), state,
+               plan_progress(state["schedule_draft"], state.get("practice_progress")))
+    st.session_state._saved_fingerprint = fingerprint
+
+
+def leave_plan(view):
+    """Shelve the open plan (it is saved first) and go to Your plans or a new plan."""
+    autosave_plan()
+    store.clear_plan_state(st.session_state)
+    reset("schedule_confirmed", "active_practice", "plan_id", "_saved_fingerprint")
+    reset_topic_varieties()
+    st.session_state.view = view
+    st.rerun()
+
+
+def open_saved_plan(record):
+    store.restore(st.session_state, record)
+    st.session_state.plan_id = record["id"]
+    st.session_state.schedule_confirmed = True
+    reset("active_practice", "view", "_saved_fingerprint")
+    reset_topic_varieties()
+    store.touch(record["id"])
+    st.rerun()
+
+
+def when(stamp):
+    day = datetime.fromisoformat(stamp).date()
+    return ("today" if day == date.today() else "yesterday" if day == date.today() - timedelta(days=1)
+            else day.strftime("%b %d"))
+
+
+def your_plans_page(saved):
+    title_col, new_col = st.columns([3, 1.4], vertical_alignment="bottom")
+    title_col.markdown("## Your plans")
+    if new_col.button("Create a new plan", type="primary", key="plans_new", use_container_width=True):
+        st.session_state.view = "new"
+        st.rerun()
+    if not saved:
+        st.info("You have no saved plans. Create a new plan to start.")
+        return
+    st.caption("Your progress is saved. Open a plan to continue where you stopped.")
+    for record in sorted(saved.values(), key=lambda r: r.get("last_opened", ""), reverse=True):
+        state = record.get("state", {})
+        prefs, schedule = state.get("preferences"), state.get("schedule_draft")
+        if not prefs or not schedule:
+            continue
+        progress = record.get("progress") or plan_progress(schedule, state.get("practice_progress"))
+        complete = progress["total"] and progress["done"] == progress["total"]
+        days = ", ".join(d[:3] for d in prefs["weekdays"])
+        topics = ", ".join(CALENDAR_TOPICS[g] for g in prefs["goals"])
+        with st.container(border=True, key=f"plan_card_{record['id']}"):
+            info, actions = st.columns([4, 1.5], vertical_alignment="center")
+            tag = ('<span class="plan-tag done">Complete</span>' if complete
+                   else '<span class="plan-tag">Shelved</span>')
+            info.markdown(
+                f'<div class="plan-name">{escape(record["name"])} {tag}</div>'
+                f'<div class="quiet">{escape(study_window(prefs, schedule))} · {escape(days)} · '
+                f'{prefs["minutes"]} min · {escape(topics)}</div>', unsafe_allow_html=True)
+            info.progress(progress["done"] / max(progress["total"], 1))
+            info.caption(f"{progress['done']} of {progress['total']} sessions · "
+                         f"last opened {when(record['last_opened'])}")
+            if actions.button("Open", key=f"open_{record['id']}", use_container_width=True):
+                open_saved_plan(record)
+            with actions.popover("⋯ More", use_container_width=True):
+                name = st.text_input("Plan name", value=record["name"], key=f"name_{record['id']}")
+                if st.button("Save name", key=f"rename_{record['id']}"):
+                    store.rename(record["id"], name)
+                    st.rerun()
+                st.divider()
+                sure = st.checkbox("Delete this plan and its progress. This can't be undone.",
+                                   key=f"sure_{record['id']}")
+                if st.button("Delete plan", key=f"delete_{record['id']}", disabled=not sure):
+                    store.delete(record["id"])
+                    st.rerun()
 
 
 def practice_nav(activities, activity_id, language):
@@ -588,17 +699,28 @@ with st.sidebar:
     mode_key = next(k for k, v in MODE_LABELS.items() if v == mode_label)
     mode, use_lora = mode_key.split("+")[0], mode_key.endswith("+lora")
     if st.button("Start over"):
-        reset("trip", "parsed", "plan", "session", "lesson", "roleplay", "free_chat", "draft", "preferences", "schedule_draft", "schedule_confirmed")
+        reset("trip", "parsed", "plan", "session", "lesson", "roleplay", "free_chat", "draft", "preferences", "schedule_draft", "schedule_confirmed", "plan_id", "view", "_saved_fingerprint")
         forget_preferences()
         reset_topic_varieties()
         reset("active_practice", "practice_progress", "practice_results")
         st.rerun()
 
-step_bar(2 if st.session_state.get("schedule_confirmed") else
-         1 if "schedule_draft" in st.session_state else 0)
+saved_plans = store.load_all()
+autosave_plan()     # changes made by the last click (callbacks, reruns) reach the file
+on_plans_page = (st.session_state.get("view") == "plans" or (
+    saved_plans and st.session_state.get("view") != "new"
+    and not st.session_state.get("schedule_confirmed") and "schedule_draft" not in st.session_state))
+step_bar(-1 if on_plans_page else 2 if st.session_state.get("schedule_confirmed") else
+         1 if "schedule_draft" in st.session_state else 0, with_plans=bool(saved_plans) or on_plans_page)
+if on_plans_page:
+    your_plans_page(saved_plans)
+    st.stop()
 
 if "schedule_draft" not in st.session_state:
     # --- 1. Guided questionnaire ---------------------------------------------------
+    if saved_plans and st.button("← Your plans", key="back_to_plans"):
+        st.session_state.view = "plans"
+        st.rerun()
     st.markdown("## Your learning preferences")
     st.caption("Choose with buttons, or describe your plan in your own words.")
     # Every choice below is kept (kept/keep) until the plan is approved, so "Change my
@@ -743,7 +865,10 @@ if not st.session_state.get("schedule_confirmed"):
     if st.button("Yes, this sounds good — show my calendar", type="primary"):
         # The plan is approved and locked: the preference choices and chat are cleared.
         st.session_state.schedule_confirmed = True
+        st.session_state.plan_id = store.new_plan_id()
+        reset("view")
         forget_preferences()
+        autosave_plan()
         st.rerun()
     if st.button("Change my preferences",
                  help="Go back to your preferences; your choices and chat are kept."):
@@ -754,7 +879,12 @@ if not st.session_state.get("schedule_confirmed"):
 
 # --- 3. Calendar -------------------------------------------------------------
 if "active_practice" not in st.session_state:
-    st.markdown("## Your learning calendar")
+    title_col, shelf_col = st.columns([3, 1.4], vertical_alignment="bottom")
+    title_col.markdown("## Your learning calendar")
+    if shelf_col.button("Shelf this plan", key="shelf_plan", use_container_width=True,
+                        help="Save this plan with its progress and go to Your plans. "
+                             "Open it again any time."):
+        leave_plan("plans")
     lang_label = LANGUAGES[prefs['language']]
     if prefs['language'] == "spanish":
         lang_label += f" ({variety_name(prefs.get('variety', 'ES'))})"
@@ -825,11 +955,10 @@ if "active_practice" not in st.session_state:
                     open_activity(a)
             st.caption("Minutes are pacing suggestions; they do not measure mastery.")
     if st.button("Start a new plan",
-                 help="This plan is approved and locked. Start a new plan from new preferences."):
-        reset("schedule_draft", "schedule_confirmed", "active_practice", "practice_progress", "practice_results")
-        reset_topic_varieties()
+                 help="This plan is saved in Your plans with its progress. Start a new plan "
+                      "from new preferences."):
         forget_preferences()
-        st.rerun()
+        leave_plan("new")
     
     
 # --- Stage 1: study -> recall -> reference-based feedback ----------------------
@@ -873,7 +1002,7 @@ if "active_practice" in st.session_state:
             if st.button("Finish roleplay and return to calendar", key=f"finish_roleplay_{activity_id}"):
                 reset("active_practice")
                 st.rerun()
-        st.caption("Progress is kept during this browser session, not across app restarts.")
+        st.caption("Your progress is saved automatically. Shelf this plan and come back to it any time.")
         st.stop()
     if block['stage'] == 2:
         st.markdown(f"## Stage 2: {CALENDAR_TOPICS[block['topic']]}")
@@ -897,7 +1026,7 @@ if "active_practice" in st.session_state:
             if st.button("Finish this sentence practice", key=f"finish_sentences_{activity_id}"):
                 reset("active_practice")
                 st.rerun()
-        st.caption("Progress is kept during this browser session, not across app restarts.")
+        st.caption("Your progress is saved automatically. Shelf this plan and come back to it any time.")
         st.stop()
     previous_minutes = sum(
         b['minutes'] for earlier in schedule['sessions'][:active['session']]
@@ -925,4 +1054,4 @@ if "active_practice" in st.session_state:
         if st.button("Finish this practice", key=f"finish_spanish_{activity_id}"):
             reset("active_practice")
             st.rerun()
-    st.caption("Progress is kept during this browser session, not across app restarts.")
+    st.caption("Your progress is saved automatically. Shelf this plan and come back to it any time.")
