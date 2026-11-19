@@ -62,7 +62,9 @@ TEXT = {
                       "word rules. Check the details.",
         "restarted": "Done. I cleared your preferences. Tell me about your trip again.",
         "labels": {"language": "Language", "window": "Study window", "weekdays": "Practice days",
-                   "minutes": "Minutes per session", "topics": "Topics (by priority)"},
+                   "minutes": "Minutes per session", "topics": "Topics (by priority)",
+                   "stages": "Lesson types"},
+        "stage_names": ["Vocabulary", "Sentences", "Role play"], "all_stages": "All three",
         "questions": {
             "language": "Which language do you want to learn: Spanish or Macedonian?",
             "window": "What are the first and last days of your study window? "
@@ -96,7 +98,9 @@ TEXT = {
                       "simples. Revisa los datos.",
         "restarted": "Listo. Borré tus preferencias. Cuéntame otra vez sobre tu viaje.",
         "labels": {"language": "Idioma", "window": "Período de estudio", "weekdays": "Días de práctica",
-                   "minutes": "Minutos por sesión", "topics": "Temas (por prioridad)"},
+                   "minutes": "Minutos por sesión", "topics": "Temas (por prioridad)",
+                   "stages": "Tipos de lección"},
+        "stage_names": ["Vocabulario", "Oraciones", "Juego de roles"], "all_stages": "Los tres",
         "questions": {
             "language": "¿Qué idioma quieres aprender: español o macedonio?",
             "window": "¿Cuál es el primer y el último día de tu período de estudio? "
@@ -135,7 +139,9 @@ TEXT = {
                       "правила. Провери ги деталите.",
         "restarted": "Готово. Ги избришав твоите поставки. Кажи ми повторно за твоето патување.",
         "labels": {"language": "Јазик", "window": "Период на учење", "weekdays": "Денови за вежбање",
-                   "minutes": "Минути по вежба", "topics": "Теми (по важност)"},
+                   "minutes": "Минути по вежба", "topics": "Теми (по важност)",
+                   "stages": "Видови лекции"},
+        "stage_names": ["Вокабулар", "Реченици", "Игра на улоги"], "all_stages": "Сите три",
         "questions": {
             "language": "Кој јазик сакаш да го учиш: шпански или македонски?",
             "window": "Кој е првиот и последниот ден од твојот период на учење? "
@@ -195,7 +201,7 @@ EXTRACT_SCHEMA = {
 
 def _empty_found() -> dict:
     return {"language": None, "variety": None, "start": None, "end": None,
-            "weekdays": [], "minutes": None, "topics": []}
+            "weekdays": [], "minutes": None, "topics": [], "stages": None}
 
 
 def new_chat() -> dict:
@@ -467,6 +473,33 @@ def _length_in_text(text: str, low: str) -> int | None:
     return None
 
 
+_STAGE_WORDS = {
+    1: ["vocabulary", "vocab", "word lists", "vocabulario", "palabras", "вокабулар", "зборови"],
+    2: ["sentences", "sentence building", "sentence practice", "oraciones", "frases", "реченици"],
+    3: ["role play", "role-play", "roleplay", "role plays", "role-plays", "roleplays", "juego de roles",
+        "juegos de rol", "juego de rol", "simulaciones", "игра на улоги", "игри на улоги"],
+}
+_ONLY = re.compile(r"\b(only|just|solo|sólo|solamente|únicamente|nada más|само)\b")
+_NOT = re.compile(r"\b(no|not|without|skip|except|sin|excepto|menos|без|не|освен)\b")
+
+
+def _stages_in_text(low: str) -> list[int] | None:
+    """Lesson types the message chooses, or None. One type counts only with "only" / "solo"
+    / "само" ("learn vocabulary for restaurants" keeps all three); "without sentences" /
+    "sin oraciones" removes a type."""
+    yes, no = set(), set()
+    for stage, words in _STAGE_WORDS.items():
+        for m in re.finditer(rf"(?<!\w)({_alt(words)})(?!\w)", low):
+            before = " ".join(low[:m.start()].split()[-3:])
+            (no if _NOT.search(before) else yes).add(stage)
+    yes -= no
+    if yes and (len(yes) >= 2 or _ONLY.search(low)):
+        return sorted(yes)
+    if no and not yes and len(no) < 3:
+        return sorted({1, 2, 3} - no)
+    return None
+
+
 _START_WORDS = re.compile(r"\b(start|starting|begin|beginning|from|desde|empiezo|empezar|"
                           r"empezando|comienzo|comenzar|од|почнувам|почнам)\b")
 _DATE_CUES = re.compile(rf"(?<!\w){_MONTH}(?!\w)|\b(today|tomorrow|christmas|new year|easter|"
@@ -626,6 +659,11 @@ def read_message(chat: dict, text: str, today: date | None = None, record: bool 
         found["topics"] = topics
         given.add("topics")
 
+    # Lesson types are optional (default: all three) and never asked.
+    stages = _stages_in_text(low)
+    if stages:
+        found["stages"] = stages
+
     # Values the learner gave are no longer suggestions.
     chat["suggested"] = [k for k in chat["suggested"] if k not in given]
 
@@ -704,7 +742,11 @@ def summary_rows(found: dict, suggested: list[str], lang: str = "en") -> list[tu
                        for i, x in enumerate(found["topics"], 1)) or None
     values = {"language": language, "window": window, "weekdays": days,
               "minutes": str(found["minutes"]) if found["minutes"] else None, "topics": topics}
-    return [(t["labels"][k], values[k], k in suggested) for k in REQUIRED]
+    stages = found.get("stages")
+    stage_text = (", ".join(t["stage_names"][s - 1] for s in stages) if stages
+                  else f"{t['all_stages']} ({t['default']})")
+    return ([(t["labels"][k], values[k], k in suggested) for k in REQUIRED]
+            + [(t["labels"]["stages"], stage_text, False)])
 
 
 def reply_parts(msg: dict, lang: str | None = None) -> dict:
@@ -728,12 +770,13 @@ def reply_parts(msg: dict, lang: str | None = None) -> dict:
 
 def plan_inputs(chat: dict) -> dict | None:
     """The values for build_schedule, or None while a necessary item is missing."""
-    if missing(chat):
-        return None
     f = chat["found"]
+    if missing(chat) or f.get("stages") == []:     # [] = every lesson type turned off
+        return None
     return {"language": f["language"], "variety": f["variety"], "goals": list(f["topics"]),
             "days": (f["end"] - f["start"]).days + 1, "weekdays": list(f["weekdays"]),
-            "minutes": f["minutes"], "start_date": f["start"], "end_date": f["end"]}
+            "minutes": f["minutes"], "start_date": f["start"], "end_date": f["end"],
+            "stages": list(f["stages"]) if f.get("stages") else [1, 2, 3]}
 
 
 READING = {"en": "Reading your message…", "es": "Leyendo tu mensaje…",
