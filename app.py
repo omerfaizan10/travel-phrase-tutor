@@ -27,6 +27,7 @@ from datetime import date, timedelta
 import streamlit as st
 
 from llm import LLMError
+from chat_preferences import READING, detect_language, new_chat, plan_inputs, read_message, reply_parts
 from planner import GOAL_HINTS, build_schedule, plan_varieties, STAGE_NAMES
 from pronounce import say, transliterate
 from prompts import LANGUAGES, ROLEPLAY_PARTNER, SCENARIOS, TutorSettings
@@ -116,6 +117,14 @@ h1, h2, h3 { font-family: var(--serif) !important; font-weight: 600 !important;
         margin: 2px 4px 2px 0; }
 .tipline { font-size: .82rem; color: var(--muted); margin-top: .45rem; font-style: italic; }
 
+/* Preferences chat */
+.chk { display: grid; grid-template-columns: 10.5rem 1fr; gap: .1rem .8rem; font-size: .88rem; margin-top: .35rem; }
+.chk .k { color: var(--muted); }
+.chk .miss { color: var(--accent); font-weight: 600; }
+.chk .sug { color: var(--muted); font-style: italic; }
+.bubble .problem { color: var(--accent); font-size: .88rem; margin-top: .4rem; }
+.bubble .ask { font-family: var(--serif); font-size: 1.05rem; margin-top: .5rem; }
+
 /* Widgets */
 .stButton > button { border-radius: 4px; border: 1px solid var(--ink); background: transparent;
                      color: var(--ink); font-family: var(--sans); font-size: .88rem; padding: .35rem .9rem; }
@@ -123,6 +132,12 @@ h1, h2, h3 { font-family: var(--serif) !important; font-weight: 600 !important;
 .stButton > button[kind="primary"] { background: var(--ink); color: var(--paper); }
 .stButton > button[kind="primary"]:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
 .stButton > button p { color: inherit !important; }
+/* Streamlit's "Press Enter to submit/apply" hint sits on top of the typed text; hide it everywhere. */
+[data-testid="InputInstructions"] { display: none !important; }
+.stButton > button:disabled, .stButton > button[kind="primary"]:disabled {
+  background: transparent; color: var(--faint); border-color: var(--line); }
+[data-testid="stFormSubmitButton"] > button { border-radius: 4px; border: 1px solid var(--ink);
+  background: transparent; color: var(--ink); }
 textarea, input, [data-baseweb="select"] > div { border-radius: 4px !important; }
 [data-testid="stExpander"] { border: 1px solid var(--line); border-radius: 6px; background: var(--card); }
 [data-testid="stHeaderActionElements"], .stMarkdown h2 a, .stMarkdown h3 a { display: none !important; }
@@ -255,6 +270,93 @@ def my_bubble(text):
     html(f'<div class="bubble me"><div class="who-label">You</div>{escape(text)}{pron_lines(text)}</div>')
 
 
+# --- Preferences: shared plan builder and the chat option -------------------------
+PREF_MODES = ["Choose with buttons", "Describe it in a chat"]
+
+
+def build_plan_and_continue(language, variety, goals, days, weekdays, minutes, start_date, end_date):
+    """Build the schedule from either preferences screen and open the summary page.
+    A planner refusal (e.g. no practice weekday in the window) is shown as a warning."""
+    try:
+        topic_variety = plan_varieties(get_retriever(), language, variety, goals)
+        schedule = build_schedule(language, goals, int(days), weekdays, int(minutes), start_date,
+                                  variety=variety, topic_variety=topic_variety)
+    except ValueError as error:
+        st.warning(str(error))
+        return
+    st.session_state.schedule_draft = schedule
+    st.session_state.preferences = {
+        "language": language, "variety": variety, "days": int(days),
+        "start_date": start_date.isoformat(), "end_date": end_date.isoformat(),
+        "weekdays": weekdays, "minutes": int(minutes), "goals": goals,
+        "starting_stage": 1,
+    }
+    st.session_state.schedule_confirmed = False
+    reset("active_practice", "practice_progress", "practice_results")
+    reset_topic_varieties()
+    st.rerun()
+
+
+def tutor_bubble(msg, lang=None):
+    """One tutor message in the preferences chat, in `lang` (default: the reply's language)."""
+    parts = reply_parts(msg, lang)
+    if "text" in parts:
+        body = escape(parts["text"])
+    else:
+        rows = "".join(
+            f'<span class="k">{escape(label)}</span>'
+            + (f'<span class="miss">{escape(parts["missing"])}</span>' if value is None else
+               f'<span>{escape(value)}' + (f' <span class="sug">({escape(parts["suggested"])})</span>'
+                                           if suggested else "") + '</span>')
+            for label, value, suggested in parts["rows"])
+        body = f'<div>{escape(parts["have"])}</div><div class="chk">{rows}</div>'
+        body += "".join(f'<div class="problem">{escape(p)}</div>' for p in parts["problems"])
+        body += f'<div class="ask">{escape(parts["question"] or parts["closing"])}</div>'
+        if parts["model_note"]:
+            body += f'<div class="tipline">{escape(parts["model_note"])}</div>'
+    html(f'<div class="bubble partner"><div class="who-label">Tutor</div>{body}</div>')
+
+
+def chat_preferences_screen():
+    chat = st.session_state.setdefault("pref_chat", new_chat())
+    for i, msg in enumerate(chat["messages"]):
+        if msg["role"] == "you":
+            html(f'<div class="bubble me"><div class="who-label">You</div>{escape(msg["text"])}</div>')
+        elif msg.get("lang", "en") == "en":
+            tutor_bubble(msg)
+        else:
+            # A reply in Spanish or Macedonian can be shown in English instead.
+            key = f"chat_en_{i}"
+            tutor_bubble(msg, "en" if st.session_state.get(key) else None)
+            st.toggle("Show in English", key=key)
+    # The learner's message is already on screen; read it now, below it.
+    if chat.get("pending"):
+        with st.spinner(READING[detect_language(chat["pending"], chat.get("lang", "en"))]):
+            read_message(chat, chat.pop("pending"), record=False)
+        st.rerun()
+    with st.form("pref_chat_form", clear_on_submit=True, border=False):
+        box, button = st.columns([6, 1], vertical_alignment="bottom")
+        text = box.text_input("Your message", key="q_chat_text", label_visibility="collapsed")
+        sent = button.form_submit_button("Send", use_container_width=True)
+    if sent and text.strip():
+        chat["messages"].append({"role": "you", "text": text.strip()})
+        chat["pending"] = text.strip()
+        st.rerun()
+    inputs = plan_inputs(chat)
+    build_col, restart_col = st.columns([1, 1])
+    if build_col.button("Build my plan", type="primary", disabled=inputs is None, key="chat_build"):
+        build_plan_and_continue(**inputs)
+    if restart_col.button("Start over", key="chat_restart",
+                          help="Clear the chat and your preferences, and start again."):
+        st.session_state.pop("pref_chat", None)
+        for key in [k for k in st.session_state if k.startswith("chat_en_")]:
+            del st.session_state[key]
+        st.rerun()
+    if inputs is None:
+        st.caption("Build my plan is available when every necessary item is complete. "
+                   "You can change or restart your preferences at any time.")
+
+
 # --- Masthead + sidebar ----------------------------------------------------------
 html('<div class="masthead"><div class="wordmark">Travel Phrase <span>Tutor</span></div>'
      '<div class="tagline">Español · Македонски · runs on your laptop</div></div>')
@@ -284,7 +386,7 @@ with st.sidebar:
     mode_key = next(k for k, v in MODE_LABELS.items() if v == mode_label)
     mode, use_lora = mode_key.split("+")[0], mode_key.endswith("+lora")
     if st.button("Start over"):
-        reset("trip", "parsed", "plan", "session", "lesson", "roleplay", "free_chat", "draft", "preferences", "schedule_draft", "schedule_confirmed")
+        reset("trip", "parsed", "plan", "session", "lesson", "roleplay", "free_chat", "draft", "preferences", "schedule_draft", "schedule_confirmed", "pref_chat")
         for key in list(st.session_state):
             if key.startswith("q_"):
                 del st.session_state[key]
@@ -298,7 +400,13 @@ step_bar(2 if st.session_state.get("schedule_confirmed") else
 if "schedule_draft" not in st.session_state:
     # --- 1. Guided questionnaire ---------------------------------------------------
     st.markdown("## Your learning preferences")
-    st.caption("Choose your topics and practice availability.")
+    st.caption("Choose with buttons, or describe your plan in your own words.")
+    pref_mode = st.segmented_control("How do you want to give your preferences?", PREF_MODES,
+                                     default=PREF_MODES[0], required=True, key="q_mode",
+                                     label_visibility="collapsed")
+    if pref_mode == PREF_MODES[1]:
+        chat_preferences_screen()
+        st.stop()
     language = st.selectbox("Which language would you like to learn?", list(LANGUAGES),
                             format_func=lambda value: LANGUAGES[value], key="q_language")
     variety = DEFAULT_VARIETY[language]
@@ -359,24 +467,8 @@ if "schedule_draft" not in st.session_state:
         if days is None or not weekdays or not goals or not valid_ranks:
             st.warning("Choose a study window, select practice days and topics, and use unique ranks.")
         else:
-            try:
-                topic_variety = plan_varieties(get_retriever(), language, variety, goals)
-                schedule = build_schedule(language, goals, int(days), weekdays, int(minutes), start_date,
-                                          variety=variety, topic_variety=topic_variety)
-            except ValueError as error:
-                st.warning(str(error))
-            else:
-                st.session_state.schedule_draft = schedule
-                st.session_state.preferences = {
-                    "language": language, "variety": variety, "days": int(days),
-                    "start_date": start_date.isoformat(), "end_date": end_date.isoformat(),
-                    "weekdays": weekdays, "minutes": int(minutes), "goals": goals,
-                    "starting_stage": 1,
-                }
-                st.session_state.schedule_confirmed = False
-                reset("active_practice", "practice_progress", "practice_results")
-                reset_topic_varieties()
-                st.rerun()
+            build_plan_and_continue(language, variety, goals, int(days), weekdays, int(minutes),
+                                    start_date, end_date)
     st.stop()
 
 # --- 2. Explain the plan before showing any dated sessions --------------------
