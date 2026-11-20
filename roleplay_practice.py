@@ -218,7 +218,19 @@ def roleplay_response(scene, history, vocabulary, variety_code, variety_label, t
             'prior_sentence_examples':sentence_examples or [],
             'reference_notes':_reference_context(retriever,topic,variety_code,language)}
     if language == 'macedonian' and final:
-        return _macedonian_final(scene, history, vocabulary)
+        last = next((m['text'] for m in reversed(history) if m['role'] == 'user'), '')
+        answer = None
+        if last.rstrip().endswith('?'):
+            # The traveler's last line is a question ("Колку чини една ноќ?"): answer it with a
+            # normal, checked partner turn before saying goodbye, instead of ignoring it.
+            answer = roleplay_response(scene, history, vocabulary, variety_code, variety_label, topic,
+                                       retriever, sentence_examples, final=False, language=language)
+        result = _macedonian_final(scene, history, vocabulary)
+        if answer:
+            goodbye = '' if re.search(r'пријатно', answer['reply'], re.I) else ' Пријатно!'
+            result['reply'] = answer['reply'].rstrip() + goodbye
+            result['english'] = answer['english'].rstrip() + (' Goodbye!' if goodbye else '')
+        return result
     if language == 'macedonian':
         # Lines the staff/local says in the notes, so the model has correct examples of its OWN role.
         data['partner_lines'] = sorted({p['text'] for c in retriever.chunks
@@ -307,6 +319,17 @@ def roleplay_response(scene, history, vocabulary, variety_code, variety_label, t
                 or (topic == 'restaurant' and re.match(r'\s*извинете\s*[.!]', result['reply'], re.I))):
             problems.append("asks for something like a customer ('Може една ...?'); you are the staff: "
                             "confirm the order or ask what the traveler would like")
+        # "Колку е по ноќ?" / "Колку чини?" is the guest's price question; staff give the price.
+        if topic in ('restaurant', 'shopping', 'hotel', 'transport') and any(
+                re.match(r'\s*колку\s+(?:чини|чинат|кошта|ќе\s+чини|е)\b', x, re.I) and x.rstrip().endswith('?')
+                for x in sentences):
+            problems.append("asks how much something costs, which is the traveler's question; you are "
+                            "the staff: tell them the price")
+        # The English must translate THIS reply: a question in Macedonian is a question in English.
+        # (Not the other way round: "Повелете." is rightly "What can I get you?")
+        if result['reply'].rstrip().endswith('?') and not result['english'].rstrip().endswith('?'):
+            problems.append("the english field does not translate your reply (one is a question, the "
+                            "other is not); write the English of exactly your Macedonian reply")
         if re.match(r'\s*(?:да,?\s+)?ве\s+молам', result['reply'], re.I):
             problems.append("starts with 'ве молам', which is what the customer says; confirm with "
                             "'Веднаш.', 'Секако.' or 'Одлично, ...'")

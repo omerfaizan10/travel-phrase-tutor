@@ -151,6 +151,7 @@ def spanish_typing_activity(retriever, topic, variety, offset=0, share=1.0, lang
 
 
 def topic_sentences(retriever, language, topic, variety, limit=40):
+    from tutor import is_partner_phrase   # staff lines are marked, so Stage 2 can skip them
     """Checked whole sentences from the topic notes (3+ words, traveler or staff lines),
     given to Stage 2 as correct patterns to reuse, so a small model does not invent forms."""
     allowed = accepted_labels(language, variety)
@@ -164,5 +165,8 @@ def topic_sentences(retriever, language, topic, variety, limit=40):
             if key in seen or not 3 <= len(p['text'].split()) <= 12 or re.search(r'\.\.\.|…|__|/', p['text']):
                 continue
             seen.add(key)
-            out.append({language: p['text'], 'english': re.sub(r'\s*\([^)]*\)', '', p['meaning']).strip()})
+            # Drop the speaker label from the English too ("Receptionist: Your room is 204 ...").
+            english = re.sub(r'^(?:\([A-Za-z]+\)|[A-Za-z][\w ()-]{0,20}:)\s+', '', p['meaning'])
+            out.append({language: p['text'], 'english': re.sub(r'\s*\([^)]*\)', '', english).strip(),
+                        'staff': is_partner_phrase(p)})
     return out[:limit]
