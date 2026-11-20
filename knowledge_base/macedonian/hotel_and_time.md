@@ -10,6 +10,7 @@ Source: Daniela Jankovska, "Tips & Guide to: Learn Macedonian Language" (native 
 ## At the hotel reception
 - Дали имате слободни соби? [Dali imate slobodni sobi?] [DA-lee EE-ma-te SLO-bod-nee SO-bee?] = Do you have any rooms available?
 - Колку е по ноќ / по човек? [Kolku e po nokj / po chovek?] [KOL-koo e po NOKY / po CHO-vek?] = How much is it per night / per person?
+- Рецепционерот: Собата чини 60 евра по ноќ. [Sobata chini 60 evra po nokj.] [SO-ba-ta CHEE-nee 60 E-vra po NOKY.] = Receptionist: The room costs 60 euros per night.
 - Дали собата доаѓа со приватна бања / тоалет? [Dali sobata doagja so privatna banja / toalet?] [DA-lee SO-ba-ta DO-a-gya so PREE-vat-na BA-nya / TO-a-let?] = Does the room come with a private bathroom / toilet?
 - Дали имате друга соба? [Dali imate druga soba?] [DA-lee EE-ma-te DROO-ga SO-ba?] = Do you have a different room?
 - Ок, ќе ја земам. [Ok, kje ja zemam.] [OK, kye YA ze-mam.] = OK, I'll take it.
@@ -93,7 +94,7 @@ Hotels and apartments register foreign guests with the police, so they will ask 
 - вечер [vecher] [VE-cher] = evening
 - ноќ [nokj] [NOKY] = night
 - изгрејсонце [izgrejsonce] [eez-GREY-son-tse] = sunrise
-- зајдисонце [zajdisonce] [zay-DEE-son-tse] = sonset
+- зајдисонце [zajdisonce] [zay-DEE-son-tse] = sunset
 - самрак [samrak] [SAM-rak] = twilight
 
 ## Time and dates: Days
@@ -140,3 +141,20 @@ Hotels and apartments register foreign guests with the police, so they will ask 
 - пролет [prolet] [PRO-let] = Spring
 - есен [esen] [E-sen] = Autumn / Fall
 - зима [zima] [ZEE-ma] = Winter
+
+## Roleplay dialogue 1: Checking in
+- Добар ден. Имам резервација на име Смит. [Dobar den. Imam rezervacija na ime Smit.] [DO-bar DEN. EE-mam re-zer-VA-tsee-ya na EE-me SMEET.] = Hello. I have a reservation under the name Smith.
+- Рецепционерот: Добредојдовте! Може ли пасошот, ве молам? [Dobredojdovte! Mozhe li pasoshot, ve molam?] [do-bre-DOY-dov-te! MO-zhe lee PA-so-shot, VE mo-lam?] = Receptionist: Welcome! May I have your passport, please?
+- Повелете. [Povelete.] [po-VE-le-te.] = Here you are.
+- Рецепционерот: Вашата соба е 204, на вториот кат. Ова е клучот. [Vashata soba e 204, na vtoriot kat. Ova e kluchot.] [VA-sha-ta SO-ba e 204, na VTO-ree-ot KAT. O-va e KLOO-chot.] = Receptionist: Your room is 204, on the second floor. Here is the key.
+- Од колку часот е појадокот? [Od kolku chasot e pojadokot?] [od KOL-koo CHA-sot e po-YA-do-kot?] = What time is breakfast?
+- Рецепционерот: Од седум до десет часот, во ресторанот. [Od sedum do deset chasot, vo restoranot.] [od SE-doom do DE-set CHA-sot, vo res-TO-ra-not.] = Receptionist: From seven to ten, in the restaurant.
+- Благодарам. [Blagodaram.] [bla-GO-da-ram.] = Thank you.
+- Рецепционерот: Пријатен престој! [Prijaten prestoj!] [PREE-ya-ten PRES-toy!] = Receptionist: Enjoy your stay!
+
+## Roleplay dialogue 2: A problem with the room
+- Извинете, во собата нема топла вода. [Izvinete, vo sobata nema topla voda.] [eez-VEE-ne-te, vo SO-ba-ta NE-ma TO-pla VO-da.] = Excuse me, there is no hot water in the room.
+- Рецепционерот: Извинете за тоа. Веднаш ќе пратам некој. [Izvinete za toa. Vednash kje pratam nekoj.] [eez-VEE-ne-te za TO-a. VED-nash KYE pra-tam NE-koy.] = Receptionist: Sorry about that. I'll send someone right away.
+- Може ли да го оставам багажот овде до попладне? [Mozhe li da go ostavam bagazhot ovde do popladne?] [MO-zhe lee da go OS-ta-vam BA-ga-zhot OV-de do PO-plad-ne?] = Can I leave my luggage here until the afternoon?
+- Рецепционерот: Може, нема проблем. [Mozhe, nema problem.] [MO-zhe, NE-ma PRO-blem.] = Receptionist: Yes, no problem.
+- Благодарам многу. [Blagodaram mnogu.] [bla-GO-da-ram MNO-goo.] = Thank you very much.

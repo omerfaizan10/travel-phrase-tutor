@@ -228,3 +228,19 @@ Wine making in Tikvesh is a family tradition, and many families still make homem
 
 ## Things to do: Culture notes
 Summer (June to September) is the season for the lakes and festivals; many boat trips run only in summer. Museums and churches often charge a small entrance fee in denars, and some ask you to cover your shoulders inside churches. Prices in the sample dialogue are examples only.
+
+## Roleplay dialogue 1: What to visit in Ohrid
+- Добар ден. Што да посетам во Охрид? [Dobar den. Shto da posetam vo Ohrid?] [DO-bar DEN. SHTO da PO-se-tam vo O-hreed?] = Hello. What should I visit in Ohrid?
+- Водичот: Посетете ја црквата Свети Јован Канео и Самуиловата тврдина. [Posetete ja crkvata Sveti Jovan Kaneo i Samuilovata tvrdina.] [po-se-TE-te ya TSRK-va-ta SVE-tee YO-van KA-ne-o ee sa-moo-ee-LO-va-ta TVR-dee-na.] = Guide: Visit the church of St. John at Kaneo and Samuel's Fortress.
+- Колку е далеку тврдината? [Kolku e daleku tvrdinata?] [KOL-koo e DA-le-koo tvr-DEE-na-ta?] = How far is the fortress?
+- Водичот: Околу дваесет минути пешки. [Okolu dvaeset minuti peshki.] [O-ko-loo DVA-e-set MEE-noo-tee PESH-kee.] = Guide: About twenty minutes on foot.
+- Колку чини влезот? [Kolku chini vlezot?] [KOL-koo CHEE-nee VLE-zot?] = How much is the entrance?
+- Водичот: Триста денари. [Trista denari.] [TREES-ta DE-na-ree.] = Guide: Three hundred denars.
+- Благодарам! [Blagodaram!] [bla-GO-da-ram!] = Thank you!
+
+## Roleplay dialogue 2: At the museum
+- Кога се отвора музејот? [Koga se otvora muzejot?] [KO-ga se OT-vo-ra MOO-ze-yot?] = When does the museum open?
+- Водичот: Од девет часот наутро. [Od devet chasot nautro.] [od DE-vet CHA-sot NA-oo-tro.] = Guide: From nine in the morning.
+- Дали може да се фотографира? [Dali mozhe da se fotografira?] [DA-lee MO-zhe da se fo-to-GRA-fee-ra?] = Can I take photos?
+- Водичот: Да, но без блиц. [Da, no bez blic.] [DA, no bez BLEETS.] = Guide: Yes, but without flash.
+- Благодарам. [Blagodaram.] [bla-GO-da-ram.] = Thank you.

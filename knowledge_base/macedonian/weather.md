@@ -34,3 +34,17 @@ Source: Christina E. Kramer & Liljana Mitkovska, "Macedonian: A Course for Begin
 - Кое годишно време најмногу го сакате? [Koe godishno vreme najmnogu go sakate?] [KO-e GO-deesh-no VRE-me NAY-mno-goo go SA-ka-te?] = Which season do you like best?
 - чадор [chador] [CHA-dor] umbrella, мантил [mantil] [MAN-teel] raincoat, ракавици [rakavici] [ra-KA-vee-tsee] gloves, капа [kapa] [KA-pa] hat, шал [shal] [SHAL] scarf, џемпер [dzhemper] [JEM-per] sweater, ветровка [vetrovka] [VET-rov-ka] windbreaker
 - Дали носите чадор кога врне? [Dali nosite chador koga vrne?] [DA-lee NO-see-te CHA-dor KO-ga VR-ne?] = Do you take an umbrella when it rains?
+
+## Roleplay dialogue 1: A nice day
+- Локалниот: Убав ден денес, нели? [Ubav den denes, neli?] [OO-bav DEN DE-nes, NE-lee?] = Local: Nice day today, isn't it?
+- Да, многу е топло. [Da, mnogu e toplo.] [DA, MNO-goo e TO-plo.] = Yes, it's very warm.
+- Локалниот: Утре ќе врне дожд. [Utre kje vrne dozhd.] [OO-tre KYE vr-ne DOZHD.] = Local: It will rain tomorrow.
+- Тогаш ќе одам во музеј. [Togash kje odam vo muzej.] [TO-gash KYE o-dam vo MOO-zey.] = Then I'll go to a museum.
+- Локалниот: Добра идеја! [Dobra ideja!] [DO-bra EE-de-ya!] = Local: Good idea!
+
+## Roleplay dialogue 2: Is it cold tonight?
+- Колку степени е денес? [Kolku stepeni e denes?] [KOL-koo STE-pe-nee e DE-nes?] = How many degrees is it today?
+- Локалниот: Околу дваесет и пет. [Okolu dvaeset i pet.] [O-ko-loo DVA-e-set ee PET.] = Local: About twenty-five.
+- Дали ќе биде студено навечер? [Dali kje bide studeno navecher?] [DA-lee KYE bee-de STOO-de-no NA-ve-cher?] = Will it be cold in the evening?
+- Локалниот: Малку. Земете јакна. [Malku. Zemete jakna.] [MAL-koo. ZE-me-te YAK-na.] = Local: A little. Take a jacket.
+- Благодарам за советот. [Blagodaram za sovetot.] [bla-GO-da-ram za SO-ve-tot.] = Thanks for the advice.

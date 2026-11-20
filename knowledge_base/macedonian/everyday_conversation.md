@@ -138,3 +138,22 @@ Pharmacies are easy to find (look for a green cross) and pharmacists often give 
 
 ## Meeting locals: Culture notes
 Macedonians are known for hospitality: guests are offered food and drinks, and saying no once is often taken as politeness, so the host may offer again. Bringing a small gift (sweets, coffee or a bottle of wine) when you visit a home is a nice gesture. Many people take off their shoes at home, so it is polite to ask. Use "ти" with young people and friends, and "Вие" with older people and people you have just met.
+
+## Roleplay dialogue 1: At the pharmacy
+- Добар ден. Ме боли глава. [Dobar den. Me boli glava.] [DO-bar DEN. ME bo-lee GLA-va.] = Hello. I have a headache.
+- Фармацевтката: Од кога? [Od koga?] [od KO-ga?] = Pharmacist: Since when?
+- Од утрово. [Od utrovo.] [od OO-tro-vo.] = Since this morning.
+- Фармацевтката: Дали сте алергични на некој лек? [Dali ste alergichni na nekoj lek?] [DA-lee ste a-LER-geech-nee na NE-koy LEK?] = Pharmacist: Are you allergic to any medicine?
+- Не, не сум. [Ne, ne sum.] [NE, NE soom.] = No, I'm not.
+- Фармацевтката: Земајте по една таблета три пати на ден, после јадење. [Zemajte po edna tableta tri pati na den, posle jadenje.] [ZE-may-te po ED-na TA-ble-ta TREE PA-tee na DEN, PO-sle YA-de-nye.] = Pharmacist: Take one tablet three times a day, after eating.
+- Благодарам. Колку чини? [Blagodaram. Kolku chini?] [bla-GO-da-ram. KOL-koo CHEE-nee?] = Thank you. How much is it?
+- Фармацевтката: Сто и педесет денари. [Sto i pedeset denari.] [STO ee PE-de-set DE-na-ree.] = Pharmacist: One hundred and fifty denars.
+
+## Roleplay dialogue 2: A lost passport
+- Извинете, ми треба помош. Го изгубив пасошот. [Izvinete, mi treba pomosh. Go izgubiv pasoshot.] [eez-VEE-ne-te, MEE tre-ba PO-mosh. go EEZ-goo-beev PA-so-shot.] = Excuse me, I need help. I lost my passport.
+- Полицаецот: Каде го изгубивте? [Kade go izgubivte?] [KA-de go eez-GOO-beev-te?] = Police officer: Where did you lose it?
+- Мислам дека во автобусот. [Mislam deka vo avtobusot.] [MEE-slam DE-ka vo av-TO-boo-sot.] = I think on the bus.
+- Полицаецот: Пополнете го овој формулар, ве молам. [Popolnete go ovoj formular, ve molam.] [po-pol-NE-te go O-voy FOR-moo-lar, VE mo-lam.] = Police officer: Please fill in this form.
+- Каде е амбасадата? [Kade e ambasadata?] [KA-de e am-ba-SA-da-ta?] = Where is the embassy?
+- Полицаецот: Во центарот, близу плоштадот. [Vo centarot, blizu ploshtadot.] [vo TSEN-ta-rot, BLEE-zoo PLOSH-ta-dot.] = Police officer: In the center, near the square.
+- Благодарам за помошта. [Blagodaram za pomoshta.] [bla-GO-da-ram za PO-mosh-ta.] = Thank you for the help.

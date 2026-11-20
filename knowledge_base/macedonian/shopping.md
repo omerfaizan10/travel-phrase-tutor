@@ -97,3 +97,21 @@ Green markets (Bit Pazar in Skopje is the biggest) sell fresh, cheap local produ
 - кредитна картичка. [kreditna kartichka.] [KRE-deet-na KAR-teech-ka.] = credit card.
 - дебитна картичка [debitna kartichka] [DE-beet-na KAR-teech-ka] = debit card
 - размена [razmena] [RAZ-me-na] = exchange
+
+## Roleplay dialogue 1: At the market
+- Продавачката: Повелете, што ви треба? [Povelete, shto vi treba?] [po-VE-le-te, SHTO VEE tre-ba?] = Seller: Hello, what do you need?
+- Добар ден. Колку чинат доматите? [Dobar den. Kolku chinat domatite?] [DO-bar DEN. KOL-koo CHEE-nat do-MA-tee-te?] = Hello. How much are the tomatoes?
+- Продавачката: Осумдесет денари кило. [Osumdeset denari kilo.] [o-SOOM-de-set DE-na-ree KEE-lo.] = Seller: Eighty denars a kilo.
+- Еден килограм, ве молам. [Eden kilogram, ve molam.] [E-den KEE-lo-gram, VE mo-lam.] = One kilogram, please.
+- Продавачката: Повелете. Нешто друго? [Povelete. Neshto drugo?] [po-VE-le-te. NESH-to DROO-go?] = Seller: Here you are. Anything else?
+- Не, благодарам. Повелете сто денари. [Ne, blagodaram. Povelete sto denari.] [NE, bla-GO-da-ram. po-VE-le-te STO DE-na-ree.] = No, thank you. Here are a hundred denars.
+- Продавачката: Еве го кусурот. Пријатно! [Eve go kusurot. Prijatno!] [E-ve go KOO-soo-rot. PREE-yat-no!] = Seller: Here is your change. Goodbye!
+
+## Roleplay dialogue 2: Buying a souvenir
+- Колку чини ова? [Kolku chini ova?] [KOL-koo CHEE-nee O-va?] = How much is this?
+- Продавачот: Две илјади денари. Тоа е филигран, рачна изработка. [Dve iljadi denari. Toa e filigran, rachna izrabotka.] [DVE EEL-ya-dee DE-na-ree. TO-a e FEE-lee-gran, RACH-na ee-ZRA-bot-ka.] = Seller: Two thousand denars. It's filigree, handmade.
+- Тоа е скапо. Може ли малку поефтино? [Toa e skapo. Mozhe li malku poeftino?] [TO-a e SKA-po. MO-zhe lee MAL-koo po-EF-tee-no?] = That's expensive. Can it be a bit cheaper?
+- Продавачот: За вас, илјада и осумстотини. [Za vas, iljada i osumstotini.] [za VAS, EEL-ya-da ee o-soom-STO-tee-nee.] = Seller: For you, one thousand eight hundred.
+- Добро, ќе го земам. [Dobro, kje go zemam.] [DO-bro, kye GO ze-mam.] = OK, I'll take it.
+- Продавачот: Сакате ли кеса? [Sakate li kesa?] [sa-KA-te lee KE-sa?] = Seller: Would you like a bag?
+- Да, ве молам. [Da, ve molam.] [DA, VE mo-lam.] = Yes, please.
