@@ -104,6 +104,117 @@ def _validate_round(data, vocabulary, language='spanish'):
     return data
 
 
+# --- Macedonian rounds: generated, checked against the notes, filled from the notes ----------
+MK_REFERENCE_LIMIT = 20     # reference sentences sent to the model (shorter prompt on a CPU)
+MK_ASK = 4                  # new sentences asked of the model ...
+MK_MAX_GENERATED = 3        # ... and at most this many are used, all as tasks
+MK_MAX_TOKENS = 600         # 4 short sentence pairs; keeps the call well under the time limit
+MK_SCHEMA = {'type': 'object', 'properties': {'sentences': {
+    'type': 'array', 'minItems': MK_ASK, 'maxItems': MK_ASK, 'items': {
+        'type': 'object', 'properties': {'english': {'type': 'string'}, 'macedonian': {'type': 'string'},
+                                         'vocabulary_ids': {'type': 'array', 'items': {'type': 'integer'}}},
+        'required': ['english', 'macedonian', 'vocabulary_ids'], 'additionalProperties': False}}},
+    'required': ['sentences'], 'additionalProperties': False}
+_NOTES_WORDS = {}
+
+
+def notes_words(retriever=None):
+    """Every Macedonian word in the notes (phrases, dictionary lists with their feminine,
+    neuter and plural forms, culture notes), lower-case."""
+    if 'macedonian' not in _NOTES_WORDS:
+        if retriever is None:
+            from retriever import load_chunks
+            chunks = load_chunks()
+        else:
+            chunks = retriever.chunks
+        _NOTES_WORDS['macedonian'] = set().union(
+            *(_cyr_words(c['text']) for c in chunks if c['language'] == 'macedonian'))
+    return _NOTES_WORDS['macedonian']
+
+
+def _mk_pair_problem(pair, words):
+    """Why one generated Macedonian pair cannot be shown, or '' if it can."""
+    if not isinstance(pair, dict) or not all(isinstance(pair.get(k), str) and pair[k].strip()
+                                             for k in ('english', 'macedonian')):
+        return 'missing sentence text'
+    mk = pair['macedonian']
+    if not 3 <= len(mk.split()) <= 22:
+        return f"'{mk}' is not a whole short sentence"
+    if not re.search(r'[Ѐ-ӿ]', mk) or re.search(r'[A-Za-z]', mk):
+        return f"'{mk}' must be written in Cyrillic only"
+    if _sentence_count(mk) > _sentence_count(pair['english']):
+        return (f"'{pair['english']}' is one sentence in English, so its translation must be one "
+                "sentence too: join the items with 'и' instead of splitting them")
+    unknown = sorted(_cyr_words(mk) - words)
+    if unknown:
+        return f"'{mk}' uses words that are not in the course notes ({', '.join(unknown[:3])})"
+    return ''
+
+
+def _studied_stems(vocabulary):
+    return {w[:4] for p in vocabulary for w in _cyr_words(p['text']) if len(w) >= 3}
+
+
+def _macedonian_round(messages, vocabulary, reference_sentences, topic):
+    """A Macedonian round: the 3 examples always come from the notes (correct models to copy);
+    the 5 tasks are up to MK_MAX_GENERATED generated sentences that pass the notes check, and
+    the rest from the notes. One retry with the reasons if too few pass; on a timeout the notes
+    are used at once. Never raises for a bad model answer."""
+    words = notes_words()
+    kept, seen, rejected, problems = [], set(), 0, []
+    for attempt in range(2):
+        try:
+            data = _json_reply(messages, MK_SCHEMA, MK_MAX_TOKENS)
+        except LLMError:
+            break                                   # timeout or broken JSON: use the notes
+        problems = []
+        pairs = data.get('sentences') or (data.get('examples') or []) + (data.get('tasks') or [])
+        for pair in pairs:
+            problem = _mk_pair_problem(pair, words)
+            key = spanish_answer(pair.get('macedonian', '')) if isinstance(pair, dict) else ''
+            if problem or key in seen:
+                rejected += 1
+                if problem:
+                    problems.append(problem)
+                continue
+            seen.add(key)
+            kept.append({'english': pair['english'].strip(), 'macedonian': pair['macedonian'].strip(),
+                         'vocabulary_ids': [i for i in pair.get('vocabulary_ids') or []
+                                            if type(i) is int and 1 <= i <= len(vocabulary)]})
+        if len(kept) >= MK_MAX_GENERATED:
+            break
+        messages = messages + [{'role': 'user', 'content': 'Please write new sentences. Fix: '
+                                + '; '.join(dict.fromkeys(problems or ['the answer was incomplete'])) + '.'}]
+    generated = kept[:MK_MAX_GENERATED]
+    seen = {spanish_answer(p['macedonian']) for p in generated}
+    # Fill from the notes: sentences with a studied word first, then the rest of the topic.
+    stems = _studied_stems(vocabulary)
+    pool = list(reference_sentences or [])
+    if len(pool) < 8:
+        # Too few given: read the topic's checked sentences from the notes directly.
+        from types import SimpleNamespace
+        from practice import topic_sentences
+        from retriever import load_chunks
+        pool += topic_sentences(SimpleNamespace(chunks=load_chunks()), 'macedonian', topic, 'MK', limit=200)
+    # The learner is the traveler: fill only with traveler lines, not what the staff says.
+    notes = [r for r in pool
+             if r.get('english') and not r.get('staff') and spanish_answer(r['macedonian']) not in seen
+             and not _mk_pair_problem({'english': r['english'], 'macedonian': r['macedonian']}, words)]
+    # Whole sentences ("Тоа е скапо.") before short noun phrases ("апче за стомак"),
+    # each group with studied words first.
+    notes.sort(key=lambda r: (not r['macedonian'].rstrip()[-1:] in '.?!',
+                              not any(w[:4] in stems for w in _cyr_words(r['macedonian']))))
+    from_notes = [{'english': r['english'], 'macedonian': r['macedonian'], 'vocabulary_ids': []}
+                  for r in notes if spanish_answer(r['macedonian']) not in seen][:8 - len(generated)]
+    if len(generated) + len(from_notes) < 8:
+        raise LLMError('There are not enough checked sentences for this topic yet. '
+                       'Please try another topic.')
+    # stats: how many generated sentences passed / failed the notes check (for the report).
+    return {'examples': from_notes[:3], 'tasks': generated + from_notes[3:],
+            'stats': {'generated_kept': len(generated), 'generated_rejected': rejected,
+                      'from_notes': len(from_notes)}}
+
+
 def build_sentence_round(vocabulary, variety_name, topic, language='spanish', reference_sentences=None):
     name = LANGUAGES[language]
     bank = [{'id': i, language: p['text'], 'english': p['meaning']}
@@ -112,7 +223,9 @@ def build_sentence_round(vocabulary, variety_name, topic, language='spanish', re
                     'Write standard Macedonian in Cyrillic only. ' + LANGUAGE_RULES['macedonian'] + ' '
                     'The reference_sentences are checked, correct Macedonian from the course notes: '
                     'build every sentence by reusing or lightly adapting them (swap in a studied word), '
-                    'and do not use verb forms or words that appear in neither list. ')
+                    'and do not use verb forms or words that appear in neither list. '
+                    'Every Macedonian word must already appear in the reference sentences or the '
+                    'studied vocabulary; sentences with other words are discarded. ')
     messages = [
         {'role': 'system', 'content':
          f'You create beginner English-to-{name} whole-sentence practice. '
@@ -132,11 +245,17 @@ def build_sentence_round(vocabulary, variety_name, topic, language='spanish', re
          'No real-world facts, dates, prices or schedules. Return the requested JSON.'},
         {'role': 'user', 'content': json.dumps({'variety': variety_name, 'topic': topic,
                                                'studied_vocabulary': bank,
-                                               **({'reference_sentences': reference_sentences}
+                                               **({'reference_sentences': reference_sentences[:MK_REFERENCE_LIMIT]
+                                                   if language == 'macedonian' else reference_sentences}
                                                   if reference_sentences else {})},
                                               ensure_ascii=False)},
     ]
-    for attempt in range(2 if language == 'spanish' else 3):
+    if language == 'macedonian':
+        messages[0]['content'] += (f' For Macedonian, return only {MK_ASK} NEW sentence pairs in '
+                                   '"sentences" (no separate examples and tasks); they must differ '
+                                   'from the reference sentences.')
+        return _macedonian_round(messages, vocabulary, reference_sentences, topic)
+    for attempt in range(2):
         data = _json_reply(messages, round_schema(language), 2200)
         try:
             return _validate_round(data, vocabulary, language)

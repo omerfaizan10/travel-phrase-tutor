@@ -166,3 +166,19 @@ Source for this and the following sections: team-authored notes, written and rev
 
 ## Asking the way: Culture notes
 Street signs are in Cyrillic, and in city centers often also in Latin letters, so learning to read Cyrillic street names helps a lot. Intercity buses connect Skopje with Ohrid, Bitola and other cities; buy the ticket at the bus station counter. In taxis, check that the meter is running (Ве молам, вклучете го таксиметарот / Ve molam, vkluchete go taksimetarot. / Please turn on the meter).
+
+## Roleplay dialogue 1: Finding the square
+- Извинете, каде е плоштадот Македонија? [Izvinete, kade e ploshtadot Makedonija?] [eez-VEE-ne-te, KA-de e PLOSH-ta-dot ma-ke-DO-nee-ya?] = Excuse me, where is Macedonia Square?
+- Минувачот: Одете право, потоа свртете лево. [Odete pravo, potoa svrtete levo.] [O-de-te PRA-vo, PO-to-a SVR-te-te LE-vo.] = Passer-by: Go straight, then turn left.
+- Далеку ли е? [Daleku li e?] [da-LE-koo lee e?] = Is it far?
+- Минувачот: Не, околу десет минути пешки. [Ne, okolu deset minuti peshki.] [NE, O-ko-loo DE-set MEE-noo-tee PESH-kee.] = Passer-by: No, about ten minutes on foot.
+- Благодарам многу. [Blagodaram mnogu.] [bla-GO-da-ram MNO-goo.] = Thank you very much.
+- Минувачот: Нема за што. [Nema za shto.] [NE-ma za SHTO.] = Passer-by: You're welcome.
+
+## Roleplay dialogue 2: A pharmacy nearby
+- Извинете, дали има аптека близу? [Izvinete, dali ima apteka blizu?] [eez-VEE-ne-te, DA-lee EE-ma AP-te-ka BLEE-zoo?] = Excuse me, is there a pharmacy nearby?
+- Минувачот: Да, на аголот, до банката. [Da, na agolot, do bankata.] [DA, na A-go-lot, do BAN-ka-ta.] = Passer-by: Yes, on the corner, next to the bank.
+- Лево или десно? [Levo ili desno?] [LE-vo EE-lee DES-no?] = Left or right?
+- Минувачот: Десно, после семафорот. [Desno, posle semaforot.] [DES-no, PO-sle se-MA-fo-rot.] = Passer-by: Right, after the traffic lights.
+- Благодарам! [Blagodaram!] [bla-GO-da-ram!] = Thank you!
+- Минувачот: Нема проблем. [Nema problem.] [NE-ma PRO-blem.] = Passer-by: No problem.

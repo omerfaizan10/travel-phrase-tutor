@@ -6,6 +6,7 @@ fallback line from the notes. These tests feed known bad replies and check that
 the app catches each one.
 """
 import json
+import re
 
 import pytest
 
@@ -15,6 +16,7 @@ from roleplay_practice import SCENES, roleplay_response
 from sentence_practice import build_sentence_round, sentence_feedback
 from tutor import is_partner_phrase
 from conftest import make_round
+from practice import topic_sentences
 
 pytestmark = pytest.mark.slm_contract
 MK = "North Macedonia"
@@ -49,27 +51,74 @@ def test_mk_round_gets_checked_reference_sentences(fake_llm, macedonian_bank):
     assert "Cyrillic only" in fake_llm.calls[0]["messages"][0]["content"]
 
 
-def test_mk_round_in_latin_letters_is_sent_back(fake_llm, macedonian_bank):
-    """What: A Macedonian round in Latin letters is rejected and sent back with the reason.
+def test_mk_round_in_latin_letters_is_never_shown(fake_llm, macedonian_bank):
+    """What: A generated Macedonian sentence in Latin letters is not shown; the round is completed with other sentences.
     Why: The learner must see the answer in Cyrillic.
     If it fails: The "correct" Macedonian answer can show in Latin letters."""
     bad = make_round(len(macedonian_bank), language="macedonian")
     bad["tasks"][0]["macedonian"] = "Bi sakal edna shopska salata."
     fake_llm.queue(bad, make_round(len(macedonian_bank), language="macedonian"))
-    build_sentence_round(macedonian_bank, MK, "restaurant", "macedonian")
-    assert "Cyrillic" in fake_llm.calls[1]["messages"][-1]["content"]
+    data = build_sentence_round(macedonian_bank, MK, "restaurant", "macedonian")
+    shown = [p["macedonian"] for p in data["examples"] + data["tasks"]]
+    assert "Bi sakal edna shopska salata." not in shown
+    assert all(re.search(r"[Ѐ-ӿ]", t) and not re.search(r"[A-Za-z]", t) for t in shown)
 
 
-def test_mk_round_gets_three_tries(fake_llm, macedonian_bank):
-    """What: Macedonian Sentences (Stage 2) tries 3 times (Spanish: 2), then shows a friendly error.
-    Why: The Macedonian checks are stricter, so the SLM needs one more chance.
-    If it fails: The learner sees more errors than needed, or the app retries without end."""
+def test_mk_round_bad_twice_is_filled_from_the_notes(fake_llm, macedonian_bank, retriever):
+    """What: After two bad Macedonian rounds (Spanish: an error), Sentences (Stage 2) fills the round with checked sentences from the notes.
+    Why: A Macedonian round should always open; the notes always have correct sentences for the topic.
+    If it fails: The learner sees "not usable" and cannot practice Macedonian sentences for that topic."""
     bad = make_round(len(macedonian_bank), language="macedonian")
-    bad["tasks"][0]["vocabulary_ids"] = [999]
-    fake_llm.queue(bad, bad, bad)
-    with pytest.raises(LLMError, match="not usable"):
-        build_sentence_round(macedonian_bank, MK, "restaurant", "macedonian")
-    assert len(fake_llm.calls) == 3
+    for pair in bad["examples"] + bad["tasks"]:
+        pair["macedonian"] = "Bi sakal edna shopska salata."
+    fake_llm.queue(bad, bad)
+    refs = topic_sentences(retriever, "macedonian", "restaurant", "MK")
+    data = build_sentence_round(macedonian_bank, MK, "restaurant", "macedonian", refs)
+    assert len(fake_llm.calls) == 2
+    notes = {r["macedonian"] for r in refs}
+    assert len(data["examples"]) == 3 and len(data["tasks"]) == 5
+    assert all(p["macedonian"] in notes for p in data["examples"] + data["tasks"])
+    assert data["stats"]["from_notes"] == 8
+
+
+def test_mk_round_timeout_uses_the_notes(fake_llm, macedonian_bank, retriever):
+    """What: When the SLM times out, the Macedonian round is built from the notes at once (no second wait).
+    Why: On a slow laptop the round can take longer than the time limit.
+    If it fails: The learner waits twice and then sees "Ollama didn't answer within 120 seconds"."""
+    fake_llm.queue(LLMError("Ollama didn't answer within 120 seconds."))
+    refs = topic_sentences(retriever, "macedonian", "hotel", "MK")
+    data = build_sentence_round(macedonian_bank, MK, "hotel", "macedonian", refs)
+    assert len(fake_llm.calls) == 1 and len(data["tasks"]) == 5
+
+
+def test_mk_round_drops_words_not_in_the_notes(fake_llm, macedonian_bank, retriever):
+    """What: A generated Macedonian sentence with a word that is not in the notes ("батола", "аптечна") is not shown; good generated sentences are kept.
+    Why: The small model invents words. Every word in the notes was checked by the native speaker.
+    If it fails: The learner sees invented Macedonian as the example answer."""
+    good = make_round(len(macedonian_bank), language="macedonian")
+    good["tasks"][0]["macedonian"] = "Ми треба шампон и батола паракетамол."
+    good["tasks"][0]["english"] = "I need shampoo and a bottle of paracetamol."
+    fake_llm.queue(good, good)
+    refs = topic_sentences(retriever, "macedonian", "restaurant", "MK")
+    data = build_sentence_round(macedonian_bank, MK, "restaurant", "macedonian", refs)
+    shown = [p["macedonian"] for p in data["examples"] + data["tasks"]]
+    assert "Ми треба шампон и батола паракетамол." not in shown
+    assert data["stats"]["generated_rejected"] >= 1
+
+
+def test_mk_round_uses_at_most_three_generated_sentences(fake_llm, macedonian_bank, retriever):
+    """What: A Macedonian round shows at most 3 generated sentences, all as tasks; the 3 examples always come from the notes.
+    Why: Generated Macedonian can still have wrong grammar. The examples are what the learner copies, so they must be checked text.
+    If it fails: The learner copies a generated example with a mistake, or most of the round is unchecked Macedonian."""
+    fake_llm.queue(make_round(len(macedonian_bank), language="macedonian"))
+    refs = topic_sentences(retriever, "macedonian", "restaurant", "MK")
+    data = build_sentence_round(macedonian_bank, MK, "restaurant", "macedonian", refs)
+    notes = {r["macedonian"] for r in refs}
+    assert len(fake_llm.calls) == 1
+    assert all(p["macedonian"] in notes for p in data["examples"])
+    generated = [p for p in data["tasks"] if p["macedonian"] not in notes]
+    assert len(generated) <= 3 and data["stats"]["generated_kept"] <= 3
+    assert len(data["examples"]) == 3 and len(data["tasks"]) == 5
 
 
 # --- Stage 2: sentence_feedback (Macedonian) ----------------------------------------
@@ -188,6 +237,19 @@ def test_mk_fallback_english_is_a_translation(fake_llm, macedonian_bank, retriev
     assert "said when" not in english and "you will hear" not in english and len(english) <= 60, out["english"]
 
 
+def test_mk_staff_price_question_is_asked_again(fake_llm, macedonian_bank, retriever):
+    """What: A staff line that asks the price ("Колку е по ноќ?") with English that is not its translation is sent back and replaced.
+    Why: The price question is the traveler's line; the staff gives the price. The English must translate the line shown.
+    If it fails: The receptionist asks the guest's question, and "Show English meaning" shows a different sentence."""
+    fake_llm.queue(turn("Колку е по ноќ?", english="The room costs 60 euros per night."),
+                   turn("Добар ден! Повелете."))
+    out = roleplay_response(scene(), [], macedonian_bank, "MK", MK, "restaurant", retriever,
+                            language="macedonian")
+    assert out["reply"] == "Добар ден! Повелете." and len(fake_llm.calls) == 2
+    sent_back = fake_llm.calls[1]["messages"][-1]["content"]
+    assert "price" in sent_back and "english" in sent_back
+
+
 def test_mk_empty_fields_get_another_try(fake_llm, macedonian_bank, retriever):
     """What: A Macedonian turn with an empty field is asked again before the app gives up.
     Why: The 4B model often leaves the hint or translation empty.
@@ -262,3 +324,16 @@ def test_mk_only_real_corrections_are_kept(fake_llm, macedonian_bank, retriever,
     fake_llm.queue({**FINAL, "corrections": [correction]})
     out = final(fake_llm, macedonian_bank, retriever)
     assert (len(out["corrections"]) == 1) == kept
+
+
+def test_mk_end_answers_a_last_question_before_goodbye(fake_llm, macedonian_bank, retriever):
+    """What: When the traveler's last (third) line is a question, the partner answers it before saying goodbye.
+    Why: The scene ends after the third response; a fixed goodbye ignores a question like "Колку чини една ноќ?".
+    If it fails: The receptionist says "Благодарам, пријатно!" and never gives the price the learner asked for."""
+    history = HISTORY[:-1] + [{"role": "user", "text": "Колку чини една ноќ?"}]
+    fake_llm.queue(turn("Собата чини 60 евра по ноќ.", english="The room costs 60 euros per night."), FINAL)
+    out = roleplay_response(scene(), history, macedonian_bank, "MK", MK, "hotel", retriever,
+                            final=True, language="macedonian")
+    assert out["reply"] == "Собата чини 60 евра по ноќ. Пријатно!"
+    assert out["english"] == "The room costs 60 euros per night. Goodbye!"
+    assert out["meaning_feedback"] == FINAL["meaning_feedback"] and len(fake_llm.calls) == 2

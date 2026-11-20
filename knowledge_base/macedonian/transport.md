@@ -119,3 +119,21 @@ Source for this and the following sections: team-authored notes, written and rev
 
 ## Bus and taxi: Culture notes
 Intercity buses leave from the main bus station in Skopje, next to the train station; buy the ticket at the counter before boarding. Trains are slow and few, so most people travel by bus or car. Taxis in Skopje are cheap compared to Western Europe, but agree on the price or ask for the meter, especially from the airport. Prices and times in the dialogues are examples only.
+
+## Roleplay dialogue 1: A bus ticket
+- Добар ден. Еден билет за Охрид, ве молам. [Dobar den. Eden bilet za Ohrid, ve molam.] [DO-bar DEN. E-den BEE-let za O-hreed, VE mo-lam.] = Hello. One ticket to Ohrid, please.
+- Благајничката: Во еден правец или повратен? [Vo eden pravec ili povraten?] [vo E-den PRA-vets EE-lee PO-vra-ten?] = Cashier: One way or return?
+- Повратен, ве молам. Кога поаѓа следниот автобус? [Povraten, ve molam. Koga poagja sledniot avtobus?] [PO-vra-ten, VE mo-lam. KO-ga PO-a-gya SLED-nee-ot AV-to-boos?] = Return, please. When does the next bus leave?
+- Благајничката: Во десет и триесет, од перон пет. [Vo deset i trieset, od peron pet.] [vo DE-set ee TREE-e-set, od PE-ron PET.] = Cashier: At ten thirty, from platform five.
+- Колку трае патувањето? [Kolku trae patuvanjeto?] [KOL-koo TRA-e pa-too-VA-nye-to?] = How long is the journey?
+- Благајничката: Околу три часа. [Okolu tri chasa.] [O-ko-loo TREE CHA-sa.] = Cashier: About three hours.
+- Благодарам. [Blagodaram.] [bla-GO-da-ram.] = Thank you.
+
+## Roleplay dialogue 2: Taking a taxi
+- Добар ден. До центарот, ве молам. [Dobar den. Do centarot, ve molam.] [DO-bar DEN. do TSEN-ta-rot, VE mo-lam.] = Hello. To the center, please.
+- Таксистот: Повелете, седнете. [Povelete, sednete.] [po-VE-le-te, SED-ne-te.] = Taxi driver: Please, have a seat.
+- Колку ќе чини? [Kolku kje chini?] [KOL-koo KYE chee-nee?] = How much will it cost?
+- Таксистот: Околу двесте денари. [Okolu dveste denari.] [O-ko-loo DVES-te DE-na-ree.] = Taxi driver: About two hundred denars.
+- Може ли да застанете овде? [Mozhe li da zastanete ovde?] [MO-zhe lee da zas-TA-ne-te OV-de?] = Can you stop here?
+- Таксистот: Секако. [Sekako.] [SE-ka-ko.] = Taxi driver: Of course.
+- Повелете, задржете го кусурот. [Povelete, zadrzhete go kusurot.] [po-VE-le-te, za-dr-ZHE-te go KOO-soo-rot.] = Here you are, keep the change.

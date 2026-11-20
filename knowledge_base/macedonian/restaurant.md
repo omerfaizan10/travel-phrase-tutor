@@ -387,3 +387,23 @@ Going for coffee ("на кафе") is a big part of social life: people sit for 
 
 ## Local dishes: Culture notes
 Bread is served with almost every meal, and salads with rakija come before the main dish. Many dishes are baked in clay pots (тава / grne). On religious fasting days people eat meatless versions of the same dishes, so restaurants usually have vegetarian options such as tavche gravche or stuffed peppers with beans. In autumn families make "зимница" (winter preserves) like ajvar and pickles at home. If you are invited into someone's home, expect to be offered coffee, slatko, or rakija; it's polite to accept at least a little.
+
+## Roleplay dialogue 1: Drinks first, then food
+- Келнерот: Добра вечер, повелете. [Dobra vecher, povelete.] [DO-bra VE-cher, po-VE-le-te.] = Waiter: Good evening, welcome.
+- Добра вечер. Маса за двајца, ве молам. [Dobra vecher. Masa za dvajca, ve molam.] [DO-bra VE-cher. MA-sa za DVAY-tsa, VE mo-lam.] = Good evening. A table for two, please.
+- Келнерот: Повелете, седнете. Што ќе пиете? [Povelete, sednete. Shto kje piete?] [po-VE-le-te, SED-ne-te. SHTO kye PEE-e-te?] = Waiter: Please, have a seat. What will you drink?
+- Ве молам, едно пиво и една чаша вода. [Ve molam, edno pivo i edna chasha voda.] [VE mo-lam, ED-no PEE-vo ee ED-na CHA-sha VO-da.] = A beer and a glass of water, please.
+- Келнерот: Веднаш. [Vednash.] [VED-nash.] = Waiter: Right away.
+- Благодарам. [Blagodaram.] [bla-GO-da-ram.] = Thank you.
+- Келнерот: Повелете. Што сакате за јадење? [Povelete. Shto sakate za jadenje?] [po-VE-le-te. SHTO SA-ka-te za YA-de-nye?] = Waiter: Here you are. What would you like to eat?
+- Една шопска салата и тавче гравче, ве молам. [Edna shopska salata i tavche gravche, ve molam.] [ED-na SHOP-ska SA-la-ta ee TAV-che GRAV-che, VE mo-lam.] = A shopska salad and tavche gravche, please.
+- Келнерот: Одлично. Нешто друго? [Odlichno. Neshto drugo?] [O-dleech-no. NESH-to DROO-go?] = Waiter: Great. Anything else?
+- Не, тоа е сè, благодарам. [Ne, toa e se, blagodaram.] [NE, TO-a e Sè, bla-GO-da-ram.] = No, that's all, thank you.
+
+## Roleplay dialogue 2: Paying the bill
+- Извинете, сметката, ве молам. [Izvinete, smetkata, ve molam.] [eez-VEE-ne-te, SMET-ka-ta, VE mo-lam.] = Excuse me, the bill, please.
+- Келнерот: Секако. Вкупно осумстотини денари. [Sekako. Vkupno osumstotini denari.] [SE-ka-ko. VKOOP-no o-soom-STO-tee-nee DE-na-ree.] = Waiter: Of course. Eight hundred denars in total.
+- Може ли да платам со картичка? [Mozhe li da platam so kartichka?] [MO-zhe lee da PLA-tam so KAR-teech-ka?] = Can I pay by card?
+- Келнерот: Да, може. [Da, mozhe.] [DA, MO-zhe.] = Waiter: Yes, you can.
+- Сè беше многу вкусно. Благодарам! [Se beshe mnogu vkusno. Blagodaram!] [Sè BE-she MNO-goo VKOOS-no. bla-GO-da-ram!] = Everything was very tasty. Thank you!
+- Келнерот: Благодарам и вам. Повелете пак! [Blagodaram i vam. Povelete pak!] [bla-GO-da-ram ee VAM. po-VE-le-te PAK!] = Waiter: Thank you too. Come again!
