@@ -96,15 +96,16 @@ def test_round_retries_with_the_reason(fake_llm, spanish_bank, valid_round):
     assert "Fix:" in fake_llm.calls[1]["messages"][-1]["content"]
 
 
-def test_round_gives_up_after_two_bad_rounds(fake_llm, spanish_bank):
-    """What: After two bad Spanish rounds, the app stops and shows a friendly message.
-    Why: The learner must not wait forever.
+def test_round_gives_up_after_three_bad_rounds(fake_llm, spanish_bank):
+    """What: After three bad Spanish rounds, the app stops and shows a friendly message.
+    Why: The learner must not wait forever. (Three tries, not two: with two, about 1 round in 12 failed in a real-model test.)
     If it fails: The app retries without end, or shows a broken round."""
     bad = make_round(len(spanish_bank))
-    bad["tasks"][0]["vocabulary_ids"] = [999]
-    fake_llm.queue(bad, bad)
+    bad["tasks"][0]["spanish"] = "Agua."
+    fake_llm.queue(bad, bad, bad)
     with pytest.raises(LLMError, match="not usable"):
         build_sentence_round(spanish_bank, "Spain", "restaurant")
+    assert len(fake_llm.calls) == 3
 
 
 # --- Stage 2: sentence_feedback ----------------------------------------------------
@@ -669,15 +670,16 @@ def test_correct_answer_feedback_is_short_with_no_hint(fake_llm, spanish_bank):
     assert result["grammar_feedback"] == "Fine. Good."
 
 
-def test_round_with_copied_english_is_rejected(fake_llm, spanish_bank, valid_round):
-    """What: A Spanish practice round whose "English" prompt is a copy of the Spanish is rejected and asked for again.
-    Why: The reviewer saw a round where every English prompt was the Spanish sentence ("¡Camarero! ¿Me puede traer un té...?").
-    If it fails: The learner is asked to translate Spanish into Spanish."""
+def test_round_with_copied_english_is_repaired(fake_llm, spanish_bank, valid_round):
+    """What: When an English prompt in a Spanish practice round is a copy of the Spanish, only that sentence is sent for an English translation, and the round is kept.
+    Why: The model often writes restaurant prompts in Spanish ("¡Camarero! ¿Me puede traer un té...?"); throwing such rounds away made "The generated sentences were not usable" appear in the app.
+    If it fails: The learner is asked to translate Spanish into Spanish, or the round fails."""
     bad = json.loads(json.dumps(valid_round))
     bad["tasks"][0]["english"] = bad["tasks"][0]["spanish"]
-    fake_llm.queue(bad, valid_round)
-    build_sentence_round(spanish_bank, "Spain", "restaurant")
-    assert "not English" in fake_llm.calls[1]["messages"][-1]["content"]
+    fake_llm.queue(bad, {"english": ["I would like water, please."]})
+    data = build_sentence_round(spanish_bank, "Spain", "restaurant")
+    assert data["tasks"][0]["english"] == "I would like water, please." and len(fake_llm.calls) == 2
+    assert json.loads(fake_llm.calls[1]["messages"][1]["content"])["spanish"] == [bad["tasks"][0]["spanish"]]
 
 
 # --- Turn notes: tell the model what the traveler just did (final round) -------------
@@ -788,3 +790,29 @@ def test_hint_with_an_unquoted_partner_line_is_replaced(fake_llm, spanish_bank, 
     fake_llm.queue({"reply": "Muy bien, vamos.", "english": "Very good, let's go.", "hint": "You could ask: ¿A dónde te llevo?"})
     out = roleplay_response(scene("transport"), history, spanish_bank, "MX", "Mexico", "transport", retriever)
     assert out["hint"].startswith("Remember your goal")
+
+
+@pytest.mark.parametrize("english, spanish", [
+    ("¡Mesero! ¿Me puede traer el guineo y el sancocho?", "¡Mesero! ¿Me puede traer el guineo y el sancocho?"),
+    ("I want to try the el tenedor libre.", "Quiero probar el tenedor libre."),
+])
+def test_spanish_prompt_that_stays_spanish_is_asked_again(fake_llm, spanish_bank, valid_round, english, spanish):
+    """What: If a Spanish-looking English prompt (¿ / ¡, "the el ...", or a copy of the answer) is still not English after the translation step, the round is asked for again.
+    Why: The reviewer saw tasks whose prompt was the Spanish answer ("¡Mesero! ¿Me puede traer el guineo y el sancocho?"), which the learner could just copy.
+    If it fails: The learner is asked to "translate" a sentence that is already in Spanish."""
+    bad = json.loads(json.dumps(valid_round))
+    bad["tasks"][0].update(english=english, spanish=spanish)
+    fake_llm.queue(bad, {"english": [english]}, valid_round)
+    build_sentence_round(spanish_bank, "Spain", "restaurant")
+    assert "not English" in fake_llm.calls[2]["messages"][-1]["content"]
+
+
+def test_round_with_double_article_is_asked_again(fake_llm, spanish_bank, valid_round):
+    """What: A Spanish practice round whose answer has two articles together ("Me gusta el la ropa vieja.") is asked for again.
+    Why: The reviewer saw "el la ropa vieja" as an example answer.
+    If it fails: The learner is taught "el la"."""
+    bad = json.loads(json.dumps(valid_round))
+    bad["tasks"][0].update(english="I like the ropa vieja.", spanish="Me gusta el la ropa vieja.")
+    fake_llm.queue(bad, valid_round)
+    build_sentence_round(spanish_bank, "Spain", "restaurant")
+    assert "two articles" in fake_llm.calls[1]["messages"][-1]["content"]
