@@ -82,3 +82,27 @@
   tests: []
   checks: [verdict_grammar_ok, verdict_meaning_ok]
   tags: [rejects-valid-answer]
+
+- id: partner-rushes-ahead
+  problem: The partner does the next step of the scene before the learner asks (brings the bill, asks for a name the learner already gave).
+  source: Spanish review of run 2026-11-24_203138
+  languages: [spanish]
+  tests: [test_bill_is_not_brought_before_it_is_asked_for, test_name_is_not_asked_again]
+  checks: []
+  tags: [ignores-learner, asks-again]
+
+- id: off-topic-ignored
+  problem: The partner ignores off-topic or nonsense input ("¿Te gusta el fútbol?", "jkjkjk") instead of reacting and bringing the learner back.
+  source: Spanish review of run 2026-11-24_203138
+  languages: [spanish]
+  tests: [test_nonsense_last_line_gets_a_reaction]
+  checks: []
+  tags: [unhelpful-with-odd-input, ignores-learner]
+
+- id: fixed-lines-not-contextual
+  problem: Fixed lines ("Perdón, no entiendo.", the closing "¡Muchas gracias, adiós!") are acceptable, but a contextual reply that acknowledges the learner and steers them back on topic is better, also at the end of the role-play.
+  source: Spanish review of run 2026-11-27_110345
+  languages: [spanish]
+  tests: [test_nonsense_last_line_gets_a_reaction, test_spanish_final_uses_a_separate_feedback_call]
+  checks: []
+  tags: [unhelpful-with-odd-input, ignores-learner]

@@ -32,11 +32,19 @@ every score below 4.
   marked wrong, a wrong answer is not marked right, valid regional
   alternatives are accepted, and each hint is clear and does not give away
   the full answer.
+  Stage 2 is a translation exercise: an answer that keeps the spirit but leaves
+  out or adds meaning (for example "Quisiera la cuenta" for "The bill, please")
+  is rightly marked not correct. An explanation of why a valid form is less
+  natural is fine, but only if it is accurate; an inaccurate explanation fails
+  even when the verdict is right.
 - **level_tone**: Right for a beginner traveler: short, simple, friendly and
   encouraging. Not too long and not condescending.
 - **roleplay**: The partner stays in role (waiter, taxi driver, ...), never
   speaks as the traveler, never copies the learner's line, and moves the scene
-  forward with at most one simple question.
+  forward with at most one simple question. The learner leads: the partner
+  reacts to what the learner just said and does not rush ahead (for example
+  bringing the bill before it was asked for, or asking again for a name the
+  learner just gave).
 - **robustness**: When the learner writes English, nonsense or something
   off topic, the reply stays polite and helpful and gets the learner back on
   track. Use `null` when the learner's input was normal.

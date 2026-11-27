@@ -21,6 +21,13 @@ Country: ES (Spain)
 - (receptionist) Son ... por día. [sohn ... pohr DEE-ah] = It's ... per day.
 - (receptionist) Es en el segundo piso, habitación 234. [ehs ehn ehl seh-GOON-doh PEE-soh, ah-bee-tah-THYOHN dohs-THYEHN-tohs TREHN-tah ee KWAH-troh] = It's on the second floor, room 234.
 - ¿Qué número de habitación es? [keh NOO-meh-roh deh ah-bee-tah-THYOHN ehs] = What's the room number?
+- (receptionist) Buenas noches. ¿Tiene reserva? = Good evening. Do you have a reservation?
+- (receptionist) ¿A nombre de quién? = Under what name?
+- (receptionist) ¿Me deja su pasaporte, por favor? = May I have your passport, please?
+- (receptionist) Aquí tiene la llave. = Here is the key.
+- (receptionist) El desayuno es de ... a ... = Breakfast is from ... to ...
+- (receptionist) ¿Necesita algo más? = Do you need anything else?
+  Note: the last six receptionist lines were drafted for this app and checked by the project's Spanish reviewer (2026-11-24).
   Note: the Peace Corps dialogue says "una pieza individual" (a single room); pieza is Latin American. In Spain say habitación.
 
 ## The room

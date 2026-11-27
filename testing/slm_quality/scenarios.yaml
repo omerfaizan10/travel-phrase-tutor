@@ -55,7 +55,7 @@ scenarios:
     about: Learner answers "The bill, please." in different right and wrong ways.
     task: {english: "The bill, please.", spanish: "La cuenta, por favor."}
     answers:
-      - {text: "Quisiera la cuenta", expect: {meaning_ok: true, grammar_ok: true}, note: valid alternative}
+      - {text: "Quisiera la cuenta", expect: {meaning_ok: false, grammar_ok: true}, note: "not a faithful translation (adds quisiera, leaves out please); Spanish reviewer, 2026-11-27"}
       - {text: "la cuenta porfavor", expect: {meaning_ok: true}, note: spelling slip only}
       - {text: "La carta, por favor", expect: {meaning_ok: false}, note: asks for the menu instead}
       - {text: "Las cuenta por favor", expect: {meaning_ok: true, grammar_ok: false}, note: article agreement error}
