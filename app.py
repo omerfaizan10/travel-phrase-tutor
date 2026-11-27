@@ -1016,9 +1016,9 @@ if "active_practice" in st.session_state:
             st.info(f"Complete a Stage 1 activity for {bank_label} first. "
                     "Stage 2 will use that vocabulary.")
             st.stop()
-        # Macedonian: give the model checked sentences from the topic notes to build from.
-        reference = (topic_sentences(get_retriever(), language, block['topic'], variety)
-                     if language == 'macedonian' else None)
+        # Both languages: give the model checked sentences from the topic notes to build from
+        # (Spanish built from isolated words made odd sentences like "un agua con leche").
+        reference = topic_sentences(get_retriever(), language, block['topic'], variety)
         result = render_sentence_practice(activity_id, vocabulary, variety_name(variety), block['topic'],
                                           language, reference)
         if result is not None:

@@ -83,6 +83,8 @@ def _english_is_spanish(pair):
     english = pair.get('english') or ''
     en = set(spanish_answer(english).split())
     return bool(re.search(r'[¿¡]', english) or re.search(r'(?<!\w)the\s+(?:el|la|los|las)(?!\w)', english, re.I)
+                or re.search(r'(?<!\w)(?:el|los|las)\s+[a-záéíóúñ]', english)
+                or re.search(r'(?<!\w)(?:of|with|and|a)\s+la\s+[a-záéíóúñ]', english)
                 or (len(en) >= 2 and len(en & set(spanish_answer(pair.get('spanish') or '').split())) >= 0.6 * len(en)))
 
 
@@ -140,6 +142,14 @@ def _validate_round(data, vocabulary, language='spanish'):
             if _english_is_spanish(pair):
                 raise ValueError(f"'{pair['english']}' is not English; write the English sentence, "
                                  'then its Spanish translation.')
+            # One practice item is one traveler line, not a question and its answer
+            # ("¿Querés postre? Sí, quiero una empanada." is the waiter and the traveler).
+            if re.search(r'\?\s*\S', pair[language].strip()):
+                raise ValueError(f"'{pair['english']}' is a question and its answer in one item; write one "
+                                 'line that the traveler says.')
+            contraction = re.search(r'(?<!\w)(?:de|a)\s+el(?!\w)', pair[language], re.I)
+            if contraction:
+                raise ValueError(f"'{pair[language]}' has '{contraction.group(0)}'; write 'del' / 'al'.")
             double = re.search(r'(?<!\w)(?:el|la|los|las|un|una|unos|unas)\s+(?:el|la|los|las)(?!\w)', pair[language], re.I)
             if double:
                 raise ValueError(f"'{pair[language]}' has two articles together ('{double.group(0)}'); "
@@ -153,6 +163,7 @@ def _validate_round(data, vocabulary, language='spanish'):
 
 
 # --- Macedonian rounds: generated, checked against the notes, filled from the notes ----------
+SPANISH_REFERENCE_LIMIT = 30   # notes sentences sent with a Spanish round
 MK_REFERENCE_LIMIT = 20     # reference sentences sent to the model (shorter prompt on a CPU)
 MK_ASK = 4                  # new sentences asked of the model ...
 MK_MAX_GENERATED = 3        # ... and at most this many are used, all as tasks
@@ -265,9 +276,22 @@ def _macedonian_round(messages, vocabulary, reference_sentences, topic):
 
 def build_sentence_round(vocabulary, variety_name, topic, language='spanish', reference_sentences=None):
     name = LANGUAGES[language]
+    if language == 'spanish' and reference_sentences:
+        # Practice items are what the TRAVELER says; staff lines ("¿Qué van a beber?") taught the
+        # learner the waiter's role.
+        reference_sentences = [r for r in reference_sentences if not r.get('staff')] or None
     bank = [{'id': i, language: p['text'], 'english': p['meaning']}
             for i, p in enumerate(vocabulary, 1)]
-    variety_rule = ('Use the selected regional Spanish variety. ' if language == 'spanish' else
+    variety_rule = ('Use the selected regional Spanish variety. '
+                    + ('The reference_sentences are correct Spanish sentences from the course notes. Build '
+                       'every sentence from one of them: reuse it or lightly adapt it, swapping in one or two '
+                       'words from the studied vocabulary where they make sense. Words that are not in the '
+                       'studied vocabulary may come only from the reference sentences. Every sentence must be '
+                       'something the TRAVELER would really say (never the waiter or staff); never join items '
+                       'that do not go together. The 5 tasks must use different reference sentences from the '
+                       '3 examples. '
+                       if reference_sentences else '')
+                    if language == 'spanish' else
                     'Write standard Macedonian in Cyrillic only. ' + LANGUAGE_RULES['macedonian'] + ' '
                     'The reference_sentences are checked, correct Macedonian from the course notes: '
                     'build every sentence by reusing or lightly adapting them (swap in a studied word), '
@@ -282,7 +306,9 @@ def build_sentence_round(vocabulary, variety_name, topic, language='spanish', re
          'Create 3 paired bilingual examples and '
          f'5 NEW English prompts with hidden example {name} answers. Each task requires typing '
          'a WHOLE sentence, not filling a blank or translating one word. '
-         'Use content vocabulary only from the supplied studied bank. You may introduce simple '
+         + ('Use the studied vocabulary in your sentences. ' if language == 'spanish' and reference_sentences else
+            'Use content vocabulary only from the supplied studied bank. ') +
+         'You may introduce simple '
          'function words and grammatical structures in the visible examples; reuse those '
          'structures in the tasks. Do not assume additional vocabulary. '
          'Keep sentences short, practical and unambiguous. Translate each English sentence as ONE '
@@ -294,7 +320,7 @@ def build_sentence_round(vocabulary, variety_name, topic, language='spanish', re
         {'role': 'user', 'content': json.dumps({'variety': variety_name, 'topic': topic,
                                                'studied_vocabulary': bank,
                                                **({'reference_sentences': reference_sentences[:MK_REFERENCE_LIMIT]
-                                                   if language == 'macedonian' else reference_sentences}
+                                                   if language == 'macedonian' else reference_sentences[:SPANISH_REFERENCE_LIMIT]}
                                                   if reference_sentences else {})},
                                               ensure_ascii=False)},
     ]

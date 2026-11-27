@@ -226,12 +226,13 @@ HISTORY = [{"role": "assistant", "text": "¡Hola! ¿Qué desea tomar?"},
 
 
 def test_opening_turn(fake_llm, spanish_bank, retriever):
-    """What: The Spanish role-play opening gets the topic notes and an "arrives" instruction.
-    Why: The partner must greet the traveler with correct, grounded Spanish.
-    If it fails: The partner opens with no notes, or does not know that the scene has started."""
+    """What: The Spanish role-play opening gets the topic notes and an "arrives" instruction; its reply and English are kept, and the hint is the scene's first step.
+    Why: The partner must greet the traveler with correct, grounded Spanish, and the first hint must not jump ahead.
+    If it fails: The partner opens with no notes, does not know that the scene has started, or the first hint is about a later step."""
     fake_llm.queue(TURN)
     result = roleplay_response(scene(), [], spanish_bank, "ES", "Spain", "restaurant", retriever)
-    assert result == TURN
+    assert result["reply"] == TURN["reply"] and result["english"] == TURN["english"]
+    assert result["hint"] == "Answer their question, then order a drink."
     data = json.loads(fake_llm.calls[0]["messages"][1]["content"])
     assert data["reference_notes"], "the SLM must get the topic notes"
     assert "arrives" in fake_llm.calls[0]["messages"][-1]["content"]
@@ -637,16 +638,16 @@ def test_name_is_not_asked_again(fake_llm, spanish_bank, retriever):
     assert "already gave it" in fake_llm.calls[1]["messages"][-1]["content"]
 
 
-def test_hint_that_quotes_the_partner_is_replaced(fake_llm, spanish_bank, retriever):
-    """What: A Spanish hint that tells the learner to say the partner's own line ("You could say '¿Cuánto tiempo piensa quedarse?'") is replaced with the scene goal.
-    Why: The reviewer saw hints written from the clerk's side.
-    If it fails: The learner is told to say the receptionist's line and plays the wrong role."""
+def test_hint_follows_the_scene_step(fake_llm, spanish_bank, retriever):
+    """What: The Spanish hint names the scene step the traveler is on (one step per response), not the SLM's own hint; it never quotes the partner's line.
+    Why: The reviewer saw "You could ask for the bill." as the first hint, and hints written from the partner's side ("You could say '¿Cuánto tiempo piensa quedarse?'").
+    If it fails: Hints jump ahead in the scene or tell the learner to say the partner's line."""
     history = [{"role": "assistant", "text": "Buenas noches. ¿Tiene reserva?"},
                {"role": "user", "text": "Sí, tengo una reserva."}]
     fake_llm.queue({"reply": "Muy bien. Aquí tiene la llave.", "english": "Very good. Here is the key.",
                     "hint": "You could say '¿Cuánto tiempo piensa quedarse?' to ask how long you plan to stay."})
     out = roleplay_response(scene("hotel"), history, spanish_bank, "ES", "Spain", "hotel", retriever)
-    assert out["hint"].startswith("Remember your goal")
+    assert out["hint"] == "You could answer a question next."
 
 
 def test_nonsense_last_line_gets_a_reaction(fake_llm, spanish_bank, retriever):
@@ -781,15 +782,15 @@ def test_english_line_with_the_hint_or_the_learner_line_is_retried(fake_llm, spa
     assert "contains the hint" in fake_llm.calls[2]["messages"][-1]["content"]
 
 
-def test_hint_with_an_unquoted_partner_line_is_replaced(fake_llm, spanish_bank, retriever):
-    """What: A Spanish hint that contains the partner's own line without quotation marks ("You could ask: ¿A dónde te llevo?") is replaced with the scene goal.
-    Why: The judges saw this hint in the taxi scene; the quote-only check missed it.
-    If it fails: The learner is told to say the driver's line."""
-    history = [{"role": "assistant", "text": "Buenas tardes. ¿A dónde te llevo?", "english": "Good afternoon. Where can I take you?"},
-               {"role": "user", "text": "Buenas tardes, al aeropuerto, por favor."}]
-    fake_llm.queue({"reply": "Muy bien, vamos.", "english": "Very good, let's go.", "hint": "You could ask: ¿A dónde te llevo?"})
-    out = roleplay_response(scene("transport"), history, spanish_bank, "MX", "Mexico", "transport", retriever)
-    assert out["hint"].startswith("Remember your goal")
+def test_yes_no_question_backup_says_yes(fake_llm, spanish_bank, retriever):
+    """What: When every Spanish try fails after a yes/no question ("¿Tienen café?"), the backup is "Sí, claro." ("yes, and"), not "Lo siento, no lo sé.".
+    Why: The reviewer asked "Do you have coffee?" and the partner answered "Sorry, I don't know", which stops the conversation; staff should accept and build on it.
+    If it fails: A simple question gets a dead-end answer."""
+    history = [{"role": "assistant", "text": "¡Hola! ¿Qué van a beber?", "english": "Hi! What are you going to drink?"},
+               {"role": "user", "text": "¿Tienen café?"}]
+    fake_llm.queue(*[{"reply": "¡Camarero!", "english": "Waiter!", "hint": "x"}] * 3)
+    out = roleplay_response(scene(), history, spanish_bank, "ES", "Spain", "restaurant", retriever)
+    assert out["reply"] == "Sí, claro." and "yes, and" in fake_llm.calls[0]["messages"][-1]["content"]
 
 
 @pytest.mark.parametrize("english, spanish", [
@@ -816,3 +817,51 @@ def test_round_with_double_article_is_asked_again(fake_llm, spanish_bank, valid_
     fake_llm.queue(bad, valid_round)
     build_sentence_round(spanish_bank, "Spain", "restaurant")
     assert "two articles" in fake_llm.calls[1]["messages"][-1]["content"]
+
+def test_spanish_round_is_built_from_notes_sentences(fake_llm, spanish_bank, valid_round, retriever):
+    """What: A Spanish practice round gets checked traveler sentences from the topic notes (at most 30, no staff lines) and the instruction to build every sentence from one of them, swapping in studied words.
+    Why: Built only from the studied word list (isolated nouns such as "leche", "clarete", "boquerones"), the model glued words into odd sentences ("un agua con leche", "Un beer"); Macedonian already builds from notes sentences.
+    If it fails: Spanish practice sentences go back to odd word combinations that a traveler would never say."""
+    from practice import topic_sentences
+    refs = topic_sentences(retriever, "spanish", "restaurant", "ES")
+    fake_llm.queue(valid_round)
+    build_sentence_round(spanish_bank, "Spain", "restaurant", "spanish", refs)
+    system, data = fake_llm.calls[0]["messages"][0]["content"], json.loads(fake_llm.calls[0]["messages"][1]["content"])
+    assert "Build every sentence from one of them" in system
+    traveler = [r for r in refs if not r["staff"]]
+    assert data["reference_sentences"] == traveler[:30] and len(traveler) > 5
+    assert not any(r["staff"] for r in data["reference_sentences"])   # no waiter lines to copy
+
+
+def test_round_item_that_asks_and_answers_is_asked_again(fake_llm, spanish_bank, valid_round):
+    """What: A Spanish practice item that is a question followed by its answer ("¿Querés postre? Sí, quiero una empanada.") makes the app ask for a new round.
+    Why: The reviewer saw an item where the waiter asks and the traveler answers in one sentence to translate.
+    If it fails: The learner has to translate both sides of a conversation as one sentence."""
+    bad = json.loads(json.dumps(valid_round))
+    bad["tasks"][0].update(english="Do you want dessert? Yes, I want an empanada.",
+                           spanish="¿Querés postre? Sí, quiero una empanada.")
+    fake_llm.queue(bad, valid_round)
+    build_sentence_round(spanish_bank, "Spain", "restaurant")
+    assert "question and its answer" in fake_llm.calls[1]["messages"][-1]["content"]
+
+
+def test_round_with_de_el_is_asked_again(fake_llm, spanish_bank, valid_round):
+    """What: A Spanish practice answer with "de el" or "a el" (instead of "del" / "al") makes the app ask for a new round.
+    Why: With studied words that carry their article ("el asado"), the model wrote "un trozo de el asado".
+    If it fails: The learner is taught "de el asado" instead of "del asado"."""
+    bad = json.loads(json.dumps(valid_round))
+    bad["tasks"][0].update(english="I want a piece of the roast.", spanish="Quiero un trozo de el asado.")
+    fake_llm.queue(bad, valid_round)
+    build_sentence_round(spanish_bank, "Spain", "restaurant")
+    assert "del" in fake_llm.calls[1]["messages"][-1]["content"]
+
+
+def test_english_with_a_spanish_article_is_translated(fake_llm, spanish_bank, valid_round):
+    """What: An English prompt that keeps a Spanish article ("a piece of el asado") is sent for an English translation like other Spanish-looking prompts.
+    Why: Studied words such as "el asado" and "la bombilla" ended up inside the English prompts.
+    If it fails: The learner sees half-Spanish prompts."""
+    bad = json.loads(json.dumps(valid_round))
+    bad["tasks"][0]["english"] = "I would like water with el hielo."
+    fake_llm.queue(bad, {"english": ["I would like water, please."]})
+    data = build_sentence_round(spanish_bank, "Spain", "restaurant")
+    assert data["tasks"][0]["english"] == "I would like water, please."

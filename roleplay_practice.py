@@ -309,6 +309,9 @@ def roleplay_response(scene, history, vocabulary, variety_code, variety_label, t
                     'The traveler leads: react only to what the traveler just said, and do not bring '
                     'the bill or end the visit unless they asked. If the traveler says something '
                     'off-topic or unclear, reply to it in a few words, then bring them back to the scene. '
+                    'Improvise like a friendly staff member ("yes, and"): accept what the traveler says or asks '
+                    'and build on it. If they ask whether you have something that a place like yours normally '
+                    'has, say yes and offer it (for example "Sí, tenemos café. ¿Lo quiere con leche?"). '
                     if language == 'spanish' else
                     'Stay in the specified partner role. Write the reply in Macedonian Cyrillic only. '
                     + LANGUAGE_RULES['macedonian'] + ' '
@@ -431,7 +434,7 @@ def roleplay_response(scene, history, vocabulary, variety_code, variety_label, t
         result['english'] = english      # already a clean translation (see _translation)
         result['hint'] = result.get('hint') or 'Say what you would like.'
     if language == 'spanish':
-        result['hint'] = _spanish_hint(result.get('hint', ''), scene, data['partner_lines'], result['reply'])
+        result['hint'] = _step_hint(scene, history, result['reply'])
     # (both languages) A reply copied from the notes gets the notes' own English (the model's is often wrong).
     known = _meaning_map(language, retriever).get(normalize(result['reply']))
     if known and _translation(known):
@@ -476,6 +479,29 @@ def _register(text):
 
 
 _ODD = ('off-topic', 'english', 'nonsense')
+# Yes/no questions a staff member can simply accept ("¿Tienen café?", "¿Hay mesa?", "¿Puedo pagar con tarjeta?").
+_ES_YES_NO = re.compile(r'^\W*(?:\w+,?\s+)?¿?\s*(?:tiene|tienen|tenés|ten[eé]is|hay|puedo|podemos|me\s+puede|nos\s+puede|'
+                        r'se\s+puede|aceptan|está|es\s+posible)(?!\w)', re.I)
+
+
+def _goal_steps(scene):
+    """The scene goal's three steps, e.g. 'Ask for a table', 'order something', 'finish politely'."""
+    return [x.strip(' .') for x in re.split(r',\s*(?:and\s+)?|\s+and\s+', scene['goal']) if x.strip(' .')]
+
+
+def _step_hint(scene, history, reply):
+    """Spanish hint for the traveler's next response: the scene step they are on (one per response),
+    after answering the partner's question if it asked one. Fixed by the scene, not guessed by the
+    model, so it never jumps ahead (such as 'You could ask for the bill.' as the first hint)."""
+    steps = _goal_steps(scene)
+    done = sum(m['role'] == 'user' for m in history)
+    if not steps or done >= len(steps):
+        return ''
+    step = steps[done][0].lower() + steps[done][1:]
+    if reply.rstrip().endswith('?'):
+        # "answer a question" / "answer a follow-up question" is this very step.
+        return 'Answer their question.' if step.startswith('answer') else f'Answer their question, then {step}.'
+    return f'You could {step} next.' if done else f'You could {step}.'
 _TOPIC_WORDS = {}
 _ES_DECLINE = re.compile(r'^\W*no(?:\s*,|\s+gracias|\s+quiero|\s+necesito|\W*$)|(?<!\w)nada\s+m[aá]s(?!\w)', re.I)
 _ES_I_WANT = re.compile(r'(?<!\w)(?:quiero|quisiera|me\s+gustar[ií]a|necesito|tr[aá]igame|p[oó]ngame|'
@@ -546,7 +572,8 @@ def _spanish_turn(scene, history, topic, retriever):
     # (The guessed scene steps of tutor.py are too loose for Spanish: "un café con leche" was read as
     # "...a cup of coffee and the bill". Only an exact notes meaning is passed on.)
     meaning = f' (it means: "{_translation(exact) or exact}")' if exact else ''
-    answer = '; answer their question' if last.rstrip().endswith('?') else ''
+    answer = ('; answer their question with "yes, and" (accept it and build on it)'
+              if last.rstrip().endswith('?') else '')
     return {'kind': 'normal', 'note': (
         f'(The traveler just said: "{last}"{meaning}. As {partner}, respond to exactly that{answer}, in one '
         'or two short sentences, then take the next small step of the scene. Do not ask again something '
@@ -562,6 +589,8 @@ def _spanish_backup(turn, last_learner):
             return f'Perdón, no entiendo. {q}', f"Sorry, I don't understand. {q_en}"
         return 'Perdón, no entiendo.', "Sorry, I don't understand."
     if last_learner.rstrip().endswith('?'):
+        if _ES_YES_NO.match(last_learner):
+            return 'Sí, claro.', 'Yes, of course.'
         return 'Lo siento, no lo sé.', "Sorry, I don't know."
     return None
 
