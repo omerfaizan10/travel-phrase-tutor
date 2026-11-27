@@ -258,6 +258,126 @@
         "wrong-verdict"
       ],
       "why": "Informal 'имаш' is correct Macedonian. The app must accept formal and informal you."
+    },
+    {
+      "kind": "sentence_feedback",
+      "variety": "Spain",
+      "language": "spanish",
+      "context": "Translate \"The bill, please.\" (example answer: \"La cuenta, por favor.\"). Learner answer: \"Quisiera la cuenta\".",
+      "reply": {
+        "meaning_ok": false,
+        "grammar_ok": true,
+        "meaning_feedback": "Your sentence asks for the bill, but it adds 'quisiera' and leaves out 'please'.",
+        "grammar_feedback": "No structure or grammar problems need revision.",
+        "hint": "Translate every part of the English sentence."
+      },
+      "scores": {
+        "makes_sense": 5,
+        "language": 5,
+        "grounded": 5,
+        "feedback": 5,
+        "level_tone": 5,
+        "roleplay": null,
+        "robustness": null
+      },
+      "tags": [],
+      "why": "Reviewer note (Camila, Spanish reviewer, 2026-11-27): this is a translation exercise. The learner captured the spirit but did not translate it accurately (no 'please', and 'quisiera' is not in the English). Marking the meaning not correct is RIGHT."
+    },
+    {
+      "kind": "sentence_feedback",
+      "variety": "Mexico",
+      "language": "spanish",
+      "context": "Translate \"I want a ticket to the centre.\" (example answer: \"Quiero un boleto al centro.\"). Learner answer: \"Quiero un boleto para el centro\".",
+      "reply": {
+        "meaning_ok": true,
+        "grammar_ok": true,
+        "meaning_feedback": "The message is clearly communicated.",
+        "grammar_feedback": "'Para el centro' is correct; 'al centro' is a little more natural for a destination.",
+        "hint": ""
+      },
+      "scores": {
+        "makes_sense": 5,
+        "language": 5,
+        "grounded": 5,
+        "feedback": 5,
+        "level_tone": 5,
+        "roleplay": null,
+        "robustness": null
+      },
+      "tags": [],
+      "why": "Reviewer note (Camila, Spanish reviewer, 2026-11-27): acceptable. The feedback passes the learner's valid form and accurately explains why it passes but is less natural than another form. An explanation is fine as long as it is accurate."
+    },
+    {
+      "kind": "sentence_feedback",
+      "variety": "Argentina",
+      "language": "spanish",
+      "context": "Translate \"Can you bring me water?\". Learner answer: \"Me puede traer agua por favor\".",
+      "reply": {
+        "meaning_ok": true,
+        "grammar_ok": true,
+        "meaning_feedback": "The meaning is clearly communicated.",
+        "grammar_feedback": "It uses 'puede' instead of 'puedes', the informal form in Argentina.",
+        "hint": "Using 'puede' instead of 'puedes' is more polite."
+      },
+      "scores": {
+        "makes_sense": 3,
+        "language": 2,
+        "grounded": 4,
+        "feedback": 2,
+        "level_tone": 3,
+        "roleplay": null,
+        "robustness": null
+      },
+      "tags": [
+        "wrong-variety"
+      ],
+      "why": "Reviewer note (Camila, Spanish reviewer, 2026-11-27): the verdict is right but the explanation is not accurate (the informal form in Argentina is 'podés', not 'puedes'). An inaccurate explanation fails even when the verdict is right."
+    },
+    {
+      "kind": "roleplay_final",
+      "variety": "Spain",
+      "language": "spanish",
+      "context": "Café role-play with mistakes ('uno cafe', 'Si', 'tambien'). End of the scene.",
+      "reply": {
+        "reply": "¡Muchas gracias, adiós!",
+        "english": "Thank you very much, goodbye!",
+        "meaning_feedback": "You ordered a coffee and water and asked for the bill.",
+        "grammar_feedback": "No structure or grammar problems needed revision.",
+        "goal_met": true,
+        "corrections": []
+      },
+      "scores": {
+        "makes_sense": 4,
+        "language": 4,
+        "grounded": 4,
+        "feedback": 3,
+        "level_tone": 4,
+        "roleplay": 4,
+        "robustness": null
+      },
+      "tags": [],
+      "why": "Reviewer note (Camila, Spanish reviewer, 2026-11-27): acceptable but not ideal; it passes because it is the end of the scene. It would be better if the partner responded in context to what the learner said."
+    },
+    {
+      "kind": "sentence_round",
+      "variety": "Mexico",
+      "language": "spanish",
+      "context": "Mexico transport practice round.",
+      "reply": {
+        "english": "Take the bus to the centre.",
+        "spanish": "Toma el camión al centro."
+      },
+      "scores": {
+        "makes_sense": 5,
+        "language": 5,
+        "grounded": 5,
+        "feedback": null,
+        "level_tone": 5,
+        "roleplay": null,
+        "robustness": null
+      },
+      "tags": [],
+      "why": "Reviewer note (Camila, Spanish reviewer, 2026-11-27): in Mexico 'camión' is the everyday word for a city bus; do not mark it as 'truck'. A bus stop is 'la parada', not 'alto' (a stop sign)."
     }
   ]
 }

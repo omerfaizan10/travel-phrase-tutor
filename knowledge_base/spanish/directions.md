@@ -137,6 +137,20 @@ Source: Defense Language Institute, "Latin America Headstart Course", Module II 
 - lejos de [LEH-hohs deh] = far from
 - más despacio [mahs dehs-PAH-syoh] = slower
 
+## What the local says (Argentina)
+Country: AR (Argentina)
+
+Source: drafted for this app and checked by the project's Spanish reviewer (2026-11-24). Pronunciation guides are not given for these lines yet.
+
+- (local) Sí, claro. ¿Adónde querés ir? = Yes, of course. Where do you want to go?
+- (local) Seguí derecho dos cuadras. = Go straight for two blocks.
+- (local) En la esquina, doblá a la derecha. = At the corner, turn right.
+- (local) Está a ... cuadras de acá. = It's ... blocks from here.
+- (local) Está cerca, podés ir caminando. = It's close, you can walk.
+- (local) No sé, perdón. No soy de acá. = Sorry, I don't know. I'm not from here.
+- (local) De nada. ¡Que te vaya bien! = You're welcome. All the best!
+  Note: these lines use vos (querés, seguí, doblá, podés), the informal "you" of Argentina, and acá for "here".
+
 ## Asking the way (Puerto Rico)
 Country: PR (Puerto Rico)
 

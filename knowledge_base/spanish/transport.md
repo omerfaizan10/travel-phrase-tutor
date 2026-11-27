@@ -160,6 +160,22 @@ Source: Defense Language Institute, "Latin America Headstart Course", Module II 
 - Solamente tengo dos maletas pequeñas. [soh-lah-MEHN-teh TEHN-goh dohs mah-LEH-tahs peh-KEH-nyahs] = I only have two small suitcases.
   In the course's notes (1980s), Panama City had two kinds of taxi: one with fixed prices that waits at hotel and public-building taxi stands, and one that only drives inside the city and will bargain over the fare. Some drivers charged extra for suitcases. Check current practice before you travel.
 
+## What the taxi driver says (Mexico)
+Country: MX (Mexico)
+
+Source: drafted for this app and checked by the project's Spanish reviewer (2026-11-24). Pronunciation guides are not given for these lines yet.
+
+- (driver) Buenas tardes. ¿A dónde te llevo? = Good afternoon. Where can I take you? (informal tú; the same for anyone)
+- (driver) ¿A dónde lo llevo? = Where can I take you? (formal usted, to a man; to a woman: ¿A dónde la llevo?)
+- (driver) Súbase, por favor. = Get in, please. (formal usted)
+- (driver) Súbete, por favor. = Get in, please. (informal tú)
+- (driver) Son ... pesos. = It's ... pesos.
+- (driver) Llegamos en ... minutos. = We'll be there in ... minutes.
+- (driver) ¿Le ayudo con las maletas? = Can I help you with your bags? (formal usted)
+- (driver) ¿Te ayudo con las maletas? = Can I help you with your bags? (informal tú)
+- (driver) Ya llegamos. = We're here.
+  Note: tú or usted depends on how formal the situation is. A driver may use usted with an older passenger or someone they do not know, and tú with a young or familiar one, or when the passenger asks to be called tú. Whichever form is chosen, it stays the same for the whole conversation.
+
 ## Car, gas station and repairs (Latin America)
 Country: 419 (Unspecified Latin America)
 

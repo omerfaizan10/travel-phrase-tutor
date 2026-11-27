@@ -227,18 +227,35 @@ def test_valid_round_passes():
     (lambda r: r["tasks"][0].update(spanish="Agua."), "one-word answer"),
     (lambda r: r["tasks"][0].update(spanish=" ".join(["palabra"] * 23)), "too long"),
     (lambda r: r["tasks"][0].update(english=""), "empty English"),
-    (lambda r: r["tasks"][0].update(vocabulary_ids=[]), "no vocabulary ids"),
-    (lambda r: r["tasks"][0].update(vocabulary_ids=[99]), "id out of range"),
-    (lambda r: r["tasks"][0].update(vocabulary_ids=["1"]), "id is text"),
     (lambda r: r["tasks"][1].update(r["tasks"][0]), "duplicate task"),
     (lambda r: r["tasks"][0].update(r["examples"][0]), "task copies an example"),
     (lambda r: r["tasks"][0].update(spanish="Quiero agua fría. Quiero pan también."), "two sentences for one"),
 ])
 def test_bad_round_is_rejected(break_it, reason):
-    """What: The round check rejects bad SLM output (missing tasks, one-word answers, repeated tasks, wrong word numbers).
+    """What: The round check rejects bad SLM output (missing tasks, one-word answers, repeated tasks, two sentences for one). Wrong word numbers are repaired instead (see test_bad_vocabulary_ids_are_dropped).
     Why: The SLM sometimes returns broken rounds. The app must ask again, not show them.
     If it fails: The learner can get duplicate, empty or impossible tasks in Sentences (Stage 2)."""
     data = make_round(10)
     break_it(data)
     with pytest.raises((ValueError, TypeError, KeyError)):
         _validate_round(data, list(range(10)))
+
+
+@pytest.mark.parametrize("ids, kept", [([], []), ([99], []), (["1"], []), ([1, 99, "2", 3], [1, 3])])
+def test_bad_vocabulary_ids_are_dropped(ids, kept):
+    """What: Invalid studied-vocabulary numbers in a sentence round are dropped, and the round is kept.
+    Why: The numbers are bookkeeping only (the app never uses them), and rejecting good rounds for them made "The generated sentences were not usable" appear in the app.
+    If it fails: Good practice rounds are thrown away, and the learner sees an error more often."""
+    data = make_round(10)
+    data["tasks"][0]["vocabulary_ids"] = ids
+    assert _validate_round(data, list(range(10)))["tasks"][0]["vocabulary_ids"] == kept
+
+
+def test_two_word_sentence_is_a_whole_sentence():
+    """What: A two-word Spanish sentence ("Hable despacio.") is accepted in a practice round; one word is still too short.
+    Why: "Hable despacio." is a whole sentence, and rejecting it made rounds fail.
+    If it fails: Short but valid sentences make the practice round fail."""
+    data = make_round(10)
+    data["tasks"][0]["spanish"] = "Hable despacio."
+    data["tasks"][0]["english"] = "Speak slowly."
+    assert _validate_round(data, list(range(10)))

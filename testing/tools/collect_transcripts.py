@@ -108,7 +108,7 @@ def sentences(text):
 def play_round(sc, ctx, rec, item_id):
     lang = ctx["language"]
     rec.current = item_id
-    refs = topic_sentences(ctx["retriever"], lang, sc["topic"], sc["variety"]) if lang == "macedonian" else None
+    refs = topic_sentences(ctx["retriever"], lang, sc["topic"], sc["variety"])   # as the app does
     data = build_sentence_round(ctx["bank"], ctx["label"], sc["topic"], lang, refs)
     bank_words = {w for p in ctx["bank"] for w in spanish_answer(p["text"]).split() if len(w) > 3}
     pairs = data["examples"] + data["tasks"]
